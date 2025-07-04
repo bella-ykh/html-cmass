@@ -89,10 +89,11 @@ select { -o-appearance: none; -webkit-appearance: none; -moz-appearance: none; a
 .tbl_assess_2 tbody td.align_c { text-align: center;}
 .tbl_assess_2 tbody td.align_l { text-align: left;}
 .tbl_assess_2 tbody td.link_no { color: #aaa; }
-.tbl_assess_2 tbody td a { color: #222; text-decoration: none; display: flex; gap: 5px; align-items: center; justify-content: left;}
+.tbl_assess_2 tbody td a { color: #222; text-decoration: none; display: flex; gap: 5px; align-items: center; justify-content: center;}
+.tbl_assess_2 tbody td.align_l a { display: flex; gap: 5px; align-items: flex-end; justify-content: left;}
 .tbl_assess_2 tbody td a img { display: inline !important; max-width: none;}
 
-
+.pd_lr10 { padding-left: 10px !important; padding-right: 10px !important; }
 .pd_b65 { padding-bottom: 65px; }
 
 /* 테블릿용 */
