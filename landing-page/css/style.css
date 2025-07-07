@@ -38,10 +38,10 @@ select { -o-appearance: none; -webkit-appearance: none; -moz-appearance: none; a
 
 
 
-/* 웹용 */
+/* 교수학습 평가계획서,지원자료 다운로드 20250707 */
 /* .bg_sq { background: url('/storage/events/images/event/bg_sq.png') repeat; width: 100%; margin: 0 auto; text-align: center;}  */
-.bg_01 { background: url('../bg_01.png') repeat; width: 100%; min-width: 1480px; margin: 0 auto; text-align: center; padding: 4% 0; } 
-.bg_02 { background: url('../bg_02.png') repeat; width: 100%; min-width: 1480px; margin: 0 auto; text-align: center; padding: 4% 0; } 
+.bg_202507_01 { background: url('../img/bg_202507_02.png') repeat; width: 100%; min-width: 1480px; margin: 0 auto; text-align: center; padding: 4% 0; } 
+.bg_202507_02 { background: url('../img/bg_202507_02.png') repeat; width: 100%; min-width: 1480px; margin: 0 auto; text-align: center; padding: 4% 0; } 
 .top_img,.top_img_2 { display: flex; justify-content: center; align-items: center;}
 .info_txt { font-size: 45px; color: #000; line-height: 60px; text-align: center; padding: 80px 0; }
 .info_txt strong { font-weight: bold;}
