@@ -1,0 +1,86 @@
+
+* {box-sizing: border-box;}
+.plyr__poster {display: none;}
+.plyr button {display: flex; align-items: center; justify-content: center; width: min(2.71vw, 52px); height: min(2.71vw, 52px);}
+.plyr--video .plyr__controls {gap: min(0.83vw, 16px); background: #4B5A70; height: min(3.44vw, 66px); padding: min(0.36vw, 7px) min(1.04vw, 20px);}
+.plyr--full-ui input[type=range] {height: min(0.52vw, 10px);}
+.plyr--full-ui input[type=range]::-webkit-slider-runnable-track {background-image: linear-gradient(to right, #68AAFF var(--value,0),transparent var(--value,0)); border-radius: min(0.52vw, 10px); height: min(0.52vw, 10px);}
+.plyr--full-ui input[type=range]::-webkit-slider-thumb {outline: min(0.42vw, 8px) solid #68AAFF; border: 0; width: min(0.83vw, 16px); height: min(0.83vw, 16px);}
+.plyr--video .plyr__progress__buffer {top: min(0.10vw, 2px); border-radius: min(0.52vw, 10px); height: min(0.52vw, 10px);}
+.plyr__controls .plyr__controls__item.plyr__progress__container {padding: 0 min(0.42vw, 8px);}
+.plyr--full-ui.plyr--video .plyr__control--overlaid {display: flex; align-items: center; justify-content: center; background: #1E314CCC; width: min(6.88vw, 132px); height: min(6.88vw, 132px);}
+.plyr--full-ui.plyr--video .plyr__control--overlaid:hover {background: #1E314CCC;}
+.plyr__control--overlaid svg {width: min(3.44vw, 66px); height: min(2.86vw, 55px);}
+.plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true] {background: #68AAFF;}
+.plyr__controls .plyr__controls__item.plyr__time {font-size: min(0.94vw, 18px);}
+.plyr__controls .plyr__controls__item.plyr__time--current.plyr__time {color: #68AAFF;}
+.plyr__controls__item.plyr__volume input[type=range]::-webkit-slider-thumb {outline: 0; border: 0; top: min(-6px, -0.375vw); border-radius: min(0.63vw, 12px); width: min(0.63vw, 12px); height: min(1.67vw, 32px);}
+.plyr__captions {bottom: min(1.56vw, 30px);}
+.plyr__control {padding: 0;}
+.plyr__controls__item.plyr__control, .plyr__controls__item.plyr__volume .plyr__control {display: flex; align-items: center; justify-content: center; padding: 0;}
+.plyr__controls__item.plyr__control svg, .plyr__controls__item.plyr__volume svg {display: none;}
+.plyr__controls__item.plyr__control:before, .plyr__controls__item.plyr__volume .plyr__control:before, .plyr__control--stop:before, .plyr__control--panel:before {content: ""; background: url("./icon.png") no-repeat; background-size: auto min(5.21vw, 100px);}
+.plyr__controls__item.plyr__control:after, .plyr__controls__item.plyr__volume .plyr__control:after, .plyr__control--stop:after, .plyr__menu > [data-plyr="settings"]:after, .plyr__control--panel:after {content: "dd"; position: absolute; left: 50%; top: min(-2.6vw, -50px); background-color: #333; border-radius: min(0.21vw, 4px); padding: min(0.26vw, 5px) min(0.52vw, 10px); font-size: min(0.73vw, 14px); color: white; translate: -50% 0; white-space: nowrap; opacity: 0; transition: opacity 0.3s;}
+.plyr__controls__item.plyr__control:hover:after, .plyr__controls__item.plyr__volume .plyr__control:hover:after, .plyr__control--stop:hover:after, .plyr__menu > [data-plyr="settings"]:hover:after, .plyr__control--panel:hover:after {opacity: 1; transition: opacity 0.3s;}
+.plyr__control.plyr__control--pressed {background: #68AAFF;}
+.plyr__controls__item.plyr__control[data-plyr="play"]:before {width: min(1.46vw, 28px); height: min(1.67vw, 32px);}
+.plyr__controls__item.plyr__control.plyr__control--pressed[data-plyr="play"]:before {background-position: -50px 0; width: min(1.46vw, 28px); height: min(1.67vw, 32px);}
+.plyr__control--stop:before {background-position: -100px 0; width: min(1.51vw, 29px); height: min(1.46vw, 28px);}
+.plyr__controls__item.plyr__control[data-plyr="captions"]:before {background-position: 0 -50px; width: min(2.14vw, 41px); height: min(1.77vw, 34px);}
+.plyr__controls__item.plyr__volume .plyr__control:before {background-position: -50px -50px; width: min(2.19vw, 42px); height: min(1.67vw, 32px);}
+.plyr__controls__item.plyr__control[data-plyr="fullscreen"]:before {background-position: -100px -50px; width: min(1.72vw, 33px); height: min(1.77vw, 34px);}
+.plyr__controls__item.plyr__control.plyr__control--pressed[data-plyr="fullscreen"]:before {background-position: -200px 0; width: min(1.72vw, 33px); height: min(1.77vw, 34px);}
+[data-plyr="settings"] svg {width: min(2.08vw, 40px); height: min(2.08vw, 40px);}
+.plyr__control--panel:before {background-position: -150px -50px; width: min(2.14vw, 41px); height: min(1.77vw, 34px);}
+.plyr__controls__item.plyr__volume .plyr__control.plyr__control--pressed:before {background-position: -150px 0; width: min(2.19vw, 42px); height: min(1.67vw, 32px);}
+.video-container {position: relative; width: min(66.67vw, 1280px);}
+.panel-script {overflow-y: auto; position: absolute; right: 0; top: 0; background: #061B38; width: min(13.28vw, 255px); height: calc(100% - min(3.44vw, 66px)); padding: min(1.25vw, 24px); font-size: min(0.94vw, 18px); line-height: 1.5; color: white; transition: height .4s ease-in-out; translate: 100% 0; transition: translate .4s ease-in-out;}
+.panel-script.visible {translate: 0 0; transition: translate .4s ease-in-out;}
+.plyr--hide-controls .panel-script {height: 100%; transition: height .4s ease-in-out;}
+.plyr__menu__container {background: #4B5A70;}
+.plyr__menu__container [role=menu] {border-radius: min(0.21vw, 4px);}
+.plyr__menu__container:after {border-top-color: #4B5A70;}
+.plyr__menu__container [role=menu], .plyr__control.plyr__control--back {background: #4B5A70 !important;}
+.plyr__menu__container .plyr__control {color: white;}
+.video-container {width: min(66.67vw, 1280px);}
+.plyr__caption {font-size: min(1.56vw, 30px);}
+.plyr__controls__item.plyr__control[data-plyr="play"]:after {content: "재생";}
+.plyr__controls__item.plyr__control.plyr__control--pressed[data-plyr="play"]:after {content: "일시정지";}
+.plyr__controls__item.plyr__volume .plyr__control:after {content: "볼륨";}
+.plyr__control--stop:after {content: "정지";}
+.plyr__controls__item.plyr__control[data-plyr="captions"]:after {content: "자막켜기";}
+.plyr__controls__item.plyr__control.plyr__control--pressed[data-plyr="captions"]:after {content: "자막끄기";}
+.plyr__menu > [data-plyr="settings"]:after {content: "배속";}
+.plyr__controls__item.plyr__control[data-plyr="fullscreen"]:after {content: "확대";}
+.plyr__controls__item.plyr__control.plyr__control--pressed[data-plyr="fullscreen"]:after {content: "축소";}
+
+
+/* 동영상 */
+.plyr__controls__item.plyr__control svg.icon--not-pressed{display: block;}
+.plyr__controls .plyr__controls__item.plyr__control--pressed .icon--pressed{display: block;}
+.plyr__controls .plyr__controls__item.plyr__control--pressed svg.icon--not-pressed{display: none;}
+
+.plyr .plyr__controls  .plyr__menu__container [role="menu"] button,
+.plyr .plyr__controls .plyr__menu__container [role="menu"],
+.plyr__menu__container .plyr__control{width: min(120px, 7.5vw);font-size: min(15px, 0.94vw);} 
+
+.plyr__controls__item.plyr__control:before, 
+.plyr__controls__item.plyr__volume .plyr__control:before,
+.plyr__control--stop:before, .plyr__control--panel:before{display:none !important;}
+.plyr__volume{max-width:min(6.88vw, 110px) !important; min-width:min(5vw, 80px) !important;}
+.plyr__controls__item.plyr__volume svg{display: block;}
+.plyr__controls__item.plyr__control svg{display: block; height: min(1.13vw, 18px);}
+.plyr__controls .plyr__controls__item{margin-left:0 !important;}
+.plyr .plyr__controls button{width:min(1.88vw, 30px); height:min(1.88vw, 30px);}
+.plyr .plyr__controls button.plyr__control--stop{background-color: #fff; width: min(1.13vw, 18px); height: min(1.13vw, 18px);}
+.plyr__control.plyr__control--stop{width:min(1.25vw, 20px); height:min(1.25vw, 20px);}
+.plyr--video{height: 100%;}
+
+@media all and (max-width:1200px) {
+	.plyr--video .plyr__progress__buffer {top: 50%}
+	.plyr--full-ui input[type=range]::-webkit-slider-thumb {margin-top: min(-2px, -0.125vw);}
+}
+
+@media all and (max-width:1000px) {
+	.plyr__controls__item.plyr__volume input[type=range]::-webkit-slider-thumb{top: min(-4px, -0.375vw);}
+} 

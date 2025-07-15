@@ -1,0 +1,7 @@
+/* Google Translate 상단 바 숨기기 */
+.skiptranslate {
+	display: none !important;
+}
+body {
+	top: 0px !important;
+}
