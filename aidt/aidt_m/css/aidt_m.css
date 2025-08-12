@@ -88,7 +88,7 @@ header { height: 100px; display: flex; align-items: center; }
   width: 1300px;
   height: 80px;
   margin: 0 auto;
-  background-color: #481693;
+  background-color: #3a3a88;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   position: sticky;   /* ✅ 스크롤로 임계점 닿으면 그 자리에서 고정 */
@@ -103,7 +103,7 @@ header { height: 100px; display: flex; align-items: center; }
 .lnb ul { display: flex; flex-direction: row; justify-content: space-around; align-items: center; }
 .lnb ul li { position: relative;  }
 .lnb ul li a { height: 80px; display: inline-block; width: fit-content; font-family: Paperlogy-4Regular; font-size: 30px; 
-    line-height: 80px; color: #8e7bb8; transition: all 0.3s ease; }
+    line-height: 80px; color: #8888b1; transition: all 0.3s ease; }
 .lnb ul li a:hover,
 .lnb ul li a:focus,
 .lnb ul li a:active { color: #fff; font-family: Paperlogy-7Bold; } 
@@ -141,18 +141,18 @@ nav.lnb a:focus-visible {
 
 /*************** 체험관 ***************/
 .wrap_bg1 { width: 100%; background: url('../img/bg_01.png') no-repeat center 0; background-size: cover;}
-h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent: -9999px; font-size: 0; margin: 0 auto;}
+h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; padding: 40px 0 80px; }
 .top_bg1 { width: 1300px; margin: 0 auto; padding: 50px 0 120px; } 
 
 .info_wrap { display: flex; flex-direction: row; justify-content: space-between; }
 .info_class { width: 50%; text-align: center; padding-top: 20px;}
-.info_class h2 { font-family: Paperlogy-7Bold; color: #fff; font-size: 24px; line-height: 33px; padding-bottom: 20px;}
-.info_class h2 span { font-weight: normal; font-family: Paperlogy-4Regular !important; color: #fff; font-size: 24px; line-height: 33px;}
+.info_class h2 { font-family: Paperlogy-7Bold; color: #00044f; font-size: 24px; line-height: 33px; padding-bottom: 20px;}
+.info_class h2 span { font-weight: normal; font-family: Paperlogy-4Regular !important; color: #00044f; font-size: 24px; line-height: 33px;}
 /* 체험하기 버튼 */
 .btn_wrap { display: flex; flex-direction: column; justify-content: center; margin: 25px auto 0; } 
-.btn_class { text-align: center; font-family: Paperlogy-7Bold; font-size: 30px; color: #fff; }
+.btn_class { text-align: center; font-family: Paperlogy-7Bold; font-size: 30px; color: #00044f; }
 .btns { display: flex; flex-direction: row; justify-content: center; margin: 0 auto; align-items: center; } 
-.dot { display: inline-block; font-size: 35px; letter-spacing: -20px; text-indent: -10px; color: #fff; }
+.dot { display: inline-block; font-size: 35px; letter-spacing: -20px; text-indent: -10px; color: #00044f; }
 .btn_menu { display: inline-block; width: 220px; height: 63px; cursor: pointer; border: solid 2px #222; border-radius: 100px; 
     background-color: #fff; font-size: 24px; box-shadow: 0px 6px #222; font-family: "Paperlogy-7Bold"; transition: all 0.3s ease; } 
 .class_a { color: #007c7d; }
@@ -171,7 +171,7 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
 
 .info_book { width: 50%; }
 .book_title { display: flex; flex-direction: row; gap: 20px; align-items: flex-end; }
-.book_title dd { color: #fff; }
+.book_title dd { color: #00044f; }
 .txt_01 { display: block; font-family: Paperlogy-5Medium; font-size: 45px; }
 .txt_02 { display: inline-block; font-family: Paperlogy-7Bold; font-size: 90px; }
 .txt_03 { display: inline-block; font-family: Paperlogy-4Regular; font-size: 30px; padding-left: 5px; }
@@ -234,19 +234,19 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
 .wrap_bg4_02 { width: 100%; background-color: #edf6ff; padding: 100px 0 80px; } 
 .wrap_bg4_03 { width: 100%; background-color: #eeefff; padding: 100px 0 80px; } 
 .class_flow { display: flex; flex-direction: row; align-items: center; gap: 30px; justify-content: center;}
-.class_flow li { width: fit-content; padding: 10px 50px; font-size: 32px; font-weight: 500; border: solid 2px; border-radius: 20px; border-top-right-radius: 0; border-bottom-left-radius: 0; color: #fff; }
+.class_flow li { width: fit-content; padding: 10px 50px; font-size: 32px; font-weight: 500; border: solid 1px; border-radius: 20px; color: #fff; }
 .class_flow li.before { border-color: #00a3a5; color: #73c1c2; background-color: #fff;}
 .class_flow li.ing { border-color: #006ed4; color: #73a1e1; background-color: #fff;}
-.class_flow li.after { border-color: #8f10c8; color: #b773d9; background-color: #fff;}
+.class_flow li.after { border-color: #de009d; color: #e873bd; background-color: #fff;}
 
-.class_flow li.before_on { background: linear-gradient(to right, #00a3a6, #006ed3);  }
-.class_flow li.ing_on { background: linear-gradient(to right, #016ed4, #9100c9); }
-.class_flow li.after_on { background: linear-gradient(to right, #9107c8, #cd008c); }
+.class_flow li.before_on { background: #00a3a5; }
+.class_flow li.ing_on { background: #006ed4; }
+.class_flow li.after_on { background: #de009d; }
 
 .class_flow li.arrow_1 { border: 0; padding: 0; color: #a5ead5; }
-.class_flow li.arrow_1_on { border: 0; padding: 0; color: #0072d2; }
+.class_flow li.arrow_1_on { border: 0; padding: 0; color: #00a3a5; }
 .class_flow li.arrow_2 { border: 0; padding: 0; color: #c1e1ff; }
-.class_flow li.arrow_2_on { border: 0; padding: 0; color: #9107c8; }
+.class_flow li.arrow_2_on { border: 0; padding: 0; color: #006ed4; }
 
 
 
@@ -311,7 +311,7 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
 
   /*************** 체험관 ***************/
   .wrap_bg1 { background: url('../img/bg_01_t.png') no-repeat center 0; background-size: cover; }
-  h1 { width: 81.05vw; height: 22.07vw; background-size: contain; }
+  h1 { width: 100%; font-size: 6.84vw; padding-bottom: 60px; }
   .top_bg1 { width: 100%; padding-top: 0; }
   
   .info_wrap { display: flex; flex-direction: column; justify-content: space-between; }
