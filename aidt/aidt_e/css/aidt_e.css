@@ -149,7 +149,7 @@ nav.lnb a:focus-visible {
 .nav_menu a { display: block; padding: 30px 0; text-decoration: none; color: #999; font-size: 30px; transition: color 0.3s; font-family: 'WAGURITTF'; font-weight: normal; }  */
 
 
-nav.lnb li.btn_down a {padding-top: 6px; color: #fff; font-family: 'Paperlogy-7Bold'; font-size: 18px; line-height: 20px; text-decoration: none; padding-top: 6px; } 
+nav.lnb li.btn_down a { color: #fff; font-family: 'Paperlogy-7Bold'; font-size: 18px; line-height: 20px; text-decoration: none; padding-top: 6px; } 
 .btn_down .ico { background: url('../img/ico_download.png') no-repeat 0 0; background-size: 40px auto; height: 50px; padding-left: 50px; margin-top: 14px; } 
 
 
@@ -161,14 +161,15 @@ nav.lnb li.btn_down a {padding-top: 6px; color: #fff; font-family: 'Paperlogy-7B
 /* .nav_menu a:hover { color: #370d72; }  */
 
 /* 각 섹션 스타일 */
-.wrap_bg1, .wrap_bg2, .wrap_bg3, .wrap_bg4, .wrap_bg5 { min-height: 100vh; /* 각 섹션을 화면 전체 높이로 설정 */ /*margin-top: 60px; */ /* 네비게이션 높이만큼 여백 추가 */ } 
+/* .wrap_bg1, .wrap_bg2, .wrap_bg3, .wrap_bg4, .wrap_bg5 { min-height: 100vh; }  */
+/* 각 섹션을 화면 전체 높이로 설정 */ /*margin-top: 60px; */ /* 네비게이션 높이만큼 여백 추가 */
 
 /******* 홈 *******/
-.wrap_bg1 { width: 100%; background: url('../img/top_bg1_2.png') repeat-x 0 bottom; padding-top: 100px; position: relative; top: -80px; } 
-h1 { color: #fff; padding: 70px 0 40px; font-size: 50px; text-align: center; font-weight: 500; } 
+.wrap_bg1 { width: 100%; background: linear-gradient(to bottom, #2a6df8, #6618cd); padding-bottom: 100px;} /*background: url('../img/top_bg1_2.png') repeat-x 0 bottom; */
+h1 { color: #fff; padding: 50px 0; font-size: 50px; text-align: center; font-weight: 500; } 
 .top_bg1 { width: 1300px; margin: 0 auto; background: url('../img/top_bg1.png') no-repeat center 30px; min-height: 950px; } 
-.top_title1 { width: 764px; height: 106px; background: url('../img/top_title_01.png') no-repeat; margin: 0 auto 60px; text-indent: -999px; font-size: 0; } 
-.top_title2 { width: 636px; height: 93px; background: url('../img/top_title_02.png') no-repeat; margin: 0 auto 50px; text-indent: -999px; font-size: 0; } 
+.top_title1 { width: 764px; height: 106px; background: url('../img/top_title_01.png') no-repeat; margin: 0 auto 50px; text-indent: -999px; font-size: 0; } 
+.top_title2 { width: 636px; height: 93px; background: url('../img/top_title_02.png') no-repeat; margin: 0 auto 40px; text-indent: -999px; font-size: 0; } 
 
 .top_txt { width: 700px; color: #fff; text-align: center; font-size: 26px; font-weight: 600; line-height: 2.5rem; border-bottom: solid 2px #fff; margin: 0 auto; padding-bottom: 25px;}
 .btn_class { text-align: center; font-size: 26px; font-weight: 600; color: #fff; }
@@ -199,7 +200,7 @@ h1 { color: #fff; padding: 70px 0 40px; font-size: 50px; text-align: center; fon
 
 
 /******* 소개 *******/
-.wrap_bg2 { width: 100%; background-color: #ffe362; padding-bottom: 50px; } 
+.wrap_bg2 { width: 100%; background-color: #ffe362; padding: 100px 0 150px; margin-top: -80px; } 
 .top_bg2 { width: 1300px; margin: 0 auto; padding-top: 50px; } 
 h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-height: 73px; color: #222; text-align: center; padding: 50px 0; } 
 #about h2 { padding: 70px 0 100px; } 
@@ -213,7 +214,7 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
 
 /******* 수업 *******/
-.wrap_bg3 { width: 100%; border-bottom: solid 10px #ffe362; } /* 노랑 언더라인bg */
+.wrap_bg3 { width: 100%; border-bottom: solid 10px #ffe362; padding: 100px 0 100px; } /* 노랑 언더라인bg */
 .container { width: 1300px; margin: 0 auto; } 
 .point { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-height: 73px; color: #6525d1; } 
 
@@ -244,8 +245,8 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
 
 /******* AI기능 *******/
-.wrap_bg4 { width: 100%; } /* 배경 없음 */
-.bg_full { background: linear-gradient(to bottom, #2871fa, #6617ce); padding-bottom: 70px; } 
+.wrap_bg4 { width: 100%; padding: 120px 0 0; } /* 배경 없음 */
+.bg_full { background: linear-gradient(to bottom, #2871fa, #6617ce); padding-bottom: 120px; } 
 .bottom-slider { width: 1300px; margin: 0 auto; background: url('../img/bg_ai.png') no-repeat center 0; text-align: center; } 
 
 .ai_cont { padding-top: 80px; } 
@@ -256,15 +257,15 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
 
 /******* 대시보드 *******/
-.wrap_scroll { width: 100%; position: relative;} /* 높이 지정 없음 */
-.menu_wrap { display: flex; width: 100%; background-color: #fff; padding: 30px 0; position: sticky; top: 116px;/* 헤더 높이 */ z-index: 10; } 
+.wrap_scroll { width: 100%; position: relative; padding: 180px 0 0;} /* 높이 지정 없음 */
+.menu_wrap { display: flex; width: 100%; background-color: #fff; padding: 30px 0; position: sticky; top: 80px;/* 헤더 높이 */ z-index: 10; } 
 .menu-button { display: flex; justify-content: space-around; width: 680px; margin: 0 auto; } 
 .menu-tab { width: 200px; height: 80px; border-radius: 40px; background-color: #ddd; color: #aaa; font-size: 30px; font-weight: 600; cursor: pointer; } 
 .menu-tab.active { background-color: #ffc000; color: #370d72; } 
 .content-panel { margin-bottom: 60px; } 
 .content-panel.active { display: block; } 
 
-.content-box { padding: 20px; text-align: center; } 
+.content-box { padding: 80px 0; text-align: center; } 
 .content-panel { display: none; } 
 .content-panel.active { display: block; } 
 
@@ -337,7 +338,16 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .btn_menu:hover,.btn_menu:focus,.btn_menu:active { height: 6.15vw; background-color: #fff; border-bottom: solid 4px #071c57; } 
     #teacherDropdown .btn_menu { width: 250px; border: solid 4px #071c57; font-size: 20px; padding-top: 10px; } 
 
-    .wrap_bg1 { top: -7.81vw; }
+
+    .btn_down .ico { margin-top: 6px; background-size: 3.5vw auto; padding-left: 35px; }
+    nav.lnb li.btn_down a { font-size: 2vw; line-height: 1rem; } 
+
+
+
+
+
+    /***** 홈 *****/
+    .wrap_bg1 { padding-top: 30px; }
     h1 { font-size: 3.85vw; padding: 0 0 6vw; }
     .top_bg1 { width: 100vw; min-height: 100vw; background-size: contain; background-position: 0 0;}
     .top_title1 { width: 58.77vw; height: 8.15vw; background-size: 100% auto; background-position: center; margin-bottom: 45px; } 
@@ -349,6 +359,8 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .dot { font-size: 3.08vw; letter-spacing: -13px; text-indent: -5px;}
 
 
+    /***** 소개 *****/
+    .wrap_bg2 { margin-top: -7.81vw; padding: 10vw 0 10.5vw; }
     .top_bg2 { width: 100vw; background-size: contain; padding-top: 3.85vw }
     h2 { font-size: 28px; padding: 30px 0; line-height: 50px;}
     #about h2 { padding: 30px 0 50px; } 
@@ -360,8 +372,10 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .unit dt { font-size: 2.8vw; line-height: 2rem;}
     .unit dt strong { font-size: 4.62vw;}
 
-    .wrap_bg1, .wrap_bg2, .wrap_bg3, .wrap_bg4, .wrap_bg5 { height: auto; padding-bottom: 80px; background-size: 5% auto;} 
+    /* .wrap_bg1, .wrap_bg2, .wrap_bg3, .wrap_bg4, .wrap_bg5 { height: auto; padding-bottom: 80px; background-size: 5% auto;}  */
 
+    /***** 수업 *****/
+    .wrap_bg3 { padding: 10vw 0; }
     .container { width: 100vw; }
     .point { font-size: 35px; line-height: 73px; } 
     .menu_wrap { top: 44px; }
@@ -376,6 +390,10 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .unit img { width: 70vw; }
     .unit dd { font-size: 24px;}
 
+
+    /***** ai기능 *****/
+    .wrap_bg4 { padding: 10vw 0 0; }
+    .bg_full { padding-bottom: 10vw;}
     .bottom-slider { width: 95vw; background-size: contain; } 
     .ai_cont { padding-top: 50px; }
     .ai_cont dt { font-size: 24px; }
@@ -386,9 +404,12 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
     .unit dd strong { font-size: 50px;}
 
+    /***** 대시보드 *****/
+    .wrap_scroll { padding-top: 10vw; }
+    .content-box { padding: 5vw 0; }
     .menu-button { width: 50%; } 
     .menu-tab { width: 40%; height: 58px; border-radius: 40px; font-size: 24px; } 
-    .dashboard { margin: 1.54vw auto 6.15vw; }
+    .dashboard { width: 95vw; margin: 1.54vw auto 6.15vw; }
     .dashboard dt { font-size: 24px; } 
     .dashboard dt strong { font-size: 50px;  } 
 
@@ -398,11 +419,11 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .master_wrap img { width: 80%; }
     .name_wrap { padding-top: 1.54vw; gap: 5px; } 
     .name_box { width: 22.15vw; height: 14.5vw; border-radius: 20px; border: dashed 2px #3c1bcb; } 
-    .name_bg { font-size: 16px; } 
+    .name_bg { font-size: 2.3vw; padding: 3px 10px; } 
     .name_50 { font-size: 40px; font-weight: 700; } 
-    .name_40 { font-size: 30px; font-weight: 700; } 
+    .name_40 { font-size: 3.5vw; font-weight: 700; } 
     .font_24 { font-size: 18px; line-height: 36px; } 
-    .font_26 { font-size: 20px; line-height: 36px; } 
+    .font_26 { font-size: 2.5vw; line-height: 36px; } 
     .font_30 { font-size: 24px; line-height: 36px; } 
 
     .cs_wrap { width: 70vw; } 
@@ -433,20 +454,22 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .lnb ul li a { height: 13vw; line-height: 13vw; font-size: 5vw; }
     nav.lnb li a::after { height: 1.35vw; }
 
+    .btn_down .ico { margin-top: 4px; background-size: 6.5vw auto; padding-left: 30px; }
+    nav.lnb li.btn_down a { font-size: 3vw; line-height: 0.9rem; } 
 
     .btn_menu { width: 35vw; height: 11vw; border: solid 3px #071c57; font-size: 16px; } 
     .btn_menu:hover,.btn_menu:focus,.btn_menu:active { height: 6.15vw; border-bottom: solid 6px #071c57;}
     #teacherDropdown .btn_menu { width: 165px; height: 40px; border: solid 2px #071c57; font-size: 16px; } 
 
-    .top_txt { width: 90%; font-size: 16px; line-height: 1.5rem; padding-bottom: 20px; border-bottom: solid 1px #fff; font-weight: normal;}
+    .top_txt { width: 90%; font-size: 14px; line-height: 1.5rem; padding-bottom: 20px; border-bottom: solid 1px #fff; font-weight: normal;}
     .btn_wrap { width: 90%; padding: 2vw 0 4vw; border-bottom: solid 1px #fff; }
     .dot { font-size: 20px; letter-spacing: -12px; text-indent: -7px; }
     .btn_class { font-size: 16px;}
 
-    h1 { font-size: 20px; }
-    .top_bg1 { width: 95%; background-size: contain; background-position: center 15px; }
-    .top_title1 { width: 72vw; height: 12vw; background-size: 100% auto; margin: 15px auto; } 
-    .top_title2 { width: 48vw; height: 7.15vw; background-size: 80% auto; margin: 0 auto 60px; }
+    h1 { font-size: 18px; }
+    .top_bg1 { width: 100%; background-size: contain; background-position: center 0; }
+    .top_title1 { width: 72vw; height: 12vw; background-size: 100% auto; margin: 0 auto; } 
+    .top_title2 { width: 48vw; height: 7.15vw; background-size: 80% auto; margin: 10px auto; }
 
     .top_bg2 { width: 100vw; background-size: contain; }
     h2 { width: 90%; margin: 0 auto; font-size: 24px; padding: 30px; line-height: 40px;}
@@ -458,8 +481,9 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
     .info_photo dd { font-size: 18px; line-height: 28px; }
 
-    .wrap_bg1, .wrap_bg2, .wrap_bg3, .wrap_bg4, .wrap_bg5 { height: auto; padding-bottom: 40px; background-size: 8% auto;} 
-    .wrap_bg1 { padding-top: 70px; }
+    /* .wrap_bg1, .wrap_bg2, .wrap_bg3, .wrap_bg4, .wrap_bg5 { height: auto; padding-bottom: 40px; background-size: 8% auto;}  */
+    
+    .wrap_bg1 { padding-top: 20px; padding-bottom: 50px; }
 
     .container { width: 100vw; }
     .point { font-size: 24px; line-height: 5.62vw;  } 
@@ -486,7 +510,7 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
     .menu-button { width: 50%; } 
     .menu-tab { width: 40%; height: 40px; border-radius: 40px; font-size: 18px; } 
-    .dashboard { margin: 20px auto 40px; }
+    .dashboard { width: 95vw; margin: 20px auto 40px; }
     .dashboard dt strong { font-size: 30px; padding-bottom: 20px;}
     .dashboard dt { font-size: 18px; margin-top: 10px; line-height: 30px; }
     .dashboard dd { margin-bottom: 20px;}
