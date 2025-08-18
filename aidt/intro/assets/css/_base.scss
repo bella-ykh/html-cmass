@@ -1,0 +1,278 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	word-spacing: -0.05em;
+	word-break: keep-all;
+	white-space: normal;
+	&:after,
+	&:before {
+		box-sizing: border-box;
+	}
+}
+
+*::selection {
+	background: #0a64bf;
+	color: #fff;
+}
+html,
+body {
+	min-width: 134rem;
+	width: 100%;
+	height: 100%;
+	-webkit-text-size-adjust: none;
+	font-size: 62.5%;
+}
+body {
+	font-size: 62.5%;
+	font-family: "Pretendard Variable", sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+}
+label {
+	cursor: pointer;
+}
+button {
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+code {
+	display: block;
+}
+
+a:link,
+a:visited {
+	text-decoration: none;
+}
+a:hover,
+a:active {
+	text-decoration: none;
+}
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+blockquote,
+big,
+body,
+center,
+canvas,
+caption,
+cite,
+code,
+command,
+datalist,
+dd,
+del,
+details,
+dfn,
+dl,
+div,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+keygen,
+label,
+legend,
+li,
+meter,
+nav,
+menu,
+object,
+ol,
+output,
+p,
+pre,
+progress,
+q,
+s,
+samp,
+section,
+small,
+span,
+source,
+strike,
+strong,
+sub,
+sup,
+table,
+tbody,
+tfoot,
+thead,
+th,
+tr,
+td,
+video,
+tt,
+u,
+ul,
+var {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+td,
+table,
+input,
+button,
+select,
+textarea {
+	font-size: inherit;
+}
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	color: #555;
+	box-sizing: border-box;
+	font-size: inherit;
+}
+em,
+cite,
+address,
+optgroup {
+	font-style: normal;
+}
+
+
+img,
+input,
+button,
+select,
+textarea {
+	vertical-align: middle;
+}
+img {
+	-ms-interpolation-mode: bicubic !important;
+}
+ul,
+ol {
+	list-style: none;
+}
+img,
+fieldset {
+	border: 0;
+}
+abbr,
+acronym {
+	border-bottom: 1px dotted --black;
+	cursor: help;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+// legend {
+//   overflow: hidden;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+// }
+// legend,
+// caption {
+//   visibility: hidden;
+//   width: 0;
+//   height: 0;
+//   font-size: 0;
+//   line-height: 0;
+// }
+
+article,
+aside,
+audio,
+canvas,
+command,
+datalist,
+details,
+embed,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+keygen,
+meter,
+nav,
+output,
+progress,
+section,
+source,
+video {
+	display: block;
+}
+mark,
+rp,
+rt,
+ruby,
+summary,
+time {
+	display: inline;
+}

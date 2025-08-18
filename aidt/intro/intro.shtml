@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/intro.css" />
+  <title></title>
+</head>
+
+<body>
+  <div class="cmass">
+    <div class="intro">
+      <ul class="intro-card_list">
+        <li>
+          <div class="intro-card intro-card01">
+            <h2>
+              <img class="text-card0101" src="./assets/images/intro/text-card0101.svg" alt="씨마스">
+              <img class="text-card0102" src="./assets/images/intro/text-card0102.png" alt="AIDT 교육자료">
+            </h2>
+          </div>
+        </li>
+        <li>
+          <div class="intro-card intro-card02">
+            <div class="intro-card--bg intro-card--bg02">
+              <div class="intro-card--bg02_item01">
+                <img src="./assets/images/intro/bg-card0201.png" alt="">
+              </div>
+              <div class="intro-card--bg02_item02">
+                <img src="./assets/images/intro/bg-card0202.png" alt="">
+              </div>
+            </div>
+            <h2>
+              초등 정보
+            </h2>
+            <a href="" class="intro-card_link" target="_blank">
+              바로가기
+              <img src="./assets/images/intro/btn-arrow.png" alt="">
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="intro-card intro-card03">
+            <div class="intro-card--bg intro-card--bg03">
+              <div class="intro-card--bg03_item01">
+                <img src="./assets/images/intro/bg-card0301.png" alt="">
+              </div>
+              <div class="intro-card--bg03_item02">
+                <img src="./assets/images/intro/bg-card0302.png" alt="">
+              </div>
+               <div class="intro-card--bg03_item03">
+                <img src="./assets/images/intro/bg-card0303.png" alt="">
+              </div>
+            </div>
+            <h2>
+              중학 정보
+            </h2>
+            <a href="" class="intro-card_link" target="_blank">
+              바로가기
+              <img src="./assets/images/intro/btn-arrow.png" alt="">
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="intro-card intro-card04">
+             <div class="intro-card--bg intro-card--bg04">
+              <div class="intro-card--bg04_item01">
+                <img src="./assets/images/intro/bg-card0401.png" alt="">
+              </div>
+              <div class="intro-card--bg04_item02">
+                <img src="./assets/images/intro/bg-card0402.png" alt="">
+              </div>
+            </div>
+            <h2>
+              고등 정보
+            </h2>
+            <a href="" class="intro-card_link" target="_blank">
+              바로가기
+              <img src="./assets/images/intro/btn-arrow.png" alt="">
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <!-- script -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+
+  <!-- // script -->  
+  <script src="./assets/js/intro.js"></script>
+</body>
+
+</html>
