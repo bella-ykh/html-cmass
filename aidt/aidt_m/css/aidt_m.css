@@ -210,7 +210,7 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 
 
 /* 각 섹션 스타일 height 풀로 잡을 경우 활성화!! */
-.wrap_bg1, .wrap_bg2, .wrap_bg3, .wrap_class, .wrap_bg4_01, .wrap_bg4_02, .wrap_bg4_03, .wrap_bg5 { min-height: 100vh;  }
+/* .wrap_bg1, .wrap_bg2, .wrap_bg3, .wrap_class, .wrap_bg4_01, .wrap_bg4_02, .wrap_bg4_03, .wrap_bg5 { min-height: 100vh;  } */
 /* 각 섹션을 화면 전체 높이로 설정 margin-top: 60px; 네비게이션 높이만큼 여백 추가  */
 
 
