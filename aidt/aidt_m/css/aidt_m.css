@@ -204,8 +204,8 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 .indicator { width: 20px; height: 20px; background-color: #ddd; border-radius: 50%; margin: 0 5px; transition: all 0.3s ease; cursor: pointer;} 
 .indicator.current { width: 40px; background-color: #cd008c; border-radius: 30px; } 
 
-.slide_title dt { font-family: 'Paperlogy-7Bold'; font-size: 30px; color: #00044f; text-align: center; padding-bottom: 20px;}
-.slide_title dd { font-size: 20px; color: #222; text-align: center; line-height:30px; padding-bottom: 30px;}
+.slide_title dt { font-family: 'Paperlogy-7Bold'; font-size: 42px; color: #00044f; text-align: center; padding-bottom: 30px;}
+.slide_title dd { font-size: 28px; color: #222; text-align: center; line-height: 40px; padding-bottom: 30px;}
 
 
 
@@ -230,11 +230,11 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 
 /*************** 수업 구성 ***************/
 .wrap_class { width: 100%; }
-.wrap_bg4_01 { width: 100%; background-color: #edfbf7; padding: 100px 0 80px; } 
-.wrap_bg4_02 { width: 100%; background-color: #edf6ff; padding: 100px 0 80px; } 
-.wrap_bg4_03 { width: 100%; background-color: #eeefff; padding: 100px 0 80px; } 
+.wrap_bg4_01 { width: 100%; background-color: #edfbf7; padding: 130px 0 0; } 
+.wrap_bg4_02 { width: 100%; background-color: #edf6ff; padding: 130px 0 0; } 
+.wrap_bg4_03 { width: 100%; background-color: #eeefff; padding: 130px 0 0; } 
 .class_flow { display: flex; flex-direction: row; align-items: center; gap: 30px; justify-content: center;}
-.class_flow li { width: fit-content; padding: 10px 50px; font-size: 32px; font-weight: 500; border: solid 1px; border-radius: 20px; color: #fff; }
+.class_flow li { width: fit-content; padding: 10px 40px; font-size: 24px; font-weight: 500; border: solid 1px; border-radius: 15px; color: #fff; }
 .class_flow li.before { border-color: #00a3a5; color: #73c1c2; background-color: #fff;}
 .class_flow li.ing { border-color: #006ed4; color: #73a1e1; background-color: #fff;}
 .class_flow li.after { border-color: #de009d; color: #e873bd; background-color: #fff;}
