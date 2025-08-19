@@ -79,7 +79,7 @@ header { height: 100px; display: flex; align-items: center; }
 .gnb li a { color: #222; font-size: 24px;  font-weight: 500; transition: all 0.3s ease; }
 .gnb li a:hover { color: #cd008c; }
 .gnb li a:focus,
-.gnb li a:active { background-color: #cd008c;} 
+.gnb li a:active { color: #cd008c;} 
 .gnb li a.current { color: #cd008c; }
 
 
