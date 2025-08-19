@@ -187,7 +187,6 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
       }
 
 
-
 /*************** 슬라이드 ***************/
 .slider_wrap { width: 1300px; margin: 0 auto; padding: 50px 0; text-align: center; position: relative; overflow: hidden; } 
 .slide-container { position: relative; overflow: hidden; } 
@@ -208,7 +207,6 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 .slide_title dd { font-size: 28px; color: #222; text-align: center; line-height: 40px; padding-bottom: 30px;}
 
 
-
 /* 각 섹션 스타일 height 풀로 잡을 경우 활성화!! */
 /* .wrap_bg1, .wrap_bg2, .wrap_bg3, .wrap_class, .wrap_bg4_01, .wrap_bg4_02, .wrap_bg4_03, .wrap_bg5 { min-height: 100vh;  } */
 /* 각 섹션을 화면 전체 높이로 설정 margin-top: 60px; 네비게이션 높이만큼 여백 추가  */
@@ -222,9 +220,6 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 
 /*************** AI기능 ***************/
 .wrap_bg3 { width: 100%; background: url('../img/bg_02.png') no-repeat center 0; background-size: cover; padding: 130px 0 50px; } 
-
-
-
 
 
 
@@ -248,9 +243,7 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 .class_flow li.arrow_2 { border: 0; padding: 0; color: #c1e1ff; }
 .class_flow li.arrow_2_on { border: 0; padding: 0; color: #006ed4; }
 
-
-
-
+.step { padding-bottom: 40px;}
 
 /*************** 집필진 ***************/
 .wrap_bg5 { width: 100%; background: url('../img/bg_03.png') no-repeat center 0; background-size: cover; padding: 130px 0 100px; } 
@@ -270,8 +263,6 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 
 
 
-
-
 /*************** footer ***************/
 .wrap_foot { width: 100%; background-color: #222; padding: 100px 0; } 
 .foot_align { display: flex; justify-content: space-between;}
@@ -285,13 +276,6 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 .cmass_ch a { background-color: #fddb00; color: #020303; }
 .cmass_ch img { display: inline-block; vertical-align: middle; padding-right: 10px;}
 .aidt_advice a { background-color: #de009d; color: #fff; }
-
-
-
-
-
-
-
 
 
 
@@ -330,9 +314,6 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 
   .book_btn { justify-content: center;}
   .book_btn li a { width: 39vw; height: 8.3vw; }
-
-
-
 
 
 
@@ -417,8 +398,6 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
   .book_btn { justify-content: center;}
   .book_btn li a { width: 39vw; height: 9.3vw; font-size: 4.52vw; line-height: 8vw; }
 
-
-  
 
   /*************** 슬라이드 ***************/
   .slider_wrap { width: 95%; } 
