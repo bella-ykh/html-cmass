@@ -423,7 +423,7 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
   
   /*************** 집필진 ***************/
   .wrap_bg5 { background: url('../img/bg_03_t.png') no-repeat center bottom; padding: 10vw 0; background-size: cover; } 
-  .box_top { width: fit-content; height: 37vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
+  .box_top { width: fit-content; height: 33vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
   .box_top dt { font-size: 6.67vw; }
   .box_top dd { font-size: 4vw; }
   .staff { width: 90%; margin: 0 auto; gap: 1.95vw; }
