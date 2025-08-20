@@ -5,7 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/intro.css" />
-  <title></title>
+  <title>씨마스 AIDT 교육자료</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SETRBQSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-71SETRBQSV');
+  </script>
 </head>
 
 <body>
@@ -33,7 +42,7 @@
             <h2>
               초등 정보
             </h2>
-            <a href="" class="intro-card_link" target="_blank">
+            <a href="https://viewer.cmass.kr/html/aidt/aidt_e/view_aidt_e.html" class="intro-card_link">
               바로가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
@@ -55,7 +64,7 @@
             <h2>
               중학 정보
             </h2>
-            <a href="" class="intro-card_link" target="_blank">
+            <a href="https://viewer.cmass.kr/html/aidt/aidt_m/view_aidt_m.html" class="intro-card_link">
               바로가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
@@ -74,7 +83,7 @@
             <h2>
               고등 정보
             </h2>
-            <a href="" class="intro-card_link" target="_blank">
+            <a href="https://viewer.cmass.kr/html/aidt/aidt_h/view_aidt_h.html" class="intro-card_link">
               바로가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
