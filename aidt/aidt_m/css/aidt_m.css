@@ -217,7 +217,8 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 .indicator.current { width: 40px; background-color: #cd008c; border-radius: 30px; } 
 
 .slide_title dt { font-family: 'Paperlogy-7Bold'; font-size: 42px; color: #00044f; text-align: center; padding-bottom: 30px;}
-.slide_title dd { font-size: 28px; color: #222; text-align: center; line-height: 40px; padding-bottom: 30px;}
+.slide_title dd { font-size: 28px; color: #222; text-align: center; line-height: 40px; }
+.wrap_bg2 .slide_title dd { padding-bottom: 30px;}
 
 
 /* 각 섹션 스타일 height 풀로 잡을 경우 활성화!! */
@@ -327,30 +328,34 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
   .txt_03 { font-size: 4.3vw;  }
 
   .book_btn { justify-content: center;}
-  .book_btn li a { width: 39vw; height: 8.3vw; }
+  .book_btn li a { width: 39vw; height: 8.3vw; font-size: 4vw; line-height: 8.3vw;}
 
 
 
   /*************** 슬라이드 ***************/
   .slider_wrap { width: 95%; } 
   .slide img { width: 100%; }
-  .navigation { top: 90%; }
-  .nav-button img { width:80%; }
+  .slide .step img { width: 35%; }
+  .navigation { top: 92%;}
+  .nav-button img { width:70%; }
   .indicator { width: 15px; height: 15px; } 
   .indicator.current { width: 30px; }
 
+  .slide_title dt { font-size: 5vw; padding-bottom: 5vw;}
+  .slide_title dd { font-size: 3vw; line-height: 5vw; }
+  .wrap_bg2 .slide_title dd { padding-bottom: 5vw;}
 
   /*************** 특장점 ***************/
-  .wrap_bg2 { padding: 5vw 0 1vw;} 
+  .wrap_bg2 { padding: 0 0 1vw;  min-height: auto; } 
 
   /*************** AI기능 ***************/
-  .wrap_bg3 { background: url('../img/bg_02_t.png') no-repeat center bottom; padding: 5vw 0 1vw; background-size: cover; } 
+  .wrap_bg3 { background: url('../img/bg_02_t.png') no-repeat center bottom; min-height: auto;  padding: 5vw 0 1vw; background-size: cover; } 
 
   /*************** 수업 구성 ***************/
   .wrap_class { width: 100%; }
-  .wrap_bg4_01 { width: 100%; padding: 12vw 0 2vw; } 
-  .wrap_bg4_02 { width: 100%; padding: 12vw 0 2vw; } 
-  .wrap_bg4_03 { width: 100%; padding: 12vw 0 2vw; } 
+  .wrap_bg4_01 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_02 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_03 { width: 100%; padding: 12vw 0 0; } 
   .class_flow { gap: 20px; }
   .class_flow li { padding: 0.98vw 4.88vw; font-size: 3.13vw;}
   
@@ -416,27 +421,29 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 
 
   /*************** 슬라이드 ***************/
-  .slider_wrap { width: 95%; } 
+  .slider_wrap { width: 95%; padding: 5vw 0; } 
   .slide img { width: 100%; }
-  .navigation { top: 88%; }
+  .slide .step img { width: 40%; }
+  .navigation { top: 94%; }
   .nav-button img { width:50%; }
   .indicator { width: 10px; height: 10px; } 
   .indicator.current { width: 20px; }
 
   .slide_title dt { font-size: 7vw; padding-bottom: 5vw;}
   .slide_title dd { font-size: 4vw; line-height: 7vw; padding-bottom: 5vw;}
+  .step { padding-bottom: 3vw;}
 
   /*************** 특장점 ***************/
-  .wrap_bg2 { padding: 5vw 0 1vw;} 
+  .wrap_bg2 { padding: 5vw 0 1vw; min-height: auto; } 
 
   /*************** AI기능 ***************/
-  .wrap_bg3 { background: url('../img/bg_02_t.png') no-repeat center bottom; padding: 5vw 0 1vw; background-size: cover; } 
+  .wrap_bg3 { min-height: auto;  background: url('../img/bg_02_t.png') no-repeat center bottom; padding: 5vw 0 1vw; background-size: cover; } 
 
   /*************** 수업 구성 ***************/
   .wrap_class { width: 100%; }
-  .wrap_bg4_01 { width: 100%; padding: 12vw 0 2vw; } 
-  .wrap_bg4_02 { width: 100%; padding: 12vw 0 2vw; } 
-  .wrap_bg4_03 { width: 100%; padding: 12vw 0 2vw; } 
+  .wrap_bg4_01 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_02 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_03 { width: 100%; padding: 12vw 0 0; } 
   .class_flow { gap: 10px; }
   .class_flow li { padding: 1vw 4vw; font-size: 4vw; border: solid 1px; border-radius: 8px;  }
   
