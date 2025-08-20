@@ -42,7 +42,7 @@
             <h2>
               초등 정보
             </h2>
-            <a href="https://viewer.cmass.kr/html/aidt/aidt_e/view_aidt_e.html" class="intro-card_link">
+            <a href="../aidt_e/view_aidt_e.html" class="intro-card_link">
               바로가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
@@ -64,7 +64,7 @@
             <h2>
               중학 정보
             </h2>
-            <a href="https://viewer.cmass.kr/html/aidt/aidt_m/view_aidt_m.html" class="intro-card_link">
+            <a href="../aidt_m/view_aidt_m.html" class="intro-card_link">
               바로가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
@@ -83,7 +83,7 @@
             <h2>
               고등 정보
             </h2>
-            <a href="https://viewer.cmass.kr/html/aidt/aidt_h/view_aidt_h.html" class="intro-card_link">
+            <a href="../aidt_h/view_aidt_h.html" class="intro-card_link">
               바로가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
