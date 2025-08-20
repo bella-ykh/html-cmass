@@ -213,13 +213,13 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 
 
 /*************** 특장점 ***************/
-.wrap_bg2 { width: 100%; padding: 100px 0 50px;} 
+.wrap_bg2 { width: 100%; padding: 100px 0 50px; min-height: 100vh;} 
 .container { width: 1300px; margin: 0 auto; } 
 
 
 
 /*************** AI기능 ***************/
-.wrap_bg3 { width: 100%; background: url('../img/bg_02.png') no-repeat center 0; background-size: cover; padding: 130px 0 50px; } 
+.wrap_bg3 { width: 100%; min-height: 100vh; background: url('../img/bg_02.png') no-repeat center 0; background-size: cover; padding: 130px 0 50px; } 
 
 
 
@@ -248,7 +248,8 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 /*************** 집필진 ***************/
 .wrap_bg5 { width: 100%; background: url('../img/bg_03.png') no-repeat center 0; background-size: cover; padding: 130px 0 100px; } 
 .box_top { width: fit-content; padding: 20px; text-align: center; background-color: #fff; border-radius: 30px; margin: 0 auto 50px; }
-.box_top dt { display: block; background: url('../img/ico_line.png') no-repeat center bottom; font-family: 'Paperlogy-8ExtraBold'; font-size: 40px; padding-bottom: 35px; margin-bottom: 15px; color: #de009d; }
+.box_top dt { display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 40px; margin-bottom: 15px; color: #de009d; }
+.box_top dt span { display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 28px; color: #3a3a88; padding-bottom: 5px; }
 .box_top dd { display: block; font-size: 24px; text-align: center;}
 
 .staff { display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; justify-content: space-around; align-items: center;}
@@ -344,6 +345,7 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
   .wrap_bg5 { background: url('../img/bg_03_t.png') no-repeat center bottom; padding: 10vw 0; background-size: cover; } 
   .box_top { border-radius: 20px; margin: 30px auto 50px; }
   .box_top dt { font-size: 3.91vw; }
+  .box_top dt span { font-size: 2.8vw; }
   .box_top dd { font-size: 2.34vw; }
   .staff { width: 90%; margin: 0 auto; gap: 1.95vw; }
   .box { width: 21vw; height: 11.72vw; border-radius: 20px; }
@@ -427,8 +429,9 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
   
   /*************** 집필진 ***************/
   .wrap_bg5 { background: url('../img/bg_03_t.png') no-repeat center bottom; padding: 10vw 0; background-size: cover; } 
-  .box_top { width: fit-content; height: 33vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
+  .box_top { width: fit-content; height: 30vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
   .box_top dt { font-size: 6.67vw; }
+  .box_top dt span { font-size: 5vw; }
   .box_top dd { font-size: 4vw; }
   .staff { width: 90%; margin: 0 auto; gap: 1.95vw; }
   .box { width: 21vw; height: 11.72vw; border-radius: 10px; }
