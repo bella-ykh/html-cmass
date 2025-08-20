@@ -109,23 +109,36 @@ header { height: 100px; display: flex; align-items: center; }
 .lnb ul li a:active { color: #fff; font-family: Paperlogy-7Bold; } 
 
 
+
+
 /* 기존 after 밑줄에 부드러운 애니메이션 */
 nav.lnb li a { position: relative; }
 nav.lnb li a::after {
   content:'';
   position:absolute; left:0; bottom:0;
   width:100%; height:10px; background:#cd008c;
-  transform: scaleX(0); transform-origin:left;
-  transition: transform .3s ease;
+  transform: scaleY(0); transform-origin:bottom;
+  transition: transform .2s ease;
 }
-/* 호버/포커스 시 표시 */
+
+/* 호버/포커스 시 표시 
 nav.lnb li a:hover::after,
-nav.lnb li a:focus::after { transform: scaleX(1); }
+nav.lnb li a:focus::after { transform: scaleX(1); }*/
 
 /* ✅ 활성(스크롤스파이 or 클릭 후 유지) */
 nav.lnb li a.is-active { color:#fff; font-family: Paperlogy-7Bold; }
-nav.lnb li a.is-active::after { transform: scaleX(1); }
+nav.lnb li a.is-active::after { transform: scaleY(1); }
 
+/* 체험관 별도처리 
+nav.lnb li.first a::after {
+  content:'';
+  position:absolute; left:0; bottom:0;
+  width:100%; height:10px; background: none;
+  transform: none;
+}
+nav.lnb li.first a.is-active { color:#8888b1; font-family: Paperlogy-4Regular; }
+nav.lnb li.first a.is-active::after { transform: none; }
+*/
 
 /* lnb가 상단에 고정된 상태 시 살짝 그림자 */
 .lnb.is-stuck {
@@ -213,7 +226,7 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 
 
 /*************** 특장점 ***************/
-.wrap_bg2 { width: 100%; padding: 100px 0 50px; min-height: 100vh;} 
+.wrap_bg2 { width: 100%; padding: 100px 0 50px; min-height: 100vh; } 
 .container { width: 1300px; margin: 0 auto; } 
 
 
