@@ -251,7 +251,7 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
 
 /*************** 집필진 ***************/
 .wrap_bg5 { width: 100%; background: url('../img/bg_03.png') no-repeat center 0; background-size: cover; padding: 130px 0 100px; } 
-.box_top { width: fit-content; padding: 20px; text-align: center; background-color: #fff; border-radius: 30px; margin: 0 auto 50px; }
+.box_top { width: 400px; padding: 20px; text-align: center; background-color: #fff; border-radius: 30px; margin: 0 auto 50px; }
 .box_top dt { display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 40px; margin-bottom: 15px; color: #de009d; }
 .box_top dt span { display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 28px; color: #3a3a88; padding-bottom: 5px; }
 .box_top dd { display: block; font-size: 24px; text-align: center;}
@@ -360,7 +360,7 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
   
   /*************** 집필진 ***************/
   .wrap_bg5 { background: url('../img/bg_03_t.png') no-repeat center bottom; padding: 10vw 0; background-size: cover; } 
-  .box_top { border-radius: 20px; margin: 30px auto 50px; }
+  .box_top { width: 35vw; border-radius: 20px; margin: 30px auto 50px; }
   .box_top dt { font-size: 3.91vw; }
   .box_top dt span { font-size: 2.8vw; }
   .box_top dd { font-size: 2.34vw; }
@@ -448,7 +448,7 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
   
   /*************** 집필진 ***************/
   .wrap_bg5 { background: url('../img/bg_03_t.png') no-repeat center bottom; padding: 10vw 0; background-size: cover; } 
-  .box_top { width: fit-content; height: 30vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
+  .box_top { width: 45vw; height: 30vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
   .box_top dt { font-size: 6.67vw; }
   .box_top dt span { font-size: 5vw; }
   .box_top dd { font-size: 4vw; }

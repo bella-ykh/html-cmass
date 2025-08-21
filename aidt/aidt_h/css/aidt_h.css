@@ -358,7 +358,7 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
   
   /*************** 집필진 ***************/
   .wrap_bg5 { background: url('../img/bg_03_t.png') no-repeat center bottom; padding: 10vw 0; background-size: cover; } 
-  .box_top { width: fit-content; border-radius: 20px; margin: 30px auto 50px; }
+  .box_top { width: 35vw; border-radius: 20px; margin: 30px auto 50px; }
   .box_top dt { font-size: 3.91vw; }
   .box_top dt span { font-size: 2.8vw; }
   .box_top dd { font-size: 2.34vw; }
@@ -446,7 +446,7 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
   
   /*************** 집필진 ***************/
   .wrap_bg5 { background: url('../img/bg_03_t.png') no-repeat center bottom; padding: 10vw 0; background-size: cover; } 
-  .box_top { width: fit-content; height: 30vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
+  .box_top { width: 45vw; height: 30vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
   .box_top dt { font-size: 6.67vw; }
   .box_top dt span { font-size: 5vw; }
   .box_top dd { font-size: 4vw; }
