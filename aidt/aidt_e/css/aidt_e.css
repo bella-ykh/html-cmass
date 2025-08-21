@@ -74,7 +74,7 @@ body {
 /*************** gnb ***************/
 header { height: 100px; display: flex; align-items: center; } 
 .cont_top { width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; }
-.logo {  width: 284px; height: 43px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;}
+.logo {  width: 335px; height: 36px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;}
 .gnb { display: flex; flex-direction: row; align-items: center; gap: 135px; }
 .gnb li a { color: #222; font-size: 24px;  font-weight: 500; transition: all 0.3s ease; }
 .gnb li a:hover { color: #cd008c; }
@@ -200,7 +200,7 @@ h1 { color: #fff; padding: 50px 0; font-size: 50px; text-align: center; font-wei
 
 
 /******* 소개 *******/
-.wrap_bg2 { width: 100%; background-color: #ffe362; padding: 100px 0 150px; margin-top: -80px; } 
+.wrap_bg2 { width: 100%; min-height: 100vh; background-color: #ffe362; padding: 100px 0 150px; margin-top: -80px; } 
 .top_bg2 { width: 1300px; margin: 0 auto; padding-top: 50px; } 
 h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-height: 73px; color: #222; text-align: center; padding: 50px 0; } 
 #about h2 { padding: 70px 0 100px; } 
@@ -214,7 +214,7 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
 
 /******* 수업 *******/
-.wrap_bg3 { width: 100%; border-bottom: solid 10px #ffe362; padding: 100px 0 100px; } /* 노랑 언더라인bg */
+.wrap_bg3 { width: 100%; border-bottom: solid 10px #ffe362; padding: 80px 0 30px; } /* 노랑 언더라인bg */
 .container { width: 1300px; margin: 0 auto; } 
 .point { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-height: 73px; color: #6525d1; } 
 
@@ -245,7 +245,7 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
 
 /******* AI기능 *******/
-.wrap_bg4 { width: 100%; padding: 120px 0 0; } /* 배경 없음 */
+.wrap_bg4 { width: 100%; padding: 80px 0 0; } /* 배경 없음 */
 .bg_full { background: linear-gradient(to bottom, #2871fa, #6617ce); padding-bottom: 120px; } 
 .bottom-slider { width: 1300px; margin: 0 auto; background: url('../img/bg_ai.png') no-repeat center 0; text-align: center; } 
 
@@ -306,6 +306,19 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 .pd_t60 { padding-top: 60px; } 
 
 
+/*************** footer ***************/
+.wrap_foot { width: 100%; background-color: #222; padding: 100px 0; } 
+.foot_align { display: flex; justify-content: space-between;}
+
+.foot_logo { display: block; width: 176px; height: 54px; background: url('../img/logo_foot.png') no-repeat 0 0; text-indent: -9999px; font-size: 0;}
+.foot_info { display: block; color: #fff; font-size: 36px; padding-top: 10px; }
+.foot_info strong { font-weight: 700;}
+
+.foot_sns { display: flex; flex-direction: column; gap: 18px; }
+.foot_sns li a { display: block; width: 300px; height: 40px; border-radius: 15px; text-align: center; line-height: 40px; font-size: 20px; font-weight: 500;}
+.cmass_ch a { background-color: #fddb00; color: #020303; }
+.cmass_ch img { display: inline-block; vertical-align: middle; padding-right: 10px;}
+.aidt_advice a { background-color: #de009d; color: #fff; }
 
 
 
@@ -313,21 +326,11 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
 /* 테블릿용 스타일 */
 @media (max-width: 1024px){
-    /* header  { width: 100vw; border-bottom: solid 5px #ddd; position: fixed;}
-    .global_nav { width: 100%; } 
-    .nav_menu { width: 100%; }
-    .nav_menu li { width: 20%; } 
-    .nav_menu a { font-size: 18px; padding: 10px 0; } 
-    .nav_menu .active a { font-size: 24px; } 
-    .nav_menu .active::after { content: ''; height: 5px; } 
-    .btn_down { width: 20%; border-top-left-radius: 20px; border-top-right-radius: 20px; padding-top: 10px; } 
-    .btn_down .ico { background: url('../img/ico_download.png') no-repeat 8px 3px; background-size: 23px auto; height: 35px; padding-left: 37px; } 
-    .btn_down a { display: block; font-size: 1.78vw; line-height: 14px; font-weight: normal;}  */
 
     header { height: 9.77vw; }
-    .cont_top { width: 90%; margin: 0 auto; }
-    .logo { width: 27.73vw; height: auto; background-size: contain;}
-    .gnb { gap: 13vw; }
+  .cont_top { width: 95%; margin: 0 auto; }
+  .logo { width: 32.71vw; height: auto; background-size: contain;}
+  .gnb { gap: 7vw; }
     .gnb li a { font-size: 2.93vw; font-weight: 600;}
 
     .lnb { width: 100%; height: 7.81vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
@@ -341,9 +344,6 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
     .btn_down .ico { margin-top: 6px; background-size: 3.5vw auto; padding-left: 35px; }
     nav.lnb li.btn_down a { font-size: 2vw; line-height: 1rem; } 
-
-
-
 
 
     /***** 홈 *****/
@@ -426,24 +426,19 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .font_26 { font-size: 2.5vw; line-height: 36px; } 
     .font_30 { font-size: 24px; line-height: 36px; } 
 
-    .cs_wrap { width: 70vw; } 
-    .cs_wrap dl dt { font-size: 3.85vw; padding-bottom: 20px; } 
-    .cs_wrap dl dd { font-size: 2.31vw; line-height: 26px; } 
+    /*************** footer ***************/
+    .wrap_foot { padding: 8vw 0; } 
+    .foot_align { width: 80%; margin: 0 auto;}
+    .foot_logo { width: 17.19vw; height: 5.27vw; background-size: contain;}
+    .foot_info { font-size: 3.52vw; }
+    .foot_sns { gap: 10px; }
+    .foot_sns li a { width: 29.30vw; height: 3.91vw; line-height: 3.91vw; font-size: 1.95vw; border-radius: 10px;}
+    .cmass_ch img { width: 3.9vw; padding-right: 5px;}
  }
 
 /* 모바일용 스타일 */
 @media (max-width: 600px){
-    /* header  { width: 100vw; border-bottom: solid 5px #ddd; position: fixed;}
-    .global_nav { width: 100%; padding-top: 5px;} 
-    .nav_menu { width: 100%; }
-    .nav_menu li { width: 20%; } 
-    .nav_menu a { font-size: 14px; padding: 10px 0; } 
-    .nav_menu .active a {  font-size: 16px; } 
-    .nav_menu .active::after { content: ''; height: 5px; } 
-    .btn_down { width: 20%; border-top-left-radius: 10px; border-top-right-radius: 10px; padding-top: 8px; } 
-    .btn_down .ico { background: none; padding-left: 2px; } 
-    .btn_down a { display: block; font-size: 2.5vw; line-height: 12px; text-align: center; font-weight: normal;}  */
-
+    
     header { height: 24vw; flex-direction: column; }
     .cont_top { display: flex; flex-direction: column; width: 100%; margin: 0 auto; }
     .logo { width: 100%; border-bottom: solid 1px #ddd; height: 12vw; background-size: 40% auto; background-position: center center;}
@@ -451,7 +446,7 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .gnb li a { font-size: 5vw; font-weight: 600;}
 
     .lnb { width: 100%; height: 13vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
-    .lnb ul li a { height: 13vw; line-height: 13vw; font-size: 5vw; }
+  .lnb ul li a { height: 13vw; line-height: 13vw; font-size: 4vw; }
     nav.lnb li a::after { height: 1.35vw; }
 
     .btn_down .ico { margin-top: 4px; background-size: 6.5vw auto; padding-left: 30px; }
@@ -528,9 +523,12 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .font_30 { font-size: 24px; line-height: 36px; } 
     .mg_b35 { margin-bottom: 20px; } 
  
-    .cs_wrap { width: 80vw; flex-direction: column; padding-left: 50px; } 
-    .cs_wrap dl { width: 100% } 
-    .cs_wrap dl dt { font-size: 34px; padding-bottom: 20px; } 
-    .cs_wrap dl dd { font-size: 20px; line-height: 26px; } 
-    .cs_wrap dl.dot_line { border-left: none; padding-left: 0; padding-top: 40px; } 
+    /*************** footer ***************/
+  .wrap_foot { padding: 8vw 0; } 
+  .foot_align { width: 100%; flex-direction: column;align-items: center; justify-content: center; margin: 0 auto; text-align: center;}
+  .foot_logo { width: 50vw; background-position: center; background-size: contain;}
+  .foot_info { font-size: 5vw; }
+  .foot_sns { gap: 10px; padding-top: 10px; }
+  .foot_sns li a { width: 50vw; height: 5.91vw; line-height: 5.91vw; font-size: 3.33vw; border-radius: 10px;}
+  .cmass_ch img { width: 4.9vw; padding-right: 5px;}
  }

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/intro.css" />
-  <title></title>
+  <title>씨마스 AI 교육자료</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
           <div class="intro-card intro-card01">
             <h2>
               <img class="text-card0101" src="./assets/images/intro/text-card0101.svg" alt="씨마스">
-              <img class="text-card0102" src="./assets/images/intro/text-card0102.png" alt="AIDT 교육자료">
+              <img class="text-card0102" src="./assets/images/intro/text-card0102.png" alt="AI 교육자료">
             </h2>
             <div class="intro-card01--bg"></div>
           </div>
@@ -30,7 +30,7 @@
             <h2>
               초등 정보
             </h2>
-            <a href="" class="intro-card_link" target="_blank">
+            <a href="../aidt_e/view_aidt_e.html" class="intro-card_link">
               보러가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
@@ -47,7 +47,7 @@
             <h2>
               중학 정보
             </h2>
-            <a href="" class="intro-card_link" target="_blank">
+            <a href="../aidt_m/view_aidt_m.html" class="intro-card_link">
               보러가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
@@ -64,7 +64,7 @@
             <h2>
               고등 정보
             </h2>
-            <a href="" class="intro-card_link" target="_blank">
+            <a href="../aidt_h/view_aidt_h.html" class="intro-card_link">
               보러가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
