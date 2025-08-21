@@ -1,20 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/intro.css" />
-  <title>씨마스 AIDT 교육자료</title>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SETRBQSV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-71SETRBQSV');
-  </script>
+  <title></title>
 </head>
 
 <body>
@@ -27,23 +18,20 @@
               <img class="text-card0101" src="./assets/images/intro/text-card0101.svg" alt="씨마스">
               <img class="text-card0102" src="./assets/images/intro/text-card0102.png" alt="AIDT 교육자료">
             </h2>
+            <div class="intro-card01--bg"></div>
           </div>
         </li>
         <li>
           <div class="intro-card intro-card02">
             <div class="intro-card--bg intro-card--bg02">
-              <div class="intro-card--bg02_item01">
-                <img src="./assets/images/intro/bg-card0201.png" alt="">
-              </div>
-              <div class="intro-card--bg02_item02">
-                <img src="./assets/images/intro/bg-card0202.png" alt="">
-              </div>
+              <div class="intro-card--bg02_item01"></div>
+              <div class="intro-card--bg02_item02"></div>
             </div>
             <h2>
               초등 정보
             </h2>
-            <a href="../aidt_e/view_aidt_e.html" class="intro-card_link">
-              바로가기
+            <a href="" class="intro-card_link" target="_blank">
+              보러가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
           </div>
@@ -51,40 +39,33 @@
         <li>
           <div class="intro-card intro-card03">
             <div class="intro-card--bg intro-card--bg03">
-              <div class="intro-card--bg03_item01">
-                <img src="./assets/images/intro/bg-card0301.png" alt="">
-              </div>
-              <div class="intro-card--bg03_item02">
-                <img src="./assets/images/intro/bg-card0302.png" alt="">
-              </div>
-               <div class="intro-card--bg03_item03">
-                <img src="./assets/images/intro/bg-card0303.png" alt="">
+              <div class="intro-card--bg03_item01"></div>
+              <div class="intro-card--bg03_item02"></div>
+              <div class="intro-card--bg03_item03">
               </div>
             </div>
             <h2>
               중학 정보
             </h2>
-            <a href="../aidt_m/view_aidt_m.html" class="intro-card_link">
-              바로가기
+            <a href="" class="intro-card_link" target="_blank">
+              보러가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
           </div>
         </li>
         <li>
           <div class="intro-card intro-card04">
-             <div class="intro-card--bg intro-card--bg04">
+            <div class="intro-card--bg intro-card--bg04">
               <div class="intro-card--bg04_item01">
-                <img src="./assets/images/intro/bg-card0401.png" alt="">
               </div>
               <div class="intro-card--bg04_item02">
-                <img src="./assets/images/intro/bg-card0402.png" alt="">
               </div>
             </div>
             <h2>
               고등 정보
             </h2>
-            <a href="../aidt_h/view_aidt_h.html" class="intro-card_link">
-              바로가기
+            <a href="" class="intro-card_link" target="_blank">
+              보러가기
               <img src="./assets/images/intro/btn-arrow.png" alt="">
             </a>
           </div>
