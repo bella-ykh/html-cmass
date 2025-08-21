@@ -105,9 +105,9 @@ header { height: 100px; display: flex; align-items: center; }
 .lnb ul li { position: relative;  }
 .lnb ul li a { height: 80px; display: inline-block; width: fit-content; font-family: Paperlogy-4Regular; font-size: 30px; 
     line-height: 80px; color: #8e7bb8; transition: all 0.3s ease; }
-.lnb ul li a:hover,
-.lnb ul li a:focus,
-.lnb ul li a:active { color: #fff; font-family: Paperlogy-7Bold; } 
+.lnb ul li a:hover { color: #fff; font-family: Paperlogy-7Bold; } 
+/* .lnb ul li a:focus,
+.lnb ul li a:active  */
 
 
 /* 기존 after 밑줄에 부드러운 애니메이션 */
@@ -116,16 +116,16 @@ nav.lnb li a::after {
   content:'';
   position:absolute; left:0; bottom:0;
   width:100%; height:10px; background:#cd008c;
-  transform: scaleX(0); transform-origin:left;
-  transition: transform .3s ease;
+  transform: scaleY(0); transform-origin:bottom;
+  transition: transform .2s ease;
 }
-/* 호버/포커스 시 표시 */
+/* 호버/포커스 시 표시 
 nav.lnb li a:hover::after,
-nav.lnb li a:focus::after { transform: scaleX(1); }
+nav.lnb li a:focus::after { transform: scaleX(1); }*/
 
 /* ✅ 활성(스크롤스파이 or 클릭 후 유지) */
 nav.lnb li a.is-active { color:#fff; font-family: Paperlogy-7Bold; }
-nav.lnb li a.is-active::after { transform: scaleX(1); }
+nav.lnb li a.is-active::after { transform: scaleY(1); }
 
 
 /* lnb가 상단에 고정된 상태 시 살짝 그림자 */

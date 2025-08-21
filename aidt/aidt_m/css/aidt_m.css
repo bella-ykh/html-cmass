@@ -104,9 +104,9 @@ header { height: 100px; display: flex; align-items: center; }
 .lnb ul li { position: relative;  }
 .lnb ul li a { height: 80px; display: inline-block; width: fit-content; font-family: Paperlogy-4Regular; font-size: 30px; 
     line-height: 80px; color: #8888b1; transition: all 0.3s ease; }
-.lnb ul li a:hover,
-.lnb ul li a:focus,
-.lnb ul li a:active { color: #fff; font-family: Paperlogy-7Bold; } 
+.lnb ul li a:hover { color: #fff; font-family: Paperlogy-7Bold; } 
+/* .lnb ul li a:focus,
+.lnb ul li a:active  */
 
 
 
@@ -129,16 +129,6 @@ nav.lnb li a:focus::after { transform: scaleX(1); }*/
 nav.lnb li a.is-active { color:#fff; font-family: Paperlogy-7Bold; }
 nav.lnb li a.is-active::after { transform: scaleY(1); }
 
-/* 체험관 별도처리 
-nav.lnb li.first a::after {
-  content:'';
-  position:absolute; left:0; bottom:0;
-  width:100%; height:10px; background: none;
-  transform: none;
-}
-nav.lnb li.first a.is-active { color:#8888b1; font-family: Paperlogy-4Regular; }
-nav.lnb li.first a.is-active::after { transform: none; }
-*/
 
 /* lnb가 상단에 고정된 상태 시 살짝 그림자 */
 .lnb.is-stuck {
