@@ -346,7 +346,7 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
   .wrap_bg2 { padding: 7vw 0 1vw;  min-height: auto; } 
 
   /*************** AI기능 ***************/
-  .wrap_bg3 { background: url('../img/bg_02_t.png') no-repeat center bottom; min-height: auto;  padding: 5vw 0 1vw; background-size: cover; } 
+  .wrap_bg3 { background: url('../img/bg_02_t.png') no-repeat center bottom; min-height: auto;  padding: 8vw 0 1vw; background-size: cover; } 
 
   /*************** 수업 구성 ***************/
   .wrap_class { width: 100%; }
@@ -426,21 +426,21 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
   .indicator { width: 10px; height: 10px; } 
   .indicator.current { width: 20px; }
 
-  .slide_title dt { font-size: 7vw; padding-bottom: 5vw;}
-  .slide_title dd { font-size: 4vw; line-height: 7vw; padding-bottom: 5vw;}
+  .slide_title dt { font-size: 5vw; padding-bottom: 5vw;}
+  .slide_title dd { font-size: 4vw; line-height: 6vw; padding-bottom: 5vw;}
   .step { padding-bottom: 3vw;}
 
   /*************** 특장점 ***************/
-  .wrap_bg2 { padding: 5vw 0 1vw; min-height: auto; } 
+  .wrap_bg2 { padding: 14vw 0 1vw; min-height: auto; } 
 
   /*************** AI기능 ***************/
-  .wrap_bg3 { min-height: auto;  background: url('../img/bg_02_t.png') no-repeat center bottom; padding: 5vw 0 1vw; background-size: cover; } 
+  .wrap_bg3 { min-height: auto;  background: url('../img/bg_02_t.png') no-repeat center bottom; padding: 14vw 0 1vw; background-size: cover; } 
 
   /*************** 수업 구성 ***************/
   .wrap_class { width: 100%; }
-  .wrap_bg4_01 { width: 100%; padding: 12vw 0 0; } 
-  .wrap_bg4_02 { width: 100%; padding: 12vw 0 0; } 
-  .wrap_bg4_03 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_01 { width: 100%; padding: 18vw 0 1vw; } 
+  .wrap_bg4_02 { width: 100%; padding: 18vw 0 1vw; } 
+  .wrap_bg4_03 { width: 100%; padding: 18vw 0 1vw; } 
   .class_flow { gap: 10px; }
   .class_flow li { padding: 1vw 4vw; font-size: 4vw; border: solid 1px; border-radius: 8px;  }
   
