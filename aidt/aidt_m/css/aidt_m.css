@@ -73,7 +73,7 @@ body {
 /*************** gnb ***************/
 header { height: 100px; display: flex; align-items: center; } 
 .cont_top { width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; }
-.logo {  width: 284px; height: 43px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;}
+.logo {  width: 335px; height: 36px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;}
 .gnb { display: flex; flex-direction: row; align-items: center; gap: 135px; }
 .gnb li a { color: #222; font-size: 24px;  font-weight: 500; transition: all 0.3s ease; }
 .gnb li a:hover { color: #cd008c; }
@@ -144,8 +144,8 @@ nav.lnb a:focus-visible {
 
 /*************** 체험관 ***************/
 .wrap_bg1 { width: 100%; background: url('../img/bg_01.png') no-repeat center 0; background-size: cover;}
-h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; padding: 40px 0 80px; }
-.top_bg1 { width: 1300px; margin: 0 auto; padding: 50px 0 120px; } 
+h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat center 0; text-indent: -9999px; font-size: 0; margin: 0 auto 10px; }
+.top_bg1 { width: 1300px; margin: 0 auto; padding: 20px 0 120px; } 
 
 .info_wrap { display: flex; flex-direction: row; justify-content: space-between; }
 .info_class { width: 50%; text-align: center; padding-top: 20px;}
@@ -283,14 +283,23 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 .aidt_advice a { background-color: #de009d; color: #fff; }
 
 
-
+/* 패드 가로 모드 (1025px 이상 ~ 1366px 이하) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .cont_top { width: 95%; }
+  .lnb { width: 100%; }
+  .top_bg1 { width: 100%; } 
+  .slider_wrap { width: 100%;  } 
+  .container { width: 95%;  } 
+  .book_btn li a { width: 21.54vw; height: 4.23vw; font-size: 2vw; line-height: 4.23vw; }
+  .box { width: 21vw; height: 10.5vw; border-radius: 20px; }
+}
 
 /* 테블릿용 스타일 */
 @media (max-width: 1024px){
   header { height: 9.77vw; }
-  .cont_top { width: 90%; margin: 0 auto; }
-  .logo { width: 27.73vw; height: auto; background-size: contain;}
-  .gnb { gap: 13vw; }
+  .cont_top { width: 95%; margin: 0 auto; }
+  .logo { width: 32.71vw; height: auto; background-size: contain;}
+  .gnb { gap: 7vw; }
   .gnb li a { font-size: 2.93vw; font-weight: 600;}
 
   .lnb { width: 100%; height: 7.81vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
@@ -300,15 +309,15 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
 
   /*************** 체험관 ***************/
   .wrap_bg1 { background: url('../img/bg_01_t.png') no-repeat center 0; background-size: cover; }
-  h1 { width: 100%; font-size: 6.84vw; padding-bottom: 60px; }
-  .top_bg1 { width: 100%; padding-top: 0; }
+  h1 { width: 100%; height: 22.46vw; background-size: contain }
+  .top_bg1 { width: 100%; padding: 0 0 60px; }
   
   .info_wrap { display: flex; flex-direction: column; justify-content: space-between; }
   .info_class { width: 100%; padding-top: 0; }
-  .info_class h2 { font-size: 3.91vw; line-height: 5.86vw;}
+  .info_class h2 { font-size: 3.5vw; line-height: 5.86vw; padding-bottom: 0;}
   .info_class h2 span { font-size: 2.93vw;}
   .btn_class { padding-bottom: 10px; }
-  .btn_menu { width: 33vw; height: 10.25vw; font-size: 3.52vw; } 
+  .btn_menu { width: 33vw; height: 9.3vw; font-size: 3.52vw; } 
 
   .info_book { width: 100%; padding-top: 6.84vw;}
   .book_title { justify-content: center;}
@@ -318,7 +327,7 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
   .txt_03 { font-size: 4.3vw;  }
 
   .book_btn { justify-content: center;}
-  .book_btn li a { width: 39vw; height: 8.3vw; font-size: 4vw; line-height: 8.3vw;}
+  .book_btn li a { width: 35vw; height: 8.2vw; font-size: 3.5vw; line-height: 8.2vw;}
 
 
 
@@ -336,7 +345,7 @@ h1 { text-align: center; font-family: 'Paperlogy-8ExtraBold'; font-size: 70px; p
   .wrap_bg2 .slide_title dd { padding-bottom: 5vw;}
 
   /*************** 특장점 ***************/
-  .wrap_bg2 { padding: 0 0 1vw;  min-height: auto; } 
+  .wrap_bg2 { padding: 7vw 0 1vw;  min-height: auto; } 
 
   /*************** AI기능 ***************/
   .wrap_bg3 { background: url('../img/bg_02_t.png') no-repeat center bottom; min-height: auto;  padding: 5vw 0 1vw; background-size: cover; } 

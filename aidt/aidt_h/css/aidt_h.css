@@ -73,7 +73,7 @@ body {
 /*************** gnb ***************/
 header { height: 100px; display: flex; align-items: center; } 
 .cont_top { width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; }
-.logo {  width: 284px; height: 43px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;}
+.logo {  width: 335px; height: 36px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;}
 .gnb { display: flex; flex-direction: row; align-items: center; gap: 135px; }
 .gnb li a { color: #222; font-size: 24px;  font-weight: 500; transition: all 0.3s ease; }
 .gnb li a:hover { color: #cd008c; }
@@ -104,9 +104,7 @@ header { height: 100px; display: flex; align-items: center; }
 .lnb ul li { position: relative;  }
 .lnb ul li a { height: 80px; display: inline-block; width: fit-content; font-family: Paperlogy-4Regular; font-size: 30px; 
     line-height: 80px; color: #8e7bb8; transition: all 0.3s ease; }
-.lnb ul li a:hover,
-.lnb ul li a:focus,
-.lnb ul li a:active { color: #fff; font-family: Paperlogy-7Bold; } 
+.lnb ul li a:hover { color: #fff; font-family: Paperlogy-7Bold; } 
 
 
 /* 기존 after 밑줄에 부드러운 애니메이션 */
@@ -115,16 +113,16 @@ nav.lnb li a::after {
   content:'';
   position:absolute; left:0; bottom:0;
   width:100%; height:10px; background:#cd008c;
-  transform: scaleX(0); transform-origin:left;
-  transition: transform .3s ease;
+  transform: scaleY(0); transform-origin:bottom;
+  transition: transform .2s ease;
 }
-/* 호버/포커스 시 표시 */
+/* 호버/포커스 시 표시
 nav.lnb li a:hover::after,
-nav.lnb li a:focus::after { transform: scaleX(1); }
+nav.lnb li a:focus::after { transform: scaleX(1); } */
 
 /* ✅ 활성(스크롤스파이 or 클릭 후 유지) */
 nav.lnb li a.is-active { color:#fff; font-family: Paperlogy-7Bold; }
-nav.lnb li a.is-active::after { transform: scaleX(1); }
+nav.lnb li a.is-active::after { transform: scaleY(1); }
 
 
 /* lnb가 상단에 고정된 상태 시 살짝 그림자 */
@@ -141,8 +139,8 @@ nav.lnb a:focus-visible {
 
 /*************** 체험관 ***************/
 .wrap_bg1 { width: 100%; background: url('../img/bg_01.png') no-repeat center 0; background-size: cover;}
-h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent: -9999px; font-size: 0; margin: 0 auto;}
-.top_bg1 { width: 1300px; margin: 0 auto; padding: 50px 0 120px; } 
+h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat center 0; text-indent: -9999px; font-size: 0; margin: 0 auto;}
+.top_bg1 { width: 1300px; margin: 0 auto; padding: 10px 0 120px; } 
 
 .info_wrap { display: flex; flex-direction: row; justify-content: space-between; }
 .info_class { width: 50%; text-align: center; padding-top: 20px;}
@@ -187,7 +185,6 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
       }
 
 
-
 /*************** 슬라이드 ***************/
 .slider_wrap { width: 1300px; margin: 0 auto; padding: 50px 0; text-align: center; position: relative; overflow: hidden; } 
 .slide-container { position: relative; overflow: hidden; } 
@@ -204,9 +201,9 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
 .indicator { width: 20px; height: 20px; background-color: #ddd; border-radius: 50%; margin: 0 5px; transition: all 0.3s ease; cursor: pointer;} 
 .indicator.current { width: 40px; background-color: #cd008c; border-radius: 30px; } 
 
-.slide_title dt { font-family: 'Paperlogy-7Bold'; font-size: 30px; color: #00044f; text-align: center; padding-bottom: 20px;}
-.slide_title dd { font-size: 20px; color: #222; text-align: center; line-height:30px; padding-bottom: 30px;}
-
+.slide_title dt { font-family: 'Paperlogy-7Bold'; font-size: 42px; color: #00044f; text-align: center; padding-bottom: 30px;}
+.slide_title dd { font-size: 28px; color: #222; text-align: center; line-height: 40px; }
+.wrap_bg2 .slide_title dd { padding-bottom: 30px;}
 
 
 /* 각 섹션 스타일 height 풀로 잡을 경우 활성화!! */
@@ -215,24 +212,21 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
 
 
 /*************** 특장점 ***************/
-.wrap_bg2 { width: 100%; padding: 100px 0 50px;} 
+.wrap_bg2 { width: 100%; padding: 100px 0 50px; min-height: 100vh; } 
 .container { width: 1300px; margin: 0 auto; } 
 
 
 
 /*************** AI기능 ***************/
-.wrap_bg3 { width: 100%; background: url('../img/bg_02.png') no-repeat center 0; background-size: cover; padding: 130px 0 50px; } 
-
-
-
+.wrap_bg3 { width: 100%; min-height: 100vh; background: url('../img/bg_02.png') no-repeat center 0; background-size: cover; padding: 130px 0 50px; } 
 
 
 
 /*************** 수업 구성 ***************/
 .wrap_class { width: 100%; }
-.wrap_bg4_01 { width: 100%; background-color: #edfbf7; padding: 100px 0 80px; } 
-.wrap_bg4_02 { width: 100%; background-color: #edf6ff; padding: 100px 0 80px; } 
-.wrap_bg4_03 { width: 100%; background-color: #eeefff; padding: 100px 0 80px; } 
+.wrap_bg4_01 { width: 100%; background-color: #edfbf7; padding: 130px 0 0; } 
+.wrap_bg4_02 { width: 100%; background-color: #edf6ff; padding: 130px 0 0; } 
+.wrap_bg4_03 { width: 100%; background-color: #eeefff; padding: 130px 0 0; } 
 .class_flow { display: flex; flex-direction: row; align-items: center; gap: 30px; justify-content: center;}
 .class_flow li { width: fit-content; padding: 10px 50px; font-size: 32px; font-weight: 500; border: solid 2px; border-radius: 20px; border-top-right-radius: 0; border-bottom-left-radius: 0; color: #fff; }
 .class_flow li.before { border-color: #00a3a5; color: #73c1c2; background-color: #fff;}
@@ -251,14 +245,16 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
 
 
 
+.step { padding-bottom: 40px;}
 
 /*************** 집필진 ***************/
 .wrap_bg5 { width: 100%; background: url('../img/bg_03.png') no-repeat center 0; background-size: cover; padding: 130px 0 100px; } 
-.box_top { width: fit-content; padding: 20px; text-align: center; background-color: #fff; border-radius: 30px; margin: 0 auto 50px; }
-.box_top dt { display: block; background: url('../img/ico_line.png') no-repeat center bottom; font-family: 'Paperlogy-8ExtraBold'; font-size: 40px; padding-bottom: 35px; margin-bottom: 15px; color: #de009d; }
+.box_top { width: 400px; padding: 20px; text-align: center; background-color: #fff; border-radius: 30px; margin: 0 auto 50px; }
+.box_top dt { display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 40px; margin-bottom: 15px; color: #de009d; }
+.box_top dt span { display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 28px; color: #3a3a88; padding-bottom: 5px; }
 .box_top dd { display: block; font-size: 24px; text-align: center;}
 
-.staff { display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; justify-content: space-around; align-items: center;}
+.staff { display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; justify-content: flex-start; align-items: center;}
 .box { width: 310px; height: 125px; text-align: center; background-color: #fff; border-radius: 30px; display: flex; flex-direction: column; align-items: center;}
 .box dt { display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 30px; text-align: center; padding: 20px 0; }
 .box dd { display: block; font-size: 20px; text-align: center;}
@@ -267,8 +263,6 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
 .box dt.name_02 { color: #006ed4; }
 .box dt.name_03 { color: #00a3a5; }
 .box dt.name_04 { color: #de009d; }
-
-
 
 
 
@@ -287,21 +281,23 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
 .aidt_advice a { background-color: #de009d; color: #fff; }
 
 
-
-
-
-
-
-
-
-
+/* 패드 가로 모드 (1025px 이상 ~ 1366px 이하) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .cont_top { width: 95%; }
+  .lnb { width: 100%; }
+  .top_bg1 { width: 100%; } 
+  .slider_wrap { width: 100%;  } 
+  .container { width: 95%;  } 
+  .book_btn li a { width: 21.54vw; height: 4.23vw; font-size: 2vw; line-height: 4.23vw; }
+  .box { width: 21vw; height: 10.5vw; border-radius: 20px; }
+}
 
 /* 테블릿용 스타일 */
 @media (max-width: 1024px){
   header { height: 9.77vw; }
-  .cont_top { width: 90%; margin: 0 auto; }
-  .logo { width: 27.73vw; height: auto; background-size: contain;}
-  .gnb { gap: 13vw; }
+  .cont_top { width: 95%; margin: 0 auto; }
+  .logo { width: 32.71vw; height: auto; background-size: contain;}
+  .gnb { gap: 7vw; }
   .gnb li a { font-size: 2.93vw; font-weight: 600;}
 
   .lnb { width: 100%; height: 7.81vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
@@ -311,15 +307,15 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
 
   /*************** 체험관 ***************/
   .wrap_bg1 { background: url('../img/bg_01_t.png') no-repeat center 0; background-size: cover; }
-  h1 { width: 81.05vw; height: 22.07vw; background-size: contain; }
-  .top_bg1 { width: 100%; padding-top: 0; }
+  h1 { width: 100%; height: 22.46vw; background-size: contain }
+  .top_bg1 { width: 100%; padding: 0 0 60px; }
   
   .info_wrap { display: flex; flex-direction: column; justify-content: space-between; }
   .info_class { width: 100%; padding-top: 0; }
-  .info_class h2 { font-size: 3.91vw; line-height: 5.86vw;}
+  .info_class h2 { font-size: 3.5vw; line-height: 5.86vw; padding-bottom: 0;}
   .info_class h2 span { font-size: 2.93vw;}
   .btn_class { padding-bottom: 10px; }
-  .btn_menu { width: 33vw; height: 10.25vw; font-size: 3.52vw; } 
+  .btn_menu { width: 33vw; height: 9.3vw; font-size: 3.52vw; } 
 
   .info_book { width: 100%; padding-top: 6.84vw;}
   .book_title { justify-content: center;}
@@ -329,39 +325,42 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
   .txt_03 { font-size: 4.3vw;  }
 
   .book_btn { justify-content: center;}
-  .book_btn li a { width: 39vw; height: 8.3vw; }
-
-
-
+  .book_btn li a { width: 35vw; height: 8.2vw; font-size: 3.5vw; line-height: 8.2vw;}
 
 
 
   /*************** 슬라이드 ***************/
   .slider_wrap { width: 95%; } 
   .slide img { width: 100%; }
-  .navigation { top: 90%; }
-  .nav-button img { width:80%; }
+  .slide .step img { width: 35%; }
+  .navigation { top: 92%;}
+  .nav-button img { width:70%; }
   .indicator { width: 15px; height: 15px; } 
   .indicator.current { width: 30px; }
 
+  .slide_title dt { font-size: 5vw; padding-bottom: 5vw;}
+  .slide_title dd { font-size: 3vw; line-height: 5vw; }
+  .wrap_bg2 .slide_title dd { padding-bottom: 5vw;}
+
   /*************** 특장점 ***************/
-  .wrap_bg2 { padding: 5vw 0 1vw;} 
+  .wrap_bg2 { padding: 7vw 0 1vw;  min-height: auto; } 
 
   /*************** AI기능 ***************/
-  .wrap_bg3 { background: url('../img/bg_02_t.png') no-repeat center bottom; padding: 5vw 0 1vw; background-size: cover; } 
+  .wrap_bg3 { background: url('../img/bg_02_t.png') no-repeat center bottom; min-height: auto;  padding: 5vw 0 1vw; background-size: cover; } 
 
   /*************** 수업 구성 ***************/
   .wrap_class { width: 100%; }
-  .wrap_bg4_01 { width: 100%; padding: 12vw 0 2vw; } 
-  .wrap_bg4_02 { width: 100%; padding: 12vw 0 2vw; } 
-  .wrap_bg4_03 { width: 100%; padding: 12vw 0 2vw; } 
+  .wrap_bg4_01 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_02 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_03 { width: 100%; padding: 12vw 0 0; } 
   .class_flow { gap: 20px; }
   .class_flow li { padding: 0.98vw 4.88vw; font-size: 3.13vw;}
   
   /*************** 집필진 ***************/
   .wrap_bg5 { background: url('../img/bg_03_t.png') no-repeat center bottom; padding: 10vw 0; background-size: cover; } 
-  .box_top { border-radius: 20px; margin: 30px auto 50px; }
+  .box_top { width: fit-content; border-radius: 20px; margin: 30px auto 50px; }
   .box_top dt { font-size: 3.91vw; }
+  .box_top dt span { font-size: 2.8vw; }
   .box_top dd { font-size: 2.34vw; }
   .staff { width: 90%; margin: 0 auto; gap: 1.95vw; }
   .box { width: 21vw; height: 11.72vw; border-radius: 20px; }
@@ -388,14 +387,14 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
   .gnb li a { font-size: 5vw; font-weight: 600;}
 
   .lnb { width: 100%; height: 13vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
-  .lnb ul li a { height: 13vw; line-height: 13vw; font-size: 5vw; }
+  .lnb ul li a { height: 13vw; line-height: 13vw; font-size: 4vw; }
   nav.lnb li a::after { height: 1.35vw; }
   .container { width: 100%; }
 
   /*************** 체험관 ***************/
   .wrap_bg1 { background: url('../img/bg_01_t.png') no-repeat center 0; background-size: cover; }
-  h1 { width: 81.05vw; height: 22.07vw; background-size: contain; }
-  .top_bg1 { width: 100%; padding: 4.88vw 0 11.72vw; }
+  h1 { width: 81.05vw; height: 22.07vw; background-size: contain; margin: 0 auto; }
+  .top_bg1 { width: 100%; padding: 0 0 7vw; }
   
   .info_wrap { display: flex; flex-direction: column; justify-content: space-between; }
   .info_class { width: 100%; padding-top: 0; }
@@ -405,7 +404,7 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
   .btn_wrap { margin: 2.5vw auto 0; }
   .btn_class { padding-bottom: 5px; font-size: 4.5vw;}
   .btn_menu { width: 37vw; height: 11.25vw; font-size: 4vw; box-shadow: 0px 3px #222; } 
-  .dot { font-size: 3vw; letter-spacing: -3px; text-indent: -3px; }
+  .dot { font-size: 6vw; letter-spacing: -13px; text-indent: -7px; }
 
   .info_book { width: 100%; padding-top: 6.84vw;}
   .book_title { justify-content: center;}
@@ -416,36 +415,40 @@ h1 { width: 830px; height: 226px; background: url('../img/h1.png'); text-indent:
 
   .book_btn { justify-content: center;}
   .book_btn li a { width: 39vw; height: 9.3vw; font-size: 4.52vw; line-height: 8vw; }
-
-
   
 
   /*************** 슬라이드 ***************/
-  .slider_wrap { width: 95%; } 
+  .slider_wrap { width: 95%; padding: 5vw 0; } 
   .slide img { width: 100%; }
-  .navigation { top: 90%; }
+  .slide .step img { width: 40%; }
+  .navigation { top: 94%; }
   .nav-button img { width:50%; }
   .indicator { width: 10px; height: 10px; } 
   .indicator.current { width: 20px; }
 
+  .slide_title dt { font-size: 7vw; padding-bottom: 5vw;}
+  .slide_title dd { font-size: 4vw; line-height: 7vw; padding-bottom: 5vw;}
+  .step { padding-bottom: 3vw;}
+
   /*************** 특장점 ***************/
-  .wrap_bg2 { padding: 5vw 0 1vw;} 
+  .wrap_bg2 { padding: 5vw 0 1vw; min-height: auto; } 
 
   /*************** AI기능 ***************/
-  .wrap_bg3 { background: url('../img/bg_02_t.png') no-repeat center bottom; padding: 5vw 0 1vw; background-size: cover; } 
+  .wrap_bg3 { min-height: auto;  background: url('../img/bg_02_t.png') no-repeat center bottom; padding: 5vw 0 1vw; background-size: cover; } 
 
   /*************** 수업 구성 ***************/
   .wrap_class { width: 100%; }
-  .wrap_bg4_01 { width: 100%; padding: 12vw 0 2vw; } 
-  .wrap_bg4_02 { width: 100%; padding: 12vw 0 2vw; } 
-  .wrap_bg4_03 { width: 100%; padding: 12vw 0 2vw; } 
-  .class_flow { gap: 20px; }
-  .class_flow li { padding: 0.98vw 4.88vw; font-size: 3.13vw; border: solid 1px; border-radius: 8px; border-top-right-radius: 0; border-bottom-left-radius: 0; }
+  .wrap_bg4_01 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_02 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_03 { width: 100%; padding: 12vw 0 0; } 
+  .class_flow { gap: 10px; }
+  .class_flow li { padding: 1vw 4vw; font-size: 4vw; border: solid 1px; border-radius: 8px;  }
   
   /*************** 집필진 ***************/
   .wrap_bg5 { background: url('../img/bg_03_t.png') no-repeat center bottom; padding: 10vw 0; background-size: cover; } 
-  .box_top { width: fit-content; height: 37vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
+  .box_top { width: fit-content; height: 30vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
   .box_top dt { font-size: 6.67vw; }
+  .box_top dt span { font-size: 5vw; }
   .box_top dd { font-size: 4vw; }
   .staff { width: 90%; margin: 0 auto; gap: 1.95vw; }
   .box { width: 21vw; height: 11.72vw; border-radius: 10px; }
