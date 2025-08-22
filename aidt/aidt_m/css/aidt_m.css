@@ -285,13 +285,31 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
 
 /* 패드 가로 모드 (1025px 이상 ~ 1366px 이하) */
 @media (min-width: 1025px) and (max-width: 1366px) {
+  .info_wrap { width: 98%; margin: 0 auto;}
+  h1 { background-size: 90% auto;}
+  .wrap_bg2 { padding: 5vw 0 3vw; }
+  .wrap_bg3 { padding: 5vw 0 3vw; }
   .cont_top { width: 95%; }
   .lnb { width: 100%; }
-  .top_bg1 { width: 100%; } 
+  .top_bg1 { width: 100%; padding: 0 0 5vw; } 
+  .book_title { gap: 10px; }
   .slider_wrap { width: 100%;  } 
   .container { width: 95%;  } 
   .book_btn li a { width: 21.54vw; height: 4.23vw; font-size: 2vw; line-height: 4.23vw; }
   .box { width: 21vw; height: 10.5vw; border-radius: 20px; }
+
+  /*************** 슬라이드 ***************/
+  .slider_wrap { width: 95%; margin: 0 auto; } 
+  .slide img { width: 90%; }
+  .slide .step img { width: 25%; }
+  .navigation { top: 92%;}
+  .nav-button img { width:70%; }
+  .indicator { width: 15px; height: 15px; } 
+  .indicator.current { width: 30px; }
+
+  .slide_title dt { font-size: 4.5vw; padding-bottom: 2vw;}
+  .slide_title dd { font-size: 2vw; line-height: 3vw; }
+  .wrap_bg2 .slide_title dd { padding-bottom: 3vw;}
 }
 
 /* 테블릿용 스타일 */
