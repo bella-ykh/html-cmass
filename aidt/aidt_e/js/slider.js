@@ -1,5 +1,4 @@
-
-// js/slider.js (swipe + drag 지원)
+// js/slider.js (iOS Safari 호환 개선: touch 우선, pointer/touch 중복 방지, capture 제거)
 (function () {
   function initSlider(wrapper) {
     const slidesEl = wrapper.querySelector(".slides");
@@ -16,7 +15,7 @@
     let current = 0;
     const lastIndex = slideEls.length - 1;
 
-    // 인디케이터가 없으면 자동 생성(옵션)
+    // 인디케이터 자동 생성
     if (!indicatorEls.length && indicatorsEl) {
       indicatorsEl.innerHTML = "";
       slideEls.forEach((_, i) => {
@@ -31,7 +30,6 @@
       if (!btn) return;
       btn.disabled = disabled;
       btn.classList.toggle("is-disabled", disabled);
-      // 버튼 내부의 '비활성 이미지' 토글
       const imgs = btn.querySelectorAll("img");
       imgs.forEach((img) => {
         if (img.classList.contains("disabled")) {
@@ -45,12 +43,7 @@
     function update(withTransition = true) {
       slidesEl.style.transition = withTransition ? "transform 500ms ease" : "none";
       slidesEl.style.transform = `translateX(-${current * 100}%)`;
-      // 인디케이터 반영
-      indicatorEls.forEach((el, i) => {
-        el.classList.toggle("current", i === current);
-      });
-
-      // 루프가 아닐 때만 비활성 처리
+      indicatorEls.forEach((el, i) => el.classList.toggle("current", i === current));
       if (!loop) {
         setDisabledState(prevBtn, current === 0);
         setDisabledState(nextBtn, current === lastIndex);
@@ -61,31 +54,27 @@
     }
 
     function goTo(index) {
-      if (loop) {
-        // 음수/초과를 순환
-        current = (index + slideEls.length) % slideEls.length;
-      } else {
-        current = Math.max(0, Math.min(index, lastIndex));
-      }
+      if (loop) current = (index + slideEls.length) % slideEls.length;
+      else current = Math.max(0, Math.min(index, lastIndex));
       update(true);
     }
 
-    // ----- 클릭(버튼/인디케이터) -----
+    // 버튼/인디케이터
     prevBtn && prevBtn.addEventListener("click", () => goTo(current - 1));
     nextBtn && nextBtn.addEventListener("click", () => goTo(current + 1));
-    indicatorEls.forEach((dot, i) => {
-      dot.addEventListener("click", () => goTo(i));
-    });
+    indicatorEls.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
 
-    // ----- 스와이프/드래그 -----
+    // ----- 입력 통합 (iOS: touch만, 그 외: pointer 우선) -----
+    const isIOS = /iP(ad|hone|od)/i.test(navigator.userAgent);
+    const usePointer = !isIOS && "PointerEvent" in window;
+
     let pointerActive = false;
     let startX = 0;
-    let lastX = 0;
     let deltaX = 0;
-    const thresholdRatio = 0.15; // 컨테이너 폭의 15% 이상 이동 시 페이지 전환
-    const maxDeltaRatio = 0.35;  // 드래그 중 이동 한계(시각적 저항)
 
-    // 현재 슬라이드 위치 + 드래그 오프셋 적용
+    const thresholdRatio = 0.15; // 15% 이상 이동 시 페이지 전환
+    const maxDeltaRatio = 0.35;  // 드래그 중 이동 한계
+
     function translateWithOffset(offsetPx) {
       const containerWidth = slidesEl.getBoundingClientRect().width;
       const base = -current * containerWidth;
@@ -93,40 +82,36 @@
       slidesEl.style.transform = `translateX(${base + offsetPx}px)`;
     }
 
-    function onPointerDown(x) {
+    function onStart(x) {
       pointerActive = true;
       startX = x;
-      lastX = x;
       deltaX = 0;
       slidesEl.style.willChange = "transform";
       slidesEl.classList.add("is-dragging");
     }
 
-    function onPointerMove(x) {
+    function onMove(x) {
       if (!pointerActive) return;
       const containerWidth = slidesEl.getBoundingClientRect().width;
-      deltaX = x - startX;
+      let moving = x - startX;
 
-      // 루프가 아니면 양 끝에서 저항감 부여
-      let effectiveDelta = deltaX;
+      // 루프 아닐 때 끝단 저항
       if (!loop) {
-        const atFirst = current === 0 && deltaX > 0;
-        const atLast = current === lastIndex && deltaX < 0;
-        if (atFirst || atLast) {
-          effectiveDelta *= 0.35;
-        }
+        const atFirst = current === 0 && moving > 0;
+        const atLast = current === lastIndex && moving < 0;
+        if (atFirst || atLast) moving *= 0.35;
       }
 
       // 이동 한계
       const maxDelta = containerWidth * maxDeltaRatio;
-      if (effectiveDelta > maxDelta) effectiveDelta = maxDelta;
-      if (effectiveDelta < -maxDelta) effectiveDelta = -maxDelta;
+      if (moving > maxDelta) moving = maxDelta;
+      if (moving < -maxDelta) moving = -maxDelta;
 
-      translateWithOffset(effectiveDelta);
-      lastX = x;
+      deltaX = moving;
+      translateWithOffset(moving);
     }
 
-    function onPointerUp() {
+    function onEnd() {
       if (!pointerActive) return;
       pointerActive = false;
       slidesEl.style.willChange = "auto";
@@ -136,70 +121,80 @@
       const movedRatio = Math.abs(deltaX) / containerWidth;
 
       if (movedRatio >= thresholdRatio) {
-        if (deltaX < 0) {
-          goTo(current + 1);
-        } else {
-          goTo(current - 1);
-        }
+        if (deltaX < 0) goTo(current + 1);
+        else goTo(current - 1);
       } else {
-        // 원위치
         update(true);
       }
       deltaX = 0;
     }
 
-    // 포인터/마우스
-    slidesEl.addEventListener("pointerdown", (e) => {
-      // 왼쪽 버튼만
-      if (e.pointerType === "mouse" && e.button !== 0) return;
-      onPointerDown(e.clientX);
-      slidesEl.setPointerCapture && slidesEl.setPointerCapture(e.pointerId);
-    }, { passive: true });
+    // 이벤트 바인딩
+    if (usePointer) {
+      // 마우스/펜/터치 통합(pointer 사용)
+      slidesEl.addEventListener(
+        "pointerdown",
+        (e) => {
+          if (e.pointerType === "mouse" && e.button !== 0) return; // 좌클릭만
+          onStart(e.clientX);
+          // iOS 충돌 방지 위해 pointer capture 사용 안 함:contentReference[oaicite:3]{index=3}
+          // slidesEl.setPointerCapture && slidesEl.setPointerCapture(e.pointerId);
+        },
+        { passive: true }
+      );
 
-    slidesEl.addEventListener("pointermove", (e) => {
-      if (!pointerActive) return;
-      onPointerMove(e.clientX);
-    }, { passive: true });
+      slidesEl.addEventListener(
+        "pointermove",
+        (e) => {
+          if (!pointerActive) return;
+          onMove(e.clientX);
+        },
+        { passive: true }
+      );
 
-    slidesEl.addEventListener("pointerup", () => {
-      onPointerUp();
-    }, { passive: true });
+      slidesEl.addEventListener("pointerup", onEnd, { passive: true });
+      slidesEl.addEventListener("pointercancel", onEnd, { passive: true });
+    } else {
+      // iOS: touch만 사용 (pointer와 중복 방지):contentReference[oaicite:4]{index=4}
+      slidesEl.addEventListener(
+        "touchstart",
+        (e) => {
+          if (!e.touches || !e.touches[0]) return;
+          onStart(e.touches[0].clientX);
+        },
+        { passive: true }
+      );
 
-    slidesEl.addEventListener("pointercancel", () => {
-      onPointerUp();
-    }, { passive: true });
+      slidesEl.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!pointerActive || !e.touches || !e.touches[0]) return;
+          onMove(e.touches[0].clientX);
+        },
+        { passive: true }
+      );
 
-    // 터치(사파리 구형 호환)
-    slidesEl.addEventListener("touchstart", (e) => {
-      if (!e.touches || !e.touches[0]) return;
-      onPointerDown(e.touches[0].clientX);
-    }, { passive: true });
-
-    slidesEl.addEventListener("touchmove", (e) => {
-      if (!pointerActive || !e.touches || !e.touches[0]) return;
-      onPointerMove(e.touches[0].clientX);
-    }, { passive: true });
-
-    slidesEl.addEventListener("touchend", () => {
-      onPointerUp();
-    }, { passive: true });
+      slidesEl.addEventListener("touchend", onEnd, { passive: true });
+      slidesEl.addEventListener("touchcancel", onEnd, { passive: true });
+    }
 
     // 드래그 중 이미지 선택 방지
     slidesEl.addEventListener("dragstart", (e) => e.preventDefault());
 
-    // 초기화: 가로 배치
+    // 초기 스타일
     slidesEl.style.display = "flex";
     slidesEl.style.transition = "transform 500ms ease";
     slideEls.forEach((s) => {
       s.style.minWidth = "100%";
       s.style.flex = "0 0 100%";
       s.style.userSelect = "none";
-      s.style.touchAction = "pan-y"; // 수직 스크롤 우선, 수평 드래그 가능
+      // iOS에서는 touch-action을 지정하지 않음(가로 스와이프 막힘 방지):contentReference[oaicite:5]{index=5}
+      if (!isIOS) s.style.touchAction = "pan-y"; // 데스크톱/안드로이드: 수직 스크롤 우선
     });
 
     update(true);
 
-    // 리사이즈 시 현재 위치 재계산(픽셀 기반 드래그 대비)
+    // 리사이즈 대응
     let resizeTimer;
     window.addEventListener("resize", () => {
       clearTimeout(resizeTimer);
@@ -218,6 +213,5 @@
     initAll();
   }
 
-  // 필요하면 외부에서 재초기화 가능
   window.reinitSliders = initAll;
 })();
