@@ -34,6 +34,8 @@ button { border: none; appearance: none; -webkit-appearance: none; -moz-appearan
 
 select { -o-appearance: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; } 
 
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
 @font-face { font-family: 'WAGURITTF'; src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403@1.0/WAGURITTF.woff2') format('woff2'); font-weight: normal; font-style: normal; } 
 @font-face { font-family: 'ONE Mobile Title'; src: url('https://cdn.jsdelivr.net/gh/wooin21/web/fonts/onestore/ONE Mobile Title.woff') format('woff2'); font-weight: normal; font-style: normal; } 
 
@@ -157,25 +159,6 @@ nav.lnb li.btn_down a { color: #fff; font-family: 'Paperlogy-7Bold'; font-size: 
 .indicator { width: 30px; height: 30px; background-color: #ddd; border-radius: 50%; margin: 0 5px; transition: all 0.3s ease; cursor: pointer;} 
 .indicator.current { width: 60px; background-color: #ffc323; border-radius: 30px; } 
 
-/* 
-.slide-container { position: relative; overflow: hidden; } 
-.slides { display: flex; transition: transform 0.5s ease-in-out; } 
-.slide { min-width: 100%; box-sizing: border-box; } 
-.navigation { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between; } 
-.nav-button { cursor: pointer; background: none; } 
-.nav-button img { display: block; } 
-.nav-button img.disabled { display: none; } 
-.nav-button[disabled] img { display: none; } 
-.nav-button[disabled] img.disabled { display: block; } 
-.indicators { display: flex; justify-content: center; margin-top: 15px; } 
-.indicator { width: 30px; height: 30px; background-color: #ddd; border-radius: 50%; margin: 0 5px; transition: all 0.3s ease; } 
-.indicator.current { width: 60px; background-color: #ffc323; border-radius: 30px; } 
- */
-
-
-
-
-
 
 .slide_title dt { font-family: 'Paperlogy-7Bold'; font-size: 42px; color: #00044f; text-align: center; padding-bottom: 30px;}
 .slide_title dd { font-size: 28px; color: #222; text-align: center; line-height: 40px; }
@@ -183,27 +166,50 @@ nav.lnb li.btn_down a { color: #fff; font-family: 'Paperlogy-7Bold'; font-size: 
 
 
 
-/******* 홈 *******/
-.wrap_bg1 { width: 100%; background: linear-gradient(to bottom, #2a6df8, #6618cd); padding-bottom: 100px;} /*background: url('../img/top_bg1_2.png') repeat-x 0 bottom; */
-h1 { color: #fff; padding: 50px 0; font-size: 50px; text-align: center; font-weight: 500; } 
-.top_bg1 { width: 1300px; margin: 0 auto; background: url('../img/top_bg1.png') no-repeat center 30px; min-height: 950px; } 
-.top_title1 { width: 764px; height: 106px; background: url('../img/top_title_01.png') no-repeat; margin: 0 auto 50px; text-indent: -999px; font-size: 0; } 
-.top_title2 { width: 636px; height: 93px; background: url('../img/top_title_02.png') no-repeat; margin: 0 auto 40px; text-indent: -999px; font-size: 0; } 
 
-.top_txt { width: 700px; color: #fff; text-align: center; font-size: 26px; font-weight: 600; line-height: 2.5rem; border-bottom: solid 2px #fff; margin: 0 auto; padding-bottom: 25px;}
-.btn_class { text-align: center; font-size: 26px; font-weight: 600; color: #fff; }
-/* 버튼 */
-.btn_wrap { width: 700px; display: flex; flex-direction: column; justify-content: center; margin: 0 auto; border-bottom: solid 2px #fff; padding: 15px 0 25px; } 
+/*************** 체험관 ***************/
+.wrap_bg1 { width: 100%; background: linear-gradient(to bottom, #2971f9, #6717cd); }
+.top_bg1 { width: 1300px; background: url('../img/bg_main.png') no-repeat center 0; margin: 0 auto;  padding-bottom: 100px;}
+.main_img { width: 610px; height: 555px; background: url('../img/h1.png') no-repeat center 0; text-indent: -9999px; font-size: 0; margin: 0 auto 10px; }
+h1 { color: #fff; font-size: 25px; font-weight: 500; line-height: 38px; padding: 130px 0 60px; }
+.home_wrap { display: flex; flex-direction: row; justify-content: space-between; }
+.info_class { width: 50%; text-align: center; }
+.info_class h2 { font-family: Paperlogy-7Bold; color: #00044f; font-size: 24px; line-height: 33px; padding-bottom: 20px;}
+.info_class h2 span { font-weight: normal; font-family: Paperlogy-4Regular !important; color: #00044f; font-size: 24px; line-height: 33px;}
+/* 체험하기 버튼 */
+.btn_wrap { display: flex; flex-direction: column; justify-content: center; margin: 30px auto 0; } 
+.btn_class { text-align: center; font-family: Paperlogy-7Bold; font-size: 30px; color: #fff; padding-bottom: 10px;}
 .btns { display: flex; flex-direction: row; justify-content: center; margin: 0 auto; align-items: center; } 
-.dot { display: inline-block; font-size: 40px; letter-spacing: -25px; text-indent: -15px;}
-.btn_menu { width: 280px; height: 80px; cursor: pointer; border: solid 5px #071c57; border-radius: 100px; background-color: #ffde00; font-size: 30px; font-weight: bold; outline: none; color: #071c57; } 
-.btn_menu:hover,
-.btn_menu:focus,
-.btn_menu:active { height: 80px; background-color: #fff; border-bottom: solid 10px #071c57; } 
+.dot { display: inline-block; font-size: 35px; letter-spacing: -20px; text-indent: -10px; color: #fff; }
+.btn_menu { display: inline-block; width: 260px; height: 73px; cursor: pointer; border: solid 2px #222; border-radius: 100px; 
+    background-color: #fff; font-size: 28px; box-shadow: 0px 6px #222; font-family: "Paperlogy-7Bold"; transition: all 0.3s ease; } 
+.class_a { color: #007c7d; }
+.class_b { color: #006ed4; }
+.class_c { color: #9200c8; }
+.class_a.btn_menu:hover,
+.class_a.btn_menu:focus,
+.class_a.btn_menu:active { background-color: #bdf9e7;} 
+.class_b.btn_menu:hover,
+.class_b.btn_menu:focus,
+.class_b.btn_menu:active { background-color: #c1e1ff;} 
+.class_c.btn_menu:hover,
+.class_c.btn_menu:focus,
+.class_c.btn_menu:active { background-color: #d6b6ff;} 
 
-.info_txt { text-align: center; margin: 0 auto; font-size: 32px; color: #fff; font-weight: 500; }
-.info_txt p { padding: 17px 0; line-height: 42px; text-shadow: -1px -1px 4px #333, 1px 1px 4px #071c57;}
 
+.info_btn { width: 50%; padding-top: 25px;  }
+/* 다운로드 버튼 */
+.book_btn { width: 525px; margin: 0 auto; display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; padding-top: 20px; }
+.book_btn li a { display: inline-block; width: 250px; height: 60px; background-color: rgba(255, 255, 255, 0.2); 
+    border: 2px solid #fff; border-radius:8px; text-align: center; line-height: 55px; font-weight: 500;
+    color: #fff; font-size: 24px; transition: all 0.3s ease; }
+
+.book_btn li a:hover {
+        border: solid 3.5px #fff; font-size: 26px; font-weight: bold; 
+      }
+
+
+      
 
 /******* 소개 *******/
 .wrap_bg2 { width: 100%; min-height: 100vh; background-color: #ffe362; padding: 100px 0 150px; margin-top: -80px; } 
@@ -352,12 +358,30 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .lnb ul li a { height: 7.81vw; line-height: 7.81vw; font-size: 3.2vw; }
     nav.lnb li a::after { height: 0.8vw; }
 
-    .btn_menu { width: 26vw; height: 8vw; border: solid 4px #071c57; font-size: 20px; } 
+    /* .btn_menu { width: 26vw; height: 8vw; border: solid 4px #071c57; font-size: 20px; } 
     .btn_menu:hover,.btn_menu:focus,.btn_menu:active { height: 6.15vw; background-color: #fff; border-bottom: solid 4px #071c57; } 
 
-    .btn_down .ico { margin-top: 6px; background-size: 3.5vw auto; padding-left: 35px; background-position: 0 3px; }
+    .btn_down .ico { margin-top: 6px; background-size: 3.5vw auto; padding-left: 35px; background-position: 0 3px; } */
     nav.lnb li.btn_down a { font-size: 2vw; line-height: 1rem; } 
 
+
+    /*************** 체험관 ***************/
+  h1 { padding: 5vw 0 1vw; font-size: 3.8vw; }
+  .top_bg1 { width: 100%; background-position: center 10%; padding-bottom: 10vw;}
+  
+  .home_wrap { display: flex; flex-direction: column; justify-content: space-between; }
+  .info_class { width: 100%; padding-top: 0; }
+  .info_class h2 { font-size: 3.5vw; line-height: 5.86vw; padding-bottom: 0;}
+  .info_class h2 span { font-size: 2.93vw;}
+  .btn_class { padding-bottom: 10px; }
+  .btn_menu { width: 33vw; height: 9.3vw; font-size: 3.52vw; } 
+
+  .info_btn { width: 100%;  }
+
+  .book_btn { width: 60vw; justify-content: center;}
+  .book_btn li a { width: 28vw; height: 8.3vw; font-size: 3.5vw; line-height: 8vw;}
+.book_btn li a:hover { font-size: 3.8vw; }
+  
      /*************** 슬라이드 ***************/
     .slider_wrap { width: 95%; } 
     .slide img { width: 100%; }
@@ -370,19 +394,6 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .slide_title dt { font-size: 5vw; padding-bottom: 5vw;}
     .slide_title dd { font-size: 3vw; line-height: 5vw; }
     .wrap_bg2 .slide_title dd { padding-bottom: 5vw;}
-
-    /***** 홈 *****/
-    .wrap_bg1 { padding: 5vw 0 10vw; }
-    h1 { font-size: 3.85vw; padding: 0 0 6vw; }
-    .top_bg1 { width: 100vw; min-height: 100vw; background-size: contain; background-position: 0 0;}
-    .top_title1 { width: 58.77vw; height: 8.15vw; background-size: 100% auto; background-position: center; margin-bottom: 45px; } 
-    .top_title2 { width: 48vw; height: 7.15vw; background-size: 90% auto; background-position: center; margin: 0 auto 50px; }
-
-    .top_txt { width: 65.85vw; font-size: 20px; line-height: 2rem; padding-bottom: 30px; }
-    .btn_wrap { width: 65.85vw; padding: 15px 0 30px; }
-    .btn_class { font-size: 20px; }
-    .dot { font-size: 3.08vw; letter-spacing: -13px; text-indent: -5px;}
-
 
     /***** 소개 *****/
     .wrap_bg2 { margin-top: -7.81vw; padding: 10vw 0 10.5vw; }
@@ -474,18 +485,46 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .btn_down .ico { margin-top: 5px; background-size: 5vw auto; padding-left: 25px; background-position: 0 3px; }
     nav.lnb li.btn_down a { font-size: 3vw; line-height: 0.9rem; } 
 
-    .btn_menu { width: 35vw; height: 11vw; border: solid 3px #071c57; font-size: 16px; } 
-    .btn_menu:hover,.btn_menu:focus,.btn_menu:active { height: 6.15vw; border-bottom: solid 6px #071c57;}
+    /* .btn_menu { width: 35vw; height: 11vw; border: solid 3px #071c57; font-size: 16px; } 
+    .btn_menu:hover,.btn_menu:focus,.btn_menu:active { height: 6.15vw; border-bottom: solid 6px #071c57;} */
 
     .top_txt { width: 90%; font-size: 14px; line-height: 1.5rem; padding-bottom: 20px; border-bottom: solid 1px #fff; font-weight: normal;}
-    .btn_wrap { width: 90%; padding: 2vw 0 4vw; border-bottom: solid 1px #fff; }
+    .btn_wrap { width: 90%; padding: 2vw 0 4vw; margin-top: 0; }
     .dot { font-size: 20px; letter-spacing: -12px; text-indent: -7px; }
     .btn_class { font-size: 16px;}
 
-    h1 { font-size: 18px; }
-    .top_bg1 { width: 100%; background-size: contain; background-position: center 0; }
-    .top_title1 { width: 72vw; height: 12vw; background-size: 100% auto; margin: 0 auto; } 
-    .top_title2 { width: 48vw; height: 7.15vw; background-size: 80% auto; margin: 10px auto; }
+        /*************** 체험관 ***************/
+  h1 { padding: 5vw 0 1vw; font-size: 4.1vw; line-height: 6.3vw;}
+  .top_bg1 { width: 100%; background-position: center 10%; padding-bottom: 10vw;}
+  
+  .home_wrap { display: flex; flex-direction: column; justify-content: space-between; }
+  .info_class { width: 100%; padding-top: 0; }
+  .btn_class { padding-bottom: 5px; font-size: 5vw; }
+  .btn_menu { width: 37vw; height: 11.5vw; font-size: 4vw; box-shadow: 0px 3px #222; } 
+
+  .info_btn { width: 100%; padding-top: 0; }
+  .main_img { width: 90vw; height: 83.5vw; background-size: contain; }
+  .book_btn { width: 90vw; justify-content: center;}
+  .book_btn li a { width: 35vw; height: 10vw; font-size: 4.2vw; line-height: 9vw; border: solid 1px #fff; }
+.book_btn li a:hover { font-size: 4.5vw; border: solid 2px #fff; }
+
+
+/*************** 슬라이드 ***************/
+.slider_wrap { width: 95%; padding: 5vw 0; } 
+.slide img { width: 100%; }
+.slide .step img { width: 40%; }
+.navigation { top: 94%; }
+.nav-button img { width:35%; }
+.indicator { width: 10px; height: 10px; margin-top: 0;} 
+.indicator.current { width: 20px; }
+
+    
+
+      
+
+    /***** 소개 *****/
+    .wrap_bg2 { margin-top: -7.81vw; padding: 13vw 0 10.5vw; padding-top: 0; }
+    .wrap_bg3 { padding: 15vw 0 5vw; }
 
     .top_bg2 { width: 100vw; }
     h2 { font-size: 5vw; padding: 2.9vw 0; line-height: 7.8vw;}
@@ -499,21 +538,6 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     .info_photo dt strong { font-size: 6vw; line-height: 36px; padding-bottom: 2vw; } 
 
     .info_photo dd { width: 90%; font-size: 4vw; line-height: 6vw; }
-
-      /*************** 슬라이드 ***************/
-    .slider_wrap { width: 95%; padding: 5vw 0; } 
-    .slide img { width: 100%; }
-    .slide .step img { width: 40%; }
-    .navigation { top: 94%; }
-    .nav-button img { width:35%; }
-    .indicator { width: 10px; height: 10px; margin-top: 0;} 
-    .indicator.current { width: 20px; }
-    
-    .wrap_bg1 { padding: 5vw 0 8vw; }
-
-    /***** 소개 *****/
-    .wrap_bg2 { margin-top: -7.81vw; padding: 13vw 0 10.5vw; padding-top: 0; }
-    .wrap_bg3 { padding: 15vw 0 5vw; }
 
     .container { width: 100vw; }
     .menu_wrap { top: 44px; padding: 20px 0; }
