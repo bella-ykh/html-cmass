@@ -5,7 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/intro.css" />
-  <title>씨마스 AI 교육자료</title>
+  <title>씨마스 AI 교육자료 정보</title>
+  
+  <!--카카오톡 공유 썸네일-->
+  <meta name="title" content="씨마스 AI 교육자료 정보">
+  <meta name="description" content="AI가 지원하는 개인 맞춤형 교육자료"/>
+  <meta name="thumbnail" content="https://viewer.cmass.kr/html/aidt/intro/assets/images/intro/kakao_thumb.png?v=20250828"/>
+
+  <meta property="og:url" content="https://viewer.cmass.kr/html/aidt/intro/intro.shtml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="씨마스 AI 교육자료 정보">
+  <meta property="og:description" content="AI가 지원하는 개인 맞춤형 교육자료"/>
+  <meta property="og:image" content="https://viewer.cmass.kr/html/aidt/intro/assets/images/intro/kakao_thumb.png?v=20250828"/>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SETRBQSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-71SETRBQSV');
+  </script>
 </head>
 
 <body>

@@ -1,6 +1,16 @@
 @charset "UTF-8"; /*reset css*/
 * { font-family: Pretendard, "Pretendard", MalgunGothic, "맑은 고딕", "돋움", Dotum,
  AppleGothic, Sans-serif, Arial; word-break: keep-all; } 
+ :root {
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+               'Apple SD Gothic Neo', 'Segoe UI', Roboto, 'Noto Sans KR',
+               'Malgun Gothic', Helvetica, Arial, sans-serif,
+               'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+html, body {
+  font-family: var(--font-sans);
+}
 
 html,body,div,p,span,strong,b,em,iframe,pre,h1,h2,h3,h4,h5,h6,img,dl,dt,dd,
 fieldset,form,legend,label,table,caption,thead,tbody,tfoot,tr,th,td,
@@ -75,7 +85,7 @@ header { height: 100px; display: flex; align-items: center; }
 .cont_top { width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; }
 .logo {  width: 335px; height: 36px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;}
 .gnb { display: flex; flex-direction: row; align-items: center; gap: 135px; }
-.gnb li a { color: #222; font-size: 24px;  font-weight: 500; transition: all 0.3s ease; }
+.gnb li a { color: #222; font-size: 24px; font-family: var(--font-sans); font-weight: 500; transition: all 0.3s ease; }
 .gnb li a:hover { color: #cd008c; }
 .gnb li a:focus,
 .gnb li a:active { color: #cd008c;} 
@@ -179,15 +189,15 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
 .txt_02 { display: inline-block; font-family: Paperlogy-7Bold; font-size: 90px; }
 .txt_03 { display: inline-block; font-family: Paperlogy-4Regular; font-size: 30px; padding-left: 5px; }
 /* 다운로드 버튼 */
-.book_btn { display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; padding-top: 20px;}
-.book_btn li a { display: inline-block; width: 280px; height: 55px; background-color: rgba(255, 255, 255, 0.6); 
-    border: 2px solid #222; border-radius: 3px; text-align: center; line-height: 55px; font-weight: 600;
-    color: #222; font-size: 24px; transition: all 0.3s ease; }
-
-.book_btn li a:hover {
-        color: #de009d; 
-        border-color: #cd008c; 
-      }
+.book_btn { display: flex; flex-direction: row; gap: 23px; flex-wrap: wrap; padding-top: 20px;}
+.book_btn li a { display: flex; align-items: center; justify-content: center; width: 280px; height: 55px; background-color: rgba(255, 255, 255, 0.6); 
+  font-family: var(--font-sans);  border: 2px solid #222; border-radius: 3px; text-align: center; font-weight: 600; color: #222; font-size: 24px; transition: all 0.3s ease; }
+.book_btn li a:hover { color: #de009d; border-color: #cd008c; }
+/* 선정사유서 */
+.book_btn2 { margin: 15px 0 7px; }
+.book_btn2 a { display: flex; align-items: center; justify-content: center; width: 280px; height: 55px; background-color: rgba(255, 255, 255, 0.6); 
+  font-family: var(--font-sans); border: 2px solid #222; border-radius: 3px; font-weight: 600; color: #222; font-size: 24px; transition: all 0.3s ease; }
+.book_btn2 a:hover { color: #de009d; border-color: #cd008c; }
 
 
 /*************** 슬라이드 ***************/
@@ -207,13 +217,9 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
 .indicator.current { width: 40px; background-color: #cd008c; border-radius: 30px; } 
 
 .slide_title dt { font-family: 'Paperlogy-7Bold'; font-size: 42px; color: #00044f; text-align: center; padding-bottom: 30px;}
-.slide_title dd { font-size: 28px; color: #222; text-align: center; line-height: 40px; }
+.slide_title dd { font-family: var(--font-sans); font-size: 28px; color: #222; text-align: center; line-height: 40px; }
 .wrap_bg2 .slide_title dd { padding-bottom: 30px;}
 
-
-/* 각 섹션 스타일 height 풀로 잡을 경우 활성화!! */
-/* .wrap_bg1, .wrap_bg2, .wrap_bg3, .wrap_class, .wrap_bg4_01, .wrap_bg4_02, .wrap_bg4_03, .wrap_bg5 { min-height: 100vh;  } */
-/* 각 섹션을 화면 전체 높이로 설정 margin-top: 60px; 네비게이션 높이만큼 여백 추가  */
 
 
 /*************** 특장점 ***************/
@@ -221,19 +227,17 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
 .container { width: 1300px; margin: 0 auto; } 
 
 
-
 /*************** AI기능 ***************/
 .wrap_bg3 { width: 100%; min-height: 100vh; background: url('../img/bg_02.png') no-repeat center 0; background-size: cover; padding: 130px 0 50px; } 
 
 
-
 /*************** 수업 구성 ***************/
 .wrap_class { width: 100%; }
-.wrap_bg4_01 { width: 100%; background-color: #edfbf7; padding: 130px 0 0; } 
-.wrap_bg4_02 { width: 100%; background-color: #edf6ff; padding: 130px 0 0; } 
-.wrap_bg4_03 { width: 100%; background-color: #eeefff; padding: 130px 0 0; } 
+.wrap_bg4_01 { width: 100%; background-color: #edfbf7; padding: 130px 0 30px; } 
+.wrap_bg4_02 { width: 100%; background-color: #edf6ff; padding: 130px 0 30px; } 
+.wrap_bg4_03 { width: 100%; background-color: #eeefff; padding: 130px 0 30px; } 
 .class_flow { display: flex; flex-direction: row; align-items: center; gap: 30px; justify-content: center;}
-.class_flow li { width: fit-content; padding: 10px 40px; font-size: 24px; font-weight: 500; border: solid 1px; border-radius: 15px; color: #fff; }
+.class_flow li { display: flex; align-items: center; justify-content: center; width: fit-content; font-family: var(--font-sans); padding: 10px 40px; font-size: 24px; font-weight: 500; border: solid 1px; border-radius: 15px; color: #fff; }
 .class_flow li.before { border-color: #00a3a5; color: #73c1c2; background-color: #fff;}
 .class_flow li.ing { border-color: #006ed4; color: #73a1e1; background-color: #fff;}
 .class_flow li.after { border-color: #de009d; color: #e873bd; background-color: #fff;}
@@ -258,8 +262,8 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
 
 .staff { display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; justify-content: space-around; align-items: center;}
 .box { width: 310px; height: 125px; text-align: center; background-color: #fff; border-radius: 30px; display: flex; flex-direction: column; align-items: center;}
-.box dt { display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 30px; text-align: center; padding: 20px 0; }
-.box dd { display: block; font-size: 20px; text-align: center;}
+.box dt { font-family: var(--font-sans); display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 30px; text-align: center; padding: 20px 0; }
+.box dd { font-family: var(--font-sans); display: block; font-size: 20px; text-align: center;}
 
 .box dt.name_01 { color: #9200c8; }
 .box dt.name_02 { color: #006ed4; }
@@ -274,13 +278,15 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
 
 .foot_logo { display: block; width: 176px; height: 54px; background: url('../img/logo_foot.png') no-repeat 0 0; text-indent: -9999px; font-size: 0;}
 .foot_info { display: block; color: #fff; font-size: 36px; padding-top: 10px; }
+.foot_info a { color: #fff !important; }
 .foot_info strong { font-weight: 700;}
 
 .foot_sns { display: flex; flex-direction: column; gap: 18px; }
-.foot_sns li a { display: block; width: 300px; height: 40px; border-radius: 15px; text-align: center; line-height: 40px; font-size: 20px; font-weight: 500;}
+.foot_sns li a { display: flex; align-items: center; justify-content: center; width: 300px; height: 40px; border-radius: 15px; text-align: center; font-size: 20px; font-weight: 500; font-family: var(--font-sans);}
 .cmass_ch a { background-color: #fddb00; color: #020303; }
 .cmass_ch img { display: inline-block; vertical-align: middle; padding-right: 10px;}
 .aidt_advice a { background-color: #de009d; color: #fff; }
+.aidt_market a { background: linear-gradient(to right, #4d58eb, #6718cd); color: #fff; }
 
 
 /* 패드 가로 모드 (1025px 이상 ~ 1366px 이하) */
@@ -292,10 +298,13 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
   .cont_top { width: 95%; }
   .lnb { width: 100%; }
   .top_bg1 { width: 100%; padding: 0 0 5vw; } 
-  .book_title { gap: 10px; }
+  .book_title { gap: 22px; }
   .slider_wrap { width: 100%;  } 
   .container { width: 95%;  } 
-  .book_btn li a { width: 21.54vw; height: 4.23vw; font-size: 2vw; line-height: 4.23vw; }
+  .info_book { padding-top: 4vw; }
+  .book_title img { width: 21.5vw; }
+  .book_btn li a { width: 21.54vw; height: 4.23vw; font-size: 2vw;  }
+  .book_btn2 a { width: 21.54vw; height: 4.23vw; font-size: 2vw; }
   .box { width: 21vw; height: 10.5vw; border-radius: 20px; }
 
   /*************** 슬라이드 ***************/
@@ -338,14 +347,15 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
   .btn_menu { width: 33vw; height: 9.3vw; font-size: 3.52vw; } 
 
   .info_book { width: 100%; padding-top: 6.84vw;}
-  .book_title { justify-content: center;}
-  .book_title img { width: 33vw; }
+  .book_title { justify-content: center; gap: 22px;}
+  .book_title img { width: 35vw; }
   .txt_01 { font-size: 4.88vw; }
-  .txt_02 { font-size: 14.62vw; }
+  .txt_02 { font-size: 11vw; }
   .txt_03 { font-size: 4.3vw;  }
 
   .book_btn { justify-content: center;}
-  .book_btn li a { width: 35vw; height: 8.2vw; font-size: 3.5vw; line-height: 8.2vw;}
+  .book_btn li a { width: 35vw; height: 8.2vw; font-size: 3.5vw; }
+  .book_btn2 a { width: 35vw; height: 8.2vw; font-size: 3.5vw; }
 
 
 
@@ -370,9 +380,9 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
 
   /*************** 수업 구성 ***************/
   .wrap_class { width: 100%; }
-  .wrap_bg4_01 { width: 100%; padding: 12vw 0 0; } 
-  .wrap_bg4_02 { width: 100%; padding: 12vw 0 0; } 
-  .wrap_bg4_03 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_01 { width: 100%; padding: 12vw 0 2vw; } 
+  .wrap_bg4_02 { width: 100%; padding: 12vw 0 2vw; } 
+  .wrap_bg4_03 { width: 100%; padding: 12vw 0 2vw; } 
   .class_flow { gap: 20px; }
   .class_flow li { padding: 0.98vw 4.88vw; font-size: 3.13vw;}
   
@@ -389,7 +399,7 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
 
   /*************** footer ***************/
   .wrap_foot { padding: 8vw 0; } 
-  .foot_align { width: 80%; margin: 0 auto;}
+  .foot_align { width: 90%; margin: 0 auto;}
   .foot_logo { width: 17.19vw; height: 5.27vw; background-size: contain;}
   .foot_info { font-size: 3.52vw; }
   .foot_sns { gap: 10px; }
@@ -403,7 +413,7 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
   header { height: 24vw; flex-direction: column; }
   .cont_top { display: flex; flex-direction: column; width: 100%; margin: 0 auto; }
   .logo { width: 100%; border-bottom: solid 1px #ddd; height: 12vw; background-size: 40% auto; background-position: center center;}
-  .gnb { width: 100%; gap: 13vw; height: 12vw; justify-content: space-around;}
+  .gnb { width: 100%; gap: 0 !important; height: 12vw; justify-content: space-around;}
   .gnb li a { font-size: 5vw; font-weight: 600;}
 
   .lnb { width: 100%; height: 13vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
@@ -413,28 +423,29 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
 
   /*************** 체험관 ***************/
   .wrap_bg1 { background: url('../img/bg_01_t.png') no-repeat center 0; background-size: cover; }
-  h1 { width: 81.05vw; height: 22.07vw; background-size: contain; margin: 0 auto; }
+  h1 { width: 100%; height: 22.07vw; background-size: contain; margin: 0 auto; }
   .top_bg1 { width: 100%; padding: 0 0 7vw; }
   
   .info_wrap { display: flex; flex-direction: column; justify-content: space-between; }
   .info_class { width: 100%; padding-top: 0; }
-  .info_class h2 { font-size: 3.91vw; line-height: 5.86vw; padding-bottom: 1.95vw;}
-  .info_class h2 span { font-size: 2.93vw;}
+  .info_class h2 { font-size: 4vw; line-height: 5.86vw; padding-bottom: 1.95vw;}
+  .info_class h2 span { font-size: 3.5vw;}
 
   .btn_wrap { margin: 2.5vw auto 0; }
   .btn_class { padding-bottom: 5px; font-size: 4.5vw;}
-  .btn_menu { width: 37vw; height: 11.25vw; font-size: 4vw; box-shadow: 0px 3px #222; } 
+  .btn_menu { width: 37vw; height: 11.25vw; font-size: 4.5vw; box-shadow: 0px 3px #222; } 
   .dot { font-size: 6vw; letter-spacing: -13px; text-indent: -7px; }
 
   .info_book { width: 100%; padding-top: 6.84vw;}
-  .book_title { justify-content: center;}
-  .book_title img { width: 33vw; }
+  .book_title { justify-content: center; gap: 10px; }
+  .book_title img { width: 42vw; }
   .txt_01 { font-size: 4.88vw; }
   .txt_02 { font-size: 14.62vw; }
   .txt_03 { font-size: 4.3vw;  }
 
-  .book_btn { justify-content: center;}
-  .book_btn li a { width: 39vw; height: 9.3vw; font-size: 4.52vw; line-height: 8vw; }
+  .book_btn { justify-content: center; gap: 10px; padding-top: 5px;}
+  .book_btn li a { width: 39vw; height: 9.3vw; font-size: 4.52vw; border: solid 1px; }
+  .book_btn2 a { width: 39vw; height: 9.3vw; font-size: 4.52vw; border: solid 1px; }
 
 
   /*************** 슬라이드 ***************/
@@ -446,21 +457,21 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
   .indicator { width: 10px; height: 10px; } 
   .indicator.current { width: 20px; }
 
-  .slide_title dt { font-size: 7vw; padding-bottom: 5vw;}
+  .slide_title dt { font-size: 6vw; padding-bottom: 4vw;}
   .slide_title dd { font-size: 4vw; line-height: 7vw; padding-bottom: 5vw;}
   .step { padding-bottom: 3vw;}
 
   /*************** 특장점 ***************/
-  .wrap_bg2 { padding: 5vw 0 1vw; min-height: auto; } 
+  .wrap_bg2 { padding: 13vw 0 2vw; min-height: auto; } 
 
   /*************** AI기능 ***************/
-  .wrap_bg3 { min-height: auto;  background: url('../img/bg_02_t.png') no-repeat center bottom; padding: 5vw 0 1vw; background-size: cover; } 
+  .wrap_bg3 { min-height: auto; background: url('../img/bg_02_t.png') no-repeat center bottom; padding: 13vw 0 2vw; background-size: cover; } 
 
   /*************** 수업 구성 ***************/
   .wrap_class { width: 100%; }
-  .wrap_bg4_01 { width: 100%; padding: 12vw 0 0; } 
-  .wrap_bg4_02 { width: 100%; padding: 12vw 0 0; } 
-  .wrap_bg4_03 { width: 100%; padding: 12vw 0 0; } 
+  .wrap_bg4_01 { width: 100%; padding: 18vw 0 2vw; } 
+  .wrap_bg4_02 { width: 100%; padding: 18vw 0 2vw; } 
+  .wrap_bg4_03 { width: 100%; padding: 18vw 0 2vw; } 
   .class_flow { gap: 10px; }
   .class_flow li { padding: 1vw 4vw; font-size: 4vw; border: solid 1px; border-radius: 8px;  }
   
@@ -481,7 +492,7 @@ h1 { width: 978px; height: 230px; background: url('../img/h1.png') no-repeat cen
   .foot_logo { width: 50vw; background-position: center; background-size: contain;}
   .foot_info { font-size: 5vw; }
   .foot_sns { gap: 10px; padding-top: 10px; }
-  .foot_sns li a { width: 50vw; height: 5.91vw; line-height: 5.91vw; font-size: 3.33vw; border-radius: 10px;}
+  .foot_sns li a { width: 50vw; height: 7vw; font-size: 3.33vw; border-radius: 7px;}
   .cmass_ch img { width: 4.9vw; padding-right: 5px;}
  }
 
