@@ -673,5 +673,37 @@
 
   <script src="js/script3.js"></script>
   <script src="js/slider.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 체험하기 버튼을 감싼 링크를 직접 선택
+      const trialLinks = document.querySelectorAll(".btns a");
+  
+      // '폰' 판별: 터치 + 좁은 화면(뷰포트 기준) 우선, UA는 보조
+      const isPhone = () => {
+        const mm = window.matchMedia("(pointer: coarse) and (max-width: 767px)");
+        const ua = navigator.userAgent || "";
+        const uaPhone = /Mobi|Android|iPhone|iPod/i.test(ua); // 태블릿 제외
+        return mm.matches || uaPhone;
+      };
+  
+      function handleClick(e) {
+        if (isPhone()) {
+          e.preventDefault();
+          e.stopPropagation();
+          // 혹시 다른 리스너가 있어도 네비게이션 못 하게 더 강하게 차단
+          if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+          alert("pc와 태블릿 환경에서만 체험이 가능합니다.");
+          return false;
+        }
+        // 폰이 아니면(PC/태블릿) 정상 이동
+      }
+  
+      trialLinks.forEach((a) => {
+        a.addEventListener("click", handleClick, { passive: false });
+      });
+    });
+  </script>
+  
+  
 </body> 
 </html>
