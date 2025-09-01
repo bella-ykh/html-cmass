@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>씨마스 AI 교육자료 중학 정보</title>
-    <link rel="stylesheet" href="css/aidt_m.css?v=20250828">
+    <link rel="stylesheet" href="css/aidt_m.css?v=20250829">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 
     <!--카카오톡 공유 썸네일-->
@@ -21,7 +21,7 @@
 <body>
   <header id="home">
     <div class="cont_top">
-      <div class="logo">씨마스 AI 교육자료</div>
+      <div class="logo"><a href="../intro/intro.shtml"><img src="img/logo.png" alt=""></a></div>
       <ul class="gnb">
         <li><a href="../aidt_e/view_aidt_e.html">초등 정보</a></li>
         <li><a href="../aidt_m/view_aidt_m.html" class="current">중학 정보</a></li>
@@ -687,24 +687,41 @@
   </footer>
 
   <script src="js/script3.js"></script>
-  <script src="js/slider.js" defer></script>
+  <!-- <script src="js/slider.js" defer></script> -->
+  <!-- <script src="js/slider.fixed.js?v=20250829" defer></script> -->
+  <script src="js/slider.iosfix.v2.js?v=20250829" defer></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const buttons = document.querySelectorAll(".btn_menu");
+      // 체험하기 버튼을 감싼 링크를 직접 선택
+      const trialLinks = document.querySelectorAll(".btns a");
   
-      buttons.forEach(function (btn) {
-        btn.addEventListener("click", function (event) {
-          // 모바일 기기 체크 (viewport width 또는 userAgent 기반)
-          const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      // '폰' 판별: 터치 + 좁은 화면(뷰포트 기준) 우선, UA는 보조
+      const isPhone = () => {
+        const mm = window.matchMedia("(pointer: coarse) and (max-width: 767px)");
+        const ua = navigator.userAgent || "";
+        const uaPhone = /Mobi|Android|iPhone|iPod/i.test(ua); // 태블릿 제외
+        return mm.matches || uaPhone;
+      };
   
-          if (isMobile) {
-            event.preventDefault(); // 링크 이동 차단
-            alert("pc와 태블릿 환경에서만 체험이 가능합니다.");
-          }
-        });
+      function handleClick(e) {
+        if (isPhone()) {
+          e.preventDefault();
+          e.stopPropagation();
+          // 혹시 다른 리스너가 있어도 네비게이션 못 하게 더 강하게 차단
+          if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+          alert("PC와 태블릿 환경에서만 체험이 가능합니다.");
+          return false;
+        }
+        // 폰이 아니면(PC/태블릿) 정상 이동
+      }
+  
+      trialLinks.forEach((a) => {
+        a.addEventListener("click", handleClick, { passive: false });
       });
     });
   </script>
+  
   
 </body> 
 </html>

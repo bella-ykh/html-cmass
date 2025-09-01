@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>씨마스 AI 교육자료 고등 정보</title>
-    <link rel="stylesheet" href="css/aidt_h.css?v=20250828">
+    <link rel="stylesheet" href="css/aidt_h.css?v=20250829">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 
     <!--카카오톡 공유 썸네일-->
@@ -21,7 +21,7 @@
 <body>
   <header id="home">
     <div class="cont_top">
-      <div class="logo">씨마스 AI 교육자료</div>
+      <div class="logo"><a href="../intro/intro.shtml"><img src="img/logo.png" alt=""></a></div>
       <ul class="gnb">
         <li><a href="../aidt_e/view_aidt_e.html">초등 정보</a></li>
         <li><a href="../aidt_m/view_aidt_m.html">중학 정보</a></li>
@@ -74,6 +74,11 @@
           <dl class="book_title">
             <dt><img src="img/book.png" alt="고등학교 정보"></dt>
             <dd>
+              <span class="btn_share">
+                <a href="javascript:void(0)" onclick="copyPageUrl()">
+                  <img src="img/ico_share.png" alt="링크 복사하기">
+                </a>
+              </span>
               <span class="txt_01">고등학교</span>
               <span class="txt_02">정보</span>
               <span class="txt_03">(강신천)</span>
@@ -82,6 +87,29 @@
               </div>
             </dd>
           </dl>
+          <!-- 토스트 메시지 영역 -->
+          <div id="toast">해당 화면의 url이 복사되었습니다.</div>
+
+          <script>
+            function copyPageUrl() {
+              const pageUrl = window.location.href;
+          
+              navigator.clipboard.writeText(pageUrl).then(() => {
+                showToast();
+              }).catch(err => {
+                console.error("URL 복사 실패:", err);
+              });
+            }
+          
+            function showToast() {
+              const toast = document.getElementById("toast");
+              toast.className = "show";
+              setTimeout(() => {
+                toast.className = toast.className.replace("show", "");
+              }, 2000); // 2초 후 사라짐
+            }
+          </script>
+
           <ul class="book_btn">
             <li><a href="files/(고등) AI 교육자료 브로슈어.pdf" download>브로슈어</a></li>
             <li><a href="files/고등 정보 AI 활용 가이드.pdf" download>활용 가이드</a></li>
@@ -672,7 +700,8 @@
   </footer>
 
   <script src="js/script3.js"></script>
-  <script src="js/slider.js" defer></script>
+  <!-- <script src="js/slider.js" defer></script> -->
+  <script src="js/slider.iosfix.v2.js?v=20250829" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // 체험하기 버튼을 감싼 링크를 직접 선택
@@ -692,7 +721,7 @@
           e.stopPropagation();
           // 혹시 다른 리스너가 있어도 네비게이션 못 하게 더 강하게 차단
           if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-          alert("pc와 태블릿 환경에서만 체험이 가능합니다.");
+          alert("PC와 태블릿 환경에서만 체험이 가능합니다.");
           return false;
         }
         // 폰이 아니면(PC/태블릿) 정상 이동

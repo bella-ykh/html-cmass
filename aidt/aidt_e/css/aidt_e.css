@@ -86,14 +86,13 @@ body {
 /*************** gnb ***************/
 header { height: 100px; display: flex; align-items: center; } 
 .cont_top { width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; }
-.logo {  width: 335px; height: 36px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;}
+/* .logo {  width: 335px; height: 36px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;} */
 .gnb { display: flex; flex-direction: row; align-items: center; gap: 135px; }
 .gnb li a { color: #222; font-size: 24px; font-family: var(--font-sans); font-weight: 500; transition: all 0.3s ease; }
 .gnb li a:hover { color: #cd008c; }
 .gnb li a:focus,
 .gnb li a:active { color: #cd008c;} 
 .gnb li a.current { color: #cd008c; }
-
 
 
 /*************** lnb ***************/
@@ -109,15 +108,10 @@ header { height: 100px; display: flex; align-items: center; }
   z-index: 1000;
   transition: box-shadow .2s ease; /* 고정 느낌만 살짝 */
 }
-
-
 .lnb ul { display: flex; flex-direction: row; justify-content: space-around; align-items: center; }
 .lnb ul li { position: relative;  }
-.lnb ul li a { height: 80px; display: inline-block; width: fit-content; font-family: Paperlogy-4Regular; font-size: 30px; 
-    line-height: 80px; color: #8e7bb8; transition: all 0.3s ease; }
+.lnb ul li a { height: 80px; display: flex; align-items: center; width: fit-content; font-family: Paperlogy-4Regular; font-size: 30px; color: #8e7bb8; transition: all 0.3s ease; }
 .lnb ul li a:hover { color: #fff; font-family: Paperlogy-7Bold; } 
-/* .lnb ul li a:focus,
-.lnb ul li a:active  */
 
 
 /* 기존 after 밑줄에 부드러운 애니메이션 */
@@ -193,7 +187,7 @@ h1 span { font-weight: normal; font-size: 20px; }
   font-family: var(--font-sans); border: 2px solid #fff; border-radius:8px; font-weight: 500; color: #fff; font-size: 24px; transition: all 0.3s ease; }
 .book_btn li a:hover {border: solid 3.5px #fff; font-size: 26px; font-weight: bold; }
 
-     
+.btn_share { border: solid 1px red; }
 
 /*************** 소개 ***************/
 .wrap_bg2 { width: 100%; min-height: 100vh; background-color: #ffe362; padding: 100px 0 150px; margin-top: -80px; } 
@@ -314,7 +308,7 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 .foot_info strong { font-weight: 700;}
 
 .foot_sns { display: flex; flex-direction: column; gap: 18px; }
-.foot_sns li a { display: block; width: 300px; height: 40px; border-radius: 15px; text-align: center; line-height: 40px; font-size: 20px; font-weight: 500;}
+.foot_sns li a { display: flex; align-items: center; justify-content: center; width: 300px; height: 40px; border-radius: 15px; text-align: center; line-height: 40px; font-size: 20px; font-weight: 500;}
 .cmass_ch a { background-color: #fddb00; color: #020303; }
 .cmass_ch img { display: inline-block; vertical-align: middle; padding-right: 10px;}
 .aidt_advice a { background-color: #de009d; color: #fff; }
@@ -323,24 +317,37 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 
 /* 패드 가로 모드 (1025px 이상 ~ 1366px 이하) */
 @media (min-width: 1025px) and (max-width: 1366px) {
+  header { height: 80px; }
+  .logo img { width: 80%; }
   .cont_top { width: 95%; }
-  .lnb { width: 100%; }
-  .top_bg1 { width: 100%; background-size: contain; padding-bottom: 50px;} 
-  .main_img { width: 37vw; height: 36vw; background-size: 100%; }
+  .top_bg1 { width: 100%; background-size: contain; padding-bottom: 5vw;} 
+  .main_img { width: 42vw; height: 32vw; background-size: 80%; background-position: 0 0;}
   h1 { padding: 30px 0 10px; font-size: 2vw; }
   h1 span { font-size: 1.8vw;}
-  .btn_menu { width: 18vw; height: 5.3vw; font-size: 2vw; } 
+  .btn_class { font-size: 24px;}
+  .btn_menu {  width: 190px; height: 55px; font-size: 20px;  } 
   .book_btn { padding-top: 0; }
+  .book_btn li a { width: 18vw; height: 4.23vw; font-size: 20px; line-height: 4.23vw; }
+
+
+  .lnb { width: 100%; height: 65px; }
+  nav.lnb li a { height: 65px; font-size: 24px;}
+  nav.lnb li a::after { height: 7px; }
+  .wrap_bg2 { margin-top: -65px;}
+
 
   .top_bg2 { width: 100%; padding-top: 1vw; }
   h2 { font-size: 3.5vw; padding: 2.9vw 0; line-height: 5.5vw; }
+  #about h2 { padding: 2vw 0 5vw; } 
+
   .info_photo { width: 33%; }
   .info_photo dt strong { font-size: 2.7vw; }
   .info_photo dt img { width: 90%;}
   .info_photo dd { font-size: 2vw; line-height: 2.8vw;}
   .slider_wrap { width: 100%;  } 
   .container { width: 95%;  } 
-  .book_btn li a { width: 21.54vw; height: 4.23vw; font-size: 2vw; line-height: 4.23vw; }
+
+  
   .box { width: 21vw; height: 10.5vw; border-radius: 20px; }
   .tab { width: 20vw; height: 6.92vw; border-radius: 50px; font-size: 3.5vw; }
   .container { width: 100%; }
@@ -355,12 +362,12 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
 @media (max-width: 1024px){
   header { height: 9.77vw; }
   .cont_top { width: 95%; margin: 0 auto; }
-  .logo { width: 32.71vw; height: auto; background-size: contain;}
+  .logo img { width: 70%; }
   .gnb { gap: 7vw; }
   .gnb li a { font-size: 2.93vw; font-weight: 600;}
 
   .lnb { width: 100%; height: 7.81vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
-  .lnb ul li a { height: 7.81vw; line-height: 7.81vw; font-size: 3.2vw; }
+  .lnb ul li a { height: 7.81vw; font-size: 3.5vw; }
   nav.lnb li a::after { height: 0.8vw; }
   nav.lnb li.btn_down a { font-size: 2vw; line-height: 1rem; } 
 
@@ -474,12 +481,14 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     
   header { height: 24vw; flex-direction: column; }
   .cont_top { display: flex; flex-direction: column; width: 100%; margin: 0 auto; }
-  .logo { width: 100%; border-bottom: solid 1px #ddd; height: 12vw; background-size: 40% auto; background-position: center center;}
-  .gnb { width: 100%; gap: 13vw; height: 12vw; justify-content: space-around;}
-  .gnb li a { font-size: 5vw; font-weight: 600;}
+  .logo { width: 100%; border-bottom: solid 1px #ddd; height: 12vw; display: flex; align-items: center; justify-content: center;}
+  .logo a { width: 45%; margin: 0 auto; }
+  .logo img { width: 100%; }
+  .gnb { width: 100%; gap: 0 !important; height: 12vw; justify-content: space-around;}
+  .gnb li a { font-size: 4.5vw; font-weight: 600;}
 
-  .lnb { width: 100%; height: 13vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
-  .lnb ul li a { height: 13vw; line-height: 13vw; font-size: 4vw; }
+  .lnb { width: 100%; height: 12vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
+  .lnb ul li a { height: 12vw; font-size: 4vw; }
   nav.lnb li a::after { height: 1.35vw; }
 
   .btn_down .ico { margin-top: 5px; background-size: 5vw auto; padding-left: 25px; background-position: 0 3px; }
@@ -586,10 +595,11 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
   .master_name dd { font-size: 4vw; line-height: 6.5vw; padding-top: 0; }
 
   /*일반*/
-  .name_box { width: 38%; height: 22vw; border-radius: 15px; border: dashed 2px #3c1bcb; } 
+  .master_group { margin-top: 17px; }
+  .name_box { width: 38%; height: 18vw; border-radius: 15px; border: dashed 2px #3c1bcb; } 
   .staff_name dt { font-size: 4vw; gap: 5px; }
-  .staff_name dt strong { font-size: 5.8vw; }
-  .staff_name dd { font-size: 3.5vw; padding: 5px 8px; margin-top: 5px; }
+  .staff_name dt strong { font-size: 5vw; }
+  .staff_name dd { font-size: 3vw; padding: 2px 5px; margin-top: 5px; }
 
   
  
@@ -599,6 +609,6 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
   .foot_logo { width: 50vw; background-position: center; background-size: contain;}
   .foot_info { font-size: 5vw; }
   .foot_sns { gap: 10px; padding-top: 10px; }
-  .foot_sns li a { width: 50vw; height: 5.91vw; line-height: 5.91vw; font-size: 3.33vw; border-radius: 10px;}
+  .foot_sns li a { width: 50vw; height: 7vw; font-size: 3.33vw; border-radius: 7px;}
   .cmass_ch img { width: 4.9vw; padding-right: 5px;}
  }

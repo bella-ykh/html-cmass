@@ -50,7 +50,6 @@ body {
 }
 
 
-
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 @font-face {
     font-family: 'Paperlogy-8ExtraBold';
@@ -78,19 +77,16 @@ body {
   }
 
 
-
-
 /*************** gnb ***************/
 header { height: 100px; display: flex; align-items: center; } 
 .cont_top { width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; }
-.logo {  width: 335px; height: 36px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;}
+/* .logo {  width: 335px; height: 36px; background: url('../img/logo.png') no-repeat; text-indent: -9999px; font-size: 0;} */
 .gnb { display: flex; flex-direction: row; align-items: center; gap: 135px; }
 .gnb li a { color: #222; font-size: 24px; font-family: var(--font-sans); font-weight: 500; transition: all 0.3s ease; }
 .gnb li a:hover { color: #cd008c; }
 .gnb li a:focus,
 .gnb li a:active { color: #cd008c;} 
 .gnb li a.current { color: #cd008c; }
-
 
 
 /*************** lnb ***************/
@@ -106,14 +102,9 @@ header { height: 100px; display: flex; align-items: center; }
   z-index: 1000;
   transition: box-shadow .2s ease; /* 고정 느낌만 살짝 */
 }
-
-
-
-
 .lnb ul { display: flex; flex-direction: row; justify-content: space-around; align-items: center; }
 .lnb ul li { position: relative;  }
-.lnb ul li a { height: 80px; display: inline-block; width: fit-content; font-family: Paperlogy-4Regular; font-size: 30px; 
-    line-height: 80px; color: #8e7bb8; transition: all 0.3s ease; }
+.lnb ul li a { height: 80px; display: flex; align-items: center; width: fit-content; font-family: Paperlogy-4Regular; font-size: 30px; color: #8e7bb8; transition: all 0.3s ease; }
 .lnb ul li a:hover { color: #fff; font-family: Paperlogy-7Bold; } 
 
 
@@ -126,9 +117,10 @@ nav.lnb li a::after {
   transform: scaleY(0); transform-origin:bottom;
   transition: transform .2s ease;
 }
+
 /* 호버/포커스 시 표시
 nav.lnb li a:hover::after,
-nav.lnb li a:focus::after { transform: scaleX(1); } */
+nav.lnb li a:focus::after { transform: scaleX(1); }*/
 
 /* ✅ 활성(스크롤스파이 or 클릭 후 유지) */
 nav.lnb li a.is-active { color:#fff; font-family: Paperlogy-7Bold; }
@@ -193,6 +185,31 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
 .book_btn2 a { display: flex; align-items: center; justify-content: center; width: 280px; height: 55px; background-color: rgba(255, 255, 255, 0.6); 
   font-family: var(--font-sans); border: 2px solid #222; border-radius: 3px; font-weight: 600; color: #222; font-size: 24px; transition: all 0.3s ease; }
 .book_btn2 a:hover { color: #de009d; border-color: #cd008c; }
+/* 링크공유 아이콘 */
+.btn_share { display: inline-block; margin-bottom: 83px;}
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px 50px;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 100px;   /* 상단 위치 */
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.5s, top 0.5s;
+}
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  top: 50px;   /* 애니메이션으로 살짝 내려옴 */
+}
 
 
 /*************** 슬라이드 ***************/
@@ -246,9 +263,6 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
 .class_flow li.arrow_2 { border: 0; padding: 0; color: #c1e1ff; }
 .class_flow li.arrow_2_on { border: 0; padding: 0; color: #9107c8; }
 
-
-
-
 .step { padding-bottom: 40px;}
 
 /*************** 집필진 ***************/
@@ -258,7 +272,7 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
 .box_top dt span { display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 28px; color: #3a3a88; padding-bottom: 5px; }
 .box_top dd { display: block; font-size: 24px; text-align: center;}
 
-.staff { display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; justify-content: space-around; align-items: center;}
+.staff { display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; justify-content: flex-start; align-items: center;}
 .box { width: 310px; height: 125px; text-align: center; background-color: #fff; border-radius: 30px; display: flex; flex-direction: column; align-items: center;}
 .box dt { font-family: var(--font-sans); display: block; font-family: 'Paperlogy-8ExtraBold'; font-size: 30px; text-align: center; padding: 20px 0; }
 .box dd { font-family: var(--font-sans); display: block; font-size: 20px; text-align: center;}
@@ -289,32 +303,52 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
 
 /* 패드 가로 모드 (1025px 이상 ~ 1366px 이하) */
 @media (min-width: 1025px) and (max-width: 1366px) {
+  header { height: 80px; }
+  .logo img { width: 80%; }
+  .top_bg1 { width: 100%; padding: 0 0 5vw; } 
+  h1 { width: 70vw; height: 12vw; background-size: 80% auto; margin-bottom: 0;}
+  .info_class h2 { font-size: 20px; padding-bottom: 0;}
+  .info_class h2 span { font-size: 20px; }
   .info_wrap { width: 98%; margin: 0 auto;}
-  h1 { background-size: 90% auto;}
+  /* .btn_wrap { margin-top: 15px; } */
+  .btn_menu { width: 180px; height: 55px; font-size: 20px; } 
+  .btn_class { font-size: 20px;}
+  .book_title { gap: 12px; }
+  .book_title dt { width: 18vw; text-align: center; }
+  .book_title img { width: 90%;  }
+  .txt_01 { font-size: 30px; }
+  .txt_02 { font-size:70px; }
+  .txt_03 { font-size: 20px; padding-left: 3px; }
+  .info_book { padding-top: 3vw; padding-left: 3vw; }
+  .book_btn li a { width: 17vw; height: 3.8vw; font-size: 20px;  }
+  .book_btn2 a { width: 17vw; height: 3.8vw; font-size: 20px; }
+  /* 링크공유 아이콘 */
+.btn_share { margin-bottom: 0;}
+.btn_share img { width: 80%; }
+
+  .lnb { width: 100%; height: 65px; }
+  nav.lnb li a { height: 65px; font-size: 24px;}
+  nav.lnb li a::after { height: 7px; }
+
   .wrap_bg2 { padding: 5vw 0 3vw; }
   .wrap_bg3 { padding: 5vw 0 3vw; }
+  .wrap_bg4_01,.wrap_bg4_02,.wrap_bg4_03 { padding: 8vw 0 3vw; }
   .cont_top { width: 95%; }
-  .lnb { width: 100%; }
-  .top_bg1 { width: 100%; padding: 0 0 5vw; } 
-  .book_title { gap: 22px; }
-  .slider_wrap { width: 100%;  } 
   .container { width: 95%;  } 
-  .info_book { padding-top: 4vw; }
-  .book_title img { width: 21.5vw; }
-  .book_btn li a { width: 21.54vw; height: 4.23vw; font-size: 2vw;  }
-  .book_btn2 a { width: 21.54vw; height: 4.23vw; font-size: 2vw; }
+  
+  .class_flow li { font-size: 20px; padding: 8px 25px; }
   .box { width: 21vw; height: 10.5vw; border-radius: 20px; }
 
   /*************** 슬라이드 ***************/
   .slider_wrap { width: 95%; margin: 0 auto; } 
-  .slide img { width: 90%; }
-  .slide .step img { width: 25%; }
+  .slide img { width: 75%; }
+  .slide .step img { width: 20%; }
   .navigation { top: 92%;}
   .nav-button img { width:70%; }
   .indicator { width: 15px; height: 15px; } 
   .indicator.current { width: 30px; }
 
-  .slide_title dt { font-size: 4.5vw; padding-bottom: 2vw;}
+  .slide_title dt { font-size: 4vw; padding-bottom: 2vw;}
   .slide_title dd { font-size: 2vw; line-height: 3vw; }
   .wrap_bg2 .slide_title dd { padding-bottom: 3vw;}
 }
@@ -323,12 +357,12 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
 @media (max-width: 1024px){
   header { height: 9.77vw; }
   .cont_top { width: 95%; margin: 0 auto; }
-  .logo { width: 32.71vw; height: auto; background-size: contain;}
+  .logo img { width: 70%; }
   .gnb { gap: 7vw; }
   .gnb li a { font-size: 2.93vw; font-weight: 600;}
 
   .lnb { width: 100%; height: 7.81vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
-  .lnb ul li a { height: 7.81vw; line-height: 7.81vw; font-size: 3.52vw; }
+  .lnb ul li a { height: 7.81vw; font-size: 3.5vw; }
   nav.lnb li a::after { height: 0.8vw; }
   .container { width: 100%; }
 
@@ -355,7 +389,9 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
   .book_btn li a { width: 35vw; height: 8.2vw; font-size: 3.5vw; }
   .book_btn2 a { width: 35vw; height: 8.2vw; font-size: 3.5vw; }
 
-
+/* 링크공유 아이콘 */
+.btn_share { margin-bottom: 0;}
+.btn_share img { width: 80%; }
 
   /*************** 슬라이드 ***************/
   .slider_wrap { width: 95%; } 
@@ -410,12 +446,14 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
 @media (max-width: 600px){
   header { height: 24vw; flex-direction: column; }
   .cont_top { display: flex; flex-direction: column; width: 100%; margin: 0 auto; }
-  .logo { width: 100%; border-bottom: solid 1px #ddd; height: 12vw; background-size: 40% auto; background-position: center center;}
+  .logo { width: 100%; border-bottom: solid 1px #ddd; height: 12vw; display: flex; align-items: center; justify-content: center;}
+  .logo a { width: 45%; margin: 0 auto; }
+  .logo img { width: 100%; }
   .gnb { width: 100%; gap: 0 !important; height: 12vw; justify-content: space-around;}
-  .gnb li a { font-size: 5vw; font-weight: 600;}
+  .gnb li a { font-size: 4.5vw; font-weight: 600;}
 
-  .lnb { width: 100%; height: 13vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
-  .lnb ul li a { height: 13vw; line-height: 13vw; font-size: 4vw; }
+  .lnb { width: 100%; height: 12vw; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;}
+  .lnb ul li a { height: 12vw; font-size: 4vw; }
   nav.lnb li a::after { height: 1.35vw; }
   .container { width: 100%; }
 
@@ -431,20 +469,24 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
 
   .btn_wrap { margin: 2.5vw auto 0; }
   .btn_class { padding-bottom: 5px; font-size: 4.5vw;}
-  .btn_menu { width: 37vw; height: 11.25vw; font-size: 4.5vw; box-shadow: 0px 3px #222; } 
+  .btn_menu { width: 37vw; height: 11.25vw; font-size: 3.8vw; box-shadow: 0px 3px #222; } 
   .dot { font-size: 6vw; letter-spacing: -13px; text-indent: -7px; }
 
   .info_book { width: 100%; padding-top: 6.84vw;}
   .book_title { justify-content: center; gap: 10px; }
-  .book_title img { width: 42vw; }
+  .book_title img { width: 40vw; }
   .txt_01 { font-size: 4.88vw; }
-  .txt_02 { font-size: 14.62vw; }
-  .txt_03 { font-size: 4.3vw;  }
+  .txt_02 { font-size: 13.62vw; }
+  .txt_03 { font-size: 4vw;  }
 
   .book_btn { justify-content: center; gap: 10px; padding-top: 5px;}
   .book_btn li a { width: 39vw; height: 9.3vw; font-size: 4.52vw; border: solid 1px; }
   .book_btn2 a { width: 39vw; height: 9.3vw; font-size: 4.52vw; border: solid 1px; }
   
+
+  /* 링크공유 아이콘 */
+.btn_share { margin-bottom: 0;}
+.btn_share img { width: 60%; }
 
   /*************** 슬라이드 ***************/
   .slider_wrap { width: 95%; padding: 5vw 0; } 
@@ -475,10 +517,10 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
   
   /*************** 집필진 ***************/
   .wrap_bg5 { background: url('../img/bg_03_t.png') no-repeat center bottom; padding: 10vw 0; background-size: cover; } 
-  .box_top { width: 45vw; height: 30vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
+  .box_top { width: 43vw; height: 30vw; padding: 10px; border-radius: 20px; margin: 30px auto; }
   .box_top dt { font-size: 6.67vw; }
   .box_top dt span { font-size: 5vw; }
-  .box_top dd { font-size: 4vw; }
+  .box_top dd { font-size: 3.5vw; }
   .staff { width: 90%; margin: 0 auto; gap: 1.95vw; justify-content: flex-start;}
   .box { width: 21vw; height: 11.72vw; border-radius: 10px; }
   .box dt { font-size: 4vw; padding: 1vw 0; }
