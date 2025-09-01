@@ -74,6 +74,11 @@
           <dl class="book_title">
             <dt><img src="img/book.png" alt="중학교 정보"></dt>
             <dd>
+              <span class="btn_share">
+                <a href="javascript:void(0)" onclick="copyPageUrl()">
+                  <img src="img/ico_share.png" alt="링크 복사하기">
+                </a>
+              </span>
               <span class="txt_01">중학교</span>
               <span class="txt_02">정보</span>
               <span class="txt_03">(서태원)</span>
@@ -82,6 +87,29 @@
               </div>
             </dd>
           </dl>
+
+          <!-- 토스트 메시지 영역 -->
+          <div id="toast">해당 화면의 url이 복사되었습니다.</div>
+
+          <script>
+            function copyPageUrl() {
+              const pageUrl = window.location.href;
+          
+              navigator.clipboard.writeText(pageUrl).then(() => {
+                showToast();
+              }).catch(err => {
+                console.error("URL 복사 실패:", err);
+              });
+            }
+          
+            function showToast() {
+              const toast = document.getElementById("toast");
+              toast.className = "show";
+              setTimeout(() => {
+                toast.className = toast.className.replace("show", "");
+              }, 2000); // 2초 후 사라짐
+            }
+          </script>
           
           <ul class="book_btn">
             <li><a href="files/(중등) AI 교육자료 브로슈어.pdf" download>브로슈어</a></li>

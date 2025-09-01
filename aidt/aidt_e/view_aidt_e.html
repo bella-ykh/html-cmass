@@ -75,8 +75,35 @@
             <li><a href="files/초등 정보 AI 교육자료 사용설명서(교사용).pdf" download>선생님 매뉴얼</a></li>
             <li><a href="files/초등 정보 AI 교육자료 사용설명서(학생용).pdf" download>학생용 매뉴얼</a></li>
             <li><a href="files/초등 정보 AI 교육자료 활용 가이드북.pdf" download>활용 가이드</a></li>
-            <!-- <li><a href="">선정사유서</a></li> -->
+            <li class="btn_share">
+              <a href="javascript:void(0)" onclick="copyPageUrl()">
+                <img src="img/ico_share.png" alt="링크 복사하기">
+              </a>
+            </li>
           </ul>
+
+          <!-- 토스트 메시지 영역 -->
+          <div id="toast">해당 화면의 url이 복사되었습니다.</div>
+
+          <script>
+            function copyPageUrl() {
+              const pageUrl = window.location.href;
+          
+              navigator.clipboard.writeText(pageUrl).then(() => {
+                showToast();
+              }).catch(err => {
+                console.error("URL 복사 실패:", err);
+              });
+            }
+          
+            function showToast() {
+              const toast = document.getElementById("toast");
+              toast.className = "show";
+              setTimeout(() => {
+                toast.className = toast.className.replace("show", "");
+              }, 2000); // 2초 후 사라짐
+            }
+          </script>
         </div>
       </div>
     </div>

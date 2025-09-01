@@ -325,6 +325,7 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
   /* 링크공유 아이콘 */
 .btn_share { margin-bottom: 0;}
 .btn_share img { width: 80%; }
+#toast { font-size: 18px;}
 
 
   .lnb { width: 100%; height: 65px; }
@@ -393,7 +394,7 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
 /* 링크공유 아이콘 */
 .btn_share { margin-bottom: 0;}
 .btn_share img { width: 80%; }
-#toast { font-size: 3vw; }
+#toast { font-size: 2.5vw; }
 
   /*************** 슬라이드 ***************/
   .slider_wrap { width: 95%; } 
