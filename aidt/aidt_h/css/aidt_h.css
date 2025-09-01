@@ -326,6 +326,7 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
 .btn_share { margin-bottom: 0;}
 .btn_share img { width: 80%; }
 
+
   .lnb { width: 100%; height: 65px; }
   nav.lnb li a { height: 65px; font-size: 24px;}
   nav.lnb li a::after { height: 7px; }
@@ -392,6 +393,7 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
 /* 링크공유 아이콘 */
 .btn_share { margin-bottom: 0;}
 .btn_share img { width: 80%; }
+#toast { font-size: 3vw; }
 
   /*************** 슬라이드 ***************/
   .slider_wrap { width: 95%; } 
@@ -487,6 +489,7 @@ h1 { width: 997px; height: 254px; background: url('../img/h1.png') no-repeat cen
   /* 링크공유 아이콘 */
 .btn_share { margin-bottom: 0;}
 .btn_share img { width: 60%; }
+#toast { font-size: 3vw; padding: 3vw 5vw; }
 
   /*************** 슬라이드 ***************/
   .slider_wrap { width: 95%; padding: 5vw 0; } 
