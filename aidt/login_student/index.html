@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>씨마스 AIDT 교육자료 정보</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>씨마스 AIDT 교육자료 정보</h1>
+        <div class="subtitle">고창중 테스트 / 학생 로그인</div>
+
+        <div class="section">
+            <div class="section-title">반 선택</div>
+            <div class="class-buttons">
+                <button class="class-btn" data-class="1">1반</button>
+                <button class="class-btn" data-class="2">2반</button>
+                <button class="class-btn" data-class="3">3반</button>
+                <button class="class-btn" data-class="4">4반</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">학생 선택</div>
+            <div class="student-buttons" id="studentButtons"></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">비밀번호 (생년월일 6자리)</div>
+            <input type="password" class="password-input" id="passwordInput" placeholder="예: 090315" maxlength="6">
+        </div>
+
+        <button class="login-btn" id="loginBtn">로그인</button>
+    </div>
+
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <div class="modal-text">개인정보를 확인해서<br>다시 로그인 해주세요</div>
+            <button class="modal-btn" id="modalCloseBtn">확인</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
