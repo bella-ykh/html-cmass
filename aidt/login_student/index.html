@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>씨마스 AIDT 교육자료 정보</h1>
-        <div class="subtitle">고창중 테스트 / 학생 로그인</div>
+        <div class="subtitle">고창중학교 테스트</div>
 
         <div class="section">
             <div class="section-title">반 선택</div>
@@ -31,7 +31,7 @@
             <input type="password" class="password-input" id="passwordInput" placeholder="예: 090315" maxlength="6">
         </div>
 
-        <button class="login-btn" id="loginBtn">로그인</button>
+        <button class="login-btn" id="loginBtn">들어가기</button>
     </div>
 
     <div class="modal" id="errorModal">
@@ -41,6 +41,30 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Firebase SDK -->
+    <script type="module">
+        // ⚠️ 여기에 Firebase Console에서 복사한 설정을 붙여넣으세요
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAGaol1ChU3j2u7eeFJe2ZjaQuFfhyDuO",
+            authDomain: "aidt-login.firebaseapp.com",
+            projectId: "aidt-login",
+            storageBucket: "aidt-login.firestorage.app",
+            messagingSenderId: "731876476557",
+            appId: "1:731876476557:web:0+ES17GFF4lR"
+        };
+
+        // Firebase 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // db를 전역으로 설정하여 script.js에서 사용 가능하게 함
+        window.firebaseDB = db;
+    </script>
+
+    <!-- 메인 스크립트 -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
-let studentData = {};
+import { collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
 let selectedClass = null;
-let selectedStudent = null;
+let selectedStudentData = null;
+let classStudentsCache = {}; // 반별 학생 데이터 캐싱
 
 const classButtons = document.querySelectorAll('.class-btn');
 const studentButtonsContainer = document.getElementById('studentButtons');
@@ -8,18 +10,6 @@ const passwordInput = document.getElementById('passwordInput');
 const loginBtn = document.getElementById('loginBtn');
 const errorModal = document.getElementById('errorModal');
 const modalCloseBtn = document.getElementById('modalCloseBtn');
-
-// JSON 파일 로드
-async function loadStudentData() {
-    try {
-        const response = await fetch('students.json');
-        studentData = await response.json();
-        console.log('학생 데이터 로드 완료');
-    } catch (error) {
-        console.error('학생 데이터 로드 실패:', error);
-        alert('학생 데이터를 불러오는데 실패했습니다.');
-    }
-}
 
 // 초기 학생 버튼 생성 (비활성화 상태)
 function createStudentButtons() {
@@ -33,25 +23,65 @@ function createStudentButtons() {
     }
 }
 
+// Firestore에서 해당 반 학생 데이터 가져오기
+async function loadClassStudents(classNum) {
+    // 캐시에 있으면 캐시 사용
+    if (classStudentsCache[classNum]) {
+        return classStudentsCache[classNum];
+    }
+
+    try {
+        const db = window.firebaseDB;
+        const studentsRef = collection(db, 'students');
+        const q = query(studentsRef, where('class', '==', classNum));
+        const querySnapshot = await getDocs(q);
+
+        const students = [];
+        querySnapshot.forEach((doc) => {
+            students.push(doc.data());
+        });
+
+        students.sort((a, b) => a.name.localeCompare(b.name));
+        classStudentsCache[classNum] = students;
+
+        return students;
+
+    } catch (error) {
+        console.error('학생 데이터 로드 실패:', error);
+        alert('학생 정보를 불러오는데 실패했습니다.');
+        return [];
+    }
+}
+
+
 // 반 선택 이벤트
 function setupClassButtons() {
     classButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', async function() {
             classButtons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             selectedClass = this.dataset.class;
-            selectedStudent = null;
-            
+            selectedStudentData = null;
+
+            // Firestore에서 해당 반 학생 데이터 가져오기
+            const students = await loadClassStudents(selectedClass);
+
             // 학생 버튼 활성화
             const studentBtns = studentButtonsContainer.querySelectorAll('.student-btn');
             studentBtns.forEach((sBtn, index) => {
-                sBtn.disabled = false;
                 sBtn.classList.remove('active');
-                sBtn.onclick = function() {
-                    studentBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    selectedStudent = studentData[selectedClass][index];
-                };
+                
+                if (index < students.length) {
+                    sBtn.disabled = false;
+                    sBtn.onclick = function() {
+                        studentBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        selectedStudentData = students[index];
+                    };
+                } else {
+                    sBtn.disabled = true;
+                    sBtn.onclick = null;
+                }
             });
         });
     });
@@ -66,14 +96,14 @@ function handleLogin() {
         return;
     }
 
-    if (!selectedStudent) {
+    if (!selectedStudentData) {
         showError();
         return;
     }
 
-    if (password === selectedStudent.password) {
+    if (password === selectedStudentData.password) {
         // 로그인 성공 - 학생 전용 URL로 이동
-        window.location.href = selectedStudent.url;
+        window.location.href = selectedStudentData.url;
     } else {
         // 로그인 실패
         showError();
@@ -101,8 +131,7 @@ function setupEnterKey() {
 }
 
 // 초기화
-async function init() {
-    await loadStudentData();
+function init() {
     createStudentButtons();
     setupClassButtons();
     setupEnterKey();
