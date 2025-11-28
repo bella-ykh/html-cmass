@@ -272,7 +272,7 @@ body {
 
 .category-title {
   font-family: "Inter", "Pretendard Variable", sans-serif;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
   line-height: 1.21;
   color: #000000;
@@ -283,7 +283,7 @@ body {
 
 .category-title span {
   font-family: "Pretendard Variable", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   margin-left: 8px;
 }
@@ -340,7 +340,7 @@ body {
 
 .book-title {
   font-family: "Paperlogy", "Pretendard Variable", sans-serif;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   line-height: 1.18;
   color: #000000;
@@ -351,7 +351,7 @@ body {
 
 .book-author {
   font-family: "Pretendard Variable", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.19;
   color: #000000;
@@ -360,7 +360,7 @@ body {
 
 .book-price {
   font-family: "Paperlogy", "Pretendard Variable", sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 1.18;
   color: #000000;
@@ -422,7 +422,7 @@ body {
   align-items: center;
   gap: 6px;
   font-family: "Paperlogy", "Pretendard Variable", sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.5;
   color: #5563ff;
@@ -435,7 +435,7 @@ body {
 }
 
 .book-materials p {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
   color: #000000;
@@ -451,7 +451,7 @@ body {
 }
 
 .book-description {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
   color: #000000;
@@ -468,7 +468,7 @@ body {
   align-items: center;
   gap: 4px;
   font-family: "Paperlogy", "Pretendard Variable", sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.5;
   color: #5563ff;
@@ -507,7 +507,7 @@ body {
 }
 
 .features-content li {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
   color: #000000;
@@ -573,7 +573,7 @@ body {
 
 .banner-title {
   font-family: "Paperlogy", "Pretendard Variable", sans-serif;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
   line-height: 1.5;
   color: #ff2dc1;
@@ -583,7 +583,7 @@ body {
 
 .banner-description {
   font-family: "Pretendard Variable", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
   color: #000000;
@@ -660,7 +660,7 @@ body {
   }
 
   .category-title {
-    font-size: 28px;
+    font-size: 30px;
     border-left-width: 8px;
     padding-left: 8px;
     margin-bottom: 3vw;
@@ -679,11 +679,11 @@ body {
   }
 
   .book-title {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .book-price {
-    font-size: 18px;
+    font-size: 20px;
     width: 100%;
     text-align: right;
   }
@@ -720,7 +720,7 @@ body {
   }
 
   .book-description {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .book-materials {
@@ -756,12 +756,12 @@ body {
   }
 
   .banner-title {
-    font-size: 24px;
+    font-size: 26px;
     margin: 15px 20px 10px;
   }
 
   .banner-description {
-    font-size: 14px;
+    font-size: 16px;
     padding: 0 20px 20px;
   }
 }
@@ -785,11 +785,11 @@ body {
   }
 
   .category-title {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .book-title {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .book-cover {
