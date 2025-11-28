@@ -1,0 +1,179 @@
+/* 기본 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* 1. 노란 박스 - Header (상단 고정) */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 127px;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1230px;
+    margin: 0 auto;
+    
+    display: flex;
+    
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.header p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 2. 빨간 박스 - GNB (스크롤되며 header 뒤로 들어감) */
+.gnb {
+    margin-top: 127px; /* header 높이만큼 마진 */
+    position: relative;
+    z-index: 10; /* header보다 낮은 z-index */
+    width: 100%; /* 전체 너비 */
+}
+
+.gnb-content {
+    max-width: 1230px;
+    margin: 0 auto;
+}
+
+.gnb h2 {
+    font-size: 28px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.gnb p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* LNB와 Main Content를 감싸는 컨테이너 */
+.content-wrapper {
+    display: flex;
+    position: relative;
+    max-width: 1230px;
+    margin: 0 auto;
+}
+
+/* 3. 초록 박스 - LNB (좌측 사이드바) */
+.lnb {
+    position: sticky;
+    top: 127px; /* header 높이만큼 떨어진 위치에 고정 */
+    width: 236px;
+    height: calc(100vh - 127px); /* 화면 높이 - header 높이 */
+    z-index: 100;
+    overflow-y: auto;
+    flex-shrink: 0; /* LNB가 줄어들지 않도록 */
+}
+
+.lnb-content {
+    width: 100%;
+}
+
+.lnb h3 {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.lnb p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* LNB 스크롤바 스타일 */
+.lnb::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lnb::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lnb::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.lnb::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* 4. 파란 박스 - Main Content (스크롤 콘텐츠) */
+.main-content {
+    flex: 1; /* 남은 공간 모두 차지 */
+    
+    min-height: calc(100vh - 127px); /* 최소 높이 설정 */
+    position: relative;
+    z-index: 1;
+}
+
+.content-section {
+    max-width: 100%;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+.content-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.content-section p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+/* 도서 목록 스타일 */
+.book-list {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.book-list img { display: block; }
+
+.content-footer {
+    max-width: 100%;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 20px;
+    font-style: italic;
+    color: #666;
+    margin-top: 20px;
+}
+
+.content-footer img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+

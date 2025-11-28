@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 레이아웃 샘플</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 1. 노란 박스 - Header (상단 고정) -->
+    <header class="header">
+        <div class="header-content">
+            <img src="images/Slice 1.png" alt="">
+        </div>
+    </header>
+
+    <!-- 2. 빨간 박스 - GNB (스크롤되며 header 뒤로 들어감) -->
+    <nav class="gnb">
+        <div class="gnb-content">
+            <img src="images/Slice 2.png" alt="">
+        </div>
+    </nav>
+
+    <!-- LNB와 Main Content를 감싸는 컨테이너 -->
+    <div class="content-wrapper">
+        <!-- 3. 초록 박스 - LNB (좌측 사이드바) -->
+        <aside class="lnb">
+            <div class="lnb-content">
+                <img src="images/Slice 3.png" alt="">
+            </div>
+        </aside>
+
+        <!-- 4. 파란 박스 - Main Content (스크롤 콘텐츠) -->
+        <main class="main-content">
+        <!-- 도서 목록 샘플 -->
+        <div class="book-list">
+            <img src="images/Slice 4.png" alt="">
+            <img src="images/Slice 4.png" alt="">
+            <img src="images/Slice 4.png" alt="">
+            <img src="images/Slice 4.png" alt="">
+            <img src="images/Slice 4.png" alt="">
+        </div>
+
+        <div class="content-footer">
+            <img src="images/more-button.png" alt="">
+            <p>*** 스크롤 하면 도서 목록이 추가로 나옴 (기존 기능과 동일) *** </p>
+        </div>
+        </main>
+    </div> <!-- content-wrapper 닫기 -->
+</body>
+</html>
+
