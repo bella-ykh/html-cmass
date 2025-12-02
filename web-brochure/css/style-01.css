@@ -560,13 +560,44 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
 }
 
 .footer-logo {
   max-width: 298px;
   height: auto;
-  margin: 0 auto;
+}
+
+.kakao-channel-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #FAE100;
+  border-radius: 10px;
+  padding: 11px 55px 11px 11px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.kakao-channel-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.kakao-channel-link span {
+  font-family: "Pretendard", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.kakao-channel-link svg {
+  flex-shrink: 0;
 }
 
 /* ========================================
@@ -716,6 +747,27 @@ body {
   .banner-description {
     font-size: 16px;
     padding: 0 20px 20px;
+  }
+
+  /* 모바일 풋터 */
+  .footer-container {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .kakao-channel-link {
+    width: 100%;
+    max-width: 285px;
+    justify-content: center;
+    padding: 11px 20px;
+  }
+
+  .kakao-channel-link span {
+    font-size: 18px;
+  }
+
+  .footer-logo {
+    max-width: 236px;
   }
 }
 
