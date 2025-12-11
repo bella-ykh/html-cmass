@@ -366,6 +366,21 @@ body {
   transform: scale(1.1);
 }
 
+/* 심볼 마크 스타일 */
+.book-symbol {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 70px;
+  height: auto;
+  z-index: 10;
+}
+
+/* 심볼이 2개일 때 두 번째 심볼 위치 */
+.book-symbol.symbol-secondary {
+  top: 90px;
+}
+
 /* 교수학습지원자료 영역 */
 .book-materials {
   margin-top: auto;
@@ -697,6 +712,17 @@ body {
     height: 39px;
   }
 
+  /* 모바일 심볼 마크 크기 조정 */
+  .book-symbol {
+    width: 75px;
+    top: 15px;
+    left: 15px;
+  }
+
+  .book-symbol.symbol-secondary {
+    top: 90px;
+  }
+
   .book-details {
     padding: 5px 15px 30px 20px;
     gap: 15px;
@@ -795,6 +821,17 @@ body {
 
   .book-cover {
     width: 140px;
+  }
+
+  /* 소형 모바일 심볼 마크 크기 조정 */
+  .book-symbol {
+    width: 60px;
+    top: 12px;
+    left: 12px;
+  }
+
+  .book-symbol.symbol-secondary {
+    top: 72px;
   }
 }
 
