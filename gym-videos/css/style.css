@@ -1,0 +1,633 @@
+/* CSS Reset - 브라우저 기본 스타일 초기화 */
+
+/* Box sizing 설정 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 기본 마진, 패딩 제거 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* HTML, Body 기본 설정 */
+html,
+body {
+    height: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 미디어 요소 기본 설정 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 폼 요소 폰트 상속 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 텍스트 오버플로우 처리 */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* 리스트 스타일 제거 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 링크 기본 스타일 제거 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 버튼 기본 스타일 제거 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* 테이블 기본 설정 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Root 설정 */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/* =================================
+   커스텀 스타일 영역
+   ================================= */
+
+/* 전역 변수 */
+:root {
+    --primary-purple: #7C00CE;
+    --primary-blue: #02099F;
+    --gradient-main: linear-gradient(90deg, rgba(124, 0, 206, 1) 0%, rgba(2, 9, 159, 1) 100%);
+    --text-dark: #222222;
+    --text-light: #FFFFFF;
+    --bg-gray: #D9D9D9;
+    --bg-footer: #090555;
+    
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    
+    --border-radius: 20px;
+    --transition-speed: 0.3s;
+}
+
+/* Body 스타일 */
+body {
+    font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--text-light);
+}
+
+/* ===========================
+   메인 헤더
+   =========================== */
+.main-header {
+    width: 100%;
+    background: url('../images/header-bg.png') center/cover no-repeat;
+    background-color: #1a1a2e;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+/* 교과서 썸네일 영역 */
+.textbook-thumbnails {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.thumbnail-item {
+    flex-shrink: 0;
+    width: 147px;
+    height: 187px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.thumbnail-item:hover {
+    transform: translateY(-16px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(124, 0, 206, 0.3);
+    z-index: 10;
+}
+
+/* 둥실 떠오르는 애니메이션 효과 */
+.thumbnail-item:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 10px;
+    background: radial-gradient(ellipse, rgba(124, 0, 206, 0.3) 0%, transparent 70%);
+    filter: blur(8px);
+    animation: floatShadow 0.4s ease-out forwards;
+}
+
+@keyframes floatShadow {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) scaleX(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+/* 히어로 타이틀 영역 */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.95;
+}
+
+.hero-title {
+    font-family: 'Paperlogy', 'Pretendard Variable', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.5px;
+}
+
+.hero-description {
+    font-size: 20px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* ===========================
+   메인 컨텐츠
+   =========================== */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+/* 탭 네비게이션 */
+.tab-navigation {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+}
+
+.tab-btn {
+    font-family: 'Paperlogy', 'Pretendard Variable', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    background: transparent;
+    color: var(--bg-gray);
+    cursor: pointer;
+    position: relative;
+    transition: color var(--transition-speed) ease;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--bg-gray);
+    transform: scaleX(0);
+    transition: transform var(--transition-speed) ease, background var(--transition-speed) ease;
+}
+
+.tab-btn.active {
+    color: var(--text-dark);
+}
+
+.tab-btn.active::after {
+    transform: scaleX(1);
+    background: var(--gradient-main);
+}
+
+.tab-btn:hover:not(.active) {
+    color: var(--primary-purple);
+}
+
+/* 탭 컨텐츠 */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   운동 종목 카드
+   =========================== */
+.sport-card {
+    background: var(--text-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sport-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 5px solid;
+    border-image: var(--gradient-main) 1;
+}
+
+.sport-image {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    border: 1px solid var(--bg-gray);
+}
+
+.sport-title {
+    font-family: 'Paperlogy', 'Pretendard Variable', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* 기술 리스트 */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+}
+
+.skill-item {
+    width: 100%;
+}
+
+.skill-btn {
+    font-size: 24px;
+    font-weight: 400;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: transparent;
+    color: var(--text-dark);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    text-align: center;
+}
+
+.skill-btn:hover {
+    color: var(--primary-purple);
+    font-weight: 700;
+}
+
+.skill-btn.active {
+    color: var(--primary-purple);
+    font-weight: 700;
+}
+
+.skill-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 10px;
+    background: var(--primary-purple);
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.skill-btn.active::after {
+    opacity: 1;
+}
+
+/* 아코디언 컨텐츠 */
+.skill-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.skill-content.open {
+    max-height: 600px;
+    padding: var(--spacing-lg) 0;
+}
+
+.skill-video-area {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border: 2px dashed var(--bg-gray);
+    border-radius: var(--border-radius);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacing-md) auto;
+    max-width: 900px;
+}
+
+.placeholder-text {
+    font-size: 28px;
+    color: #999;
+    font-weight: 600;
+}
+
+/* ===========================
+   푸터
+   =========================== */
+.footer {
+    background: var(--bg-footer);
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    width: 163px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* ===========================
+   반응형 디자인
+   =========================== */
+
+/* 태블릿 */
+@media (max-width: 1024px) {
+    .textbook-thumbnails {
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: var(--spacing-md);
+    }
+    
+    .thumbnail-item {
+        scroll-snap-align: start;
+        width: 120px;
+        height: 152px;
+    }
+    
+    .hero-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .hero-title {
+        font-size: 40px;
+    }
+    
+    .hero-subtitle {
+        font-size: 20px;
+    }
+    
+    .hero-description {
+        font-size: 18px;
+    }
+    
+    .tab-btn {
+        font-size: 28px;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .sport-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .sport-image {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .sport-title {
+        font-size: 36px;
+    }
+    
+    .skill-btn {
+        font-size: 22px;
+    }
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 24px;
+        --spacing-xl: 40px;
+    }
+    
+    .textbook-thumbnails {
+        padding: var(--spacing-md);
+    }
+    
+    .thumbnail-item {
+        width: 100px;
+        height: 127px;
+    }
+    
+    .hero-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+    }
+    
+    .main-content {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .tab-navigation {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .tab-btn {
+        font-size: 24px;
+        padding: var(--spacing-sm);
+    }
+    
+    .tab-btn::after {
+        bottom: 0;
+        height: 4px;
+    }
+    
+    .sport-card {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .sport-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .sport-title {
+        font-size: 28px;
+    }
+    
+    .skill-btn {
+        font-size: 20px;
+        padding: var(--spacing-sm);
+    }
+    
+    .skill-video-area {
+        min-height: 300px;
+    }
+    
+    .placeholder-text {
+        font-size: 22px;
+    }
+}
+
+/* 작은 모바일 */
+@media (max-width: 480px) {
+    .thumbnail-item {
+        width: 85px;
+        height: 108px;
+    }
+    
+    .hero-content {
+        padding: var(--spacing-md);
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .hero-description {
+        font-size: 14px;
+    }
+    
+    .tab-btn {
+        font-size: 20px;
+    }
+    
+    .sport-title {
+        font-size: 24px;
+    }
+    
+    .sport-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .skill-btn {
+        font-size: 18px;
+    }
+    
+    .skill-video-area {
+        min-height: 250px;
+    }
+    
+    .placeholder-text {
+        font-size: 18px;
+    }
+}
+
