@@ -428,6 +428,8 @@ body {
   line-height: 1.5;
   color: #000000;
   padding-left: 10px;
+  word-break: keep-all;
+overflow-wrap: break-word;
 }
 
 /* 특장점 영역 */
