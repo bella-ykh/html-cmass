@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>씨마스 체육 영상관</title>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!--카카오톡 공유 썸네일-->
+    <meta name="title" content="씨마스 체육 영상관" />
+    <meta name="description" content="설명은 줄이고, 움직임은 더 정확하게! 종목별 핵심 기능을 '보이는 수업'으로 바꿉니다." />
+    <meta name="thumbnail" content="https://viewer.cmass.kr/html/gallery-pt/images/share-image.png" />
+
+    <meta property="og:url" content="https://viewer.cmass.kr/html/gallery-pt/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="씨마스 체육 영상관" />
+    <meta property="og:description" content="설명은 줄이고, 움직임은 더 정확하게! 종목별 핵심 기능을 '보이는 수업'으로 바꿉니다." />
+    <meta property="og:image" content="https://viewer.cmass.kr/html/gallery-pt/images/share-image.png" />    
+</head>
+<body>
+    <!-- 메인 헤더 -->
+    <header class="main-header">
+        <!-- top 타이틀 영역 -->
+        <div class="top-content">
+            <p class="top-subtitle">종목별 핵심 기능을 영상으로!</p>
+            <h1 class="top-title">씨마스 체육 영상관</h1>
+            <p class="top-description">
+                설명은 줄이고, 움직임은 더 정확하게!<br>
+                종목별 핵심 기능을 '보이는 수업'으로 바꿉니다.
+            </p>
+        </div>
+
+        <!-- 교과서 썸네일 영역 -->
+        <div class="textbook-slider">
+            <div class="textbook-thumbnails">
+                <div class="thumbnail-item">
+                    <a href="#" target="_blank"><img src="images/textbook-1.png" alt="체육①"></a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="#" target="_blank"><img src="images/textbook-2.png" alt="체육②"></a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="#" target="_blank"><img src="images/textbook-3.png" alt="체육 1"></a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="#" target="_blank"><img src="images/textbook-4.png" alt="체육 2"></a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="#" target="_blank"><img src="images/textbook-5.png" alt="운동과 건강"></a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="#" target="_blank"><img src="images/textbook-6.png" alt="스포츠 과학"></a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="#" target="_blank"><img src="images/textbook-7.png" alt="스포츠 문화"></a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="#" target="_blank"><img src="images/textbook-8.png" alt="스포츠 생활 1"></a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="#" target="_blank"><img src="images/textbook-9.png" alt="스포츠 생활 2"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="main-content">
+        <!-- 탭 네비게이션 -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="strategic">전략형 스포츠</button>
+            <button class="tab-btn" data-tab="technical">기술형 스포츠</button>
+        </div>
+
+        <!-- 탭 컨텐츠 1: 전략형 스포츠 -->
+        <div class="tab-content active" id="strategic">
+            <!-- 축구 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-1.png" alt="축구">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>축구</h2>
+                            <button class="accordion-toggle" data-target="soccer-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="sports-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="sports-video-2">킥</button></li>
+                            <li><button class="detail-btn" data-target="sports-video-3">트래핑</button></li>
+                            <li><button class="detail-btn" data-target="sports-video-4">페인팅</button></li>
+                            <li><button class="detail-btn" data-target="sports-video-5">헤딩</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="soccer-videos">
+                    <div class="sports-video" id="sports-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="sports-video-2">
+                        <div class="video-placeholder">킥 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="sports-video-3">
+                        <div class="video-placeholder">트래핑 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="sports-video-4">
+                        <div class="video-placeholder">페인팅 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="sports-video-5">
+                        <div class="video-placeholder">헤딩 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 농구 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-2.png" alt="농구">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>농구</h2>
+                            <button class="accordion-toggle" data-target="basketball-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="basketball-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="basketball-video-2">슛</button></li>
+                            <li><button class="detail-btn" data-target="basketball-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="basketball-video-4">캐치</button></li>
+                            <li><button class="detail-btn" data-target="basketball-video-5">풋워크</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="basketball-videos">
+                    <div class="sports-video" id="basketball-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="basketball-video-2">
+                        <div class="video-placeholder">슛 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="basketball-video-3">
+                        <div class="video-placeholder">패스 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="basketball-video-4">
+                        <div class="video-placeholder">캐치 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="basketball-video-5">
+                        <div class="video-placeholder">풋워크 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 핸드볼 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-3.png" alt="핸드볼">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>핸드볼</h2>
+                            <button class="accordion-toggle" data-target="handball-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="handball-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="handball-video-2">페인트</button></li>
+                            <li><button class="detail-btn" data-target="handball-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="handball-video-4">캐치</button></li>
+                            <li><button class="detail-btn" data-target="handball-video-5">슛</button></li>
+                            <li><button class="detail-btn" data-target="handball-video-6">골 키핑</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="handball-videos">
+                    <div class="sports-video" id="handball-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="handball-video-2">
+                        <div class="video-placeholder">페인트 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="handball-video-3">
+                        <div class="video-placeholder">패스 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="handball-video-4">
+                        <div class="video-placeholder">캐치 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="handball-video-5">
+                        <div class="video-placeholder">슛 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="handball-video-6">
+                        <div class="video-placeholder">골 키핑 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 배드민턴 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-4.png" alt="배드민턴">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>배드민턴</h2>
+                            <button class="accordion-toggle" data-target="badminton-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="badminton-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="badminton-video-2">페인트</button></li>
+                            <li><button class="detail-btn" data-target="badminton-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="handball-video-4">캐치</button></li>
+                            <li><button class="detail-btn" data-target="badminton-video-5">슛</button></li>
+                            <li><button class="detail-btn" data-target="badminton-video-6">골 키핑</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="badminton-videos">
+                    <div class="sports-video" id="badminton-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="badminton-video-2">
+                        <div class="video-placeholder">페인트 영상 영역</div>
+                    </div>
+                        <div class="sports-video" id="badminton-video-3">
+                        <div class="video-placeholder">패스 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="badminton-video-4">
+                        <div class="video-placeholder">캐치 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="badminton-video-5">
+                        <div class="video-placeholder">슛 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="badminton-video-6">
+                        <div class="video-placeholder">골 키핑 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 배구 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-5.png" alt="배구">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>배구</h2>
+                            <button class="accordion-toggle" data-target="volleyball-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="volleyball-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="volleyball-video-2">페인트</button></li>
+                            <li><button class="detail-btn" data-target="volleyball-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="volleyball-video-4">캐치</button></li>
+                            <li><button class="detail-btn" data-target="volleyball-video-5">슛</button></li>
+                            <li><button class="detail-btn" data-target="volleyball-video-6">골 키핑</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="volleyball-videos">
+                    <div class="sports-video" id="volleyball-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="volleyball-video-2">
+                        <div class="video-placeholder">페인트 영상 영역</div>
+                    </div>
+                        <div class="sports-video" id="volleyball-video-3">
+                        <div class="video-placeholder">패스 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="volleyball-video-4">
+                        <div class="video-placeholder">캐치 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="volleyball-video-5">
+                        <div class="video-placeholder">슛 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="volleyball-video-6">
+                        <div class="video-placeholder">골 키핑 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 탁구 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-6.png" alt="탁구">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>탁구</h2>
+                            <button class="accordion-toggle" data-target="tabletennis-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="tabletennis-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="tabletennis-video-2">페인트</button></li>
+                            <li><button class="detail-btn" data-target="tabletennis-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="tabletennis-video-4">캐치</button></li>
+                            <li><button class="detail-btn" data-target="tabletennis-video-5">슛</button></li>
+                            <li><button class="detail-btn" data-target="tabletennis-video-6">골 키핑</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="tabletennis-videos">
+                    <div class="sports-video" id="tabletennis-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="tabletennis-video-2">
+                        <div class="video-placeholder">페인트 영상 영역</div>
+                    </div>
+                        <div class="sports-video" id="tabletennis-video-3">
+                        <div class="video-placeholder">패스 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="tabletennis-video-4">
+                        <div class="video-placeholder">캐치 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="tabletennis-video-5">
+                        <div class="video-placeholder">슛 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="tabletennis-video-6">
+                        <div class="video-placeholder">골 키핑 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 탭 컨텐츠 2: 기술형 스포츠 -->
+        <div class="tab-content" id="technical">
+            <!-- 도마 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-7.png" alt="도마">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>도마</h2>
+                            <button class="accordion-toggle" data-target="mat-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="mat-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="mat-video-2">페인트</button></li>
+                            <li><button class="detail-btn" data-target="mat-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="mat-video-4">캐치</button></li>
+                            <li><button class="detail-btn" data-target="mat-video-5">슛</button></li>
+                            <li><button class="detail-btn" data-target="mat-video-6">골 키핑</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="mat-videos">
+                    <div class="sports-video" id="mat-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="mat-video-2">
+                        <div class="video-placeholder">페인트 영상 영역</div>
+                    </div>
+                        <div class="sports-video" id="mat-video-3">
+                        <div class="video-placeholder">패스 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="mat-video-4">
+                        <div class="video-placeholder">캐치 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="mat-video-5">
+                        <div class="video-placeholder">슛 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="mat-video-6">
+                        <div class="video-placeholder">골 키핑 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 마루 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-8.png" alt="마루">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>마루</h2>
+                            <button class="accordion-toggle" data-target="maru-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="maru-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="maru-video-2">페인트</button></li>
+                            <li><button class="detail-btn" data-target="maru-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="maru-video-4">캐치</button></li>
+                            <li><button class="detail-btn" data-target="maru-video-5">슛</button></li>
+                            <li><button class="detail-btn" data-target="maru-video-6">골 키핑</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="maru-videos">
+                    <div class="sports-video" id="maru-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="maru-video-2">
+                        <div class="video-placeholder">페인트 영상 영역</div>
+                    </div>
+                        <div class="sports-video" id="maru-video-3">
+                        <div class="video-placeholder">패스 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="maru-video-4">
+                        <div class="video-placeholder">캐치 영상 영역</div>
+                    </div>
+                        <div class="sports-video" id="maru-video-5">
+                        <div class="video-placeholder">슛 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="maru-video-6">
+                        <div class="video-placeholder">골 키핑 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 철봉 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-9.png" alt="철봉">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>철봉</h2>
+                            <button class="accordion-toggle" data-target="bar-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="bar-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="bar-video-2">페인트</button></li>
+                            <li><button class="detail-btn" data-target="bar-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="bar-video-4">캐치</button></li>
+                            <li><button class="detail-btn" data-target="bar-video-5">슛</button></li>
+                            <li><button class="detail-btn" data-target="bar-video-6">골 키핑</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="bar-videos">
+                    <div class="sports-video" id="bar-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="bar-video-2">
+                        <div class="video-placeholder">페인트 영상 영역</div>
+                    </div>
+                        <div class="sports-video" id="bar-video-3">
+                        <div class="video-placeholder">패스 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="bar-video-4">
+                        <div class="video-placeholder">캐치 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="bar-video-5">
+                        <div class="video-placeholder">슛 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="bar-video-6">
+                        <div class="video-placeholder">골 키핑 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 평균대 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-10.png" alt="평균대">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>평균대</h2>
+                            <button class="accordion-toggle" data-target="avg-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="avg-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="avg-video-2">페인트</button></li>
+                            <li><button class="detail-btn" data-target="avg-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="avg-video-4">캐치</button></li>
+                            <li><button class="detail-btn" data-target="avg-video-5">슛</button></li>
+                            <li><button class="detail-btn" data-target="avg-video-6">골 키핑</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="avg-videos">
+                    <div class="sports-video" id="avg-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="avg-video-2">
+                        <div class="video-placeholder">페인트 영상 영역</div>
+                    </div>
+                        <div class="sports-video" id="avg-video-3">
+                        <div class="video-placeholder">패스 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="avg-video-4">
+                        <div class="video-placeholder">캐치 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="avg-video-5">
+                        <div class="video-placeholder">슛 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="avg-video-6">
+                        <div class="video-placeholder">골 키핑 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 태권도 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <div class="sports-thumbnail">
+                        <img src="images/cover-sport-11.png" alt="태권도">
+                    </div>
+                    <div class="sports-content">
+                        <div class="sports-title">
+                            <h2>태권도</h2>
+                                <button class="accordion-toggle" data-target="taekwondo-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="taekwondo-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="taekwondo-video-2">페인트</button></li>
+                            <li><button class="detail-btn" data-target="taekwondo-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="taekwondo-video-4">캐치</button></li>
+                            <li><button class="detail-btn" data-target="taekwondo-video-5">슛</button></li>
+                            <li><button class="detail-btn" data-target="taekwondo-video-6">골 키핑</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="taekwondo-videos">
+                    <div class="sports-video" id="taekwondo-video-1">
+                        <div class="video-placeholder">드리블 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="taekwondo-video-2">
+                        <div class="video-placeholder">페인트 영상 영역</div>
+                    </div>
+                        <div class="sports-video" id="taekwondo-video-3">
+                        <div class="video-placeholder">패스 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="taekwondo-video-4">
+                        <div class="video-placeholder">캐치 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="taekwondo-video-5">
+                        <div class="video-placeholder">슛 영상 영역</div>
+                    </div>
+                    <div class="sports-video" id="taekwondo-video-6">
+                        <div class="video-placeholder">골 키핑 영상 영역</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="images/logo.svg" alt="씨마스 로고" class="footer-logo">
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
