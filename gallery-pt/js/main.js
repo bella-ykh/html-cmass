@@ -131,15 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initAccordion();
     initDetailMenu();
     initThumbnailInteraction();
-
-    // 페이지 로드시 첫 번째 탭의 첫 번째 아코디언 자동 열기
-    const firstTab = document.querySelector('.tab-content.active');
-    if (firstTab) {
-        const firstAccordion = firstTab.querySelector('.accordion-toggle');
-        if (firstAccordion) {
-            firstAccordion.click();
-        }
-    }
+    
+    // 페이지 로드 시 모든 아코디언이 닫힌 상태로 시작
+    // 자동으로 아코디언을 여는 코드 제거됨
 });
 
 // ===========================

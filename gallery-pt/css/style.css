@@ -174,48 +174,6 @@ body {
     z-index: 2;
 }
 
-/* 슬라이더 화살표 버튼 */
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: none; /* 데스크톱에서는 숨김 */
-    backdrop-filter: blur(10px);
-}
-
-.slider-btn:hover {
-    background: rgba(0, 0, 0, 0.7);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.slider-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    transform: translateY(-50%);
-}
-
-.slider-btn--prev {
-    left: -25px;
-}
-
-.slider-btn--next {
-    right: -25px;
-}
-
-.slider-btn svg {
-    width: 16px;
-    height: 20px;
-}
-
 .textbook-thumbnails {
     display: flex;
     justify-content: center;
@@ -302,7 +260,7 @@ body {
 /* 운동 종목 섹션 */
 .sports-section {
     width: 994px;
-    margin: 0 auto 40px;
+    margin: 0 auto;
     border-bottom: 1px solid #D9D9D9;
 }
 
@@ -313,13 +271,7 @@ body {
     padding: 40px 0 30px;
 }
 
-.sports-thumbnail {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    overflow: hidden;
-    flex-shrink: 0;
-}
+/* sports-thumbnail 스타일은 모바일 기본 스타일 영역으로 이동됨 */
 
 .sports-content {
     flex: 1;
@@ -370,12 +322,11 @@ body {
 
 .sports-list {
     display: flex;
-    gap: 10px;
-    padding-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 40px 20px;
     flex-wrap: wrap;
-    padding-left: 40px;
     position: relative;
-    padding-top: 5px;
 }
 
 /* 그라데이션 보더 추가 */
@@ -391,6 +342,7 @@ body {
 
 .sports-list li {
     list-style: none;
+    text-align: center;
 }
 
 .detail-btn {
@@ -492,46 +444,213 @@ body {
 }
 
 /* ========================================
-   반응형 미디어 쿼리
+   반응형 미디어 쿼리 (Mobile First)
 ======================================== */
 
-/* 태블릿 */
-@media (max-width: 1024px) {
-    .slider-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+/* 기본 스타일 (모바일 기본 - 480px 미만) */
+
+/* .textbook-thumbnails {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 15px 3vw;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 8px;
+} */
+
+.textbook-thumbnails::-webkit-scrollbar {
+    display: none;
+}
+
+.thumbnail-item {
+    scroll-snap-align: center;
+    width: 85px;
+    height: 108px;
+    transform: none; /* 모바일에서는 호버 효과 제거 */
+}
+
+/* .top-content {
+    padding: 3vw 0;
+} */
+
+/* .top-title {
+    font-size: 28px;
+    margin-bottom: 5px;
+} */
+
+/* .top-subtitle {
+    font-size: 16px;
+} */
+
+/* .top-description {
+    font-size: 14px;
+} */
+
+/* .main-content {
+    padding: 4.7vw 0;
+} */
+
+/* .tab-navigation {
+    width: 100%;
+    flex-direction: row;
+    gap: 0;
+} */
+
+/* .tab-btn {
+    font-size: 20px;
+    padding: 0;
+}
+
+.tab-btn::after {
+    bottom: 0;
+    height: 4px;
+} */
+
+.footer {
+    padding: 3vw 0;
+}
+
+.footer-logo { 
+    width: 16%; 
+}
+
+/* 모바일용 스포츠 섹션 */
+.sports-section {
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* .sports-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+} */
+
+.sports-content {
+    margin-left: 0;
+    width: 100%;
+}
+
+.sports-thumbnail {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sports-title h2 {
+    font-size: 24px;
+}
+
+/* .sports-list {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+
+.sports-list li {
+    display: table-cell;
+    width: 50%;
+    vertical-align: top;
+} */
+
+/* .detail-btn {
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+} */
+
+.video-placeholder {
+    height: 200px;
+    font-size: 14px;
+}
+
+/* 모바일 */
+@media (min-width: 360px) {
+    .top-content {
+        padding: 5vw 0;
     }
-    
+
+    .main-content {
+        padding: 4.7vw 0;
+    }
+
     .textbook-thumbnails {
         justify-content: flex-start;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        padding-bottom: 3vw;
+        padding: 0 20px 3vw;
+        gap: 10px;
         scroll-behavior: smooth;
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
     
-    .textbook-thumbnails::-webkit-scrollbar {
-        display: none;
-    }
-    
     .thumbnail-item {
-        scroll-snap-align: center;
-        width: 120px;
-        height: 152px;
+        width: 100px;
+        height: 127px;
     }
     
-    .thumbnail-item:hover {
-        transform: none; /* 모바일에서는 호버 효과 제거 */
+    .top-title {
+        font-size: 32px;
+        margin-bottom: 13px;
     }
     
+    .top-subtitle {
+        font-size: 18px;
+    }
+    
+    .top-description {
+        font-size: 16px;
+    }
+
+    .tab-navigation {
+        width: 100%;
+        flex-direction: row;
+        gap: 0;
+    }
+    
+    .tab-btn {
+        font-size: 24px;
+    }
+    
+    .sports-title h2 {
+        font-size: 28px;
+    }
+    
+    .sports-list li {
+        width: 33.333%; /* 3등분 */
+    }
+    
+    .detail-btn {
+        height: 45px;
+        font-size: 13px;
+    }
+    
+    .video-placeholder {
+        height: 250px;
+        font-size: 16px;
+    }
+}
+
+/* 태블릿 */
+@media (min-width: 600px) {
     .top-content {
         padding: 3vw 0;
     }
-    
+
     .top-title {
         font-size: 40px;
     }
@@ -546,239 +665,186 @@ body {
     
     .tab-btn {
         font-size: 28px;
-        padding: 0;
     }
     
-    .footer {
-        padding: 3vw 0;
-    }
-
-    /* 태블릿용 스포츠 섹션 */
-    .sports-section {
-        width: 100%;
-        padding: 0 20px;
+    .thumbnail-item {
+        width: 120px;
+        height: 152px;
     }
     
     .sports-title h2 {
         font-size: 32px;
     }
     
-    .sports-list {
-        display: table;
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 2px;
-    }
-    
     .sports-list li {
-        display: table-cell;
         width: 16.666%; /* 6등분 */
-        vertical-align: top;
     }
     
     .detail-btn {
-        width: 100%;
         height: 50px;
         padding: 10px;
-        font-size: 14px;
-        border-radius: 4px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+        font-size: 18px;
+    }
+
+    .detail-btn.active {
+        color: #7C00CE;
+        border-bottom: 5px solid #7C00CE;
     }
 }
 
-/* 모바일 */
-@media (max-width: 768px) {
+/* 데스크톱 (1024px 이상) */
+@media (min-width: 1024px) {
     .slider-btn {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .slider-btn--prev {
-        left: -20px;
-    }
-    
-    .slider-btn--next {
-        right: -20px;
-    }
-    
-    .slider-btn svg {
-        width: 14px;
-        height: 18px;
+        display: none; /* 데스크톱에서는 숨김 */
     }
     
     .textbook-thumbnails {
-        padding: 0 20px 3vw;
-        gap: 10px;
+        justify-content: center;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding-bottom: 40px;
+        gap: 0;
+        padding: 0 0 40px 0;
     }
     
     .thumbnail-item {
-        width: 100px;
-        height: 127px;
+        width: 147px;
+        height: 187px;
+    }
+    
+    .thumbnail-item:hover {
+        transform: translateY(-16px) scale(1.05);
+        z-index: 10;
     }
     
     .top-content {
-        padding: 3vw 0;
+        padding: 60px 0 40px;
     }
     
     .top-title {
-        font-size: 32px;
+        font-size: 48px;
     }
     
     .top-subtitle {
-        font-size: 18px;
+        font-size: 24px;
     }
     
     .top-description {
-        font-size: 16px;
+        font-size: 20px;
     }
     
     .main-content {
-        padding: 4.7vw 0;
+        padding: 50px 0 150px;
     }
     
     .tab-navigation {
-        width: 100%;
-        flex-direction: row;
-        gap: 0;
+        width: 994px;
+        gap: 14px;
     }
     
     .tab-btn {
-        font-size: 24px;
-        padding: 0;
-    }
-    
-    .tab-btn::after {
-        bottom: 0;
-        height: 4px;
+        font-size: 32px;
     }
     
     .footer {
-        padding: 3vw 0;
+        padding: 75px 0;
     }
-
+    
     .footer-logo { 
-        width: 16%; 
+        width: 163px;
     }
-
-    /* 모바일용 스포츠 섹션 */
+    
+    /* 데스크톱용 스포츠 섹션 */
+    .sports-section {
+        width: 994px;
+        padding: 0;
+    }
+    
     .sports-menu {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
     }
     
     .sports-content {
         margin-left: 0;
-        width: 100%;
+        width: auto;
+        flex: 1;
     }
     
     .sports-thumbnail {
-        width: 120px;
-        height: 120px;
+        width: 200px;
+        height: 200px;
+    }
+    
+    .sports-title {
+        margin-left: 40px;
     }
     
     .sports-title h2 {
-        font-size: 28px;
+        font-size: 40px;
     }
     
     .sports-list {
-        display: table;
-        width: 100%;
+        display: flex;
+        width: auto;
+        border-collapse: initial;
+        border-spacing: initial;
+        padding-left: 40px;
+        gap: 10px;
+        flex-wrap: wrap;
     }
     
     .sports-list li {
-        display: table-cell;
-        width: 33.333%; /* 3등분 */
+        display: list-item;
+        width: auto;
+        vertical-align: initial;
     }
     
     .detail-btn {
-        width: 100%;
-        height: 45px;
-        font-size: 13px;
-        border-radius: 4px;
+        width: auto;
+        height: auto;
+        padding: 26px 20px 12px;
+        font-size: 24px;
+        border-radius: 0;
+        display: block;
+        text-align: left;
+        white-space: nowrap;
+        border-bottom: 10px solid transparent;
+    }
+    
+    .detail-btn:hover {
+        border-bottom: 10px solid #d9d9d9;
+    }
+    
+    .detail-btn.active {
+        color: #7C00CE;
+        border-bottom: 10px solid #7C00CE;
     }
     
     .video-placeholder {
-        height: 250px;
-        font-size: 16px;
+        height: 400px;
+        font-size: 18px;
     }
 }
 
-/* 작은 모바일 */
-@media (max-width: 480px) {
-    .slider-btn {
-        width: 35px;
-        height: 35px;
+/* 대형 데스크톱 (1440px 이상) */
+@media (min-width: 1440px) {
+    .main-content {
+        max-width: 1400px;
     }
     
-    .slider-btn--prev {
-        left: -17px;
+    .tab-navigation {
+        width: 994px;
     }
     
-    .slider-btn--next {
-        right: -17px;
+    .sports-section {
+        width: 1200px;
     }
     
-    .slider-btn svg {
-        width: 12px;
-        height: 16px;
-    }
-    
-    .textbook-thumbnails {
-        padding: 0 15px 3vw;
-        gap: 8px;
-    }
-    
-    .thumbnail-item {
-        width: 85px;
-        height: 108px;
-    }
-    
-    .top-content {
-        padding: 3vw 0;
-    }
-    
-    .top-title {
-        font-size: 28px;
-        margin-bottom: 5px;
-    }
-    
-    .top-subtitle {
-        font-size: 16px;
-    }
-    
-    .top-description {
-        font-size: 14px;
-    }
-    
-    .tab-btn {
-        font-size: 20px;
-    }
-    
-    .footer {
-        padding: 3vw 0;
-    }
-    
-    /* 작은 모바일용 스포츠 섹션 */
-    .sports-title h2 {
-        font-size: 24px;
-    }
-    
-    .sports-list li {
-        width: 50%; /* 2등분 */
-    }
-    
-    .detail-btn {
-        font-size: 12px;
-        padding: 8px;
-        height: 40px;
-    }
-    
-    .video-placeholder {
-        height: 200px;
-        font-size: 14px;
+    .textbook-slider {
+        max-width: 1400px;
     }
 }
+
+
