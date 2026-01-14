@@ -124,6 +124,174 @@ function initThumbnailInteraction() {
 }
 
 // ===========================
+// 영상 모달 기능
+// ===========================
+function initVideoModal() {
+    const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+    const modal = document.getElementById('videoModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const videoSource = document.getElementById('videoSource');
+    const modalClose = document.getElementById('modalClose');
+    const modalOverlay = document.querySelector('.modal-overlay');
+
+    // 썸네일 클릭 시 모달 열기 (다운로드 링크 제외)
+    videoThumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', (e) => {
+            // 다운로드 링크나 아이콘 클릭 시 모달 열기 방지
+            if (e.target.classList.contains('download-icon') || 
+                e.target.classList.contains('download-link') ||
+                e.target.closest('.download-link')) {
+                e.stopPropagation();
+                return;
+            }
+            
+            const videoUrl = thumbnail.dataset.videoUrl;
+            const videoTitle = thumbnail.dataset.videoTitle;
+            
+            // 모달 내용 설정
+            modalTitle.textContent = videoTitle;
+            videoSource.src = videoUrl;
+            videoPlayer.load(); // 새로운 소스 로드
+            
+            // 모달 열기
+            openModal();
+            
+            // 모달이 완전히 열린 후 영상 재생
+            setTimeout(() => {
+                videoPlayer.play().catch(error => {
+                    console.log('자동 재생이 차단되었습니다:', error);
+                });
+            }, 300);
+        });
+    });
+
+    // 모달 닫기 버튼 클릭
+    modalClose.addEventListener('click', closeModal);
+
+    // 모달 오버레이 클릭 시 닫기
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            closeModal();
+        }
+    });
+
+    // ESC 키로 모달 닫기
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // 모달 열기 함수
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+    }
+
+    // 모달 닫기 함수
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // 스크롤 복원
+        
+        // 영상 정지 및 초기화
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+        
+        setTimeout(() => {
+            if (!modal.classList.contains('active')) {
+                videoSource.src = '';
+                videoPlayer.load();
+            }
+        }, 300); // 애니메이션 완료 후 실행
+    }
+
+    // 모달이 열려있을 때 배경 클릭 방지
+    modal.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
+    // 영상 로드 에러 처리
+    videoPlayer.addEventListener('error', (e) => {
+        console.error('영상 로드 오류:', e);
+        alert('영상을 불러올 수 없습니다. 잠시 후 다시 시도해주세요.');
+        closeModal();
+    });
+}
+
+// ===========================
+// 다운로드 기능
+// ===========================
+function initDownloadFunction() {
+    const downloadLinks = document.querySelectorAll('.download-link');
+    
+    downloadLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.stopPropagation(); // 썸네일 클릭 이벤트 방지
+            e.preventDefault(); // 기본 링크 동작 방지
+            
+            const videoItem = link.closest('.video-item');
+            const thumbnail = videoItem.querySelector('.video-thumbnail');
+            const videoUrl = thumbnail.dataset.videoUrl;
+            const videoTitle = thumbnail.dataset.videoTitle;
+            
+            // 다운로드 실행
+            downloadVideo(videoUrl, videoTitle);
+        });
+    });
+}
+
+function downloadVideo(url, filename) {
+    try {
+        // 임시 링크 요소 생성
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${filename}.mp4`;
+        link.target = '_blank';
+        
+        // 링크 클릭하여 다운로드 시작
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        console.log(`다운로드 시작: ${filename}`);
+    } catch (error) {
+        console.error('다운로드 오류:', error);
+        alert('다운로드 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    }
+}
+
+// ===========================
+// 영상 썸네일 호버 효과 개선
+// ===========================
+function initVideoThumbnailEffects() {
+    const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+    
+    videoThumbnails.forEach(thumbnail => {
+        const playButton = thumbnail.querySelector('.play-button');
+        
+        // 마우스 진입 시 플레이 버튼 애니메이션
+        thumbnail.addEventListener('mouseenter', () => {
+            playButton.style.transform = 'translate(-50%, -50%) scale(1.1)';
+        });
+        
+        // 마우스 이탈 시 플레이 버튼 원래 크기
+        thumbnail.addEventListener('mouseleave', () => {
+            playButton.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+        
+        // 클릭 시 버튼 애니메이션
+        thumbnail.addEventListener('mousedown', () => {
+            playButton.style.transform = 'translate(-50%, -50%) scale(0.95)';
+        });
+        
+        thumbnail.addEventListener('mouseup', () => {
+            playButton.style.transform = 'translate(-50%, -50%) scale(1.1)';
+        });
+    });
+}
+
+// ===========================
 // 초기화
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
@@ -131,6 +299,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initAccordion();
     initDetailMenu();
     initThumbnailInteraction();
+    initVideoModal();
+    initVideoThumbnailEffects();
+    initDownloadFunction();
     
     // 페이지 로드 시 모든 아코디언이 닫힌 상태로 시작
     // 자동으로 아코디언을 여는 코드 제거됨
