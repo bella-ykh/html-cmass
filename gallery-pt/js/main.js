@@ -129,7 +129,6 @@ function initThumbnailInteraction() {
 function initVideoModal() {
     const videoThumbnails = document.querySelectorAll('.video-thumbnail');
     const modal = document.getElementById('videoModal');
-    const modalTitle = document.getElementById('modalTitle');
     const videoPlayer = document.getElementById('videoPlayer');
     const videoSource = document.getElementById('videoSource');
     const modalClose = document.getElementById('modalClose');
@@ -147,10 +146,8 @@ function initVideoModal() {
             }
             
             const videoUrl = thumbnail.dataset.videoUrl;
-            const videoTitle = thumbnail.dataset.videoTitle;
             
             // 모달 내용 설정
-            modalTitle.textContent = videoTitle;
             videoSource.src = videoUrl;
             videoPlayer.load(); // 새로운 소스 로드
             

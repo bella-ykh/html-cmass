@@ -438,7 +438,6 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     margin-top: 20px;
-    padding: 0 10px;
 }
 
 /* 영상 아이템 컨테이너 */
@@ -585,7 +584,6 @@ body {
     position: relative;
     width: 100%;
     max-width: 1000px;
-    background: #fff;
     border-radius: 12px;
     overflow: hidden;
     transform: scale(0.8);
@@ -598,19 +596,11 @@ body {
 
 .modal-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    padding: 20px 25px;
-    background: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
+    padding: 15px 20px;
 }
 
-.modal-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #222;
-    margin: 0;
-}
 
 .modal-close {
     background: none;
@@ -642,6 +632,8 @@ body {
     width: 100%;
     height: 0;
     padding-bottom: 56.25%; /* 16:9 비율 */
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .video-container video {
@@ -651,6 +643,7 @@ body {
     width: 100%;
     height: 100%;
     background: #000;
+    border-radius: 12px;
 }
 
 /* 애니메이션 */
@@ -760,7 +753,6 @@ body {
     .video-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
-        padding: 0 20px;
     }
     
     .video-info {
@@ -871,7 +863,6 @@ body {
     .video-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 25px;
-        padding: 0 40px;
     }
     
     .video-info {
@@ -897,8 +888,5 @@ body {
         max-width: 1200px;
     }
     
-    .modal-title {
-        font-size: 28px;
-    }
 }
 
