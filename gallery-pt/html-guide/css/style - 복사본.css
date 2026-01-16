@@ -1,0 +1,817 @@
+/* Box sizing 설정 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 기본 마진, 패딩 제거 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* HTML, Body 기본 설정 */
+html,
+body {
+    height: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+/* 미디어 요소 기본 설정 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 폼 요소 폰트 상속 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 폼 요소 focus 스타일 */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* 텍스트 오버플로우 처리 */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    word-break: keep-all; /* 한국어 텍스트 최적화 */
+}
+
+/* 리스트 스타일 제거 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 링크 기본 스타일 제거 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 버튼 기본 스타일 제거 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* 테이블 기본 설정 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Body 스타일 */
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-size: 16px;
+    color: #222;
+    background-color: #fff;
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+
+/* 유틸리티 클래스 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ========================================
+   Header 스타일
+======================================== */
+.main-header {
+    width: 100%;
+    background: url('../images/header-bg.png') center/cover no-repeat;
+    background-color: #1a1a2e;
+    position: relative;
+    overflow: hidden;
+}
+
+/* top 타이틀 영역 */
+.top-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 0 40px;
+}
+
+.top-subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    opacity: 0.95;
+}
+
+.top-title {
+    font-family: 'Paperozi', 'Pretendard', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 13px;
+    letter-spacing: -0.5px;
+}
+
+.top-description {
+    font-size: 20px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* 교과서 썸네일 영역 */
+.textbook-slider {
+    position: relative;
+    max-width: 1260px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.textbook-thumbnails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail-item {
+    flex-shrink: 0;
+    width: 147px;
+    height: 187px;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.thumbnail-item:hover {
+    transform: translateY(-16px) scale(1.05);
+    z-index: 10;
+}
+
+/* 가운데 썸네일 강조 효과 (모바일에서) */
+.thumbnail-item.center-active {
+    transform: translateY(-16px) scale(1.05);
+    z-index: 10;
+}
+
+/****** Main *************************************************/
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0 150px;
+}
+
+/* 탭 네비게이션 */
+.tab-navigation {
+    width: 994px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.tab-btn {
+    font-family: 'Paperozi', 'Pretendard', sans-serif;
+    width: 50%;
+    font-size: 32px;
+    font-weight: 700;
+    border: none;
+    background-color: #D9D9D9;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-btn.active {
+    background: linear-gradient(90deg, rgba(124, 0, 206, 1) 0%, rgba(2, 9, 159, 1) 100%);
+}
+
+/* 탭 컨텐츠 */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* 운동 종목 섹션 */
+.sports-section {
+    width: 994px;
+    margin: 0 auto;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.sports-menu {
+    display: flex;
+    justify-content: start;
+    /* align-items: center; */
+    flex-direction: column;
+    padding: 40px 0 30px;
+}
+
+.sports-header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.sports-content {
+    flex: 1;
+}
+
+.sports-title {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 100px;
+    margin-left: 40px;
+}
+
+.sports-title h2 {
+    font-size: 40px;
+    font-family: 'Paperozi', 'Pretendard', sans-serif;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+}
+
+.accordion-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.accordion-toggle .icon-close {
+    display: none;
+}
+
+.accordion-toggle.active .icon-open {
+    display: none;
+}
+
+.accordion-toggle.active .icon-close {
+    display: block;
+}
+
+.accordion-toggle:hover {
+    transform: scale(1.1);
+}
+ 
+/* 상세 기술 목록 */
+.sports-nav {
+    margin-left: 200px;
+    margin-top: -125px;
+}
+
+.sports-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px 20px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.sports-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #7C00CE, #02099F);
+}
+
+.sports-list li {
+    list-style: none;
+    text-align: center;
+}
+
+.detail-btn {
+    padding: 26px 20px 12px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 10px solid transparent;
+}
+
+.detail-btn:hover {
+    border-bottom: 10px solid #d9d9d9;
+}
+
+.detail-btn.active {
+    color: #7C00CE;
+    border-bottom: 10px solid #7C00CE;
+}
+
+/* 아코디언 비디오 영역 */
+.sports-videos {
+    display: none;
+    padding: 0 0 50px;
+    animation: slideDown 0.3s ease;
+}
+
+.sports-videos.active {
+    display: block;
+}
+
+.sports-video {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.sports-video.active {
+    display: block;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #F0F0F0;
+    border: 2px dashed #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* 애니메이션 */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        max-height: 1000px;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   Footer 스타일
+======================================== */
+.footer {
+    background: url('../images/foot-bg.png') center/cover no-repeat;
+    padding: 75px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    width: 163px;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+/****** 모바일 ******/
+@media (min-width: 360px) {
+    .top-content {
+        padding: 5vw 0;
+    }
+
+    .main-content {
+        padding: 0 0 4vw;
+    }
+
+    .textbook-thumbnails {
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 20px 3vw;
+        gap: 10px;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .thumbnail-item {
+        width: 100px;
+        height: 127px;
+    }
+    
+    .top-title {
+        font-size: 32px;
+        margin-bottom: 13px;
+    }
+    
+    .top-subtitle {
+        font-size: 18px;
+    }
+    
+    .top-description {
+        font-size: 16px;
+    }
+
+    .tab-navigation {
+        width: 100%;
+        flex-direction: row;
+        gap: 0;
+    }
+    
+    .tab-btn {
+        font-size: 24px;
+    }
+
+    .sports-thumbnail {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .sports-section {
+        width: 98%;
+    }
+    
+    .sports-menu { padding: 20px 0 10px; }
+
+    .sports-title { margin-bottom: 0;}
+    .sports-title h2 {
+        font-size:40px;
+    }
+    
+    .sports-nav { margin-left: 0; margin-top: 0; }
+    
+    /* 모바일에서 테이블 형식으로 변경 */
+    .sports-list {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* 3개에서 6개로 변경 */
+        padding: 0;
+        justify-items: center;
+    }
+    
+    .sports-list li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* 첫 번째 줄 - 각각 2개 컬럼씩 차지 (6개 중 2개 = 1/3) */
+    .sports-list li:nth-child(1) {
+        grid-column: 1 / 3; 
+    }
+    .sports-list li:nth-child(2) {
+        grid-column: 3 / 5; 
+    }
+    .sports-list li:nth-child(3) {
+        grid-column: 5 / 7; 
+    }
+    
+    /* 두 번째 줄 - 각각 3개 컬럼씩 차지 (6개 중 3개 = 50%) */
+    .sports-list li:nth-child(4) {
+        grid-column: 1 / 4; 
+        margin-top: 0;
+    }
+    .sports-list li:nth-child(5) {
+        grid-column: 4 / 7; 
+        margin-top: 0;
+    }
+    
+    .detail-btn {
+        width: 100%;
+        font-size: 20px;
+        padding: 12px 8px;
+        text-align: center;
+        border: 1px solid #D9D9D9;
+        border-right: none;
+        border-top: none;
+        transition: all 0.2s ease;
+        margin-top: 5px;
+    }
+
+    /* 두 번째 줄 - 각각 3개 컬럼씩 차지 (6개 중 3개 = 50%) */
+    .sports-list li:nth-child(4) .detail-btn {
+        margin-top: 0;
+    }
+    .sports-list li:nth-child(5) .detail-btn {
+        margin-top: 0;
+    }
+
+    .btn-line { border-right: 1px solid #D9D9D9; }
+    
+    .detail-btn.active {
+        background-color: #7C00CE;
+        color: #fff;
+        border: 1px solid #7C00CE;
+        border-bottom: 0;
+    }
+    
+    .video-placeholder {
+        height: 250px;
+        font-size: 16px;
+    }
+
+    .footer { padding: 20px 0; }
+    .footer-logo { width: 30%; }
+}
+
+/***** 태블릿 ******/
+@media (min-width: 600px) {
+    .top-content {
+        padding: 3vw 0;
+    }
+
+    .top-title {
+        font-size: 40px;
+    }
+    
+    .top-subtitle {
+        font-size: 20px;
+    }
+    
+    .top-description {
+        font-size: 18px;
+    }
+    
+    .tab-btn {
+        font-size: 28px;
+    }
+    
+    .thumbnail-item {
+        width: 120px;
+        height: 152px;
+    }
+
+    .tab-navigation {    
+        width: 100%;
+        gap: 12px;
+    }
+
+    .main-content {
+        padding: 30px 0 80px;
+    }
+
+    .sports-menu { padding: 30px 0 20px; }
+
+    .sports-title { margin-left: 25px; margin-bottom: 70px; }
+
+    .sports-thumbnail {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .sports-nav { margin-left: 150px; margin-top: -90px; }
+
+    .sports-list { 
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px 20px; 
+    }
+    
+    .sports-list li { width: fit-content}
+    
+    .detail-btn {
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 0;
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+        border: none;
+    }
+
+    .detail-btn.active { 
+        background: none;
+        color: #7C00CE;
+        border: none;
+        border-bottom: 7px solid #7C00CE;
+        border-radius: 0;
+    }
+
+    .footer-logo { width: 16%; }
+}
+
+/***** 데스크톱, 테블릿 가로 화면 ******/
+@media (min-width: 1024px) {    
+    .textbook-thumbnails {
+        justify-content: center;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding-bottom: 40px;
+        gap: 0;
+        padding: 0 0 40px 0;
+    }
+    
+    .thumbnail-item {
+        width: 147px;
+        height: 187px;
+    }
+    
+    .thumbnail-item:hover {
+        transform: translateY(-16px) scale(1.05);
+        z-index: 10;
+    }
+    
+    .top-content {
+        padding: 60px 0 40px;
+    }
+    
+    .top-title {
+        font-size: 48px;
+    }
+    
+    .top-subtitle {
+        font-size: 24px;
+    }
+    
+    .top-description {
+        font-size: 20px;
+    }
+    
+    .main-content {
+        padding: 50px 0 150px;
+    }
+    
+    .tab-navigation {
+        width: 994px;
+        gap: 14px;
+    }
+    
+    .tab-btn {
+        font-size: 32px;
+    }
+    
+    .footer {
+        padding: 75px 0;
+    }
+    
+    .footer-logo { 
+        width: 163px;
+    }
+    
+    /* 데스크톱용 스포츠 섹션 */
+    .sports-section {
+        width: 994px;
+        padding: 0;
+    }
+    
+    .sports-menu { padding: 30px 0 20px; }
+    
+    .sports-content {
+        margin-left: 0;
+        width: auto;
+        flex: 1;
+    }
+    
+    .sports-thumbnail {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .sports-title {
+        margin-left: 40px;
+        margin-bottom: 100px;
+    }
+    
+    .sports-title h2 {
+        font-size: 40px;
+    }
+
+    .sports-nav {
+        margin-left: 200px;
+        margin-top: -112px;
+    }
+    
+    .sports-list {
+        padding: 10px 40px 10px;
+    }
+    
+    .sports-list li {
+        display: list-item;
+        width: auto;
+        vertical-align: initial;
+    }
+    
+    .detail-btn {
+        padding: 26px 20px 20px;
+        font-size: 24px;
+    }
+    
+    .detail-btn:hover {
+        border-bottom: 10px solid #d9d9d9;
+    }
+    
+    .detail-btn.active {
+        color: #7C00CE;
+        border-bottom: 10px solid #7C00CE;
+    }
+    
+    .video-placeholder {
+        height: 400px;
+        font-size: 18px;
+    }
+}
+
+/* 대형 데스크톱 (1440px 이상) */
+@media (min-width: 1440px) {
+    .main-content {
+        max-width: 1400px;
+    }
+    
+    .tab-navigation {
+        width: 994px;
+    }
+    
+    .sports-section {
+        width: 1200px;
+    }
+    
+    .textbook-slider {
+        max-width: 1400px;
+    }
+}
+
+

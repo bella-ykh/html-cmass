@@ -1,0 +1,965 @@
+{
+  "strategic": [
+    {
+      "id": "soccer",
+      "name": "축구",
+      "thumbnail": "images/cover-sport-1.png",
+      "techniques": [
+        {
+          "id": "dribble",
+          "name": "드리블",
+          "videos": [
+            {
+              "title": "인사이드 드리블",
+              "thumbnail": "images/thumbnail-soccer-0101.png",
+              "videoUrl": "https://kr.object.ncloudstorage.com/cmassbucket/video/video-sample.mp4?AWSAccessKeyId=g3k4kRjpt3eZOdpIgUso&Expires=1768972476&Signature=KJX4G4WR9KmUZ7u2qeK7aJb%2BQz8%3D"
+            },
+            {
+              "title": "아웃사이드 드리블",
+              "thumbnail": "images/thumbnail-soccer-0102.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "인스텝 드리블",
+              "thumbnail": "images/thumbnail-soccer-0103.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "kick",
+          "name": "킥",
+          "videos": [
+            {
+              "title": "인프런트 킥",
+              "thumbnail": "images/thumbnail-soccer-0201.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "인사이드 킥",
+              "thumbnail": "images/thumbnail-soccer-0202.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "아웃프런트 킥",
+              "thumbnail": "images/thumbnail-soccer-0203.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "인스텝 킥",
+              "thumbnail": "images/thumbnail-soccer-0204.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "trapping",
+          "name": "트래핑",
+          "videos": [
+            {
+              "title": "허벅지 트래핑",
+              "thumbnail": "images/thumbnail-soccer-0301.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "가슴 트래핑",
+              "thumbnail": "images/thumbnail-soccer-0302.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "인사이드 트래핑",
+              "thumbnail": "images/thumbnail-soccer-0303.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "아웃사이드 트래핑",
+              "thumbnail": "images/thumbnail-soccer-0304.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "발바닥 트래핑",
+              "thumbnail": "images/thumbnail-soccer-0305.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "feinting",
+          "name": "페인팅",
+          "videos": [
+            {
+              "title": "런지 스텝 페이크",
+              "thumbnail": "images/thumbnail-soccer-0401.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "heading",
+          "name": "헤딩",
+          "videos": [
+            {
+              "title": "스탠딩 헤딩",
+              "thumbnail": "images/thumbnail-soccer-0501.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "점프 헤딩",
+              "thumbnail": "images/thumbnail-soccer-0502.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "다이빙 헤딩",
+              "thumbnail": "images/thumbnail-soccer-0503.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "백 헤딩",
+              "thumbnail": "images/thumbnail-soccer-0504.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basketball",
+      "name": "농구",
+      "thumbnail": "images/cover-sport-2.png",
+      "techniques": [
+        {
+          "id": "dribble",
+          "name": "드리블",
+          "videos": [
+            {
+              "title": "제자리 드리블",
+              "thumbnail": "images/thumbnail-basketball-0101.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "러닝 드리블",
+              "thumbnail": "images/thumbnail-basketball-0102.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "크로스 오버 드리블",
+              "thumbnail": "images/thumbnail-basketball-0103.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "레그 스루 드리블",
+              "thumbnail": "images/thumbnail-basketball-0104.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "백 비하인드 드리블",
+              "thumbnail": "images/thumbnail-basketball-0105.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "shoot",
+          "name": "슛",
+          "videos": [
+            {
+              "title": "세트 슛",
+              "thumbnail": "images/thumbnail-basketball-0201.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "점프 슛",
+              "thumbnail": "images/thumbnail-basketball-0202.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "레이업 슛",
+              "thumbnail": "images/thumbnail-basketball-0203.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "pass",
+          "name": "패스",
+          "videos": [
+            {
+              "title": "체스트 패스",
+              "thumbnail": "images/thumbnail-basketball-0301.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "베이스볼 패스",
+              "thumbnail": "images/thumbnail-basketball-0302.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "catch",
+          "name": "캐치",
+          "videos": [
+            {
+              "title": "정면에서 하는 캐치",
+              "thumbnail": "images/thumbnail-basketball-0401.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "높은 지점에서 하는 캐치",
+              "thumbnail": "images/thumbnail-basketball-0402.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "footwork",
+          "name": "풋워크",
+          "videos": [
+            {
+              "title": "스트라이드 스톱",
+              "thumbnail": "images/thumbnail-basketball-0501.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "점프 스톱",
+              "thumbnail": "images/thumbnail-basketball-0502.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "피벗",
+              "thumbnail": "images/thumbnail-basketball-0503.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "handball",
+      "name": "핸드볼",
+      "thumbnail": "images/cover-sport-3.png",
+      "techniques": [
+        {
+          "id": "dribble",
+          "name": "드리블",
+          "videos": [
+            {
+              "title": "러닝 드리블",
+              "thumbnail": "images/thumbnail-handball-0101.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "feint",
+          "name": "페인트",
+          "videos": [
+            {
+              "title": "풋워크를 이용한 페인트",
+              "thumbnail": "images/thumbnail-handball-0201.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "pass",
+          "name": "패스",
+          "videos": [
+            {
+              "title": "숄더 패스",
+              "thumbnail": "images/thumbnail-handball-0301.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "래터럴 패스",
+              "thumbnail": "images/thumbnail-handball-0302.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "푸시 패스",
+              "thumbnail": "images/thumbnail-handball-0303.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "catch",
+          "name": "캐치",
+          "videos": [
+            {
+              "title": "높은 볼 캐치",
+              "thumbnail": "images/thumbnail-handball-0401.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "낮은 볼 캐치",
+              "thumbnail": "images/thumbnail-handball-0402.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "러닝 캐치",
+              "thumbnail": "images/thumbnail-handball-0403.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "shoot",
+          "name": "슛",
+          "videos": [
+            {
+              "title": "스텝 슛",
+              "thumbnail": "images/thumbnail-handball-0501.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "점프 슛",
+              "thumbnail": "images/thumbnail-handball-0502.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "다이빙 슛",
+              "thumbnail": "images/thumbnail-handball-0503.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "goalkeeping",
+          "name": "골 키핑",
+          "videos": [
+            {
+              "title": "높은 공",
+              "thumbnail": "images/thumbnail-handball-0601.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "중간 높이 공",
+              "thumbnail": "images/thumbnail-handball-0602.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "낮은 공",
+              "thumbnail": "images/thumbnail-handball-0603.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "badminton",
+      "name": "배드민턴",
+      "thumbnail": "images/cover-sport-4.png",
+      "techniques": [
+        {
+          "id": "service",
+          "name": "서비스",
+          "videos": [
+            {
+              "title": "백핸드 쇼트 서비스",
+              "thumbnail": "images/thumbnail-badminton-0101.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "포핸드 롱 서비스",
+              "thumbnail": "images/thumbnail-badminton-0102.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "stroke",
+          "name": "스트로크",
+          "videos": [
+            {
+              "title": "하이 클리어",
+              "thumbnail": "images/thumbnail-badminton-0201.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "스매시",
+              "thumbnail": "images/thumbnail-badminton-0202.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "드롭 샷",
+              "thumbnail": "images/thumbnail-badminton-0203.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "드라이브",
+              "thumbnail": "images/thumbnail-badminton-0204.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "푸시",
+              "thumbnail": "images/thumbnail-badminton-0205.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "헤어핀 샷",
+              "thumbnail": "images/thumbnail-badminton-0206.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "volleyball",
+      "name": "배구",
+      "thumbnail": "images/cover-sport-5.png",
+      "techniques": [
+        {
+          "id": "service",
+          "name": "서비스",
+          "videos": [
+            {
+              "title": "언더핸드 서비스",
+              "thumbnail": "images/thumbnail-volleyball-0101.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "오버핸드 서비스",
+              "thumbnail": "images/thumbnail-volleyball-0102.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "스파이크 서비스",
+              "thumbnail": "images/thumbnail-volleyball-0103.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "pass",
+          "name": "패스",
+          "videos": [
+            {
+              "title": "언더핸드 패스",
+              "thumbnail": "images/thumbnail-volleyball-0201.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "오버핸드 패스",
+              "thumbnail": "images/thumbnail-volleyball-0202.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "receive",
+          "name": "리시브",
+          "videos": [
+            {
+              "title": "기본 리시브",
+              "thumbnail": "images/thumbnail-volleyball-0301.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "spike",
+          "name": "스파이크",
+          "videos": [
+            {
+              "title": "기본 스파이크",
+              "thumbnail": "images/thumbnail-volleyball-0401.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "blocking",
+          "name": "블로킹",
+          "videos": [
+            {
+              "title": "기본 블로킹",
+              "thumbnail": "images/thumbnail-volleyball-0501.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tabletennis",
+      "name": "탁구",
+      "thumbnail": "images/cover-sport-6.png",
+      "techniques": [
+        {
+          "id": "stroke",
+          "name": "스트로크",
+          "videos": [
+            {
+              "title": "드라이브",
+              "thumbnail": "images/thumbnail-tabletennis-0101.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "커트",
+              "thumbnail": "images/thumbnail-tabletennis-0102.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "스매시",
+              "thumbnail": "images/thumbnail-tabletennis-0103.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "쇼트",
+              "thumbnail": "images/thumbnail-tabletennis-0104.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "service",
+          "name": "서비스",
+          "videos": [
+            {
+              "title": "포핸드 역회전 서비스",
+              "thumbnail": "images/thumbnail-tabletennis-0201.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "백핸드 전진 서비스",
+              "thumbnail": "images/thumbnail-tabletennis-0202.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "receive",
+          "name": "리시브",
+          "videos": [
+            {
+              "title": "역회전 공의 리시브",
+              "thumbnail": "images/thumbnail-tabletennis-0301.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "전진 회전 공의 리시브",
+              "thumbnail": "images/thumbnail-tabletennis-0302.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "technical": [
+    {
+      "id": "vault",
+      "name": "도마",
+      "thumbnail": "images/cover-sport-7.png",
+      "techniques": [
+        {
+          "id": "jump",
+          "name": "뛰어넘기",
+          "videos": [
+            {
+              "title": "다리 모아 뛰기",
+              "thumbnail": "images/thumbnail-vault-0101.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "다리 벌려 뛰기",
+              "thumbnail": "images/thumbnail-vault-0102.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "누워 뛰기",
+              "thumbnail": "images/thumbnail-vault-0103.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "roll",
+          "name": "돌기",
+          "videos": [
+            {
+              "title": "앞구르기",
+              "thumbnail": "images/thumbnail-vault-0201.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "목 튀겨 돌기",
+              "thumbnail": "images/thumbnail-vault-0202.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "손짚고 옆돌기",
+              "thumbnail": "images/thumbnail-vault-0203.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "손짚고 앞돌기",
+              "thumbnail": "images/thumbnail-vault-0204.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "name": "마루",
+      "thumbnail": "images/cover-sport-8.png",
+      "techniques": [
+        {
+          "id": "roll",
+          "name": "구르기",
+          "videos": [
+            {
+              "title": "앞 구르기",
+              "thumbnail": "images/thumbnail-floor-0101.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "무릎펴 앞 구르기",
+              "thumbnail": "images/thumbnail-floor-0102.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "handstand",
+          "name": "물구나무서기",
+          "videos": [
+            {
+              "title": "물구나무서서 앞 구르기",
+              "thumbnail": "images/thumbnail-floor-0201.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "뒤 굴러 물구나무서기",
+              "thumbnail": "images/thumbnail-floor-0202.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "cartwheel",
+          "name": "돌기",
+          "videos": [
+            {
+              "title": "손짚고 옆돌기 1",
+              "thumbnail": "images/thumbnail-floor-0301.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "손짚고 옆돌기 2",
+              "thumbnail": "images/thumbnail-floor-0302.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "손짚고 앞돌기",
+              "thumbnail": "images/thumbnail-floor-0303.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "고개 튀겨 앞돌기",
+              "thumbnail": "images/thumbnail-floor-0304.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "name": "균형잡기",
+          "videos": [
+            {
+              "title": "앞 균형 잡기",
+              "thumbnail": "images/thumbnail-floor-0401.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "옆 균형 잡기",
+              "thumbnail": "images/thumbnail-floor-0402.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "Y자 균형 잡기",
+              "thumbnail": "images/thumbnail-floor-0403.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "L자 버티기",
+              "thumbnail": "images/thumbnail-floor-0404.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "물구나무서기",
+              "thumbnail": "images/thumbnail-floor-0405.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "horizontalbar",
+      "name": "철봉",
+      "thumbnail": "images/cover-sport-9.png",
+      "techniques": [
+        {
+          "id": "swing",
+          "name": "흔들기",
+          "videos": [
+            {
+              "title": "기본 흔들기",
+              "thumbnail": "images/thumbnail-horizontalbar-0101.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "mount",
+          "name": "오르기",
+          "videos": [
+            {
+              "title": "차오르기",
+              "thumbnail": "images/thumbnail-horizontalbar-0201.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "거꾸로 오르기",
+              "thumbnail": "images/thumbnail-horizontalbar-0202.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "circle",
+          "name": "돌기",
+          "videos": [
+            {
+              "title": "다리 걸어 뒤돌기",
+              "thumbnail": "images/thumbnail-horizontalbar-0301.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "배대고 뒤돌기",
+              "thumbnail": "images/thumbnail-horizontalbar-0302.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "dismount",
+          "name": "내리기",
+          "videos": [
+            {
+              "title": "흔들어 앞으로 내리기",
+              "thumbnail": "images/thumbnail-horizontalbar-0401.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "뒤로 밀어 내리기",
+              "thumbnail": "images/thumbnail-horizontalbar-0402.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balancebeam",
+      "name": "평균대",
+      "thumbnail": "images/cover-sport-10.png",
+      "techniques": [
+        {
+          "id": "mount",
+          "name": "오르기",
+          "videos": [
+            {
+              "title": "앞으로 뛰어오르기",
+              "thumbnail": "images/thumbnail-balancebeam-0101.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "양손 사이로 다리 내어 오르기",
+              "thumbnail": "images/thumbnail-balancebeam-0102.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "walk",
+          "name": "걷기",
+          "videos": [
+            {
+              "title": "다리 들어 앞으로 걷기",
+              "thumbnail": "images/thumbnail-balancebeam-0201.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "엇걸어 걷기",
+              "thumbnail": "images/thumbnail-balancebeam-0202.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "name": "균형잡기",
+          "videos": [
+            {
+              "title": "Y자 평균 자세",
+              "thumbnail": "images/thumbnail-balancebeam-0301.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "한 다리 들고 버티기",
+              "thumbnail": "images/thumbnail-balancebeam-0302.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "한 발 뒤로 뻗어 균형 잡기",
+              "thumbnail": "images/thumbnail-balancebeam-0303.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "turn",
+          "name": "방향 바꾸기",
+          "videos": [
+            {
+              "title": "발 들어 180도 방향 바꾸기",
+              "thumbnail": "images/thumbnail-balancebeam-0401.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "dismount",
+          "name": "내리기",
+          "videos": [
+            {
+              "title": "몸 펴 내리기",
+              "thumbnail": "images/thumbnail-balancebeam-0501.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taekwondo",
+      "name": "태권도",
+      "thumbnail": "images/cover-sport-11.png",
+      "techniques": [
+        {
+          "id": "stance",
+          "name": "서기",
+          "videos": [
+            {
+              "title": "기본 서기",
+              "thumbnail": "images/thumbnail-taekwondo-0101.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "block",
+          "name": "막기",
+          "videos": [
+            {
+              "title": "아래 막기",
+              "thumbnail": "images/thumbnail-taekwondo-0201.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "몸통막기",
+              "thumbnail": "images/thumbnail-taekwondo-0202.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "얼굴 막기",
+              "thumbnail": "images/thumbnail-taekwondo-0203.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "punch",
+          "name": "지르기",
+          "videos": [
+            {
+              "title": "바로 지르기",
+              "thumbnail": "images/thumbnail-taekwondo-0301.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "반대 지르기",
+              "thumbnail": "images/thumbnail-taekwondo-0302.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "kick",
+          "name": "차기",
+          "videos": [
+            {
+              "title": "앞차기",
+              "thumbnail": "images/thumbnail-taekwondo-0401.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "옆차기",
+              "thumbnail": "images/thumbnail-taekwondo-0402.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "돌려차기",
+              "thumbnail": "images/thumbnail-taekwondo-0403.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "내려차기",
+              "thumbnail": "images/thumbnail-taekwondo-0404.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "attack",
+          "name": "공격 전술",
+          "videos": [
+            {
+              "title": "돌려차기 피하며 뒤차기",
+              "thumbnail": "images/thumbnail-taekwondo-0501.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "돌려차기 후 얼굴 돌려차기",
+              "thumbnail": "images/thumbnail-taekwondo-0502.png",
+              "videoUrl": "#"
+            }
+          ]
+        },
+        {
+          "id": "defense",
+          "name": "방어 전술",
+          "videos": [
+            {
+              "title": "돌려차기로 받아 차기",
+              "thumbnail": "images/thumbnail-taekwondo-0601.png",
+              "videoUrl": "#"
+            },
+            {
+              "title": "주먹 지르고 돌려차기로 받아 차기",
+              "thumbnail": "images/thumbnail-taekwondo-0602.png",
+              "videoUrl": "#"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

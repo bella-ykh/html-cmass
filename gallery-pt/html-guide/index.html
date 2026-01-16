@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>씨마스 체육 영상관</title>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!--카카오톡 공유 썸네일-->
+    <meta name="title" content="씨마스 체육 영상관" />
+    <meta name="description" content="설명은 줄이고, 움직임은 더 정확하게! 종목별 핵심 기능을 '보이는 수업'으로 바꿉니다." />
+    <meta name="thumbnail" content="https://viewer.cmass.kr/html/gallery-pt/images/share-image.png" />
+
+    <meta property="og:url" content="https://viewer.cmass.kr/html/gallery-pt/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="씨마스 체육 영상관" />
+    <meta property="og:description" content="설명은 줄이고, 움직임은 더 정확하게! 종목별 핵심 기능을 '보이는 수업'으로 바꿉니다." />
+    <meta property="og:image" content="https://viewer.cmass.kr/html/gallery-pt/images/share-image.png" />    
+</head>
+<body>
+    <!-- 메인 헤더 -->
+    <header class="main-header">
+        <!-- top 타이틀 영역 -->
+        <div class="top-content">
+            <p class="top-subtitle">종목별 핵심 기능을 영상으로!</p>
+            <h1 class="top-title">씨마스 체육 영상관</h1>
+            <p class="top-description">
+                설명은 줄이고, 움직임은 더 정확하게!<br>
+                종목별 핵심 기능을 '보이는 수업'으로 바꿉니다.
+            </p>
+        </div>
+
+        <!-- 교과서 썸네일 영역 -->
+        <div class="textbook-slider">
+            <div class="textbook-thumbnails">
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/538" target="_blank">
+                        <img src="images/textbook-1.png" alt="체육①">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/540" target="_blank">
+                        <img src="images/textbook-2.png" alt="체육②">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/578" target="_blank">
+                        <img src="images/textbook-3.png" alt="체육 1">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/582" target="_blank">
+                        <img src="images/textbook-4.png" alt="체육 2">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/579" target="_blank">
+                        <img src="images/textbook-5.png" alt="운동과 건강">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/735" target="_blank">
+                        <img src="images/textbook-6.png" alt="스포츠 과학">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/733" target="_blank">
+                        <img src="images/textbook-7.png" alt="스포츠 문화">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/580" target="_blank">
+                        <img src="images/textbook-8.png" alt="스포츠 생활 1">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/581" target="_blank">
+                        <img src="images/textbook-9.png" alt="스포츠 생활 2">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="main-content">
+        <!-- 탭 네비게이션 -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="strategic">전략형 스포츠</button>
+            <button class="tab-btn" data-tab="technical">기술형 스포츠</button>
+        </div>
+
+        <!-- 탭 컨텐츠 1: 전략형 스포츠 -->
+        <div class="tab-content active" id="strategic">
+            <!-- 축구 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <!-- 상단 영역: 썸네일 + 제목 -->
+                    <div class="sports-header">
+                        <div class="sports-thumbnail">
+                            <img src="images/cover-sport-1.png" alt="축구">
+                        </div>
+                        <div class="sports-title">
+                            <h2>축구</h2>
+                            <button class="accordion-toggle" data-target="soccer-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 하단 영역: 버튼 리스트 -->
+                    <div class="sports-nav">
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="soccer-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="soccer-video-2">킥</button></li>
+                            <li><button class="detail-btn btn-line" data-target="soccer-video-3">트래핑</button></li>
+                            <li><button class="detail-btn" data-target="soccer-video-4">페인팅</button></li>
+                            <li><button class="detail-btn btn-line" data-target="soccer-video-5">헤딩</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="soccer-videos">
+                    <div class="sports-video" id="soccer-video-1">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="https://kr.object.ncloudstorage.com/cmassbucket/video/video-sample.mp4?AWSAccessKeyId=g3k4kRjpt3eZOdpIgUso&Expires=1768972476&Signature=KJX4G4WR9KmUZ7u2qeK7aJb%2BQz8%3D" data-video-title="인사이드 드리블">
+                                    <img src="images/thumbnail-soccer-0101.png" alt="인사이드 드리블" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">인사이드 드리블</span>
+                                    <a href="#" download="인사이드 드리블.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="아웃사이드 드리블">
+                                    <img src="images/thumbnail-soccer-0102.png" alt="아웃사이드 드리블" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">아웃사이드 드리블</span>
+                                    <a href="#" download="아웃사이드 드리블.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="인스텝 드리블">
+                                    <img src="images/thumbnail-soccer-0103.png" alt="인스텝 드리블" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">인스텝 드리블</span>
+                                    <a href="#" download="인스텝 드리블.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sports-video" id="soccer-video-2">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="인프런트 킥">
+                                    <img src="images/thumbnail-soccer-0201.png" alt="인프런트 킥" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">인프런트 킥</span>
+                                    <a href="#" download="인프런트 킥.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="인사이드 킥">
+                                <img src="images/thumbnail-soccer-0202.png" alt="인사이드 킥" class="thumbnail-image">
+                                <div class="play-button">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                        <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                        <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                    </svg>
+                                </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">인사이드 킥</span>
+                                    <a href="#" download="인사이드 킥.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="아웃프런트 킥">
+                                <img src="images/thumbnail-soccer-0203.png" alt="아웃프런트 킥" class="thumbnail-image">
+                                <div class="play-button">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                        <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                        <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                    </svg>
+                                </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">아웃프런트 킥</span>
+                                    <a href="#" download="아웃프런트 킥.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="인스텝 킥">
+                                <img src="images/thumbnail-soccer-0204.png" alt="인스텝 킥" class="thumbnail-image">
+                                <div class="play-button">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                        <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                        <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                    </svg>
+                                </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">인스텝 킥</span>
+                                    <a href="#" download="인스텝 킥.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sports-video" id="soccer-video-3">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="허벅지 트래핑">
+                                    <img src="images/thumbnail-soccer-0301.png" alt="허벅지 트래핑" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">허벅지 트래핑</span>
+                                    <a href="#" download="허벅지 트래핑.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="가슴 트래핑">
+                                    <img src="images/thumbnail-soccer-0302.png" alt="가슴 트래핑" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">가슴 트래핑</span>
+                                    <a href="#" download="가슴 트래핑.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="인사이드 트래핑">
+                                    <img src="images/thumbnail-soccer-0303.png" alt="인사이드 트래핑" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">인사이드 트래핑</span>
+                                    <a href="#" download="인사이드 트래핑.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="아웃사이드 트래핑">
+                                    <img src="images/thumbnail-soccer-0304.png" alt="아웃사이드 트래핑" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">아웃사이드 트래핑</span>
+                                    <a href="#" download="아웃사이드 트래핑.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="발바닥 트래핑">
+                                    <img src="images/thumbnail-soccer-0305.png" alt="발바닥 트래핑" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">발바닥 트래핑</span>
+                                    <a href="#" download="발바닥 트래핑.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sports-video" id="soccer-video-4">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="런지 스텝 페이크">
+                                    <img src="images/thumbnail-soccer-0401.png" alt="런지 스텝 페이크" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">런지 스텝 페이크</span>
+                                    <a href="#" download="런지 스텝 페이크.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sports-video" id="soccer-video-5">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="스탠딩 헤딩">
+                                    <img src="images/thumbnail-soccer-0501.png" alt="스탠딩 헤딩" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">스탠딩 헤딩</span>
+                                    <a href="#" download="스탠딩 헤딩.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="점프 헤딩">
+                                    <img src="images/thumbnail-soccer-0502.png" alt="점프 헤딩" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">점프 헤딩</span>
+                                    <a href="#" download="점프 헤딩.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="다이빙 헤딩">
+                                <img src="images/thumbnail-soccer-0503.png" alt="다이빙 헤딩" class="thumbnail-image">
+                                <div class="play-button">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                        <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                        <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                    </svg>
+                                </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">다이빙 헤딩</span>
+                                    <a href="#" download="다이빙 헤딩.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="백 헤딩">
+                                    <img src="images/thumbnail-soccer-0504.png" alt="백 헤딩" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">백 헤딩</span>
+                                    <a href="#" download="백 헤딩.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 농구 -->
+            <div class="sports-section">
+                <div class="sports-menu">
+                    <!-- 상단 영역: 썸네일 + 제목 -->
+                    <div class="sports-header">
+                        <div class="sports-thumbnail">
+                            <img src="images/cover-sport-2.png" alt="농구">
+                        </div>
+                        <div class="sports-title">
+                            <h2>농구</h2>
+                            <button class="accordion-toggle" data-target="basketball-videos">
+                                <img src="images/ico-open.svg" alt="열기" class="icon-open">
+                                <img src="images/ico-close.svg" alt="닫기" class="icon-close">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 하단 영역: 버튼 리스트 -->
+                    <div class="sports-nav">
+                        <ul class="sports-list">
+                            <li><button class="detail-btn" data-target="basketball-video-1">드리블</button></li>
+                            <li><button class="detail-btn" data-target="basketball-video-2">슛</button></li>
+                            <li><button class="detail-btn btn-line" data-target="basketball-video-3">패스</button></li>
+                            <li><button class="detail-btn" data-target="basketball-video-4">캐치</button></li>
+                            <li><button class="detail-btn btn-line" data-target="basketball-video-5">풋워크</button></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 아코디언으로 열리는 비디오 영역 -->
+                <div class="sports-videos" id="basketball-videos">
+                    <div class="sports-video" id="basketball-video-1">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="제자리 드리블">
+                                    <img src="images/thumbnail-basketball-0101.png" alt="제자리 드리블" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">제자리 드리블</span>
+                                    <a href="#" download="제자리 드리블.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="러닝 드리블">
+                                    <img src="images/thumbnail-basketball-0102.png" alt="러닝 드리블" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">러닝 드리블</span>
+                                    <a href="#" download="러닝 드리블.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="크로스 오버 드리블">
+                                    <img src="images/thumbnail-basketball-0103.png" alt="크로스 오버 드리블" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">크로스 오버 드리블</span>
+                                    <a href="#" download="크로스 오버 드리블.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="레그 스루 드리블">
+                                    <img src="images/thumbnail-basketball-0104.png" alt="레그 스루 드리블" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">레그 스루 드리블</span>
+                                    <a href="#" download="레그 스루 드리블.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="백 비하인드 드리블">
+                                    <img src="images/thumbnail-basketball-0105.png" alt="백 비하인드 드리블" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">백 비하인드 드리블</span>
+                                    <a href="#" download="백 비하인드 드리블.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sports-video" id="basketball-video-2">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="세트 슛">
+                                    <img src="images/thumbnail-basketball-0201.png" alt="세트 슛" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">세트 슛</span>
+                                    <a href="#" download="세트 슛.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="점프 슛">
+                                    <img src="images/thumbnail-basketball-0202.png" alt="점프 슛" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">점프 슛</span>
+                                    <a href="#" download="점프 슛.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="레이업 슛">
+                                    <img src="images/thumbnail-basketball-0203.png" alt="레이업 슛" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">레이업 슛</span>
+                                    <a href="#" download="레이업 슛.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sports-video" id="basketball-video-3">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="체스트 패스">
+                                    <img src="images/thumbnail-basketball-0301.png" alt="체스트 패스" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">체스트 패스</span>
+                                    <a href="#" download="체스트 패스.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="베이스볼 패스">
+                                    <img src="images/thumbnail-basketball-0302.png" alt="베이스볼 패스" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">베이스볼 패스</span>
+                                    <a href="#" download="베이스볼 패스.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sports-video" id="basketball-video-4">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="정면에서 하는 캐치">
+                                    <img src="images/thumbnail-basketball-0401.png" alt="정면에서 하는 캐치" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">정면에서 하는 캐치</span>
+                                    <a href="#" download="정면에서 하는 캐치.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="높은 지점에서 하는 캐치">
+                                    <img src="images/thumbnail-basketball-0402.png" alt="높은 지점에서 하는 캐치" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">높은 지점에서 하는 캐치</span>
+                                    <a href="#" download="높은 지점에서 하는 캐치.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sports-video" id="basketball-video-5">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="스트라이드 스톱">
+                                    <img src="images/thumbnail-basketball-0501.png" alt="스트라이드 스톱" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">스트라이드 스톱</span>
+                                    <a href="#" download="스트라이드 스톱.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="점프 스톱">
+                                    <img src="images/thumbnail-basketball-0502.png" alt="점프 스톱" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">점프 스톱</span>
+                                    <a href="#" download="점프 스톱.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="video-item">
+                                <div class="video-thumbnail" data-video-url="#" data-video-title="피벗">
+                                    <img src="images/thumbnail-basketball-0503.png" alt="피벗" class="thumbnail-image">
+                                    <div class="play-button">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                            <circle cx="20" cy="20" r="20" fill="rgba(0, 0, 0, 0.7)"/>
+                                            <path d="M15 12L15 28L28 20L15 12Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="video-title-text">피벗</span>
+                                    <a href="#" download="피벗.mp4" class="download-link">
+                                        <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <!-- 탭 컨텐츠 2: 기술형 스포츠 -->
+        <div class="tab-content" id="technical">
+            기술형 스포츠 //
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="images/logo.svg" alt="씨마스 로고" class="footer-logo">
+        </div>
+    </footer>
+
+    <!-- 영상 모달 팝업 -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="modal-close" id="modalClose">
+                        <img src="images/ico-pop-close.svg" alt="닫기">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="video-container">
+                        <video 
+                            id="videoPlayer" 
+                            controls 
+                            preload="metadata"
+                            playsinline>
+                            <source id="videoSource" src="" type="video/mp4">
+                            브라우저가 비디오를 지원하지 않습니다.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
