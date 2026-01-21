@@ -830,7 +830,7 @@ body {
 /* ========================================
    Desktop 
 ======================================== */
-@media (min-width: 1024px) {    
+@media (min-width: 1366px) {    
     .textbook-thumbnails {
         justify-content: center;
         overflow-x: visible;
