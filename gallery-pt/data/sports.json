@@ -64,7 +64,7 @@
             {
               "title": "가슴 트래핑",
               "thumbnail": "images/thumbnail-soccer-0302.png",
-              "videoUrl": "#"
+              "videoUrl": "https://kr.object.ncloudstorage.com/cmassbucket/video/video-soccer-0302.mp4?AWSAccessKeyId=g3k4kRjpt3eZOdpIgUso&Expires=1770082251&Signature=3Vc2nrH8sFFJ8J5FhLqhWAW%2FsY4%3D"
             },
             {
               "title": "인사이드 트래핑",
@@ -101,7 +101,7 @@
             {
               "title": "스탠딩 헤딩",
               "thumbnail": "images/thumbnail-soccer-0501.png",
-              "videoUrl": "#"
+              "videoUrl": "https://kr.object.ncloudstorage.com/cmassbucket/video/video-soccer-0501.mp4?AWSAccessKeyId=g3k4kRjpt3eZOdpIgUso&Expires=1770082270&Signature=YL%2FVrTm%2Bq83cktu1AHWmF8KgPnE%3D"
             },
             {
               "title": "점프 헤딩",
@@ -344,7 +344,7 @@
             {
               "title": "포핸드 롱 서비스",
               "thumbnail": "images/thumbnail-badminton-0102.png",
-              "videoUrl": "#"
+              "videoUrl": "https://kr.object.ncloudstorage.com/cmassbucket/video/video-badminton-0102.mp4?AWSAccessKeyId=g3k4kRjpt3eZOdpIgUso&Expires=1770082206&Signature=oQrOdY5ULogL37TTJsPG7DJ0rFk%3D"
             }
           ]
         },
