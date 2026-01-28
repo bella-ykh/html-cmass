@@ -217,7 +217,7 @@ function initVideoModal() {
 }
 
 // ===========================
-// 다운로드 기능 (간소화)
+// 다운로드 기능
 // ===========================
 function initDownloadFunction() {
     const downloadLinks = document.querySelectorAll('.download-link');
@@ -225,10 +225,37 @@ function initDownloadFunction() {
     downloadLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.stopPropagation(); // 썸네일 클릭 이벤트 방지
-            // href와 download 속성으로 브라우저가 자동 처리
-            console.log(`다운로드 시작: ${link.download}`);
+            e.preventDefault(); // 기본 링크 동작 방지
+            
+            const videoItem = link.closest('.video-item');
+            const thumbnail = videoItem.querySelector('.video-thumbnail');
+            const videoUrl = thumbnail.dataset.videoUrl;
+            const videoTitle = thumbnail.dataset.videoTitle;
+            
+            // 다운로드 실행
+            downloadVideo(videoUrl, videoTitle);
         });
     });
+}
+
+function downloadVideo(url, filename) {
+    try {
+        // 임시 링크 요소 생성
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${filename}.mp4`;
+        link.target = '_blank';
+        
+        // 링크 클릭하여 다운로드 시작
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        console.log(`다운로드 시작: ${filename}`);
+    } catch (error) {
+        console.error('다운로드 오류:', error);
+        alert('다운로드 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    }
 }
 
 // ===========================
@@ -291,7 +318,7 @@ function generateVideoHTML(video) {
             </div>
             <div class="video-info">
                 <span class="video-title-text">${video.title}</span>
-                <a href="download.php?url=${encodeURIComponent(video.videoUrl)}&filename=${encodeURIComponent(video.title)}" download="${video.title}.mp4" class="download-link">
+                <a href="#" download="${video.title}.mp4" class="download-link">
                     <img src="images/ico-down.svg" alt="다운로드" class="download-icon">
                 </a>
             </div>

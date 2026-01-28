@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>씨마스 체육 영상관</title>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!--카카오톡 공유 썸네일-->
+    <meta name="title" content="씨마스 체육 영상관" />
+    <meta name="description" content="설명은 줄이고, 움직임은 더 정확하게! 종목별 핵심 기능을 '보이는 수업'으로 바꿉니다." />
+    <meta name="thumbnail" content="https://viewer.cmass.kr/html/gallery-pt/images/share-image.png" />
+
+    <meta property="og:url" content="https://viewer.cmass.kr/html/gallery-pt/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="씨마스 체육 영상관" />
+    <meta property="og:description" content="설명은 줄이고, 움직임은 더 정확하게! 종목별 핵심 기능을 '보이는 수업'으로 바꿉니다." />
+    <meta property="og:image" content="https://viewer.cmass.kr/html/gallery-pt/images/share-image.png" />    
+</head>
+<body>
+    <!-- 메인 헤더 -->
+    <header class="main-header">
+        <!-- top 타이틀 영역 -->
+        <div class="top-content">
+            <p class="top-subtitle">종목별 핵심 기능을 영상으로!</p>
+            <h1 class="top-title">씨마스 체육 영상관</h1>
+            <p class="top-description">
+                설명은 줄이고, 움직임은 더 정확하게!<br>
+                종목별 핵심 기능을 '보이는 수업'으로 바꿉니다.
+            </p>
+        </div>
+
+        <!-- 교과서 썸네일 영역 -->
+        <div class="textbook-slider">
+            <div class="textbook-thumbnails">
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/538" target="_blank">
+                        <img src="images/textbook-1.png" alt="체육①">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/540" target="_blank">
+                        <img src="images/textbook-2.png" alt="체육②">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/578" target="_blank">
+                        <img src="images/textbook-3.png" alt="체육 1">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/582" target="_blank">
+                        <img src="images/textbook-4.png" alt="체육 2">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/579" target="_blank">
+                        <img src="images/textbook-5.png" alt="운동과 건강">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/735" target="_blank">
+                        <img src="images/textbook-6.png" alt="스포츠 과학">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/733" target="_blank">
+                        <img src="images/textbook-7.png" alt="스포츠 문화">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/580" target="_blank">
+                        <img src="images/textbook-8.png" alt="스포츠 생활 1">
+                    </a>
+                </div>
+                <div class="thumbnail-item">
+                    <a href="https://teachingsaem.cmass.kr/textbook-material/detail/581" target="_blank">
+                        <img src="images/textbook-9.png" alt="스포츠 생활 2">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="main-content">
+        <!-- 탭 네비게이션 -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="strategic">전략형 스포츠</button>
+            <button class="tab-btn" data-tab="technical">기술형 스포츠</button>
+        </div>
+
+        <!-- 탭 컨텐츠 1: 전략형 스포츠 -->
+        <div class="tab-content active" id="strategic">
+            <!-- 동적으로 생성될 스포츠 섹션들 -->
+        </div>
+
+        <!-- 탭 컨텐츠 2: 기술형 스포츠 -->
+        <div class="tab-content" id="technical">
+            <!-- 동적으로 생성될 스포츠 섹션들 -->
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="images/logo.svg" alt="씨마스 로고" class="footer-logo">
+        </div>
+    </footer>
+
+    <!-- 영상 모달 팝업 -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="modal-close" id="modalClose">
+                        <img src="images/ico-pop-close.svg" alt="닫기">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="video-container">
+                        <video 
+                            id="videoPlayer" 
+                            controls 
+                            preload="metadata"
+                            playsinline>
+                            <source id="videoSource" src="" type="video/mp4">
+                            브라우저가 비디오를 지원하지 않습니다.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
