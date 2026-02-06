@@ -311,15 +311,18 @@ body {
 .subject-item a {
     color: inherit;
     text-decoration: none;
-    display: block;
-    width: 100%;
-    height: 100%;
+    display: inline-block;
     transition: color 0.2s ease;
 }
 
 .subject-item a:hover {
     color: #007bff;
     text-decoration: none;
+}
+
+/* 인라인 링크 스타일 (한국사1/한국사2용) */
+.subject-item.inline-links a {
+    display: inline;
 }
 
 .subject-item:last-child {
