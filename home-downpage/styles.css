@@ -1,0 +1,520 @@
+/* Box sizing 설정 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 기본 마진, 패딩 제거 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* HTML, Body 기본 설정 */
+html,
+body {
+    height: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+/* 미디어 요소 기본 설정 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 폼 요소 폰트 상속 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 폼 요소 focus 스타일 */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* 텍스트 오버플로우 처리 */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    word-break: keep-all; /* 한국어 텍스트 최적화 */
+}
+
+/* 리스트 스타일 제거 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 링크 기본 스타일 제거 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 버튼 기본 스타일 제거 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* 테이블 기본 설정 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Body 스타일 */
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-size: 16px;
+    color: #222;
+    background-color: #fff;
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+
+/* 유틸리티 클래스 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* ========================================
+   Mobile First 
+======================================== */
+/* 모바일 기본값 */ 
+
+/* 헤더 섹션 */
+.hero-header {
+    width: 100%;
+    height: 240px;
+    background-image: url('./images/top_bg_m.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-container {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    word-break: keep-all;
+}
+
+.hero-title span {
+    display: block;
+}
+
+.hero-subtitle {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #0b1155;
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+.hero-subtitle span {
+    display: block;
+}
+  
+
+/* ========================================
+   메인 콘텐츠
+======================================== */
+.main-content {
+    width: 100%;
+    background-color: #edf3f6;
+    margin: 0 auto;
+    padding: 40px 10px;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* 페이지 제목 */
+.page-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title h2 {
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    color: #0b1155;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.download-notice {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.view-desktop {
+    display: none;
+}
+
+.view-mobile {
+    display: block;
+}
+
+/* 학교 섹션 */
+.school-section {
+    margin-bottom: 40px;
+}
+
+.school-title {
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 800;
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.middle-school .school-title {
+    color: #5f83ff;
+}
+
+.high-school .school-title {
+    color: #00b4b1;
+}
+
+/* 카드 그리드 스타일 */
+.subject-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* 카드 그룹 (2개씩 묶음) */
+.card-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.subject-card {
+    background: white;
+    border: none;
+    border-right: 1px solid #e0e0e0;
+}
+
+.subject-card:nth-child(2n) {
+    border-right: none;
+}
+
+.card-header {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 16px 12px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.middle-header {
+    background: #5f83ff;
+}
+
+.high-header {
+    background: #00b4b1;
+}
+
+.card-content {
+    padding: 0;
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.subject-item {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 16px;
+    color: #333;
+    padding: 8px 12px;
+    margin: 0;
+}
+
+.subject-item a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: color 0.2s ease;
+}
+
+.subject-item a:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.subject-item:last-child {
+    border-bottom: none;
+}
+
+/* wide-group 스타일 (사회 카드용) */
+.wide-group {
+    grid-template-columns: 1fr;
+}
+
+.wide-card {
+    border-right: none;
+}
+
+/* ========================================
+   반응형 미디어쿼리
+======================================== */
+
+/* 태블릿 (600px 이상) */
+@media (min-width: 600px) {
+    /* 헤더 */
+    .hero-header {
+        height: 250px;
+        background-image: url('./images/top_bg.png');
+    }
+    
+    .hero-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .mobile-br {
+        display: none;
+    }
+    
+    /* 메인 콘텐츠 */
+    .main-content {
+        padding: 60px 20px;
+    }
+    
+    .page-title h2 {
+        font-size: 40px;
+        margin-bottom: 24px;
+    }
+
+    .download-notice {
+        padding: 20px 50px;
+    }
+    
+    .view-desktop {
+        display: block;
+    }
+    
+    .view-mobile {
+        display: none;
+    }
+    
+    .school-title {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+    
+    .subject-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border-radius: 40px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        background: white;
+    }
+    
+    .card-group {
+        display: contents;
+    }
+    
+    .subject-card {
+        border-radius: 0;
+        border-right: 1px solid #e0e0e0;
+        border-bottom: none;
+        box-shadow: none;
+    }
+    
+    .subject-card:last-child {
+        border-right: none;
+    }
+    
+    .subject-card:nth-child(2n) {
+        border-right: 1px solid #e0e0e0;
+    }
+    
+    .subject-card:nth-last-child(-n+2) {
+        border-bottom: none;
+    }
+    
+    .card-header {
+        font-size: 20px;
+        padding: 18px 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    .card-content {
+        padding: 0;
+        min-height: 110px;
+        display: block;
+    }
+    
+    .subject-item {
+        font-size: 16px;
+        padding: 12px 16px;
+        text-align: center;
+    }
+    
+    /* 태블릿에서 사회 카드 조정 */
+    .high-grid:last-child {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .high-grid:last-child .card-group {
+        display: contents;
+    }
+    
+    .wide-card {
+        grid-column: auto;
+        border-right: 1px solid #e0e0e0 !important;
+    }
+}
+
+/* 데스크톱 (1024px 이상) */
+@media (min-width: 1024px) {
+    .hero-header {
+        height: 449px;
+    }
+    
+    /* 헤더 */
+    .hero-title {
+        font-size: 60px;
+        margin-bottom: 24px;
+    }
+    
+    .hero-subtitle {
+        font-size: 30px;
+    }
+    
+    /* 메인 콘텐츠 */
+    .main-content {
+        padding: 80px 20px;
+    }
+    
+    .page-title h2 {
+        font-size: 48px;
+        margin-bottom: 30px;
+    }
+    
+    .school-title {
+        font-size: 48px;
+        margin-bottom: 40px;
+    }
+    
+    .subject-grid {
+        gap: 0;
+        margin-bottom: 40px;
+    }
+    
+    .card-header {
+        font-size: 36px;
+        padding: 24px 20px;
+    }
+    
+    .card-content {
+        padding: 0;
+        min-height: 180px;
+        display: block;
+    }
+    
+    .subject-item {
+        font-size: 32px;
+        padding: 14px 20px;
+    }
+    
+    /* 데스크톱에서 사회 카드 조정 */
+    .high-grid:last-child {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .high-grid:last-child .card-group {
+        display: contents;
+    }
+    
+    .wide-card {
+        border-right: 1px solid #e0e0e0 !important;
+    }
+}
