@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer Submenu 샘플</title>
+<style>
+  body {
+    margin: 0;
+    padding: 40px 20px;
+    background-color: #e8edf2;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  }
+
+  h2 {
+    font-size: 14px;
+    color: #666;
+    margin: 30px 0 10px;
+  }
+
+  .nx-plugin-footer-submenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #2b3a55;
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+
+  /* ── 버튼 공통 ── */
+  .nx-plugin-footer-submenu-item {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    /* 좌우 before/after 영역만큼 padding */
+    padding: 0 25px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    color: rgb(146, 146, 146);
+
+    /* 메인 요소 배경 제거 - 중복 방지 */
+    background-color: transparent !important;
+
+    /* 텍스트가 before/after보다 위에 오도록 */
+    z-index: 0;
+  }
+
+  /* 텍스트 레이어 - 중간 배경 이미지 적용 */
+  .nx-plugin-footer-submenu-item span {
+    position: relative;
+    z-index: 2; /* before/after(z-index:1) 보다 위 */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* 중간 배경 이미지를 span에 적용 */
+    background-image: url('images/footer_submenu_button.png');
+    background-repeat: repeat-x;
+    background-position: center center;
+    background-size: auto 100%;
+  }
+
+  /* 일반 버튼 - 왼쪽 */
+  .nx-plugin-footer-submenu-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 100%;
+    z-index: 1;
+    background-image: url('images/footer_submenu_button_left.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 25px 100%;
+  }
+
+  /* 일반 버튼 - 오른쪽 */
+  .nx-plugin-footer-submenu-item::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 25px;
+    height: 100%;
+    z-index: 1;
+    background-image: url('images/footer_submenu_button_right.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 25px 100%;
+  }
+
+  /* ── 활성 버튼 ── */
+  .nx-plugin-footer-submenu-item.current {
+    color: #ffffff;
+    /* 메인 요소 배경 제거 - span에서 처리 */
+    background-color: transparent !important;
+  }
+
+  /* 활성 버튼의 span 배경 */
+  .nx-plugin-footer-submenu-item.current span {
+    background-image: url('images/footer_submenu_current_button.png');
+    background-repeat: repeat-x;
+    background-position: center center;
+    background-size: auto 100%;
+  }
+
+  .nx-plugin-footer-submenu-item.current::before {
+    background-image: url('images/footer_submenu_current_button_left.png');
+    background-size: 25px 100%;
+  }
+
+  .nx-plugin-footer-submenu-item.current::after {
+    background-image: url('images/footer_submenu_current_button_right.png');
+    background-size: 25px 100%;
+  }
+</style>
+</head>
+<body>
+
+  <h2>▶ 짧은 텍스트</h2>
+  <div class="nx-plugin-footer-submenu">
+    <div class="nx-plugin-footer-submenu-item current"><span>대단원 소개</span></div>
+    <div class="nx-plugin-footer-submenu-item"><span>생각 열기</span></div>
+    <div class="nx-plugin-footer-submenu-item"><span>미리보기</span></div>
+    <div class="nx-plugin-footer-submenu-item"><span>진단 평가</span></div>
+  </div>
+
+  <h2>▶ 긴 텍스트 (가변 길이 테스트)</h2>
+  <div class="nx-plugin-footer-submenu">
+    <div class="nx-plugin-footer-submenu-item current"><span>대단원 소개 - 활성화된 메뉴</span></div>
+    <div class="nx-plugin-footer-submenu-item"><span>대단원 생각 열기</span></div>
+    <div class="nx-plugin-footer-submenu-item"><span>대단원 미리보기</span></div>
+    <div class="nx-plugin-footer-submenu-item"><span>진단 평가</span></div>
+  </div>
+
+  <h2>▶ 두 번째 항목이 활성화된 경우</h2>
+  <div class="nx-plugin-footer-submenu">
+    <div class="nx-plugin-footer-submenu-item"><span>대단원 소개</span></div>
+    <div class="nx-plugin-footer-submenu-item current"><span>대단원 생각 열기</span></div>
+    <div class="nx-plugin-footer-submenu-item"><span>대단원 미리보기</span></div>
+    <div class="nx-plugin-footer-submenu-item"><span>진단 평가</span></div>
+  </div>
+
+</body>
+</html>
