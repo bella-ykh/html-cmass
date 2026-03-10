@@ -1,0 +1,440 @@
+/* Box sizing 설정 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 기본 마진, 패딩 제거 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* HTML, Body 기본 설정 */
+html,
+body {
+    height: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+/* 미디어 요소 기본 설정 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 폼 요소 폰트 상속 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 폼 요소 focus 스타일 */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* 텍스트 오버플로우 처리 */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    word-break: keep-all; /* 한국어 텍스트 최적화 */
+}
+
+/* 리스트 스타일 제거 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 링크 기본 스타일 제거 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 버튼 기본 스타일 제거 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* 테이블 기본 설정 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Body 스타일 */
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-size: 16px;
+    color: #222;
+    background-color: #fff;
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+
+/* 기본 컨테이너 */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 유틸리티 클래스 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* ========================================
+   Mobile First 
+======================================== */
+ /* 모바일 기본값 */ 
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.label-sample-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-top: 50px;
+    color: #aaa;
+}
+
+
+
+/* label-sample-1 클래스 */
+.label-sample-1 {
+    width: 140px;
+    height: 65px;
+    padding-bottom: 10px;
+    background-image: url('../images/bg-1.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #929292;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.label-sample-2 {
+    width: 140px;
+    height: 65px;
+    padding-bottom: 10px;
+    background-image: url('../images/bg-2.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+.ribbon-label-1 {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #d9d9d9;
+    min-width: 92px;
+    height: 60px;
+    margin: 0 24px;
+    color: #929292;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* 왼쪽 꼬리 삼각형 */
+.ribbon-label-1::before {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 30px solid #d9d9d9;
+    border-bottom: 30px solid #d9d9d9;
+    border-left: 24px solid transparent;
+}
+
+/* 오른쪽 뾰족 화살표 */
+.ribbon-label-1::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 24px solid #d9d9d9;
+}
+
+.ribbon-label-2 {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #2d88ff;
+    min-width: 92px;
+    height: 60px;
+    padding: 0 15px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* 왼쪽 꼬리 삼각형 */
+.ribbon-label-2::before {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 30px solid #2d88ff;
+    border-bottom: 30px solid #2d88ff;
+    border-left: 24px solid transparent;
+}
+
+/* 오른쪽 뾰족 화살표 */
+.ribbon-label-2::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 24px solid #2d88ff;
+}
+
+/* 가변형 배경 이미지 라벨 - label-sample-3 */
+.label-sample-3 {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    height: 65px;
+    padding: 0 40px 10px; /* 양쪽 이미지 공간 확보 */
+    margin: 0 20px;
+    color: #929292;
+    font-size: 24px;
+    font-weight: 600;
+    /* 텍스트 영역 반복 배경 */
+    background-image: url('../images/bg-txt-1.png');
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: auto 100%;
+}
+
+/* 왼쪽 배경 이미지 */
+.label-sample-3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px; /* 왼쪽 이미지 너비 */
+    height: 100%;
+    background-image: url('../images/bg-left-1.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain;
+    z-index: 1;
+}
+
+/* 오른쪽 배경 이미지 */
+.label-sample-3::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px; /* 오른쪽 이미지 너비 */
+    height: 100%;
+    background-image: url('../images/bg-right-1.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    z-index: 1;
+}
+
+/* 가변형 배경 이미지 라벨 - label-sample-4 */
+.label-sample-4 {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    height: 65px;
+    padding: 0 40px 10px; /* 양쪽 이미지 공간 확보 */
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    /* 텍스트 영역 반복 배경 */
+    background-image: url('../images/bg-txt-2.png');
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: auto 100%;
+}
+
+/* 왼쪽 배경 이미지 */
+.label-sample-4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px; /* 왼쪽 이미지 너비 */
+    height: 100%;
+    background-image: url('../images/bg-left-2.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain;
+    z-index: 1;
+}
+
+/* 오른쪽 배경 이미지 */
+.label-sample-4::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px; /* 오른쪽 이미지 너비 */
+    height: 100%;
+    background-image: url('../images/bg-right-2.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================
+   Tablet 
+======================================== */
+@media (min-width: 600px) {  
+/* 태블릿 (갤탭 S4 포함: 610px) */
+}
+  
+
+
+/* ========================================
+   Desktop 
+======================================== */
+@media (min-width: 1024px) {
+/* 데스크톱 (iPad 가로, 소형 노트북) */
+}
+  
+
+
+
+
+
+/* ========================================
+   디테일한 추가 구분 (필수는 아님 ) 
+======================================== */
+@media (min-width: 360px) {
+/* 큰 모바일 (iPhone 6+ 이상) */
+}
+@media (min-width: 1440px) {
+/* 대형 데스크톱 */
+}
