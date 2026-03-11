@@ -11,6 +11,21 @@
     font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
   }
 
+  @font-face {
+    font-family: 'Paperlogy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Paperlogy';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-display: swap;
+  }
+
+
   h2 {
     font-size: 14px;
     color: #666;
@@ -33,9 +48,10 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 56px;
+    height: 40px;
     /* 좌우 before/after 영역만큼 padding */
     padding: 0 25px;
+    font-family: 'Paperlogy', sans-serif;
     font-size: 18px;
     font-weight: 500;
     white-space: nowrap;
@@ -98,6 +114,8 @@
   /* ── 활성 버튼 ── */
   .nx-plugin-footer-submenu-item.current {
     color: #ffffff;
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 700;
     /* 메인 요소 배경 제거 - span에서 처리 */
     background-color: transparent !important;
   }
