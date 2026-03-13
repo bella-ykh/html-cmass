@@ -1,0 +1,474 @@
+/* ========================================
+   반응형 미디어 쿼리
+======================================== */
+/* 태블릿 */
+@media (min-width: 600px) {
+    /* Header 스타일 */
+    .mobile-only { display: none; }
+
+    .price-blank {
+        display: block;
+        height: 40px;
+    }   
+
+    header {
+        background-image: url('../images/bg_top.png');
+        height: 240px; /* 태블릿에서 높이 조정 */
+    }
+    
+    header h1 {
+        font-size: 45px;
+    }
+    
+    .top_info {
+        flex-direction: row; /* 태블릿부터 가로 정렬 시작 */
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        gap: 12px;
+    }
+    
+    .top_info li {
+        flex: 0 1 auto;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    /* Main 컨텐츠 스타일 */
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 900px;
+        gap: 10px;
+    }
+    
+    .process-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1100px;
+        margin: 0 auto;
+        gap: 50px;
+    }
+    
+    .process-info {
+        flex: 1;
+        max-width: 600px;
+    }
+
+    .grade-badge {
+        font-size: 22px;
+        padding: 0 4px 8px;
+    }
+
+    .period {font-size: 18px;}
+    .original-price { font-size: 22px; }
+    .product-code { padding: 10px 15px; border-radius: 15px;}
+    .product-code span.copy-code{ font-size: 16px; font-weight: 500; }
+    .product-code span { font-size: 14px; font-weight: normal; }
+    
+    .help-section {
+        padding: 10px 0;
+    }
+
+    .guide-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .service-guide h3 {
+        font-size: 30px;
+    }
+    
+    .guide-info {
+        padding: 20px 30px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    
+    .guide-icon img {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .guide-info p {
+        font-size: 18px;
+    }
+
+    .guide-column h4 {
+        font-size: 24px;
+    }
+    
+    .guide-steps {
+        gap: 14px;
+    }
+    
+    .guide-step {
+        padding: 16px 18px;
+        gap: 16px;
+    }
+    
+    .guide-step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+    }
+    
+    .guide-step-text {
+        font-size: 16px;
+    }
+    
+    .download-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .btn-download {
+        flex: 1;
+        max-width: 590px;
+        gap: 8px;
+    }
+    
+    .btn-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .footer-logo-img {
+        width: 120px;
+        height: 37px;
+    }
+    
+    .footer-contact {
+        font-size: 19px;
+    }
+}
+
+/* 데스크톱 */
+@media (min-width: 1024px) {
+    /* Header 스타일 */
+    header h1 {
+        font-size: 60px;
+    }
+    
+    .top_info {
+        flex-direction: row; /* 웹: 가로 정렬 */
+        justify-content: center;
+        align-items: center;
+        padding: 15px 30px;
+        gap: 35px;
+        border-radius: 50px; /* 웹에서는 더 둥근 모양 */
+    }
+    
+    .top_info li {
+        flex: 0 1 auto;
+        white-space: nowrap;
+        font-size: 22px;
+    }
+
+    /* Main 컨텐츠 스타일 */
+    .product-section h2 {
+        font-size: 48px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1000px;
+        gap: 40px;
+    }
+    
+    .product-card {
+        border-radius: 20px;
+    }
+    
+    .product-image {
+        height: 250px;
+    }
+    
+    .product-image img {
+        max-width: 140px;
+        max-height: 180px;
+    }
+    
+    .grade-badge {
+        font-size: 32px;
+        padding: 0 8px 8px;
+    }
+
+    .period {font-size: 22px;}
+    .original-price { font-size: 28px; }
+    .product-code span.copy-code{ font-size: 22px; font-weight: 500; }
+    .product-code span { font-size: 18px; font-weight: normal; }
+    
+    .btn-primary,
+    .btn-secondary {
+        flex: 1;
+        padding: 14px 20px;
+    }
+    
+    .process-content {
+        gap: 60px;
+    }
+    
+    .process-info h3 {
+        font-size: 36px;
+        gap: 26px;
+        margin-bottom: 40px;
+    }
+
+    .h3-icon {
+        width: 63px;
+        height: 67px;
+    }
+    
+    .process-steps {
+        gap: 20px;
+    }
+    
+    .step {
+        padding: 24px;
+        border-radius: 50px;
+        gap: 16px; 
+    }
+    
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+    
+    .step-text {
+        font-size: 36px;
+    }
+    
+    .help-section {
+        padding: 50px 40px;
+    }
+
+    .help-section p {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .help-section h4 {
+        font-size: 40px;
+    }
+    
+    .help-icon img {
+        width: 132px;
+        height: 121px;
+    }
+
+    .btn-help {
+        font-size: 22px;
+    }
+    
+    .service-guide h3 {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+    
+    .guide-info {
+        padding: 40px 50px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+    }
+    
+    .guide-icon img {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .guide-info p {
+        font-size: 20px;
+    }
+    
+    .guide-columns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+
+    
+    .guide-column h4 {
+        font-size: 34px;
+        margin-bottom: 30px;
+    }
+    
+    .guide-step {
+        padding: 20px 24px;
+        gap: 20px;
+        border-radius: 68px;
+    }
+    
+    .guide-step-number {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+    
+    .guide-step-text {
+        font-size: 18px;
+    }
+    
+    .download-section h3 {
+        font-size: 48px;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    
+    .btn-download {
+        padding: 18px 30px;
+        font-size: 16px;
+        gap: 12px;
+    }
+    
+    .btn-icon {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .footer-logo-img {
+        width: auto;
+        height: auto;
+        max-width: 200px;
+    }
+    
+    .footer-contact {
+        font-size: 28px;
+        margin-top: 30px;
+    }
+}
+
+/* 대형 데스크톱 */
+@media (min-width: 1440px) {
+    header {
+        /* 웹용 배경이미지로 변경 */
+        background-image: url('../images/bg_top.png');
+        height: 400px; /* 웹용 가로형 이미지에 맞춰 높이 조정 */
+    }
+    
+    header h1 {
+        font-size: 72px;
+        margin-bottom: 50px;
+    }
+
+    .top_info {
+        flex-direction: row; /* 웹: 가로 정렬 */
+        justify-content: center;
+        align-items: center;
+        padding: 20px 50px;
+        gap: 35px;
+        border-radius: 50px; /* 웹에서는 더 둥근 모양 */
+    }
+    
+    .top_info li {
+        flex: 0 1 auto;
+        white-space: nowrap;
+        font-size: 28px;
+        position: relative;
+    }
+
+    .product-section,
+    .video-section,
+    .order-process,
+    .service-guide,
+    .download-section {
+        padding: 80px 0 0;
+    }
+
+    .download-section {
+        margin-bottom: 100px;
+    }
+    
+    .product-section h2 {
+        font-size: 48px;
+        margin-bottom: 60px;
+    }    
+    
+    .product-grid {
+        max-width: 1200px;
+        gap: 50px;
+    }
+    
+    
+    
+    .process-content {
+        gap: 100px;
+        max-width: 1300px;
+    }
+    
+    .process-info h3 {
+        font-size: 40px;
+    }
+    
+    
+    .service-guide h3 {
+        font-size: 48px;
+    }
+    
+    .guide-content {
+        max-width: 1200px;
+    }
+    
+    .guide-info {
+        padding: 60px 50px;
+        margin-bottom: 80px;
+    }
+    
+    .guide-icon img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .guide-info p {
+        font-size: 22px;
+    }
+    
+    .guide-columns {
+        gap: 60px;
+    }
+    
+    .guide-steps {
+        gap: 20px;
+    }
+    
+    .guide-step {
+        padding: 22px 26px;
+        gap: 22px;
+    }
+    
+    .guide-step-number {
+        width: 38px;
+        height: 38px;
+        font-size: 19px;
+    }
+    
+    .guide-step-text {
+        font-size: 24px;
+    }
+
+    .guide-note { font-size: 20px; }
+    
+    .btn-download {
+        padding: 20px 35px;
+        font-size: 24px;
+        gap: 14px;
+    }
+    
+    .btn-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .footer-logo-img {
+        width: auto;
+        height: auto;
+        max-width: 250px;
+    }
+    
+    .footer-contact {
+        font-size: 22px;
+    }
+}
