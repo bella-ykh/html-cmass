@@ -284,6 +284,10 @@
     .guide-info p {
         font-size: 20px;
     }
+
+    .guide-stxt {
+        font-size: 16px;
+    }
     
     .guide-columns {
         grid-template-columns: repeat(2, 1fr);
