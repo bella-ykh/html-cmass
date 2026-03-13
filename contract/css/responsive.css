@@ -13,7 +13,7 @@
 
     header {
         background-image: url('../images/bg_top.png');
-        height: 240px; /* 태블릿에서 높이 조정 */
+        padding: 50px 0;
     }
     
     header h1 {
@@ -346,7 +346,7 @@
     header {
         /* 웹용 배경이미지로 변경 */
         background-image: url('../images/bg_top.png');
-        height: 400px; /* 웹용 가로형 이미지에 맞춰 높이 조정 */
+        padding: 100px 0;
     }
     
     header h1 {
