@@ -586,6 +586,9 @@ header h1 {
     text-align: left;
 }
 
+.guide-stxt2 {
+color: #da40b5
+}
 .guide-columns {
     display: grid;
     grid-template-columns: 1fr;

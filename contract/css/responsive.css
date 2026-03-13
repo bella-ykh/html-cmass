@@ -396,8 +396,10 @@
         gap: 50px;
     }
     
-    
-    
+    .guide-stxt2 {
+        display: block;
+        padding-left: 14px;
+    }
     .process-content {
         gap: 100px;
         max-width: 1300px;
