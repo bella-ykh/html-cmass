@@ -67,7 +67,7 @@
     .product-code span { font-size: 14px; font-weight: normal; }
     
     .help-section {
-        padding: 10px 0;
+        padding: 10px;
     }
 
     .guide-columns {
@@ -79,20 +79,20 @@
     }
     
     .guide-info {
-        padding: 20px 30px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 30px;
+        padding: 20px;
     }
     
     .guide-icon img {
-        width: 90px;
-        height: 90px;
+        width: 70px;
+        height: auto;
     }
     
     .guide-info p {
         font-size: 18px;
+    }
+
+    .guide-stxt {
+        font-size: 14px;
     }
 
     .guide-column h4 {
