@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 한국사 지도 수업 자료 — 新 서비스 제안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --paper: #f5f0e8;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --rust: #8b2500;
+    --celadon: #4a7c6f;
+    --celadon-light: #6aad9b;
+    --mist: #e8e0d0;
+    --accent: #c94a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── GRAIN OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    padding: 80px 60px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--celadon);
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--celadon);
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 900;
+    font-size: clamp(38px, 4vw, 58px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-title .em {
+    color: var(--accent);
+    position: relative;
+  }
+
+  .hero-title .em::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lineReveal 0.6s ease 1.2s forwards;
+  }
+
+  .hero-subtitle {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 300;
+    font-size: clamp(16px, 1.8vw, 22px);
+    color: #555;
+    line-height: 1.7;
+    margin-top: 24px;
+    margin-bottom: 48px;
+    max-width: 480px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--gold);
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── HERO RIGHT: MAP VISUAL ── */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-visual {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a2a2a 0%, #0d1f1a 50%, #0a1510 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(74,124,111,0.3) 0%, transparent 70%);
+  }
+
+  /* Korea map SVG */
+  .korea-map {
+    position: relative;
+    z-index: 2;
+    animation: floatMap 6s ease-in-out infinite;
+  }
+
+  /* Animated dots on map */
+  .map-dot {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .map-dot:nth-child(2) { animation-delay: 0.5s; }
+  .map-dot:nth-child(3) { animation-delay: 1s; }
+  .map-dot:nth-child(4) { animation-delay: 1.5s; }
+
+  .map-label {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 10px;
+    fill: rgba(212,160,23,0.9);
+    animation: fadeIn 1s ease forwards;
+  }
+
+  /* Territory layers */
+  .territory-goguryeo {
+    animation: territoryPulse 4s ease-in-out infinite;
+  }
+
+  .territory-baekje {
+    animation: territoryPulse 4s ease-in-out 1.3s infinite;
+  }
+
+  .territory-silla {
+    animation: territoryPulse 4s ease-in-out 2.6s infinite;
+  }
+
+  /* Era badge */
+  .era-badge {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: rgba(184,134,11,0.15);
+    border: 1px solid rgba(184,134,11,0.4);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    z-index: 3;
+    animation: fadeIn 1s ease 1s forwards;
+    opacity: 0;
+  }
+
+  .era-badge-title {
+    display: block;
+    font-size: 7px;
+    color: rgba(212,160,23,0.5);
+    margin-bottom: 4px;
+    letter-spacing: 0.2em;
+  }
+
+  /* KML hint */
+  .kml-hint {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10,21,16,0.92);
+    border-top: 1px solid rgba(74,124,111,0.35);
+    padding: 20px 24px;
+    z-index: 3;
+    animation: fadeUp 0.8s ease 1.2s forwards;
+    opacity: 0;
+  }
+
+  .kml-hint-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: rgba(106,173,155,0.5);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .kml-code {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--celadon-light);
+    line-height: 1.9;
+    white-space: pre;
+  }
+
+  .kml-comment { color: rgba(106,173,155,0.5); }
+  .kml-tag { color: #e06c75; }
+  .kml-attr { color: #d19a66; }
+  .kml-val { color: #98c379; }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 80px;
+    margin: 80px 0 60px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--mist), transparent);
+  }
+
+  .divider-mark {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #aaa;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .section {
+    padding: 0 80px 100px;
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: var(--celadon);
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.3;
+  }
+
+  /* Steps */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--mist);
+    border: 1px solid var(--mist);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .step {
+    background: var(--paper);
+    padding: 48px 36px;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .step:hover {
+    background: #f9f5ed;
+  }
+
+  .step-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--mist);
+    line-height: 1;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .step-num::after {
+    content: attr(data-n);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--gold);
+    opacity: 0.3;
+  }
+
+  .step-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .step-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+
+  .step-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+  }
+
+  .step-arrow {
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background: var(--paper);
+    border: 1px solid var(--mist);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--celadon);
+    z-index: 2;
+  }
+
+  .step:last-child .step-arrow { display: none; }
+
+  /* ── WORKFLOW (기존 STRENGTHS 대체) ── */
+  /* 기존 steps 스타일을 재사용하므로 추가 스타일 불필요 */
+
+  /* ── SCENARIO ── */
+  .scenario-box {
+    background: linear-gradient(135deg, #1a2a2a, #0d1f1a);
+    border-radius: 16px;
+    padding: 60px;
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scenario-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a7c6f' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .scenario-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--celadon-light);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .scenario-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .scenario-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .scenario-flow::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(to right, var(--celadon), rgba(74,124,111,0.2));
+    z-index: 0;
+  }
+
+  .flow-step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .flow-dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(74,124,111,0.2);
+    border: 1px solid rgba(74,124,111,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin: 0 auto 16px;
+  }
+
+  .flow-step-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--paper);
+  }
+
+  .flow-step-desc {
+    font-size: 11.5px;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.7;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--ink);
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '地圖';
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Noto Serif KR', serif;
+    font-size: 180px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    letter-spacing: -0.1em;
+    pointer-events: none;
+  }
+
+  .cta-left .cta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--celadon-light);
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+  }
+
+  .cta-left .cta-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--paper);
+    line-height: 1.4;
+  }
+
+  .cta-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--celadon);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 6px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover {
+    background: var(--celadon-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: rgba(245,240,232,0.6);
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid rgba(245,240,232,0.15);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(245,240,232,0.4);
+    color: var(--paper);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 32px 80px;
+    background: #0a0e0c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    color: rgba(245,240,232,0.4);
+  }
+
+  .footer-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: rgba(245,240,232,0.25);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes lineReveal {
+    to { transform: scaleX(1); }
+  }
+
+  @keyframes floatMap {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-12px); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; r: 4; }
+    50%       { opacity: 1;   r: 6; }
+  }
+
+  @keyframes territoryPulse {
+    0%, 100% { opacity: 0.15; }
+    50%       { opacity: 0.35; }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: rgba(245,240,232,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(15,14,12,0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .nav-logo span {
+    color: var(--celadon);
+  }
+
+  .nav-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 0.15em;
+    background: var(--mist);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  /* spacer for fixed nav */
+  .nav-spacer { height: 64px; }
+
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">신규 서비스 아이디어 제안</span>
+    <h1 class="hero-title">
+      AI가 만드는<br>
+      <span class="em">한국사 지도</span><br>
+      수업 자료
+    </h1>
+    <p class="hero-subtitle">
+      교사가 직접 조작하는 살아있는 역사 지도.<br>
+      외주 없이, 디자이너 없이, AI 하나로.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">0원</span>
+        <span class="stat-label">지도 제작 외주 비용</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3분</span>
+        <span class="stat-label">시대별 KML 생성 시간</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3D</span>
+        <span class="stat-label">구글어스 지형 위 시각화</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="map-visual">
+
+      <div class="era-badge">
+        <span class="era-badge-title">CURRENT LAYER</span>
+        삼국시대 — 475 AD
+      </div>
+
+      <!-- SVG Map of Korean Peninsula with animated territories -->
+      <div class="korea-map">
+        <svg width="320" height="440" viewBox="0 0 320 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Glow backdrop -->
+          <ellipse cx="160" cy="220" rx="130" ry="190" fill="rgba(74,124,111,0.06)"/>
+
+          <!-- Goguryeo territory (north) -->
+          <path class="territory-goguryeo"
+            d="M60 30 C80 20, 200 15, 240 40 C260 60, 265 100, 250 140 C235 170, 210 175, 190 170 C180 180, 175 195, 170 190 C150 175, 120 180, 100 165 C70 150, 50 120, 55 80 Z"
+            fill="#4a7c6f" stroke="rgba(106,173,155,0.6)" stroke-width="1.5"/>
+
+          <!-- Baekje territory (southwest) -->
+          <path class="territory-baekje"
+            d="M85 195 C100 185, 135 185, 155 195 C162 205, 158 240, 150 265 C140 285, 120 295, 100 285 C82 272, 72 245, 75 220 Z"
+            fill="#b8860b" stroke="rgba(212,160,23,0.6)" stroke-width="1.5"/>
+
+          <!-- Silla territory (southeast) -->
+          <path class="territory-silla"
+            d="M165 195 C185 185, 230 190, 245 215 C258 238, 252 275, 235 295 C218 310, 190 310, 172 298 C157 285, 153 258, 158 235 Z"
+            fill="#8b2500" stroke="rgba(201,74,26,0.6)" stroke-width="1.5"/>
+
+          <!-- Korean Peninsula outline -->
+          <path d="M90 50 C85 40, 110 25, 140 22 C165 20, 195 25, 215 45 C235 65, 240 95, 238 125 C236 150, 228 170, 220 185 C240 200, 252 225, 250 255 C248 280, 238 305, 225 320 C210 335, 195 345, 185 355 C175 365, 168 375, 165 385 C162 395, 158 405, 150 415 C145 408, 140 398, 135 385 C130 372, 125 362, 115 350 C100 335, 80 320, 70 300 C58 278, 55 250, 58 225 C60 205, 70 190, 80 180 C68 165, 60 140, 62 110 C64 82, 75 58, 90 50Z"
+            stroke="rgba(245,240,232,0.25)" stroke-width="1.5" fill="none"/>
+
+          <!-- Jeju Island -->
+          <ellipse cx="138" cy="428" rx="18" ry="9"
+            stroke="rgba(245,240,232,0.2)" stroke-width="1" fill="rgba(74,124,111,0.1)"/>
+
+          <!-- Cities / pins -->
+          <g class="map-dot">
+            <circle cx="155" cy="285" r="5" fill="var(--gold)" opacity="0.9"/>
+            <circle cx="155" cy="285" r="12" fill="rgba(184,134,11,0.2)"/>
+          </g>
+          <g class="map-dot">
+            <circle cx="110" cy="150" r="4" fill="var(--celadon-light)" opacity="0.9"/>
+            <circle cx="110" cy="150" r="10" fill="rgba(74,124,111,0.2)"/>
+          </g>
+          <g class="map-dot">
+            <circle cx="200" cy="230" r="4" fill="#e07a5f" opacity="0.9"/>
+            <circle cx="200" cy="230" r="10" fill="rgba(201,74,26,0.2)"/>
+          </g>
+
+          <!-- Labels -->
+          <text x="108" y="115" class="map-label" text-anchor="middle" font-family="Noto Serif KR, serif">고구려</text>
+          <text x="105" y="245" class="map-label" text-anchor="middle" font-family="Noto Serif KR, serif">백제</text>
+          <text x="208" y="248" class="map-label" text-anchor="middle" font-family="Noto Serif KR, serif">신라</text>
+
+          <!-- Grid lines (parallels) -->
+          <line x1="50" y1="160" x2="270" y2="160" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="50" y1="250" x2="270" y2="250" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,6"/>
+          <line x1="145" y1="20" x2="145" y2="430" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,6"/>
+
+        </svg>
+      </div>
+
+      <!-- KML code snippet at bottom -->
+      <div class="kml-hint">
+        <div class="kml-hint-label">AI generated KML — 삼국시대 475 AD</div>
+        <div class="kml-code"><span class="kml-comment">&lt;!-- 고구려 수도 핀 --&gt;</span>
+<span class="kml-tag">&lt;Placemark&gt;</span>
+  <span class="kml-tag">&lt;name&gt;</span><span class="kml-val">평양성</span><span class="kml-tag">&lt;/name&gt;</span>
+  <span class="kml-tag">&lt;styleUrl&gt;</span><span class="kml-val">#style_capital</span><span class="kml-tag">&lt;/styleUrl&gt;</span>
+  <span class="kml-tag">&lt;Point&gt;&lt;coordinates&gt;</span><span class="kml-val">125.75,39.01,0</span><span class="kml-tag">&lt;/coordinates&gt;&lt;/Point&gt;</span>
+<span class="kml-tag">&lt;/Placemark&gt;</span>
+<span class="kml-comment">&lt;!-- 고구려 영토 면 --&gt;</span>
+<span class="kml-tag">&lt;Placemark&gt;</span>
+  <span class="kml-tag">&lt;name&gt;</span><span class="kml-val">고구려 영토</span><span class="kml-tag">&lt;/name&gt;</span>
+  <span class="kml-tag">&lt;Polygon&gt;&lt;outerBoundaryIs&gt;&lt;LinearRing&gt;</span>
+    <span class="kml-tag">&lt;coordinates&gt;</span><span class="kml-val">124.0,38.5 125.0,42.5 ...</span><span class="kml-tag">&lt;/coordinates&gt;</span>
+  <span class="kml-tag">&lt;/LinearRing&gt;&lt;/outerBoundaryIs&gt;&lt;/Polygon&gt;</span>
+<span class="kml-tag">&lt;/Placemark&gt;</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<div class="section-divider">
+  <div class="divider-line"></div>
+  <div class="divider-mark">How It Works</div>
+  <div class="divider-line"></div>
+</div>
+
+<section class="section reveal">
+  <div class="section-header">
+    <div class="section-num">01 — 작동 방식</div>
+    <h2 class="section-title">세 단계로 완성되는<br>역사 지도 수업 자료</h2>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num" data-n="01">01</div>
+      <span class="step-icon">🤖</span>
+      <div class="step-title">AI에게 데이터 요청</div>
+      <div class="step-desc">ChatGPT·Claude에게 "삼국시대 영토를 KML 형식으로 만들어줘"라고 요청. 시대별 지명, 사건 위치, 행정구역 데이터를 몇 분 안에 생성.</div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step">
+      <div class="step-num" data-n="02">02</div>
+      <span class="step-icon">🌍</span>
+      <div class="step-title">구글어스에 불러오기</div>
+      <div class="step-desc">KML 파일을 구글어스 Pro에 드래그하면 3D 지형 위에 영토·핀·경계선이 즉시 표시. 레이어 ON/OFF로 시대별 영토 변화를 실시간 비교.</div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step">
+      <div class="step-num" data-n="03">03</div>
+      <span class="step-icon">🖥️</span>
+      <div class="step-title">수업 & 자료 활용</div>
+      <div class="step-desc">교사가 수업 중 화면을 직접 조작하며 설명. 스크린샷으로 PPT 이미지 추출, 영상 녹화로 온라인 강의 자료까지 다목적 활용.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WORKFLOW ── -->
+<div class="section-divider">
+  <div class="divider-line"></div>
+  <div class="divider-mark">Workflow Division</div>
+  <div class="divider-line"></div>
+</div>
+
+<section class="section reveal">
+  <div class="section-header">
+    <div class="section-num">02 — 업무 세분화</div>
+    <h2 class="section-title">역할별 업무 분담과<br>프로세스 최적화</h2>
+  </div>
+
+  <div class="steps" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="step">
+      <div class="step-num" data-n="01">01</div>
+      <span class="step-icon">📝</span>
+      <div class="step-title">편집부 → AI → 교사 워크플로</div>
+      <div class="step-desc">
+        <strong style="color: var(--celadon);">편집부 (교과 전문가)</strong><br>
+        어떤 시대, 어떤 사건, 어떤 지명을 담을지 프롬프트 기획<br><br>
+        
+        <strong style="color: var(--gold);">AI (Claude/ChatGPT)</strong><br>
+        프롬프트 받아서 KML 파일 생성<br><br>
+        
+        <strong style="color: var(--accent);">교사</strong><br>
+        KML을 구글어스에 올려서 수업에 활용<br><br>
+        
+        <em style="font-size: 12px; color: #888;">편집부 입장에서 좋은 점: 프롬프트 작성이 기존 원고 집필과 구조가 동일함</em>
+      </div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step">
+      <div class="step-num" data-n="02">02</div>
+      <span class="step-icon">🗺️</span>
+      <div class="step-title">KML 파일 라이브러리 구축</div>
+      <div class="step-desc">
+        <strong style="color: var(--celadon);">기존 원고 스타일:</strong><br>
+        "삼국시대 475년, 고구려 장수왕은 평양으로 천도하고..."<br><br>
+        
+        <strong style="color: var(--gold);">KML 프롬프트 스타일:</strong><br>
+        "삼국시대 475년 기준으로 고구려·백제·신라 영토를 KML로 만들어줘. 주요 수도 핀과 한성 함락 사건 위치도 포함해서."<br><br>
+        
+        <em style="font-size: 12px; color: #888;">이렇게 생성된 KML 파일들을 모아서 시대별·주제별 라이브러리로 제공</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- 구글어스 캡쳐 화면 영역 -->
+  <div style="margin-top: 60px; background: linear-gradient(135deg, #1a2a2a, #0d1f1a); border-radius: 16px; padding: 40px; position: relative; overflow: hidden;">
+    <div style="font-family: 'DM Mono', monospace; font-size: 10px; color: var(--celadon-light); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; position: relative; z-index: 2;">
+      GOOGLE EARTH INTEGRATION PREVIEW
+    </div>
+    <div style="font-family: 'Noto Serif KR', serif; font-weight: 700; font-size: 24px; color: var(--paper); margin-bottom: 30px; position: relative; z-index: 2;">
+      KML 적용 화면 미리보기
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; position: relative; z-index: 2;">
+      <!-- 캡쳐 화면 1: KML이 올라간 프로젝트 화면 -->
+      <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; text-align: center;">
+        <div style="color: var(--celadon-light); font-size: 12px; margin-bottom: 10px; font-family: 'DM Mono', monospace; letter-spacing: 0.1em;">
+          📸 KML이 올라간 프로젝트 화면
+        </div>
+        <img src="img_01.png" alt="KML이 올라간 구글어스 프로젝트 화면" style="width: 100%; height: auto; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+      </div>
+      
+      <!-- 캡쳐 화면 2: 적용된 지도 화면 -->
+      <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; text-align: center;">
+        <div style="color: var(--celadon-light); font-size: 12px; margin-bottom: 10px; font-family: 'DM Mono', monospace; letter-spacing: 0.1em;">
+          🌍 적용된 지도 화면
+        </div>
+        <img src="img_02.png" alt="구글어스에 적용된 한국사 지도 화면" style="width: 100%; height: auto; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+      </div>
+    </div>
+    
+    <!-- 배경 패턴 -->
+    <div style="position: absolute; inset: 0; background: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%234a7c6f\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); pointer-events: none;"></div>
+  </div>
+</section>
+
+<!-- ── ISSUES ── -->
+<div class="section-divider">
+  <div class="divider-line"></div>
+  <div class="divider-mark">Issues to Resolve</div>
+  <div class="divider-line"></div>
+</div>
+
+<section class="section reveal">
+  <div class="section-header">
+    <div class="section-num">03 — 해결해야 할 문제점</div>
+    <h2 class="section-title">도입 전 검토가 필요한<br>세 가지 과제</h2>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num" data-n="01">01</div>
+      <span class="step-icon">📐</span>
+      <div class="step-title">KML 영토 좌표의 부정확성</div>
+      <div class="step-desc">AI가 생성한 KML은 대략적인 좌표 몇 개를 직선으로 이어 만든 다각형이라, 실제 역사 영토와 형태가 다릅니다. 교육용 자료 수준의 정밀도를 갖추려면 해안선·산맥을 따라 수백 개 좌표가 필요합니다. <strong style="color: var(--accent);">편집부의 역사 전문 지식을 바탕으로 AI 생성 데이터를 검수·보완하는 워크플로가 필수적입니다.</strong></div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step">
+      <div class="step-num" data-n="02">02</div>
+      <span class="step-icon">💰</span>
+      <div class="step-title">구글어스 / 지도 서비스 과금 문제</div>
+      <div class="step-desc">수업 보조 자료로 내부에서만 활용하는 경우 현재의 무료 등급으로도 충분합니다. 그러나 지도를 회사 교재·상품의 핵심 요소로 가공·배포한다면 구글어스 Pro의 유료 플랜 구독이 필요합니다. <strong style="color: var(--accent);">웹사이트에 지도를 임베드하거나 API를 호출하는 경우 Google Maps Platform의 별도 과금 체계</strong>가 적용되므로 사전 검토가 필요합니다.</div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step">
+      <div class="step-num" data-n="03">03</div>
+      <span class="step-icon">⚖️</span>
+      <div class="step-title">저작권 및 상업적 이용 가능 여부</div>
+      <div class="step-desc">구글어스 지도 데이터 및 위성 이미지의 상업적 이용은 Google의 이용약관 및 Permissions 가이드라인의 적용을 받습니다. 교재 삽입 이미지, 인쇄물, 온라인 강의 등 <strong style="color: var(--accent);">상업적 목적으로 활용하기 전 반드시 Google Permissions 가이드라인을 면밀히 검토</strong>해야 합니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-left">
+    <div class="cta-label">NEXT STEP</div>
+    <div class="cta-title">
+      파일럿 html 제작<br>
+      <span style="color:rgba(245,240,232,0.5); font-size:22px; font-weight:300;">샘플 KML 1종 + 구글어스 연동 화면</span><br>
+      <span style="color:rgba(245,240,232,0.5); font-size:16px; font-weight:300;">(Google Maps API 키 필요! 샘플은 API 키 없이 브라우저에서 바로 열 수 있는 Leaflet.js 프로젝트로 제작)</span>
+    </div>
+  </div>
+  <div class="cta-right">
+    <a href="map_sample.html" target="_blank" class="btn-primary">📋 &nbsp;삼국시대 인터랙티브 지도 보기</a>
+    <!-- KML 파일 경로를 href="" 안에 넣어주세요 -->
+    <a href="kml_sample.kml" download class="btn-secondary">🗂 &nbsp;삼국시대 샘플 KML 파일 다운로드</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">AI 한국사 지도 수업 자료 — 사내 제안</div>
+  <div class="footer-meta">INTERNAL USE ONLY · 웹팀 제안 · 2025</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Animate territory labels cycle
+  const layers = ['삼국시대 — 475 AD', '고려 — 1018 AD', '조선 — 1450 AD'];
+  let idx = 0;
+  const badge = document.querySelector('.era-badge');
+  setInterval(() => {
+    idx = (idx + 1) % layers.length;
+    badge.style.opacity = '0';
+    badge.style.transition = 'opacity 0.4s';
+    setTimeout(() => {
+      badge.innerHTML = `<span class="era-badge-title">CURRENT LAYER</span>${layers[idx]}`;
+      badge.style.opacity = '1';
+    }, 400);
+  }, 3000);
+</script>
+</body>
+</html>
