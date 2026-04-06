@@ -373,7 +373,7 @@
     <div class="panel-section" style="padding-bottom:12px;">
       <div class="panel-label">지도 유형</div>
       <div class="map-type-btns">
-        <button class="map-btn active" onclick="setMapType('street', this)">수채화</button>
+        <button class="map-btn active" onclick="setMapType('street', this)">담백(지명없음)</button>
         <button class="map-btn" onclick="setMapType('satellite', this)">위성</button>
         <button class="map-btn" onclick="setMapType('topo', this)">음영지형</button>
       </div>
@@ -472,9 +472,10 @@ const map = L.map('map', {
 });
 
 const tiles = {
-  street: L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg', {
-    attribution: '© Stadia Maps, © Stamen Design, © OpenStreetMap contributors',
-    maxZoom: 16
+  street: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap contributors, © CARTO',
+    subdomains: 'abcd',
+    maxZoom: 19
   }),
   satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: '© Esri', maxZoom: 18
