@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>삼국시대 인터랙티브 지도 — ① 수채화풍 (Stamen Watercolor)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  :root {
+    --ink: #1a1814;
+    --paper: #f4efe4;
+    --gold: #c8971a;
+    --mist: #e6dfd0;
+    --goguryeo: #2d7a4f;
+    --baekje: #1a5fa8;
+    --silla: #a83220;
+    --panel-w: 320px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--ink);
+    color: var(--ink);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0 24px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .topbar-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .topbar-era {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    background: rgba(200,151,26,0.12);
+    border: 1px solid rgba(200,151,26,0.3);
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+  }
+
+  .topbar-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── MAP ── */
+  #map {
+    flex: 1;
+    z-index: 1;
+  }
+
+  /* Leaflet popup 스타일 오버라이드 */
+  .leaflet-popup-content-wrapper {
+    background: #f8f2e4;
+    color: #1a1814;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.12);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    padding: 0;
+  }
+
+  .leaflet-popup-tip {
+    background: #f8f2e4;
+  }
+
+  .leaflet-popup-content {
+    margin: 0;
+    min-width: 220px;
+  }
+
+  .popup-inner {
+    padding: 16px 18px;
+  }
+
+  .popup-kingdom {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .popup-name {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #1a1814;
+  }
+
+  .popup-desc {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: rgba(26,24,20,0.65);
+  }
+
+  .popup-close-btn {
+    display: none;
+  }
+
+  /* ── SIDE PANEL ── */
+  .panel {
+    width: var(--panel-w);
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    border-left: 1px solid var(--mist);
+    flex-shrink: 0;
+  }
+
+  .panel-section {
+    padding: 20px 20px 0;
+  }
+
+  .panel-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  /* 레이어 토글 */
+  .layer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 20px;
+  }
+
+  .layer-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+    user-select: none;
+  }
+
+  .layer-item:hover { background: var(--mist); }
+  .layer-item.active { background: var(--mist); }
+
+  .layer-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .layer-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 600;
+    flex: 1;
+  }
+
+  .layer-toggle {
+    width: 28px;
+    height: 16px;
+    border-radius: 8px;
+    background: #ccc;
+    position: relative;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .layer-toggle::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s;
+  }
+
+  .layer-item.active .layer-toggle {
+    background: var(--ink);
+  }
+
+  .layer-item.active .layer-toggle::after {
+    transform: translateX(12px);
+  }
+
+  /* 구분선 */
+  .divider {
+    height: 1px;
+    background: var(--mist);
+    margin: 4px 20px 16px;
+  }
+
+  /* 사건 카드 */
+  .event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 20px 20px;
+  }
+
+  .event-card {
+    background: white;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .event-card:hover {
+    border-color: #bbb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .event-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .event-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .event-desc {
+    font-size: 11.5px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  /* 범례 */
+  .legend {
+    padding: 16px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    margin-top: auto;
+  }
+
+  .legend-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+  }
+
+  .legend-items {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* 지도 타입 버튼 */
+  .map-type-btns {
+    display: flex;
+    gap: 4px;
+    padding: 0 20px;
+    margin-bottom: 16px;
+  }
+
+  .map-btn {
+    flex: 1;
+    padding: 7px 0;
+    border: 1px solid var(--mist);
+    border-radius: 5px;
+    background: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 11px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .map-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  .map-btn:hover:not(.active) {
+    background: var(--mist);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-title">한국사 지도 수업 자료</span>
+    <span class="topbar-era">삼국시대 · 475 AD</span>
+  </div>
+  <div class="topbar-right">① Stamen Watercolor — 수채화풍</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- 지도 -->
+  <div id="map"></div>
+
+  <!-- 사이드 패널 -->
+  <div class="panel">
+
+    <!-- 지도 타입 -->
+    <div class="panel-section" style="padding-bottom:12px;">
+      <div class="panel-label">지도 유형</div>
+      <div class="map-type-btns">
+        <button class="map-btn active" onclick="setMapType('street', this)">수채화</button>
+        <button class="map-btn" onclick="setMapType('satellite', this)">위성</button>
+        <button class="map-btn" onclick="setMapType('topo', this)">음영지형</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 레이어 토글 -->
+    <div class="panel-section">
+      <div class="panel-label">레이어 표시</div>
+      <div class="layer-list">
+        <div class="layer-item active" id="toggle-goguryeo" onclick="toggleLayer('goguryeo')">
+          <div class="layer-swatch" style="background:#2d7a4f;"></div>
+          <span class="layer-name">고구려 영토</span>
+          <div class="layer-toggle"></div>
+        </div>
+        <div class="layer-item active" id="toggle-baekje" onclick="toggleLayer('baekje')">
+          <div class="layer-swatch" style="background:#1a5fa8;"></div>
+          <span class="layer-name">백제 영토</span>
+          <div class="layer-toggle"></div>
+        </div>
+        <div class="layer-item active" id="toggle-silla" onclick="toggleLayer('silla')">
+          <div class="layer-swatch" style="background:#a83220;"></div>
+          <span class="layer-name">신라 영토</span>
+          <div class="layer-toggle"></div>
+        </div>
+        <div class="layer-item active" id="toggle-capitals" onclick="toggleLayer('capitals')">
+          <div class="layer-swatch" style="background:#c8971a; border-radius:50%;"></div>
+          <span class="layer-name">수도 & 주요지점</span>
+          <div class="layer-toggle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 주요 사건 -->
+    <div class="panel-section">
+      <div class="panel-label">주요 사건 — 클릭하면 이동</div>
+    </div>
+    <div class="event-list">
+      <div class="event-card" onclick="flyTo(37.5665, 127.0000, 9)">
+        <div class="event-year">475 AD</div>
+        <div class="event-title">한성 함락</div>
+        <div class="event-desc">고구려 장수왕 3만 병력으로 백제 수도 한성 공격. 개로왕 전사.</div>
+      </div>
+      <div class="event-card" onclick="flyTo(39.0194, 125.7554, 9)">
+        <div class="event-year">427 AD</div>
+        <div class="event-title">평양 천도</div>
+        <div class="event-desc">장수왕이 국내성에서 평양성으로 수도 이전. 남진 정책의 시작.</div>
+      </div>
+      <div class="event-card" onclick="flyTo(36.4647, 127.1139, 9)">
+        <div class="event-year">475 AD</div>
+        <div class="event-title">백제 웅진 천도</div>
+        <div class="event-desc">한성 함락 후 웅진(現 공주)으로 수도 이전. 백제 중흥기의 시작.</div>
+      </div>
+      <div class="event-card" onclick="flyTo(41.1483, 126.1873, 9)">
+        <div class="event-year">414 AD</div>
+        <div class="event-title">광개토대왕릉비 건립</div>
+        <div class="event-desc">장수왕이 아버지 광개토대왕의 정복 업적을 새긴 비석 건립.</div>
+      </div>
+    </div>
+
+    <!-- 범례 -->
+    <div class="legend">
+      <div class="legend-label">범례</div>
+      <div class="legend-items">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#2d7a4f;"></div>
+          고구려 (Goguryeo)
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#1a5fa8;"></div>
+          백제 (Baekje)
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#a83220;"></div>
+          신라 (Silla)
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#c8971a; border-radius:50%;"></div>
+          수도 / 주요 지점
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── 지도 초기화 ──
+const map = L.map('map', {
+  center: [37.5, 127.5],
+  zoom: 6,
+  zoomControl: true,
+});
+
+const tiles = {
+  street: L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg', {
+    attribution: '© Stadia Maps, © Stamen Design, © OpenStreetMap contributors',
+    maxZoom: 16
+  }),
+  satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: '© Esri', maxZoom: 18
+  }),
+  topo: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
+    attribution: '© Esri', maxZoom: 13
+  })
+};
+
+tiles.street.addTo(map);
+let currentTile = 'street';
+
+function setMapType(type, btn) {
+  map.removeLayer(tiles[currentTile]);
+  tiles[type].addTo(map);
+  currentTile = type;
+  document.querySelectorAll('.map-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ── 영토 폴리곤 ──
+const territories = {};
+
+territories.goguryeo = L.polygon([
+  [38.5, 124.0], [42.5, 125.0], [43.5, 127.5], [42.0, 130.0],
+  [40.0, 129.5], [38.5, 128.5], [37.8, 127.5], [37.5, 126.5],
+  [37.8, 125.5], [38.0, 124.5], [38.5, 124.0]
+], {
+  color: '#2d7a4f',
+  weight: 2.5,
+  fillColor: '#2d7a4f',
+  fillOpacity: 0.45,
+  dashArray: '6, 3',
+}).addTo(map).bindPopup(`
+  <div class="popup-inner">
+    <div class="popup-kingdom" style="color:#4aad7a;">고구려 GOGURYEO</div>
+    <div class="popup-name">고구려 영토</div>
+    <div class="popup-desc">
+      장수왕 시기 최대 영역.<br>
+      한반도 북부 + 만주 일대를 지배.<br>
+      427년 평양 천도 이후 남진 정책 강화.
+    </div>
+  </div>
+`);
+
+territories.baekje = L.polygon([
+  [37.2, 126.0], [37.5, 126.5], [37.0, 127.3], [36.5, 127.5],
+  [35.8, 127.2], [35.0, 126.8], [34.8, 126.2], [35.2, 125.8],
+  [36.0, 125.5], [36.8, 125.8], [37.2, 126.0]
+], {
+  color: '#1a5fa8',
+  weight: 2.5,
+  fillColor: '#1a5fa8',
+  fillOpacity: 0.45,
+  dashArray: '6, 3',
+}).addTo(map).bindPopup(`
+  <div class="popup-inner">
+    <div class="popup-kingdom" style="color:#4a8fd4;">백제 BAEKJE</div>
+    <div class="popup-name">백제 영토</div>
+    <div class="popup-desc">
+      475년 한성 함락 이후 축소된 영역.<br>
+      한반도 서남부를 중심으로 재편.<br>
+      웅진(공주) 천도 후 중흥 도모.
+    </div>
+  </div>
+`);
+
+territories.silla = L.polygon([
+  [37.2, 127.5], [37.5, 128.0], [37.8, 128.8], [37.5, 129.5],
+  [36.5, 130.0], [35.5, 129.8], [34.8, 129.2], [34.5, 128.5],
+  [34.8, 127.8], [35.5, 127.3], [36.5, 127.2], [37.2, 127.5]
+], {
+  color: '#a83220',
+  weight: 2.5,
+  fillColor: '#a83220',
+  fillOpacity: 0.45,
+  dashArray: '6, 3',
+}).addTo(map).bindPopup(`
+  <div class="popup-inner">
+    <div class="popup-kingdom" style="color:#d4644a;">신라 SILLA</div>
+    <div class="popup-name">신라 영토</div>
+    <div class="popup-desc">
+      한반도 동남부를 기반으로 성장.<br>
+      금성(경주)을 수도로 약 1000년 존속.<br>
+      이후 삼국 통일의 주역이 됨.
+    </div>
+  </div>
+`);
+
+// ── 수도 & 주요 핀 ──
+function makeCapitalIcon(color) {
+  return L.divIcon({
+    html: `<div style="
+      width:14px; height:14px;
+      background:${color};
+      border:2px solid white;
+      border-radius:50%;
+      box-shadow:0 2px 6px rgba(0,0,0,0.4);
+    "></div>`,
+    iconSize: [14, 14],
+    iconAnchor: [7, 7],
+    className: ''
+  });
+}
+
+const capitalMarkers = L.layerGroup();
+
+const pins = [
+  {
+    lat: 39.0194, lng: 125.7554,
+    color: '#2d7a4f',
+    kingdom: '고구려 GOGURYEO',
+    kColor: '#4aad7a',
+    name: '평양성 (고구려 수도)',
+    desc: '427년 장수왕이 천도한 고구려의 수도.<br>한반도 남진 정책의 중심지.'
+  },
+  {
+    lat: 36.4647, lng: 127.1139,
+    color: '#1a5fa8',
+    kingdom: '백제 BAEKJE',
+    kColor: '#4a8fd4',
+    name: '웅진 (백제 수도)',
+    desc: '475년 한성 함락 이후 백제의 새 수도.<br>현재의 충남 공주.'
+  },
+  {
+    lat: 35.8562, lng: 129.2239,
+    color: '#a83220',
+    kingdom: '신라 SILLA',
+    kColor: '#d4644a',
+    name: '금성 (신라 수도)',
+    desc: '신라 건국부터 멸망까지 약 1000년간 수도.<br>현재의 경주.'
+  },
+  {
+    lat: 37.5665, lng: 127.0000,
+    color: '#c8971a',
+    kingdom: '주요 사건',
+    kColor: '#e0b040',
+    name: '한성 함락 (475 AD)',
+    desc: '고구려 장수왕이 3만 병력으로 백제 수도 한성 공격.<br>백제 개로왕 전사. 백제 남천의 계기.'
+  },
+  {
+    lat: 41.1483, lng: 126.1873,
+    color: '#888',
+    kingdom: '유적지',
+    kColor: '#aaa',
+    name: '광개토대왕릉비',
+    desc: '414년 장수왕이 건립한 광개토대왕 업적 기록 비석.<br>현재 중국 지린성 지안시 소재.'
+  },
+];
+
+pins.forEach(p => {
+  L.marker([p.lat, p.lng], { icon: makeCapitalIcon(p.color) })
+    .addTo(capitalMarkers)
+    .bindPopup(`
+      <div class="popup-inner">
+        <div class="popup-kingdom" style="color:${p.kColor};">${p.kingdom}</div>
+        <div class="popup-name">${p.name}</div>
+        <div class="popup-desc">${p.desc}</div>
+      </div>
+    `);
+});
+
+capitalMarkers.addTo(map);
+
+// ── 레이어 토글 ──
+const layerMap = {
+  goguryeo: territories.goguryeo,
+  baekje: territories.baekje,
+  silla: territories.silla,
+  capitals: capitalMarkers,
+};
+
+function toggleLayer(key) {
+  const item = document.getElementById('toggle-' + key);
+  const layer = layerMap[key];
+  if (map.hasLayer(layer)) {
+    map.removeLayer(layer);
+    item.classList.remove('active');
+  } else {
+    layer.addTo(map);
+    item.classList.add('active');
+  }
+}
+
+// ── 사건 카드 클릭 → 지도 이동 ──
+function flyTo(lat, lng, zoom) {
+  map.flyTo([lat, lng], zoom, { duration: 1.2 });
+}
+</script>
+</body>
+</html>
