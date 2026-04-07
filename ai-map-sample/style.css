@@ -482,26 +482,19 @@
   .cta-section {
     padding: 80px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 48px;
     background: var(--ink);
     margin: 0;
     position: relative;
     overflow: hidden;
   }
 
-  .cta-section::before {
-    content: '地圖';
-    position: absolute;
-    right: 60px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: 'Noto Serif KR', serif;
-    font-size: 180px;
-    font-weight: 900;
-    color: rgba(255,255,255,0.03);
-    letter-spacing: -0.1em;
-    pointer-events: none;
+  .cta-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
   }
 
   .cta-left .cta-label {
@@ -523,22 +516,72 @@
   .cta-right {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .cta-count-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--celadon-light);
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+
+  .cta-count-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--paper);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .cta-count-desc {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: rgba(245,240,232,0.45);
+    line-height: 1.6;
+  }
+
+  .cta-samples {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    align-items: stretch;
-    min-width: 480px;
+    border-top: 1px solid rgba(245,240,232,0.1);
+    padding-top: 36px;
+  }
+
+  .sample-row-download {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(245,240,232,0.07);
+    padding-top: 12px;
+    margin-top: 4px;
   }
 
   .sample-row {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(245,240,232,0.07);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .sample-row-download {
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
   }
 
   .sample-row .btn-primary {
     flex-shrink: 0;
-    min-width: 160px;
-    padding: 11px 20px;
-    font-size: 13px;
+    min-width: 130px;
+    padding: 10px 16px;
+    font-size: 16px;
     justify-content: center;
   }
 
@@ -551,7 +594,7 @@
 
   .tag {
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 500;
     padding: 3px 8px;
     border-radius: 4px;
@@ -579,7 +622,7 @@
 
   .sample-desc {
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 11px;
+    font-size: 14px;
     color: rgba(245,240,232,0.4);
     white-space: nowrap;
   }
@@ -616,7 +659,7 @@
     padding: 12px 24px;
     border-radius: 6px;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     text-decoration: none;
     cursor: pointer;
     border: 1px solid rgba(245,240,232,0.15);
@@ -627,6 +670,40 @@
   .btn-secondary:hover {
     border-color: rgba(245,240,232,0.4);
     color: var(--paper);
+  }
+
+  .btn-download {
+    border-color: rgba(74,124,111,0.4);
+    color: var(--celadon-light);
+    position: relative;
+  }
+
+  .btn-download svg {
+    animation: bounce-down 1.6s ease-in-out infinite;
+  }
+
+  .btn-download:hover {
+    background: rgba(74,124,111,0.12);
+    border-color: var(--celadon-light);
+    color: var(--celadon-light);
+  }
+
+  .btn-download-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    background: rgba(74,124,111,0.25);
+    border: 1px solid rgba(74,124,111,0.5);
+    color: var(--celadon-light);
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+
+  @keyframes bounce-down {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(3px); }
   }
 
   /* ── FOOTER ── */

@@ -282,16 +282,31 @@
 
 <!-- ── CTA ── -->
 <section class="cta-section">
-  <div class="cta-left">
-    <div class="cta-label">NEXT STEP</div>
-    <div class="cta-title">
-      HTML 파일럿 제작<br>
-      <span style="color:rgba(245,240,232,0.5); font-size:22px; font-weight:300;">샘플 KML 1종 + 구글어스 연동 화면</span><br>
-      <span style="color:rgba(245,240,232,0.5); font-size:16px; font-weight:300;">(Google Maps API 키 필요! 샘플은 API 키 없이 브라우저에서 바로 열 수 있는 Leaflet.js 프로젝트로 제작)</span>
+  <div class="cta-top">
+    <div class="cta-left">
+      <div class="cta-label">NEXT STEP</div>
+      <div class="cta-title">
+        HTML 파일럿 제작<br>
+        <span style="color:rgba(245,240,232,0.5); font-size:22px; font-weight:300;">샘플 KML + 지도 연동 화면</span><br>
+        <span style="color:rgba(245,240,232,0.5); font-size:16px; font-weight:300;">(Google Maps API 키 필요! 
+          샘플은 API 키 없이 브라우저에서 바로 열 수 있는 Leaflet.js 프로젝트와 개인 계정의 2주 무료 API 키를 넣어 임의 제작함)</span>
+      </div>
     </div>
   </div>
-  <div class="cta-right">
 
+  <div class="cta-samples">
+    <div class="sample-row sample-row-download">
+      <a href="kml_sample.kml" download class="btn-secondary btn-download">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+  삼국시대 샘플 KML 파일 다운로드
+  <span class="btn-download-badge">KML</span>
+</a>
+    </div>
+    
     <div class="sample-row">
       <a href="map_sample.html" target="_blank" class="btn-primary">기본 인터랙티브</a>
       <div class="sample-meta">
@@ -300,58 +315,51 @@
         <span class="sample-desc">CartoDB Light · 기본 레이어 구성</span>
       </div>
     </div>
-
     <div class="sample-row">
-      <a href="map_sample_2.html" target="_blank" class="btn-primary">고지도 느낌</a>
+      <a href="map_sample_01_watercolor.html" target="_blank" class="btn-primary">SAMPLE MAP ①</a>
+      <div class="sample-meta">
+        <span class="tag tag-warn">API 필요</span>
+        <span class="sample-desc">Stamen Watercolor · 감성적인 수채화 배경</span>
+      </div>
+    </div>
+    <div class="sample-row">
+      <a href="map_sample_02_toner.html" target="_blank" class="btn-primary">SAMPLE MAP ②</a>
+      <div class="sample-meta">
+        <span class="tag tag-warn">API 필요</span>
+        <span class="sample-desc">Stamen Toner · 인쇄물 느낌의 흑백</span>
+      </div>
+    </div>
+    <div class="sample-row">
+      <a href="map_sample_2.html" target="_blank" class="btn-primary">SAMPLE MAP ③</a>
       <div class="sample-meta">
         <span class="tag tag-free">무료</span>
         <span class="tag tag-ok">API 불필요</span>
         <span class="sample-desc">CartoDB Light · 고풍스러운 톤</span>
       </div>
     </div>
-
     <div class="sample-row">
-      <a href="map_sample_01_watercolor.html" target="_blank" class="btn-primary">① 수채화</a>
-      <div class="sample-meta">
-        <span class="tag tag-warn">API 필요</span>
-        <span class="sample-desc">Stamen Watercolor · 감성적인 수채화 배경</span>
-      </div>
-    </div>
-
-    <div class="sample-row">
-      <a href="map_sample_02_toner.html" target="_blank" class="btn-primary">② 흑백 잉크화</a>
-      <div class="sample-meta">
-        <span class="tag tag-warn">API 필요</span>
-        <span class="sample-desc">Stamen Toner · 인쇄물 느낌의 흑백</span>
-      </div>
-    </div>
-
-    <div class="sample-row">
-      <a href="map_sample_03_shaded_relief.html" target="_blank" class="btn-primary">③ 지형 음영</a>
+      <a href="map_sample_03_shaded_relief.html" target="_blank" class="btn-primary">SAMPLE MAP ④</a>
       <div class="sample-meta">
         <span class="tag tag-free">무료</span>
         <span class="tag tag-ok">API 불필요</span>
         <span class="sample-desc">Esri Shaded Relief · 산맥·지형 강조</span>
       </div>
     </div>
-
     <div class="sample-row">
-      <a href="map_sample_04_dark.html" target="_blank" class="btn-primary">④ 다크 테마</a>
+      <a href="map_sample_04_dark.html" target="_blank" class="btn-primary">SAMPLE MAP ⑤</a>
       <div class="sample-meta">
         <span class="tag tag-free">무료</span>
         <span class="tag tag-ok">API 불필요</span>
         <span class="sample-desc">CartoDB Dark Matter · 프레젠테이션용</span>
       </div>
     </div>
-
-    <a href="kml_sample.kml" download class="btn-secondary" style="margin-top:8px;">삼국시대 샘플 KML 파일 다운로드</a>
-
+    
   </div>
 </section>
 
 <footer>
   <div class="footer-logo">AI 한국사 지도 수업 자료 — 사내 제안</div>
-  <div class="footer-meta">INTERNAL USE ONLY · 웹팀 제안 · 2025</div>
+  <div class="footer-meta">INTERNAL USE ONLY · 웹팀 제안 · 2026</div>
 </footer>
 
 <script>
