@@ -523,8 +523,65 @@
   .cta-right {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    align-items: flex-end;
+    gap: 10px;
+    align-items: stretch;
+    min-width: 480px;
+  }
+
+  .sample-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .sample-row .btn-primary {
+    flex-shrink: 0;
+    min-width: 160px;
+    padding: 11px 20px;
+    font-size: 13px;
+    justify-content: center;
+  }
+
+  .sample-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .tag-free {
+    background: rgba(74,124,111,0.25);
+    color: var(--celadon-light);
+    border: 1px solid rgba(74,124,111,0.4);
+  }
+
+  .tag-ok {
+    background: rgba(74,124,111,0.1);
+    color: rgba(106,173,155,0.8);
+    border: 1px solid rgba(74,124,111,0.2);
+  }
+
+  .tag-warn {
+    background: rgba(184,134,11,0.2);
+    color: var(--gold);
+    border: 1px solid rgba(184,134,11,0.35);
+  }
+
+  .sample-desc {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 11px;
+    color: rgba(245,240,232,0.4);
+    white-space: nowrap;
   }
 
   .btn-primary {
