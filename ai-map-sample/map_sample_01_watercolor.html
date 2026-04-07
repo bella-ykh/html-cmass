@@ -373,7 +373,7 @@
     <div class="panel-section" style="padding-bottom:12px;">
       <div class="panel-label">지도 유형</div>
       <div class="map-type-btns">
-        <button class="map-btn active" onclick="setMapType('street', this)">담백(지명없음)</button>
+        <button class="map-btn active" onclick="setMapType('street', this)">수채화</button>
         <button class="map-btn" onclick="setMapType('satellite', this)">위성</button>
         <button class="map-btn" onclick="setMapType('topo', this)">음영지형</button>
       </div>
@@ -472,10 +472,9 @@ const map = L.map('map', {
 });
 
 const tiles = {
-  street: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-    attribution: '© OpenStreetMap contributors, © CARTO',
-    subdomains: 'abcd',
-    maxZoom: 19
+  street: L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=8efd3c7a-a4a7-4ea6-857d-3d0bbfbd9994', {
+    attribution: '© Stadia Maps, © Stamen Design, © OpenStreetMap contributors',
+    maxZoom: 16
   }),
   satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: '© Esri', maxZoom: 18
@@ -504,9 +503,9 @@ territories.goguryeo = L.polygon([
   [40.0, 129.5], [38.5, 128.5], [37.8, 127.5], [37.5, 126.5],
   [37.8, 125.5], [38.0, 124.5], [38.5, 124.0]
 ], {
-  color: '#2d7a4f',
-  weight: 2.5,
-  fillColor: '#2d7a4f',
+  color: '#1a5c38',
+  weight: 3,
+  fillColor: '#4aad7a',
   fillOpacity: 0.45,
   dashArray: '6, 3',
 }).addTo(map).bindPopup(`
@@ -526,9 +525,9 @@ territories.baekje = L.polygon([
   [35.8, 127.2], [35.0, 126.8], [34.8, 126.2], [35.2, 125.8],
   [36.0, 125.5], [36.8, 125.8], [37.2, 126.0]
 ], {
-  color: '#1a5fa8',
-  weight: 2.5,
-  fillColor: '#1a5fa8',
+  color: '#0f3d70',
+  weight: 3,
+  fillColor: '#4a8fd4',
   fillOpacity: 0.45,
   dashArray: '6, 3',
 }).addTo(map).bindPopup(`
@@ -548,9 +547,9 @@ territories.silla = L.polygon([
   [36.5, 130.0], [35.5, 129.8], [34.8, 129.2], [34.5, 128.5],
   [34.8, 127.8], [35.5, 127.3], [36.5, 127.2], [37.2, 127.5]
 ], {
-  color: '#a83220',
-  weight: 2.5,
-  fillColor: '#a83220',
+  color: '#6b1a0e',
+  weight: 3,
+  fillColor: '#d4644a',
   fillOpacity: 0.45,
   dashArray: '6, 3',
 }).addTo(map).bindPopup(`
