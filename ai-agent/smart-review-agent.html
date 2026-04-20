@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스마트 PPT 검수 에이전트 | 씨마스</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1A3A5C;
+    --primary-light: #2A5A8C;
+    --accent: #E8543A;
+    --accent-light: #F07A63;
+    --bg: #F5F3EF;
+    --bg-card: #FFFFFF;
+    --text: #1C1C1C;
+    --text-muted: #6B6B6B;
+    --border: #E0DDD8;
+    --success: #2E7D52;
+    --success-bg: #EBF5EF;
+    --warning: #B07A1A;
+    --warning-bg: #FDF4E3;
+    --danger: #C0392B;
+    --danger-bg: #FDECEA;
+    --info: #1A5C8C;
+    --info-bg: #E8F2FA;
+    --shadow: 0 2px 12px rgba(26,58,92,0.08);
+    --shadow-hover: 0 6px 24px rgba(26,58,92,0.14);
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  header {
+    background: var(--primary);
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+  }
+  .logo-mark {
+    width: 32px; height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+  .logo-text {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: #fff;
+  }
+  .logo-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .header-badge {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.08);
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── Page title ── */
+  .page-header {
+    margin-bottom: 36px;
+    animation: fadeUp 0.5s ease both;
+  }
+  .page-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .page-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── Steps indicator ── */
+  .steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 36px;
+    animation: fadeUp 0.5s 0.1s ease both;
+  }
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin: 0 8px;
+    transition: background 0.3s;
+  }
+  .step.done:not(:last-child)::after { background: var(--primary-light); }
+  .step-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: var(--bg);
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+  .step.active .step-num {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+  .step.done .step-num {
+    background: var(--success);
+    border-color: var(--success);
+    color: #fff;
+  }
+  .step-label { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+  .step.active .step-label { color: var(--primary); font-weight: 700; }
+  .step.done .step-label { color: var(--success); }
+
+  /* ── Card ── */
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    animation: fadeUp 0.5s ease both;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title::before {
+    content: '';
+    width: 3px; height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  /* ── Upload zone ── */
+  .upload-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .upload-zone {
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .upload-zone:hover {
+    border-color: var(--primary-light);
+    background: #EEF4F9;
+  }
+  .upload-zone.active {
+    border-color: var(--success);
+    background: var(--success-bg);
+  }
+  .upload-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 20px;
+  }
+  .upload-zone:nth-child(1) .upload-icon { background: #E8EEF7; }
+  .upload-zone:nth-child(2) .upload-icon { background: #FDECEA; }
+  .upload-zone.active .upload-icon { background: var(--success-bg); }
+  .upload-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .upload-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .upload-zone.active .upload-label { color: var(--success); }
+  .upload-zone.active .upload-hint { color: var(--success); }
+  .file-check {
+    display: none;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .upload-zone.active .file-check { display: block; }
+  .upload-zone.active .upload-icon { display: none; }
+
+  /* ── Form row ── */
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+  }
+  .form-group select,
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-group select:focus,
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--primary-light);
+    background: #fff;
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 72px;
+    line-height: 1.6;
+  }
+  .form-full { grid-column: 1 / -1; }
+
+  /* ── Checklist ── */
+  .check-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--bg);
+    user-select: none;
+  }
+  .check-item:hover { border-color: var(--primary-light); background: #EEF4F9; }
+  .check-item.checked {
+    border-color: var(--primary);
+    background: #EEF4F9;
+  }
+  .check-box {
+    width: 20px; height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: all 0.2s;
+  }
+  .check-item.checked .check-box {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+  .check-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .check-text span {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ── Corner flow ── */
+  .corner-flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .corner-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 4px;
+  }
+  .corner-tag:hover { border-color: var(--primary-light); color: var(--primary); }
+  .corner-tag.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+  .corner-arrow {
+    color: var(--border);
+    font-size: 12px;
+    margin: 4px 0;
+  }
+
+  /* ── Submit button ── */
+  .btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    transition: all 0.25s;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .btn-submit:hover {
+    background: var(--accent-light);
+    box-shadow: 0 4px 16px rgba(232,84,58,0.35);
+    transform: translateY(-1px);
+  }
+  .btn-submit:active { transform: translateY(0); }
+
+  /* ── Result section ── */
+  #result-section { display: none; }
+
+  .result-header {
+    background: var(--primary);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .result-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .result-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .result-meta span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* ── Score summary ── */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .score-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .score-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .score-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .badge-good { background: var(--success-bg); color: var(--success); }
+  .badge-warn { background: var(--warning-bg); color: var(--warning); }
+  .badge-bad  { background: var(--danger-bg);  color: var(--danger); }
+
+  /* ── Result cards ── */
+  .result-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .result-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .result-card-header:hover { background: var(--bg); }
+  .result-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .result-card-status {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .result-card-body {
+    padding: 0 20px 20px;
+    display: none;
+  }
+  .result-card.open .result-card-body { display: block; }
+  .result-card.open .toggle-icon { transform: rotate(180deg); }
+  .toggle-icon { transition: transform 0.2s; color: var(--text-muted); }
+
+  /* ── Issue items ── */
+  .issue-item {
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-left: 3px solid transparent;
+  }
+  .issue-item.danger {
+    background: var(--danger-bg);
+    border-left-color: var(--danger);
+  }
+  .issue-item.warning {
+    background: var(--warning-bg);
+    border-left-color: var(--warning);
+  }
+  .issue-item.info {
+    background: var(--info-bg);
+    border-left-color: var(--info);
+  }
+  .issue-item.success {
+    background: var(--success-bg);
+    border-left-color: var(--success);
+  }
+  .issue-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .issue-slide {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.06);
+    color: var(--text);
+  }
+  .issue-type {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .issue-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .issue-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .issue-fixed {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--success);
+    font-weight: 700;
+    margin-top: 6px;
+    background: var(--success-bg);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  /* ── Overall comment ── */
+  .overall-box {
+    background: linear-gradient(135deg, #EEF4F9 0%, #E8EEF7 100%);
+    border: 1px solid #C5D6E8;
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-top: 6px;
+  }
+  .overall-box p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--primary);
+  }
+
+  /* ── Copy button ── */
+  .btn-copy {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    padding: 8px 18px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-copy:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .btn-reset {
+    padding: 8px 18px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-reset:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Loading ── */
+  #loading-section {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .spinner {
+    width: 40px; height: 40px;
+    border: 3px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 20px;
+  }
+  .loading-text {
+    font-size: 15px;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .loading-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .upload-grid, .form-row, .check-grid, .score-grid {
+      grid-template-columns: 1fr;
+    }
+    .score-grid { grid-template-columns: repeat(3, 1fr); }
+    header { padding: 0 16px; }
+    .container { padding: 24px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-mark">씨</div>
+    <div>
+      <div class="logo-text">스마트 PPT 검수 에이전트</div>
+      <div class="logo-sub">IT콘텐츠팀 · 씨마스</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="header-badge">v1.0 미리보기</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Page header -->
+  <div class="page-header">
+    <h1 class="page-title">교과서 스마트 PPT 검수</h1>
+    <p class="page-desc">교과서 PDF와 스마트 PPT 파일을 업로드하면 수업 흐름 일치 여부, 윤문, 맞춤법, 강의 규칙 적합성을 자동으로 검수합니다.</p>
+  </div>
+
+  <!-- Steps -->
+  <div class="steps">
+    <div class="step active" id="step1">
+      <div class="step-num">1</div>
+      <span class="step-label">파일 업로드</span>
+    </div>
+    <div class="step" id="step2">
+      <div class="step-num">2</div>
+      <span class="step-label">검수 설정</span>
+    </div>
+    <div class="step" id="step3">
+      <div class="step-num">3</div>
+      <span class="step-label">결과 확인</span>
+    </div>
+  </div>
+
+  <!-- Form section -->
+  <div id="form-section">
+
+    <!-- 1. 파일 업로드 -->
+    <div class="card" style="animation-delay:0.1s">
+      <div class="card-title">파일 업로드</div>
+      <div class="upload-grid">
+        <div class="upload-zone" id="zone-ppt" onclick="toggleUpload('ppt')">
+          <div class="file-check">✅</div>
+          <div class="upload-icon">📊</div>
+          <div class="upload-label">교과서 PPT 업로드</div>
+          <div class="upload-hint">.pptx 파일</div>
+        </div>
+        <div class="upload-zone" id="zone-pdf" onclick="toggleUpload('pdf')">
+          <div class="file-check">✅</div>
+          <div class="upload-icon">📄</div>
+          <div class="upload-label">교과서 PDF 업로드</div>
+          <div class="upload-hint">.pdf 파일</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>교과목 선택</label>
+          <select id="subject">
+            <option value="">-- 선택하세요 --</option>
+            <option>로봇과 공학세계</option>
+            <option>성공적인 직업생활</option>
+            <option>디지털과 직업생활</option>
+            <option>정보</option>
+            <option>보건</option>
+            <option>기후변화와 환경생태</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>단원명 (선택)</label>
+          <input type="text" placeholder="예: 2단원 데이터와 정보">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group form-full">
+          <label>추가 검수 지침 (선택)</label>
+          <textarea placeholder="예: 3학년 대상 교재, 특정 용어 통일 기준 등 참고 사항을 입력하세요."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 검수 항목 -->
+    <div class="card" style="animation-delay:0.2s">
+      <div class="card-title">검수 항목 선택</div>
+      <div class="check-grid">
+        <div class="check-item checked" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">
+            <strong>수업 코너 구조 검수</strong>
+            <span>헤더 구성(아이콘+코너명+주제명) · 브레드크럼 · 교과서 쪽수 · 하단 내비게이션 바 · 코너별 필수 요소</span>
+          </div>
+        </div>
+        <div class="check-item checked" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">
+            <strong>수업 흐름 일치</strong>
+            <span>교과서 목차 순서와 PPT 슬라이드 비교</span>
+          </div>
+        </div>
+        <div class="check-item checked" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">
+            <strong>윤문 검수</strong>
+            <span>문장 자연스러움 · 표현 · 어휘 적절성</span>
+          </div>
+        </div>
+        <div class="check-item checked" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">
+            <strong>맞춤법 · 표기</strong>
+            <span>한글 맞춤법 · 띄어쓰기 · 외래어 표기</span>
+          </div>
+        </div>
+        <div class="check-item checked" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">
+            <strong>강의용 PPT 적합성</strong>
+            <span>폰트 · 분량 · 가독성 · 버튼 · 애니메이션 규칙</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 수업 코너 -->
+      <div style="margin-top: 20px;">
+        <div class="card-title" style="margin-bottom: 10px;">검수할 수업 코너</div>
+        <div class="corner-flow">
+          <div class="corner-tag active" onclick="toggleCorner(this)">● 생각 열기</div>
+          <span class="corner-arrow">→</span>
+          <div class="corner-tag active" onclick="toggleCorner(this)">● 학습 목표</div>
+          <span class="corner-arrow">→</span>
+          <div class="corner-tag active" onclick="toggleCorner(this)">● 개념</div>
+          <span class="corner-arrow">→</span>
+          <div class="corner-tag active" onclick="toggleCorner(this)">● 활동</div>
+          <span class="corner-arrow">→</span>
+          <div class="corner-tag active" onclick="toggleCorner(this)">● 정리</div>
+          <span class="corner-arrow">→</span>
+          <div class="corner-tag active" onclick="toggleCorner(this)">● 평가</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button class="btn-submit" onclick="startReview()">
+      <span>🔍</span> 검수 시작
+    </button>
+
+  </div><!-- /form-section -->
+
+  <!-- Loading -->
+  <div id="loading-section">
+    <div class="spinner"></div>
+    <div class="loading-text">검수 중입니다...</div>
+    <div class="loading-sub">교과서 PDF와 PPT를 비교 분석하고 있어요. 잠시만 기다려 주세요.</div>
+  </div>
+
+  <!-- Result section -->
+  <div id="result-section">
+
+    <div class="result-header">
+      <div class="result-title">📋 스마트 PPT 최종 검수 보고서</div>
+      <div class="result-meta">
+        <span>📚 로봇과 공학세계</span>
+        <span>📁 로봇과_공학세계_S-ppt-1-1-1.pptx</span>
+        <span>📄 총 22슬라이드</span>
+        <span>📅 검수 일시: 2026.04.20</span>
+      </div>
+    </div>
+
+    <!-- Score summary -->
+    <div class="score-grid">
+      <div class="score-item">
+        <div class="score-label">수업 코너 구조</div>
+        <span class="score-badge badge-warn">일부 미흡</span>
+      </div>
+      <div class="score-item">
+        <div class="score-label">수업 흐름 일치</div>
+        <span class="score-badge badge-warn">일부 미흡</span>
+      </div>
+      <div class="score-item">
+        <div class="score-label">윤문</div>
+        <span class="score-badge badge-good">양호</span>
+      </div>
+      <div class="score-item">
+        <div class="score-label">맞춤법·표기</div>
+        <span class="score-badge badge-warn">1건 잔존</span>
+      </div>
+      <div class="score-item">
+        <div class="score-label">PPT 규칙 준수</div>
+        <span class="score-badge badge-bad">수정 필요</span>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-copy" onclick="copyReport()">📋 보고서 전체 복사</button>
+      <button class="btn-reset" onclick="resetForm()">↩ 새 검수 시작</button>
+    </div>
+
+    <!-- 01. 수업 코너 구조 -->
+    <div class="result-card open">
+      <div class="result-card-header" onclick="toggleCard(this)">
+        <div class="result-card-title">
+          <span>01</span> 수업 코너 구조 검수
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="result-card-status badge-warn">일부 미흡</span>
+          <span class="toggle-icon">▲</span>
+        </div>
+      </div>
+      <div class="result-card-body">
+
+        <div class="issue-item success">
+          <div class="issue-meta">
+            <span class="issue-slide">개선 확인</span>
+          </div>
+          <div class="issue-title">슬라이드 13 하단 내비게이션 바 코너명 업데이트</div>
+          <div class="issue-desc">
+            이전: 핵심 요소 | 학습 목표 | 개념 | 스스로 해결하기 | 정리하기<br>
+            현재: 학습 목표 | 개념 학습 | 탐구 | 평가 | 정리 — 수업 단계명으로 적절히 정비됨.
+          </div>
+        </div>
+
+        <div class="issue-item danger">
+          <div class="issue-meta">
+            <span class="issue-slide">슬라이드 7-8</span>
+            <span class="issue-type">미해결</span>
+          </div>
+          <div class="issue-title">헤더 미전환 — 본문 헤더 양식 미적용</div>
+          <div class="issue-desc">알 자리리(12세기)·다빈치(15세기) 슬라이드가 여전히 헤더 없는 상태. 브레드크럼, 교과서 쪽수(013쪽), 코너명, 하단 내비게이션 바 미적용. 대단원 콘텐츠인지 소단원 콘텐츠인지 편집팀 확인 후 해당 헤더 양식 적용 필요.</div>
+        </div>
+
+        <div class="issue-item danger">
+          <div class="issue-meta">
+            <span class="issue-slide">슬라이드 9</span>
+            <span class="issue-type">미해결</span>
+          </div>
+          <div class="issue-title">중단원 도비라 편집 메모 본문 잔존</div>
+          <div class="issue-desc">"중단원 도비라 만들면 좋을 것 같습니다. (대단원명 + 중단원명) (디자인팀 의뢰)" — v3에서 간소화됐다가 이번 버전에서 다시 전체 메모가 복원된 것으로 확인됨. 슬라이드 노트(Notes)로 이동 필요.</div>
+        </div>
+
+        <div class="issue-item warning">
+          <div class="issue-meta">
+            <span class="issue-slide">슬라이드 13</span>
+            <span class="issue-type">확인 권고</span>
+          </div>
+          <div class="issue-title">하단 내비게이션 바 현재 코너(학습 목표) 강조 표시 확인 필요</div>
+          <div class="issue-desc">텍스트 추출 기준으로 코너명은 적절히 변경되었으나, 현재 슬라이드(학습 목표 코너)의 도형이 흰색 Bold로 강조되어 있는지 실제 PPT 화면에서 시각적 확인 필요.</div>
+        </div>
+
+        <div class="issue-item warning">
+          <div class="issue-meta">
+            <span class="issue-slide">슬라이드 23</span>
+            <span class="issue-type">수정 권고</span>
+          </div>
+          <div class="issue-title">헤더 주제명 발문형 유지 — 명사형 수정 권고</div>
+          <div class="issue-desc">이전 버전과 동일: "로봇이란 무엇일까요?" → 개념 코너 주제명은 명사형 권고. 예: "제조용·서비스용 로봇의 분류". 단, 슬라이드 22가 마지막으로 확인되어 슬라이드 23 내용은 파일 구조상 미확인 상태.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 02. 수업 흐름 -->
+    <div class="result-card">
+      <div class="result-card-header" onclick="toggleCard(this)">
+        <div class="result-card-title"><span>02</span> 수업 흐름 일치</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="result-card-status badge-warn">일부 미흡</span>
+          <span class="toggle-icon">▼</span>
+        </div>
+      </div>
+      <div class="result-card-body">
+        <div class="issue-item warning">
+          <div class="issue-meta">
+            <span class="issue-slide">슬라이드 3-5</span>
+            <span class="issue-type">검토 필요</span>
+          </div>
+          <div class="issue-title">교과서 목차 순서와 PPT 흐름 불일치 의심</div>
+          <div class="issue-desc">교과서 PDF 기준 '생각 열기' → '학습 목표' 순서이나 PPT에서 순서가 바뀌어 있음. 의도적 재구성인지 확인 필요.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03. 윤문 -->
+    <div class="result-card">
+      <div class="result-card-header" onclick="toggleCard(this)">
+        <div class="result-card-title"><span>03</span> 윤문 검수</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="result-card-status badge-good">양호</span>
+          <span class="toggle-icon">▼</span>
+        </div>
+      </div>
+      <div class="result-card-body">
+        <div class="issue-item success">
+          <div class="issue-title">전반적으로 문장 구성 안정적</div>
+          <div class="issue-desc">전체적으로 문장 흐름이 자연스럽고 학습자 수준에 적합한 어휘를 사용하고 있습니다. 수동형 표현이 일부 있으나 교과서 문체상 허용 범위 내입니다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04. 맞춤법 -->
+    <div class="result-card">
+      <div class="result-card-header" onclick="toggleCard(this)">
+        <div class="result-card-title"><span>04</span> 맞춤법 · 표기</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="result-card-status badge-warn">1건 잔존</span>
+          <span class="toggle-icon">▼</span>
+        </div>
+      </div>
+      <div class="result-card-body">
+        <div class="issue-item success">
+          <div class="issue-meta"><span class="issue-slide">슬라이드 14</span></div>
+          <div class="issue-title">Autuator → Actuator 수정 완료</div>
+          <div class="issue-desc">외래어 오기 수정 확인.</div>
+          <span class="issue-fixed">✓ 해결됨</span>
+        </div>
+        <div class="issue-item success">
+          <div class="issue-meta"><span class="issue-slide">슬라이드 11</span></div>
+          <div class="issue-title">모습이여야 → 모습이어야 수정 완료</div>
+          <div class="issue-desc">문법 오류 수정 확인.</div>
+          <span class="issue-fixed">✓ 해결됨</span>
+        </div>
+        <div class="issue-item warning">
+          <div class="issue-meta"><span class="issue-slide">슬라이드 17</span><span class="issue-type">잔존</span></div>
+          <div class="issue-title">"인공지능" / "AI" 혼용 표기</div>
+          <div class="issue-desc">동일 슬라이드 내에서 '인공지능'과 'AI'가 혼용됨. 통일 기준 확인 후 일관 적용 필요.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05. PPT 규칙 -->
+    <div class="result-card">
+      <div class="result-card-header" onclick="toggleCard(this)">
+        <div class="result-card-title"><span>05</span> 강의용 PPT 적합성</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="result-card-status badge-bad">수정 필요</span>
+          <span class="toggle-icon">▼</span>
+        </div>
+      </div>
+      <div class="result-card-body">
+        <div class="issue-item danger">
+          <div class="issue-meta"><span class="issue-slide">슬라이드 4</span><span class="issue-type">수정 필요</span></div>
+          <div class="issue-title">단일라인에 각 시대별 이름 텍스트 추가 (탈로스/자동 하인 로봇/알 자자리/다빈치의 로봇 기사)</div>
+          <div class="issue-desc">작성 가이드 기준 본문 폰트 26pt, 줄간격 1.5 준수 필요. 현재 텍스트 밀도가 높아 가독성 저하 우려.</div>
+        </div>
+        <div class="issue-item warning">
+          <div class="issue-meta"><span class="issue-slide">전체</span><span class="issue-type">확인 권고</span></div>
+          <div class="issue-title">공통 버튼 이미지 복사&붙여넣기 적용 여부</div>
+          <div class="issue-desc">작성 가이드 v1.4 기준 [답안 보기], [해설 보기], [동영상] 등 공통 버튼은 원본 복사 후 붙여넣기로만 사용해야 함. 직접 제작 버튼 사용 여부 시각 확인 필요.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overall -->
+    <div class="overall-box">
+      <p>📝 <strong>종합 의견</strong><br>
+      전반적인 콘텐츠 품질과 수업 흐름은 안정적이나, 헤더 미적용 슬라이드(7-8번)와 편집 메모 잔존(9번) 등 구조적 오류가 남아 있어 배포 전 반드시 수정이 필요합니다. 맞춤법은 대부분 해결되었으나 용어 통일 기준 재확인이 필요하며, PPT 작성 가이드 규칙 준수 여부는 실제 파일에서 시각 확인을 권장합니다.</p>
+    </div>
+
+  </div><!-- /result-section -->
+
+</div><!-- /container -->
+
+<script>
+  // Upload toggle (mock)
+  function toggleUpload(type) {
+    const zone = document.getElementById('zone-' + type);
+    zone.classList.toggle('active');
+    if (zone.classList.contains('active')) {
+      zone.querySelector('.upload-label').textContent =
+        type === 'ppt' ? '로봇과_공학세계_S-ppt.pptx' : '로봇과_공학세계.pdf';
+      zone.querySelector('.upload-hint').textContent = '클릭하여 변경';
+    } else {
+      zone.querySelector('.upload-label').textContent =
+        type === 'ppt' ? '교과서 PPT 업로드' : '교과서 PDF 업로드';
+      zone.querySelector('.upload-hint').textContent =
+        type === 'ppt' ? '.pptx 파일' : '.pdf 파일';
+    }
+  }
+
+  // Check item toggle
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+    el.querySelector('.check-box').textContent =
+      el.classList.contains('checked') ? '✓' : '';
+  }
+
+  // Corner tag toggle
+  function toggleCorner(el) {
+    el.classList.toggle('active');
+    el.textContent = el.classList.contains('active')
+      ? '● ' + el.textContent.replace('○ ', '')
+      : '○ ' + el.textContent.replace('● ', '');
+  }
+
+  // Start review (mock loading)
+  function startReview() {
+    document.getElementById('form-section').style.display = 'none';
+    document.getElementById('loading-section').style.display = 'block';
+
+    // Step progress
+    document.getElementById('step1').className = 'step done';
+    document.getElementById('step2').className = 'step active';
+
+    setTimeout(() => {
+      document.getElementById('step2').className = 'step done';
+      document.getElementById('step3').className = 'step active';
+      document.getElementById('loading-section').style.display = 'none';
+      document.getElementById('result-section').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 2400);
+  }
+
+  // Toggle result card
+  function toggleCard(header) {
+    const card = header.parentElement;
+    card.classList.toggle('open');
+    const icon = header.querySelector('.toggle-icon');
+    icon.textContent = card.classList.contains('open') ? '▲' : '▼';
+  }
+
+  // Reset
+  function resetForm() {
+    document.getElementById('result-section').style.display = 'none';
+    document.getElementById('form-section').style.display = 'block';
+    document.getElementById('step1').className = 'step active';
+    document.getElementById('step2').className = 'step';
+    document.getElementById('step3').className = 'step';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // reset uploads
+    ['ppt','pdf'].forEach(t => {
+      const z = document.getElementById('zone-' + t);
+      z.classList.remove('active');
+      z.querySelector('.upload-label').textContent = t === 'ppt' ? '교과서 PPT 업로드' : '교과서 PDF 업로드';
+      z.querySelector('.upload-hint').textContent = t === 'ppt' ? '.pptx 파일' : '.pdf 파일';
+    });
+  }
+
+  // Copy report
+  function copyReport() {
+    const btn = document.querySelector('.btn-copy');
+    btn.textContent = '✅ 복사됨!';
+    setTimeout(() => { btn.innerHTML = '📋 보고서 전체 복사'; }, 2000);
+  }
+</script>
+</body>
+</html>
