@@ -1,0 +1,1234 @@
+/* Box sizing 설정 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 기본 마진, 패딩 제거 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* HTML, Body 기본 설정 */
+html,
+body {
+    min-height: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+/* 미디어 요소 기본 설정 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 폼 요소 폰트 상속 */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 폼 요소 focus 스타일 */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* 텍스트 오버플로우 처리 */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    word-break: keep-all; /* 한국어 텍스트 최적화 */
+}
+
+/* 리스트 스타일 제거 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 링크 기본 스타일 제거 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 버튼 기본 스타일 제거 */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* 테이블 기본 설정 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Body 스타일 */
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-size: 16px;
+    color: #222;
+    background-color: #fff;
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+
+/* 기본 컨테이너 */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 유틸리티 클래스 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* ========================================
+   히어로 섹션
+======================================== */
+
+/* 히어로 전체 영역 */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 840px;
+  background-image: url(../images/hero_bg.png);
+  background-size: cover;
+  background-position: center top;
+  overflow: hidden;
+}
+
+/* 1920px 기준 내부 래퍼: 화면 정중앙 기준으로 배치 */
+.hero__inner {
+  position: relative;
+  width: 1920px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ── 타이틀 영역 ── */
+
+/* 서브텍스트 너비(868px) 기준 센터 배치: left = (1920/2) - (868/2) = 526px */
+.hero__title {
+  position: absolute;
+  top: 104px;
+  left: 526px;
+  width: 868px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+}
+
+/* 씨마스 로고 + "스마트 수업 자료" 한 줄 */
+.hero__tagline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero__logo {
+  width: 139px;
+  height: 40px;
+}
+
+.hero__tagtext {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 44px;
+  color: #000;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 메인 헤드라인 */
+.hero__headline {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 60px;
+  color: #742fff;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* X 이미지: 텍스트와 수직 정렬 */
+.hero__x {
+  display: inline;
+  width: 60px;
+  height: auto;
+  vertical-align: middle;
+  padding: 0 10px;
+}
+
+/* 서브 설명 텍스트 */
+.hero__desc {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 30px;
+  color: #141414;
+  text-align: center;
+}
+
+/* "한번에!" 강조 */
+.hero__desc strong {
+  font-weight: 800;
+  color: #8e0dff;
+}
+
+/* ── 제품 이미지 영역 ── */
+
+/* 제품 컨테이너: 피그마 기준 y=344 위치 */
+.hero__products {
+  position: absolute;
+  top: 344px;
+  left: 0;
+  width: 100%;
+  height: 375px;
+}
+
+/* 스마트 교과서 영역: 피그마 x=446 */
+.hero__product--book {
+  position: absolute;
+  left: 446px;
+  top: 0;
+  width: 461px;
+  text-align: center;
+}
+
+/* 스마트 PPT 영역: 피그마 x=950, 라벨 y=348 → 컨테이너 기준 4px 아래 */
+.hero__product--ppt {
+  position: absolute;
+  left: 950px;
+  top: 4px;
+  width: 637px;
+  text-align: center;
+}
+
+/* 제품 이미지 공통: 각 product 컨테이너 기준 절대 배치 */
+.hero__img {
+  position: absolute;
+  left: 0;
+  height: auto;
+}
+
+/* 교과서 이미지: 컨테이너 top=0 기준 → 피그마 이미지 y=417, 컨테이너 y=344 → 73px */
+.hero__img--book {
+  top: 73px;
+  width: 461px;
+}
+
+/* PPT 이미지: 컨테이너 top=4px 기준 → 피그마 이미지 y=410, 컨테이너 y=348 → 62px */
+.hero__img--ppt {
+  top: 62px;
+  width: 637px;
+}
+
+/* ── 라벨 배지 (말풍선 모양) ── */
+
+.hero__badge {
+  display: inline-block;
+  position: relative;
+  padding: 0 24px;
+  height: 34px;
+  line-height: 34px;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #fff;
+  border-radius: 17px;
+  white-space: nowrap;
+}
+
+/* 말풍선 꼬리 (아래 삼각형) */
+.hero__badge::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+/* 교과서 배지: 틸 계열 색상 */
+.hero__badge--book {
+  background-color: #00c8b4;
+}
+
+.hero__badge--book::after {
+  border-top: 12px solid #00c8b4;
+}
+
+/* PPT 배지: 퍼플 계열 색상 */
+.hero__badge--ppt {
+  background-color: #742fff;
+}
+
+.hero__badge--ppt::after {
+  border-top: 12px solid #742fff;
+}
+
+/* ── 연동 아이콘 ── */
+
+/* 피그마: x=877, y=491 → products 컨테이너(y=344) 기준 top=147px */
+.hero__connect {
+  position: absolute;
+  left: 877px;
+  top: 147px;
+  width: 165px;
+  height: 132px;
+  z-index: 1;
+}
+
+.hero__connect img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* ========================================
+   GNB 네비게이션 바
+======================================== */
+
+/* GNB 전체 */
+.gnb {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 60px;
+  background-color: #0d1b5e;
+}
+
+/* 메뉴 목록: 수평 가운데 정렬, stretch로 구분선 전체 높이 채움 */
+.gnb__list {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 100%;
+}
+
+/* 메뉴 항목: 세로 가운데 정렬 + 구분선(border-right) */
+.gnb__item {
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #928FE6;
+  padding: 0 35px;
+  margin: 13px 0;
+}
+
+/* 마지막 항목 구분선 제거 */
+.gnb__item:last-child {
+  border-right: none;
+}
+
+/* 메뉴 링크 기본 스타일 */
+.gnb__link {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0;
+  color: #928fe8;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+/* 호버 상태 */
+.gnb__link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* 활성화 상태 */
+.gnb__link.active {
+  color: #ffffff;
+}
+
+/* 섹션 스크롤 이동 시 GNB에 가리지 않도록 오프셋 적용 */
+main section {
+  scroll-margin-top: 60px;
+}
+
+
+/* ========================================
+   자료 보기 섹션
+======================================== */
+
+.data {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+/* 1440px 기준 내부 컨테이너 */
+.data__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* 3열 그리드 */
+.data__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+/* ── 카드 ── */
+
+.data__card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 카드 상단: 텍스트 + 표지 이미지 절대 배치 */
+.data__card-body {
+  position: relative;
+  background-image: url(../images/book_bg.png);
+  background-size: cover;
+  background-position: center;
+  width: 400px;
+  height: 250px;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* 분류 + 도서명 묶음: 절대 배치 (피그마 X:23, Y:62) */
+.data__card-info {
+  position: absolute;
+  left: 20px;
+  top: 62px;
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 과목 분류 공통 */
+.data__category {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* 진로 선택 - 핑크 */
+.font-pink {
+  color: #D923C6;
+}
+
+/* 융합 선택 - 보라 */
+.font-purple {
+  color: #5123D9;
+}
+
+/* 도서명 */
+.data__title {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.4;
+  color: #222222;
+  letter-spacing: -2%;
+}
+
+.font_32 { font-size: 32px !important; }
+
+/* 책 표지 이미지: 절대 배치 (피그마 X:231, Y:33, 140×182) */
+.data__cover {
+  position: absolute;
+  left: 231px;
+  top: 40px;
+  width: 140px;
+  height: 182px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ── 카드 하단 버튼 ── */
+
+.data__card-btns {
+  display: flex;
+  width: 400px;
+  gap: 20px;
+}
+
+/* 버튼 공통 */
+.data__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: opacity 0.2s;
+}
+
+.data__btn:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+/* 스마트 교과서 버튼 */
+.data__btn--book {
+  border: solid 1px #E08DD8;
+  color: #960087;
+}
+
+/* 스마트 PPT 버튼 */
+.data__btn--ppt {
+  border: solid 1px #97B3EA;
+  color: #160096;}
+
+/* ── 하단 문구 ── */
+
+.data__footer {
+  text-align: center;
+}
+
+.data__footer-sub {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 80px;
+  color: #000;
+  margin-bottom: 0;
+}
+
+/* 강조 문구 */
+.data__footer-main {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 80px;
+  color: #9747FF;
+}
+
+/* ========================================
+   선생님의 고민 섹션
+======================================== */
+
+.concern {
+  padding: 80px 0 100px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.concern__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* 섹션 제목 */
+.concern__title {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  color: #000;
+  margin-bottom: 16px;
+  line-height: 70px;
+}
+
+/* 서브 설명 */
+.concern__subtitle {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 28px;
+  color: #000;
+  line-height: 40px;
+  margin-bottom: 60px;
+}
+
+/* 고민 카드 3개 행 */
+.concern__cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: flex-start;
+}
+
+/* 개별 카드 */
+.concern__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 323px;
+}
+
+/* 말풍선 공통 */
+.concern__bubble {
+  position: relative;
+  padding: 13px 0;
+  border-radius: 50px;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 34px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+/* 말풍선 꼬리 (아래 중앙 삼각형) */
+.concern__bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+}
+
+/* 초록 말풍선 */
+.concern__bubble--green {
+  background-color: #2AD9A1;
+}
+.concern__bubble--green::after {
+  border-top: 18px solid #2AD9A1;
+}
+
+/* 파란 말풍선 */
+.concern__bubble--blue {
+  background-color: #4D9CF6;
+}
+.concern__bubble--blue::after {
+  border-top: 18px solid #4D9CF6;
+}
+
+/* 보라 말풍선 */
+.concern__bubble--purple {
+  background-color: #BA62DD;
+}
+.concern__bubble--purple::after {
+  border-top: 18px solid #BA62DD;
+}
+
+/* 교사 이미지 */
+.concern__teacher {
+  width: auto;
+  height: 170px;
+}
+
+/* 하단 텍스트 영역 */
+.concern__footer {
+  margin-top: 20px;
+}
+
+/* 요약 설명 텍스트 */
+.concern__summary {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 28px;
+  color: #000;
+  line-height: 38px;
+  margin-bottom: 50px;
+}
+
+/* 인용구 블록 */
+.concern__quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 80px;
+  padding: 0;
+}
+
+/* 열기/닫기 따옴표 */
+.concern__quote-mark {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 90px;
+  color: #9747ff;
+  line-height: 5px;
+  display: block;
+}
+
+/* 인용문 본문 */
+.concern__quote-text {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 55px;
+  color: #9747ff;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+
+/* ========================================
+   씨마스의 솔루션 섹션
+======================================== */
+
+.solution {
+  padding: 80px 0 100px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.solution__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* 섹션 제목 */
+.solution__title {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 55px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* 서브 설명 */
+.solution__desc {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 28px;
+  line-height: 38px;
+  color: #000;
+  margin-bottom: 60px;
+}
+
+/* 하단 이미지 */
+.solution__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   특장점과 구성 섹션
+======================================== */
+
+.feature {
+  padding: 100px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.feature__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 70px;
+}
+
+/* 특장점 3개 행 */
+.feature__list {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+/* 개별 특장점 아이템 */
+.feature__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+/* 아이콘 이미지 */
+.feature__icon {
+  width: auto;
+  height: 120px;
+  margin-bottom: 30px;
+}
+
+/* 설명 텍스트 */
+.feature__desc {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 28px;
+  color: #000;
+  line-height: 45px;
+  letter-spacing: -2%;
+  font-weight: 500;
+}
+
+/* 강조 제목 */
+.feature__title {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+  letter-spacing: -2%;
+  color: #000;
+}
+
+/* 실제 수업 예시 영역 */
+.feature__example {
+  margin-bottom: 60px;
+}
+
+/* 공통 이미지 */
+.feature__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+/* ========================================
+   도입 전후 비교 영역 (feature 섹션 내부)
+======================================== */
+
+/* 전체 래퍼: feature__inner 안에 위치 */
+.compare {
+  margin-top: 80px;
+  text-align: center;
+}
+
+/* 섹션 제목 */
+.compare__title {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.4;
+  margin-bottom: 60px;
+}
+
+/* "씨마스" - 핑크 */
+.compare__title--brand {
+  color: #C333B4;
+}
+
+/* "스마트 수업 자료," - 보라 */
+.compare__title--sub {
+  color: #5808E2;
+}
+
+/* "도입 전후를 비교해 보세요." - 검정 */
+.compare__title--main {
+  color: #000;
+}
+
+/* 2단 카드 행 */
+.compare__cards {
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* ── 카드 공통 ── */
+.compare__card {
+  flex: 1;
+  position: relative;
+  overflow: visible;
+  border-radius: 20px;
+  padding: 50px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ── 도입 전 카드 ── */
+.compare__card--before {
+  background-color: #F8F8F8;
+  border: 2px solid #D7D7D7;
+}
+
+/* ── 도입 후 카드: background-clip 방식으로 그라데이션 테두리 구현 ── */
+/* border를 transparent로 두고, padding-box는 흰 배경 / border-box는 그라데이션으로 채워 테두리처럼 보이게 함 */
+.compare__card--after {
+  border: 7px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(to right, #00D9CE, #19BAD7) border-box;
+}
+
+/* ── 카드 라벨 (말풍선 pill) ── */
+.compare__label {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3px 40px;
+  border-radius: 999px;
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 55px;
+  color: #fff;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* 말풍선 꼬리 (아래 방향 삼각형) */
+.compare__label::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+/* 도입 전 라벨 */
+.compare__label--before {
+  background-color: #888;
+}
+
+.compare__label--before::after {
+  border-top: 14px solid #888;
+}
+
+/* 도입 후 라벨 */
+.compare__label--after {
+  background-color: #C333B4;
+}
+
+.compare__label--after::after {
+  border-top: 14px solid #C333B4;
+}
+
+/* 도입 후 라벨 둥실 애니메이션 */
+@keyframes float {
+  0%   { transform: translate(-50%, -50%) translateY(0); }
+  100% { transform: translate(-50%, -50%) translateY(-8px); }
+}
+
+.compare__label--after {
+  animation: float 2s ease-in-out infinite alternate;
+}
+
+/* ── 카드 제목 ── */
+.compare__card-title {
+  font-family: 'Paperlogy', sans-serif;
+  
+  font-size: 40px;
+  line-height: 55px;
+  margin-bottom: 20px;
+}
+
+.compare__card-title--before {
+  color: #616161;
+  font-weight: 400;
+}
+
+.compare__card-title--after {
+  color: #C333B4;
+  font-weight: 600;
+}
+
+/* ── 카드 설명 텍스트 ── */
+.compare__card-desc {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 24px;
+  line-height: 34px;
+  margin-bottom: 30px;
+  color: #000;
+  height: 68px;
+  display: flex;
+  align-items: center;
+}
+
+
+/* ── 리스트 박스: 흰 배경 별도 박스 ── */
+.compare__list {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #D7D7D7;
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+/* 리스트 아이템: 아이콘 + 텍스트 수평 배치 */
+.compare__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 아이템 텍스트 */
+.compare__item-text {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 32px;
+  line-height: 30px;
+  color: #000;
+}
+
+/* ── 아이콘 공통: 원형 배경 ── */
+.compare__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* X 아이콘: 흰색 ✕ CSS로 구현 */
+.compare__icon--x {
+  background-color: #FF6666;
+}
+
+.compare__icon--x::before,
+.compare__icon--x::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.compare__icon--x::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.compare__icon--x::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* 체크 아이콘: 흰색 ✓ CSS로 구현 */
+.compare__icon--check {
+  background-color: #00CEAC;
+}
+
+.compare__icon--check::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 10px;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  border-radius: 1px;
+  transform: translate(-50%, -65%) rotate(-45deg);
+}
+
+
+/* ========================================
+   푸터 섹션
+======================================== */
+
+.footer {
+  width: 100%;
+  height: 345px;
+  background-image: url(../images/footer_bg.png);
+  background-size: cover;
+  background-position: center;
+}
+
+/* 내부 콘텐츠: 좌우 양끝 정렬 */
+.footer__inner {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ── 좌측: 회사명 · 문의 · 로고 ── */
+.footer__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* 하단 씨마스 로고 */
+.footer__logo {
+  width: auto;
+  height: 50px;
+  margin-top: 4px;
+}
+
+/* 문의 전화 */
+.footer__tel {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 40px;
+  color: #fff;
+  line-height: 1;
+}
+
+.footer__tel-label {
+  font-weight: 600;
+}
+
+.footer__tel-number {
+  font-weight: 800;
+}
+
+
+
+/* ── 우측: 버튼 영역 ── */
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+/* 버튼 공통 */
+.footer__btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 353px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: 'Pretendard', sans-serif;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.footer__btn:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+/* 티칭샘 버튼: outline */
+.footer__btn--outline {
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 55px;
+}
+
+/* 카카오 채널 버튼: 카카오 옐로우 */
+.footer__btn--kakao {
+  background-color: #FEE500;
+  color: #000;
+  border: none;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 48px;
+}
+
+/* 카카오 아이콘 이미지 */
+.footer__kakao-icon {
+  width: auto;
+  height: 38px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+/* ========================================
+   Mobile First
+======================================== */
+ /* 모바일 기본값 */
+
+
+
+  
+
+
+/* ========================================
+   Tablet 
+======================================== */
+@media (min-width: 600px) {  
+/* 태블릿 (갤탭 S4 포함: 610px) */
+}
+  
+
+
+/* ========================================
+   Desktop 
+======================================== */
+@media (min-width: 1024px) {
+/* 데스크톱 (iPad 가로, 소형 노트북) */
+}
+  
+
+
+
+
+
+/* ========================================
+   디테일한 추가 구분 (필수는 아님 ) 
+======================================== */
+@media (min-width: 360px) {
+/* 큰 모바일 (iPhone 6+ 이상) */
+}
+@media (min-width: 1440px) {
+/* 대형 데스크톱 */
+}
