@@ -14,6 +14,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <title>스마트 수업자료 | 씨마스</title>
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
     
 
     <!-- Fav Icon -->
@@ -26,13 +27,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!--카카오톡 공유 썸네일-->
     <meta name="title" content="스마트 수업자료 | 씨마스" />
     <meta name="description" content="스마트 교과서와 스마트PPT가 연결되어 수업 준비부터 진행, 평가까지 한번에!" />
-    <meta name="thumbnail" content="https://viewer.cmass.kr/html/smart_class/smart_class_share.png" />
+    <meta name="thumbnail" content="https://viewer.cmass.kr/html/smart_class/images/smart_class_share.png" />
 
     <meta property="og:url" content="https://viewer.cmass.kr/html/smart_class/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="스마트 수업자료 | 씨마스" />
     <meta property="og:description" content="스마트 교과서와 스마트PPT가 연결되어 수업 준비부터 진행, 평가까지 한번에!" />
-    <meta property="og:image" content="https://viewer.cmass.kr/html/smart_class/smart_class_share.png" />    
+    <meta property="og:image" content="https://viewer.cmass.kr/html/smart_class/images/smart_class_share.png" />    
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -306,8 +307,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- 서브 설명 -->
         <p class="solution__desc">서책 교과서 흐름에 흥미로운 멀티미디어 자료와 본문 학습,<br>다양한 마무리 활동까지 연결하였습니다.</p>
 
-        <!-- 솔루션 이미지 -->
-        <img src="images/solution_img.png" alt="씨마스의 솔루션 화면 예시" class="solution__img">
+        <!-- 솔루션 이미지 (모바일: solution_img_m.png) -->
+        <picture>
+          <source srcset="images/solution_img_m.png" media="(max-width: 767px)">
+          <img src="images/solution_img.png" alt="씨마스의 솔루션 화면 예시" class="solution__img">
+        </picture>
 
       </div><!-- /solution__inner -->
     </section>
@@ -341,14 +345,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         </ul><!-- /feature__list -->
 
-        <!-- 실제 수업 예시 영역 -->
+        <!-- 실제 수업 예시 영역 (모바일: feature_img_01_m.png) -->
         <div class="feature__example">
-          <img src="images/feature_img_01.png" alt="실제 수업 예시 화면" class="feature__img">
+          <picture>
+            <source srcset="images/feature_img_01_m.png" media="(max-width: 767px)">
+            <img src="images/feature_img_01.png" alt="실제 수업 예시 화면" class="feature__img">
+          </picture>
         </div>
 
-        <!-- 스마트 수업 지원 기능 영역 -->
+        <!-- 스마트 수업 지원 기능 영역 (모바일: feature_img_02_m.png) -->
         <div class="feature__support">
-          <img src="images/feature_img_02.png" alt="스마트 수업 지원 기능" class="feature__img">
+          <picture>
+            <source srcset="images/feature_img_02_m.png" media="(max-width: 767px)">
+            <img src="images/feature_img_02.png" alt="스마트 수업 지원 기능" class="feature__img">
+          </picture>
         </div>
 
         <!-- 도입 전후 비교 영역 -->
@@ -430,7 +440,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- 우측: 링크 버튼 2개 -->
       <div class="footer__right">
         <a href="https://teachingsaem.cmass.kr/" target="_blank" class="footer__btn footer__btn--outline">씨마스 티칭샘 바로가기 →</a>
-        <a href="#" target="_blank" class="footer__btn footer__btn--kakao"> 
+        <a href="https://pf.kakao.com/_PBLGxl" target="_blank" class="footer__btn footer__btn--kakao"> 
           <img src="images/footer_kakao.png" alt="카카오 채널 아이콘" class="footer__kakao-icon">
           씨마스 카카오톡 채널 →
         </a>

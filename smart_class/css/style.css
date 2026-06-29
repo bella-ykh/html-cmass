@@ -446,8 +446,6 @@ main section {
   background-position: center;
   width: 400px;
   height: 250px;
-  background-color: #fff;
-  border: 1px solid #ebebeb;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -821,11 +819,6 @@ main section {
   line-height: 60px;
   letter-spacing: -2%;
   color: #000;
-}
-
-/* 실제 수업 예시 영역 */
-.feature__example {
-  margin-bottom: 60px;
 }
 
 /* 공통 이미지 */

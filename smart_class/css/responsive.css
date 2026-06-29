@@ -1,0 +1,851 @@
+/* ============================================================
+   responsive.css
+   반응형 스타일 전용 파일
+   - 태블릿: max-width 1024px (레이아웃 유지, 크기만 축소)
+   - 모바일: max-width 767px  (별도 디자인, _m 이미지 사용)
+   ※ PC 스타일(style.css)은 절대 수정하지 않음
+============================================================ */
+
+
+/* ============================================================
+   태블릿 (768px ~ 1024px)
+   - 레이아웃(flex 방향, grid 구조 등)은 변경하지 않음
+   - font-size, padding, margin, width, height 수치만 조정
+============================================================ */
+@media (max-width: 1024px) {
+
+  /* ── 히어로 섹션 ── */
+
+  /* 높이 고정 해제 */
+  .hero {
+    height: auto;
+    padding: 60px 0 50px;
+  }
+
+  /* 1920px 고정 inner를 뷰포트 너비로 전환
+     PC에서 position:relative + width:1920px + left:50% + translateX(-50%) 구조를
+     태블릿에서는 일반 흐름(flex 세로 정렬)으로 재설정 */
+  .hero__inner {
+    width: 100%;
+    left: auto;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  /* 타이틀 영역: absolute → static */
+  .hero__title {
+    position: static;
+    width: 90%;
+    max-width: 680px;
+    gap: 15px;
+  }
+
+  .hero__logo { width: 100px; }
+  .hero__tagtext { font-size: 30px; }
+
+  .hero__headline {
+    font-size: 54px;
+    line-height: 54px;
+    margin-bottom: 20px;
+  }
+
+  .hero__x { width: 40px; }
+
+  .hero__desc {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  /* 제품 이미지 영역: absolute → flex 가로 배치 */
+  .hero__products {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 0 30px;
+  }
+
+  /* 교과서·PPT 컨테이너: absolute → static, 세로 flex */
+  .hero__product--book,
+  .hero__product--ppt {
+    position: static;
+    flex: 1;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 제품 이미지: absolute → static (배지 아래로 자연 흐름)
+     PC에서 position:absolute + top:73px이던 구조를 해제 */
+  .hero__img {
+    position: static;
+    width: 100%;
+    margin-top: 14px; /* 배지 말풍선 꼬리(12px) + 여백 2px */
+  }
+
+  /* 연동 아이콘: absolute → static, 세로 가운데 정렬 */
+  .hero__connect {
+    position: static;
+    align-self: center;
+    width: 60px;
+    height: auto;
+  }
+
+  .hero__connect img {
+    width: 100%;
+    height: auto;
+  }
+
+
+  /* ── GNB ── */
+
+  /* 메뉴 링크 글자 크기 축소 */
+  .gnb__link {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  /* 좌우 패딩 축소 (5개 항목이 태블릿 너비에 맞도록) */
+  .gnb__item {
+    padding: 0 14px;
+  }
+
+
+  /* ── 자료 보기 ── */
+
+  /* 섹션 상하 여백 축소 */
+  .data {
+    padding: 30px 0;
+  }
+
+  /* 내부 컨테이너 좌우 여백 추가 (카드가 화면 끝에 붙지 않도록) */
+  .data__inner {
+    padding: 0 20px;
+  }
+
+  /* 카드 배경 영역: 고정 px → 카드 너비 기반 비율로 전환 (원본 400×250 비율 유지) */
+  .data__card-body {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 8 / 5;
+  }
+
+  /* 분류·도서명 위치: px → % (카드 크기 변화에 자동 대응)
+     원본: left 20/400=5%, top 62/250=24.8%, width 210/400=52% */
+  .data__card-info {
+    left: 5%;
+    top: 25%;
+    width: 52%;
+  }
+
+  /* 책 표지 이미지: px → %
+     원본: left 231/400=57.75%, top 40/250=16%, width 140/400=35%, height 182/250=73% */
+  .data__cover {
+    left: 57.75%;
+    top: 16%;
+    width: 35%;
+    height: 73%;
+  }
+
+  /* 분류 텍스트 */
+  .data__category { font-size: 13px; }
+
+  /* 도서명 */
+  .data__title {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  /* .font_32 클래스 적용 도서명도 동일하게 축소 */
+  .font_32 { font-size: 18px !important; }
+
+  /* 버튼 영역: 고정 너비(400px) 해제 */
+  .data__card-btns {
+    width: 100%;
+  }
+
+  /* 버튼 글자 크기 · 높이 축소 */
+  .data__btn {
+    font-size: 14px;
+    height: 34px;
+  }
+
+  /* 하단 확장 문구 */
+  .data__footer-sub,
+  .data__footer-main {
+    font-size: 28px;
+    line-height: 1.6;
+  }
+
+
+  /* ── 이야기의 시작 ── */
+  /* 시안 작업 완료 후 추가 예정 */
+
+
+  /* ── 선생님의 고민 ── */
+
+  /* 섹션 여백 축소 */
+  .concern {
+    padding: 60px 0 80px;
+  }
+
+  /* 내부 컨테이너 좌우 여백 추가 */
+  .concern__inner {
+    padding: 0 40px;
+  }
+
+  /* 섹션 제목 */
+  .concern__title {
+    font-size: 36px;
+    line-height: 50px;
+  }
+
+  /* 서브 설명 */
+  .concern__subtitle {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 40px;
+  }
+
+  /* 카드 행 간격 축소 */
+  .concern__cards {
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  /* 개별 카드: 고정 너비 해제, flex 아이템으로 자동 분배 */
+  .concern__card {
+    width: auto;
+    flex: 1;
+  }
+
+  /* 말풍선 텍스트 축소 */
+  .concern__bubble {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 20px;
+  }
+
+  /* 교사 이미지 크기 축소 */
+  .concern__teacher {
+    height: 140px;
+  }
+
+  /* 요약 설명 */
+  .concern__summary {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  /* 따옴표 */
+  .concern__quote-mark {
+    font-size: 64px;
+  }
+
+  /* 인용문 */
+  .concern__quote-text {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+
+  /* ── 씨마스의 솔루션 ── */
+
+  /* 섹션 여백 축소 */
+  .solution {
+    padding: 60px 0 80px;
+  }
+
+  /* 내부 컨테이너 좌우 여백 추가 */
+  .solution__inner {
+    padding: 0 40px;
+  }
+
+  /* 섹션 제목 */
+  .solution__title {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  /* 서브 설명 */
+  .solution__desc {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 40px;
+  }
+
+
+  /* ── 특장점과 구성 ── */
+
+  /* 섹션 여백 축소 */
+  .feature {
+    padding: 70px 0;
+  }
+
+  /* 내부 패딩 축소 */
+  .feature__inner {
+    padding: 0 2%;
+  }
+
+  /* 특장점 3개 간격 축소 */
+  .feature__list {
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  /* 아이콘 크기 축소 */
+  .feature__icon {
+    height: 80px;
+    margin-bottom: 16px;
+  }
+
+  /* 설명 텍스트 */
+  .feature__desc {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  /* 강조 제목 */
+  .feature__title {
+    font-size: 26px;
+    line-height: 40px;
+  }
+
+
+  /* ── 도입 전후 비교 ── */
+
+  /* 섹션 제목 */
+  .compare__title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  /* 카드 간격 축소 */
+  .compare__cards {
+    gap: 24px;
+  }
+
+  /* 라벨 pill 크기 축소 */
+  .compare__label {
+    font-size: 28px;
+    line-height: 40px;
+    padding: 3px 24px;
+  }
+
+  /* 카드 제목 */
+  .compare__card-title {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  /* 카드 설명: PC의 고정 height(68px) 해제 */
+  .compare__card-desc {
+    font-size: 18px;
+    line-height: 26px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  /* 아이템 텍스트 */
+  .compare__item-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  /* 아이콘 크기 축소 */
+  .compare__icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* X 아이콘 선 크기 조정 */
+  .compare__icon--x::before,
+  .compare__icon--x::after {
+    width: 14px;
+  }
+
+  /* 체크 아이콘 크기 조정 */
+  .compare__icon--check::before {
+    width: 14px;
+    height: 8px;
+  }
+
+
+  /* ── 푸터 ── */
+
+  /* 높이 고정 해제, 상하 패딩 추가 */
+  .footer {
+    height: auto;
+    padding: 50px 0;
+  }
+
+  /* 내부 좌우 패딩 축소 */
+  .footer__inner {
+    padding: 0 40px;
+  }
+
+  /* 문의 전화 폰트 축소 */
+  .footer__tel {
+    font-size: 28px;
+  }
+
+  /* 버튼 너비 축소 */
+  .footer__btn {
+    width: 260px;
+  }
+
+  /* 티칭샘 버튼 */
+  .footer__btn--outline {
+    font-size: 18px;
+    line-height: 44px;
+  }
+
+  /* 카카오 버튼 */
+  .footer__btn--kakao {
+    font-size: 18px;
+    line-height: 40px;
+  }
+
+  /* 카카오 아이콘 */
+  .footer__kakao-icon {
+    height: 30px;
+  }
+
+
+} /* @media (max-width: 1024px) end */
+
+
+/* ============================================================
+   모바일 (~ 767px)
+   - 가로 → 세로(column) 정렬로 변경
+   - 모바일 전용 이미지(_m) 사용
+   - 섹션별 디자인 시안에 따라 별도 적용
+============================================================ */
+@media (max-width: 767px) {
+
+  /* ── 히어로 섹션 ── */
+
+  /* 모바일 전용 배경 이미지로 교체, 상하 여백 조정 */
+  .hero {
+    padding: 40px 0 0;
+    background-image: url(../images/hero_bg_m.png);
+  }
+
+  /* inner 간격 축소 */
+  .hero__inner {
+    gap: 30px;
+  }
+
+  /* 타이틀: 좌우 여백을 padding으로 처리 (max-width 제한 해제) */
+  .hero__title {
+    width: 100%;
+    max-width: none;
+    padding: 0 2%;
+    gap: 15px;
+  }
+
+  .hero__logo { width: auto; height: 32px; }
+  .hero__tagtext { font-size: 34px; }
+
+  /* 헤드라인: flex 세로 정렬로 "스마트 교과서 / × / 스마트 PPT" 3단 배치
+     h1 안의 텍스트 노드와 img가 각각 익명 flex 아이템이 되어 자동으로 줄바꿈됨 */
+  .hero__headline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: 62px;
+    line-height: 60px;
+    margin-bottom: 16px;
+  }
+
+  /* × 심볼: block으로 전환하여 단독 행 처리 */
+  .hero__x {
+    display: block;
+    width: 42px;
+    padding: 0;
+  }
+
+  .hero__desc {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  /* 제품 영역: 가로 → 세로 정렬 */
+  .hero__products {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 24px;
+  }
+
+  /* 각 제품 컨테이너: 전체 너비로 확장 */
+  .hero__product--book,
+  .hero__product--ppt {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero__img--book { max-width: 80%; }
+
+  /* 연동 아이콘: 모바일에서 숨김
+     제품이 세로 정렬되므로 불필요, × 심볼은 타이틀에 표시됨 */
+  .hero__connect {
+    display: none;
+  }
+
+  /* ※ 제품 목업 이미지(hero_img_01.png, hero_img_02.png)는 <img> 태그이므로
+        CSS만으로 _m 이미지 교체가 어렵습니다.
+        _m 이미지가 필요하다면 HTML에서 <picture> 태그로 교체 작업 필요합니다. */
+
+
+  /* ── GNB ── */
+
+  /* 모든 메뉴 항목 숨김 (기본 상태) */
+  .gnb__item {
+    display: none;
+    border-right: none; /* 단일 항목 표시 시 구분선 불필요 */
+  }
+
+  /* active 링크를 포함한 항목만 표시
+     main.js의 스크롤스파이가 .gnb__link에 active 클래스를 갱신하면
+     :has()가 자동으로 감지하여 해당 li만 보이게 전환됨 */
+  .gnb__item:has(.gnb__link.active) {
+    display: flex;
+  }
+
+  /* 모바일 링크 글자 크기 */
+  .gnb__link {
+    font-size: 30px;
+  }
+
+
+  /* ── 자료 보기 ── */
+
+  /* 내부 컨테이너 좌우 여백 축소 */
+  .data__inner {
+    padding: 0 2%;
+  }
+
+  /* 2열 그리드로 변경 */
+  .data__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  /* 분류·도서명 위치: 카드가 작아 top 위로 당겨 텍스트 공간 확보 */
+  .data__card-info {
+    top: 12%;
+  }
+
+  /* 분류 텍스트 */
+  .data__category { font-size: 11px; }
+
+  /* 도서명 */
+  .data__title {
+    font-size: 13px;
+  }
+
+  .font_32 { font-size: 13px !important; }
+
+  /* 버튼 영역: 가로 → 세로(column) 정렬 */
+  .data__card-btns {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* 버튼 글자 크기 · 높이 축소 */
+  .data__btn {
+    font-size: 20px;
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  /* 하단 확장 문구 */
+  .data__footer-sub,
+  .data__footer-main {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+
+  /* ── 이야기의 시작 ── */
+  /* 시안 작업 완료 후 추가 예정 */
+
+
+  /* ── 선생님의 고민 ── */
+
+  /* 섹션 여백 */
+  .concern {
+    padding: 40px 0 60px;
+  }
+
+  /* 내부 좌우 여백 */
+  .concern__inner {
+    padding: 0 2%;
+  }
+
+  /* 섹션 제목 */
+  .concern__title {
+    font-size: 35px;
+    line-height: 50px;
+    margin-bottom: 10px;
+  }
+
+  /* 서브 설명 */
+  .concern__subtitle {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 24px;
+  }
+
+  /* 카드 3개: 가로 → 세로 정렬 */
+  .concern__cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  /* 개별 카드: flex 자동 분배 해제, 세로 배치용 너비 설정 */
+  .concern__card {
+    width: 100%;
+    max-width: 300px;
+    flex: none;
+  }
+
+  /* 말풍선 */
+  .concern__bubble {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+
+  /* 인용구 블록: 상단 여백 축소 */
+  .concern__quote {
+    margin-top: 30px;
+  }
+
+  /* 인용문 */
+  .concern__quote-text {
+    font-size: 35px;
+    line-height: 45px;
+    padding-bottom: 24px;
+  }
+
+
+  /* ── 씨마스의 솔루션 ── */
+
+  /* 섹션 여백 */
+  .solution {
+    padding: 40px 0 60px;
+  }
+
+  /* 내부 좌우 여백 */
+  .solution__inner {
+    padding: 0 2%;
+  }
+
+  /* 섹션 제목 */
+  .solution__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  /* 서브 설명 */
+  .solution__desc {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 24px;
+  }
+
+  /* ※ solution_img는 <picture> 태그로 교체하여 solution_img_m.png 사용
+        (HTML 수정 완료) */
+
+
+  /* ── 특장점과 구성 ── */
+
+  /* 섹션 여백 */
+  .feature {
+    padding: 40px 0 60px;
+  }
+
+  /* 특장점 3개: 가로 → 세로 정렬 */
+  .feature__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  /* 개별 아이템: 전체 너비 */
+  .feature__item {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* 아이콘 크기 */
+  .feature__icon {
+    height: 120px;
+    margin-bottom: 12px;
+  }
+
+  /* 설명 텍스트 */
+  .feature__desc {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  /* 강조 제목 */
+  .feature__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  /* ※ feature_img_01, feature_img_02는 <picture> 태그로 교체하여
+        feature_img_01_m.png, feature_img_02_m.png 사용 (HTML 수정 완료) */
+
+
+  /* ── 도입 전후 비교 ── */
+
+  /* 비교 섹션 제목 */
+  .compare__title {
+    font-size: 35px;
+    margin-bottom: 60px;
+  }
+
+  /* 2단 카드: 가로 → 세로 정렬 */
+  .compare__cards {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  /* 카드 내부 패딩 축소 */
+  .compare__card {
+    padding: 50px 20px 24px;
+  }
+
+  /* 라벨 pill */
+  .compare__label {
+    font-size: 40px;
+    line-height: 55px;
+    padding: 3px 40px;
+  }
+
+  /* 카드 제목 */
+  .compare__card-title {
+    font-size: 40px;
+    line-height: 55px;
+    margin-bottom: 12px;
+  }
+
+  /* 카드 설명 */
+  .compare__card-desc {
+    font-size: 20px;
+    line-height: 30px;
+    height: auto;
+    margin-bottom: 16px;
+  }
+
+  /* 리스트 박스 패딩 축소 */
+  .compare__list {
+    padding: 16px 20px;
+    gap: 14px;
+  }
+
+  /* 아이템 간격 */
+  .compare__item {
+    gap: 12px;
+  }
+
+  /* 아이템 텍스트 */
+  .compare__item-text {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  /* 아이콘 크기 */
+  .compare__icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* X 아이콘 선 크기 조정 */
+  .compare__icon--x::before,
+  .compare__icon--x::after {
+    width: 11px;
+    height: 2px;
+  }
+
+  /* 체크 아이콘 크기 조정 */
+  .compare__icon--check::before {
+    width: 11px;
+    height: 6px;
+  }
+
+
+  /* ── 푸터 ── */
+
+  /* 높이 고정 해제, 상하 패딩 추가 */
+  .footer {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  /* 내부: 가로 → 세로 정렬, 가운데 정렬 */
+  .footer__inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0 24px;
+  }
+
+  /* 좌측 영역: 가운데 정렬 */
+  .footer__left {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* 문의 전화 */
+  .footer__tel {
+    font-size: 22px;
+  }
+
+  /* 우측 영역: 가운데 정렬, 전체 너비 */
+  .footer__right {
+    align-items: center;
+    width: 100%;
+  }
+
+  /* 버튼: 전체 너비 */
+  .footer__btn {
+    width: 100%;
+  }
+
+  /* 티칭샘 버튼 */
+  .footer__btn--outline {
+    font-size: 16px;
+    line-height: 40px;
+  }
+
+  /* 카카오 버튼 */
+  .footer__btn--kakao {
+    font-size: 16px;
+    line-height: 36px;
+  }
+
+  /* 카카오 아이콘 */
+  .footer__kakao-icon {
+    height: 28px;
+  }
+
+
+} /* @media (max-width: 767px) end */
