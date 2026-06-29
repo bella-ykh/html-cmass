@@ -1186,43 +1186,228 @@ main section {
 }
 
 
-/* ========================================
-   Mobile First
-======================================== */
- /* 모바일 기본값 */
 
+/* =============================================
+   #story — 이야기의 시작
+   ============================================= */
 
-
-  
-
-
-/* ========================================
-   Tablet 
-======================================== */
-@media (min-width: 600px) {  
-/* 태블릿 (갤탭 S4 포함: 610px) */
+.story {
+  position: relative;
+  overflow: hidden;
+  padding: 250px 0;
+  text-align: center;
+  background: #fff;
 }
-  
 
-
-/* ========================================
-   Desktop 
-======================================== */
-@media (min-width: 1024px) {
-/* 데스크톱 (iPad 가로, 소형 노트북) */
+/* 버블 컨테이너 */
+.story__bubbles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
-  
 
-
-
-
-
-/* ========================================
-   디테일한 추가 구분 (필수는 아님 ) 
-======================================== */
-@media (min-width: 360px) {
-/* 큰 모바일 (iPhone 6+ 이상) */
+/* 버블 공통 */
+.story__bubble {
+  position: absolute;
+  display: block;
 }
-@media (min-width: 1440px) {
-/* 대형 데스크톱 */
+
+/* 버블 개별 위치 & 크기
+   DOM 순서: 06(맨 뒤) → 03 → 04 → 01 → 02 → 05(맨 앞)
+   HTML에서 06을 첫 번째로 배치해 자연스러운 z-order 구현 */
+
+/* bubble_06 — 메인 중앙 배경 블롭 (가장 크고 가장 뒤에 위치)
+   left:50% + 애니메이션 내 translate(-50%)로 가로 중앙 고정 */
+.story__bubble--06 {
+  width: 1020px;
+  top: -20px;
+  left: 50%;
+  transform-origin: center center;
+  animation: bubbleRotate06 4s ease-in-out infinite;
+}
+
+/* bubble_03 — 하단 왼쪽 잎사귀 블롭, 06 위에 겹침 */
+.story__bubble--03 {
+  width: 503px;
+  bottom: -10px;
+  left: 155px;
+  transform-origin: center center;
+  animation: bubbleRotateScale03 5s ease-in-out infinite;
+}
+
+/* bubble_04 — 우측 블롭, 06 위에 겹침 */
+.story__bubble--04 {
+  width: 320px;
+  top: 142px;
+  right: 290px;
+  transform-origin: center center;
+  animation: bubbleRotateScale04 5s ease-in-out infinite;
+}
+
+/* bubble_01 — 상단 작은 원 */
+.story__bubble--01 {
+  width: 100px;
+  top: 141px;
+  left: 382px;
+  animation: bubbleFloat_01 6s ease-in-out infinite;
+}
+
+/* bubble_02 — 상단 더 작은 원 (bubble_01 아래) */
+.story__bubble--02 {
+  width: 123px;
+  top: 95px;
+  left: 415px;
+  animation: bubbleFloat_02 7s ease-in-out infinite 1.5s;
+}
+
+/* bubble_05 — 우하단 작은 점 */
+.story__bubble--05 {
+  width: 80px;
+  bottom: 100px;
+  right: 355px;
+  transform-origin: center center;
+  animation: bubbleTriangle05 6s ease-in-out infinite;
+}
+
+/* bubble_06 회전 애니메이션: 오른쪽 30도 → 왼쪽 30도 왕복
+   left:50% 중앙 고정을 유지하기 위해 translate(-50%, 0)을 함께 선언 */
+@keyframes bubbleRotate06 {
+  0%   { transform: translate(-50%, 0) rotate(30deg); }
+  50%  { transform: translate(-50%, 0) rotate(-30deg); }
+  100% { transform: translate(-50%, 0) rotate(30deg); }
+}
+
+/* 버블 애니메이션 키프레임 (scale 없이 translate만 사용)
+   bubble_06: centering translate(-50%, 0)을 keyframe에 포함 */
+@keyframes bubbleFloat_06 {
+  0%   { transform: translate(-50%, 0); }
+  50%  { transform: translate(-50%, -15px); }
+  100% { transform: translate(-50%, 0); }
+}
+/* bubble_03 확대+회전 애니메이션: 원래 크기·각도 → 1.3배·60도 → 복귀 */
+@keyframes bubbleRotateScale03 {
+  0%   { transform: scale(1)   rotate(0deg); }
+  50%  { transform: scale(1.3) rotate(60deg); }
+  100% { transform: scale(1)   rotate(0deg); }
+}
+@keyframes bubbleFloat_03 {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-8px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+/* bubble_04: 기본 → 왼쪽45도+커짐 → 복귀 → 오른쪽45도+커짐 → 복귀 반복 */
+@keyframes bubbleRotateScale04 {
+  0%   { transform: rotate(0deg)   scale(1); }
+  25%  { transform: rotate(-45deg) scale(1.3); }
+  50%  { transform: rotate(0deg)   scale(1); }
+  75%  { transform: rotate(45deg)  scale(1.3); }
+  100% { transform: rotate(0deg)   scale(1); }
+}
+@keyframes bubbleFloat_04 {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(8px, -10px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes bubbleFloat_01 {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(4px, -8px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes bubbleFloat_02 {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-5px, 6px); }
+  100% { transform: translate(0, 0); }
+}
+/* bubble_05 삼각형 이동 애니메이션: 세 꼭짓점을 순환하며 scale 변화 */
+@keyframes bubbleTriangle05 {
+  0%   { transform: translate(0px, 0px)    scale(1); }
+  33%  { transform: translate(-80px, 60px) scale(0.75); }
+  66%  { transform: translate(40px, 80px) scale(0.9); }
+  100% { transform: translate(0px, 0px)    scale(1); }
+}
+@keyframes bubbleFloat_05 {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(3px, -5px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* 콘텐츠 영역 */
+.story__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* 말풍선 */
+.story__speech-bubble {
+  position: relative;
+  display: inline-block;
+  background: #fff;
+  border-radius: 50px;
+  padding: 0 20px;
+  height: 56px;
+  line-height: 56px;
+  font-family: 'Pretendard Variable', Pretendard, sans-serif;
+  font-weight: 600;
+  font-size: 26px;
+  color: #9900BF;
+  white-space: nowrap;
+  animation: labelFloat 3s ease-in-out infinite;
+}
+
+/* 말풍선 꼬리 테두리 */
+.story__speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid #fff;
+  border-right: 12px solid #fff;
+}
+
+/* 말풍선 꼬리 흰 채움 */
+.story__speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 14px solid #fff;
+}
+
+/* 말풍선 float 애니메이션 */
+@keyframes labelFloat {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* 제목 */
+.story__title {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 70px;
+  color: #fff;
+  margin: 0;
+}
+
+/* 설명 */
+.story__desc {
+  font-family: 'Pretendard Variable', Pretendard, sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 40px;
+  color: #fff;
+  margin: 0;
 }

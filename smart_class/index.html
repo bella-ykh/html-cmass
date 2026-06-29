@@ -243,11 +243,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div><!-- /data__inner -->
     </section>
 
-    <section id="story" class="story" style="text-align: center; padding: 100px 0;">
-      <!-- 이야기의 시작 -->
-      <video autoplay muted loop playsinline style="margin: 0 auto">
-        <source src="images/story_web.mp4" type="video/mp4">
-      </video>
+    <section id="story" class="story">
+      <!-- 배경 버블 레이어 (렌더링 순서: 06 맨 뒤 → 03·04 중간 → 01·02·05 맨 앞) -->
+      <div class="story__bubbles" aria-hidden="true">
+        <img class="story__bubble story__bubble--06" src="images/bubble_06.png" alt="">
+        <img class="story__bubble story__bubble--03" src="images/bubble_03.png" alt="">
+        <img class="story__bubble story__bubble--04" src="images/bubble_04.png" alt="">
+        <img class="story__bubble story__bubble--01" src="images/bubble_01.png" alt="">
+        <img class="story__bubble story__bubble--02" src="images/bubble_02.png" alt="">
+        <img class="story__bubble story__bubble--05" src="images/bubble_05.png" alt="">
+      </div>
+
+      <!-- 콘텐츠 -->
+      <div class="story__inner">
+        <!-- 말풍선 -->
+        <div class="story__speech-bubble">
+          선생님들께 드린 설문에서 시작된 이야기
+        </div>
+
+        <!-- 제목 -->
+        <h2 class="story__title">
+          선생님의 진짜 목소리에서<br>시작했습니다
+        </h2>
+
+        <!-- 설명 -->
+        <p class="story__desc">
+          수업 준비에 대한 선생님의 고민,<br>
+          그리고 더 좋은 수업을 만들고 싶은 마음.<br>
+          씨마스는 그 이야기에 귀 기울였습니다.
+        </p>
+      </div>
     </section>
 
     <section id="concern" class="concern">

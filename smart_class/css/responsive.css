@@ -186,7 +186,15 @@
 
 
   /* ── 이야기의 시작 ── */
-  /* 시안 작업 완료 후 추가 예정 */
+  .story {
+    padding: 160px 0;
+  }
+  .story__bubble--06 { width: 674px; }
+  .story__bubble--03 { width: 332px; left: 100px; }
+  .story__bubble--04 { width: 211px; top: 94px; right: 190px; }
+  .story__bubble--01 { width: 66px;  top: 93px;  left: 252px; }
+  .story__bubble--02 { width: 81px;  top: 63px;  left: 274px; }
+  .story__bubble--05 { width: 53px;  bottom: 66px; right: 234px; }
 
 
   /* ── 선생님의 고민 ── */
@@ -578,7 +586,30 @@
 
 
   /* ── 이야기의 시작 ── */
-  /* 시안 작업 완료 후 추가 예정 */
+  .story {
+    padding: 100px 0;
+  }
+  .story__bubble--06 { width: 510px; }
+  .story__bubble--03 { width: 252px; left: 60px; bottom: -6px; }
+  .story__bubble--04 { width: 160px; top: 71px; right: 145px; }
+  .story__bubble--01 { width: 50px;  top: 71px;  left: 191px; }
+  .story__bubble--02 { width: 62px;  top: 48px;  left: 208px; }
+  .story__bubble--05 { width: 40px;  bottom: 50px; right: 178px; }
+
+  .story__speech-bubble {
+    font-size: 18px;
+    height: 52px;
+    line-height: 52px;
+    padding: 0 24px;
+  }
+  .story__title {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  .story__desc {
+    font-size: 18px;
+    line-height: 30px;
+  }
 
 
   /* ── 선생님의 고민 ── */
@@ -849,3 +880,73 @@
 
 
 } /* @media (max-width: 767px) end */
+
+
+/* =============================================
+   #story 반응형 — 태블릿 (1024px 이하)
+   ============================================= */
+@media (max-width: 1024px) {
+  .story {
+    padding: 120px 0;
+  }
+
+  /* 버블 크기 축소 (비율 유지) */
+  .story__bubble--06 { width: 420px; }
+  .story__bubble--03 { width: 280px; }
+  .story__bubble--04 { width: 240px; }
+  .story__bubble--01 { width: 76px; left: calc(50% - 220px); }
+  .story__bubble--02 { width: 52px; left: calc(50% - 270px); top: 110px; }
+  .story__bubble--05 { width: 40px; right: 60px; bottom: 70px; }
+
+  .story__speech-bubble {
+    font-size: 22px;
+    height: 58px;
+    line-height: 58px;
+    padding: 0 28px;
+  }
+  .story__title {
+    font-size: 38px;
+    line-height: 56px;
+  }
+  .story__desc {
+    font-size: 22px;
+    line-height: 34px;
+  }
+}
+
+/* =============================================
+   #story 반응형 — 모바일 (768px 이하)
+   ============================================= */
+@media (max-width: 768px) {
+  .story {
+    padding: 80px 20px;
+  }
+
+  /* 버블 크기 축소 및 위치 재조정 */
+  .story__bubble--06 { width: 300px; }
+  .story__bubble--03 { width: 200px; bottom: -5px; left: -5px; }
+  .story__bubble--04 { width: 180px; top: 20px; right: 20px; }
+  .story__bubble--01 { width: 55px; left: calc(50% - 165px); top: 40px; }
+  .story__bubble--02 { width: 40px; left: calc(50% - 200px); top: 90px; }
+  .story__bubble--05 { width: 32px; right: 40px; bottom: 60px; }
+
+  .story__inner {
+    gap: 24px;
+  }
+  .story__speech-bubble {
+    font-size: 16px;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 20px;
+    white-space: normal;
+    text-align: center;
+  }
+  .story__title {
+    font-size: 28px;
+    line-height: 42px;
+  }
+  .story__desc {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
