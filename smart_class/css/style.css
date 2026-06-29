@@ -1223,8 +1223,8 @@ main section {
 /* bubble_06 — 메인 중앙 배경 블롭 (가장 크고 가장 뒤에 위치)
    left:50% + 애니메이션 내 translate(-50%)로 가로 중앙 고정 */
 .story__bubble--06 {
-  width: 66.1vw;
-  top: -2.27vh;
+  width: min(70.8vw, 1020px);
+  top: min(-2.27vh, -20px);
   left: 50%;
   transform-origin: center center;
   animation: bubbleRotate06 4s ease-in-out infinite;
@@ -1232,43 +1232,43 @@ main section {
 
 /* bubble_03 — 하단 왼쪽 잎사귀 블롭, 06 위에 겹침 */
 .story__bubble--03 {
-  width: 32.6vw;
-  bottom: -1.14vh;
-  left: 10.05vw;
+  width: min(34.9vw, 503px);
+  bottom: min(-1.14vh, -10px);
+  left: min(10.76vw, 155px);
   transform-origin: center center;
   animation: bubbleRotateScale03 5s ease-in-out infinite;
 }
 
 /* bubble_04 — 우측 블롭, 06 위에 겹침 */
 .story__bubble--04 {
-  width: 20.7vw;
-  top: 16.14vh;
-  right: 18.8vw;
+  width: min(22.2vw, 320px);
+  top: min(16.14vh, 142px);
+  right: min(20.14vw, 290px);
   transform-origin: center center;
   animation: bubbleRotateScale04 5s ease-in-out infinite;
 }
 
 /* bubble_01 — 상단 작은 원 */
 .story__bubble--01 {
-  width: 6.48vw;
-  top: 16.02vh;
-  left: 24.77vw;
+  width: min(6.94vw, 100px);
+  top: min(16.02vh, 141px);
+  left: min(24.77vw, 382px);
   animation: bubbleFloat_01 6s ease-in-out infinite;
 }
 
 /* bubble_02 — 상단 더 작은 원 (bubble_01 아래) */
 .story__bubble--02 {
-  width: 7.97vw;
-  top: 10.8vh;
-  left: 26.91vw;
+  width: min(8.54vw, 123px);
+  top: min(10.8vh, 95px);
+  left: min(26.91vw, 415px);
   animation: bubbleFloat_02 7s ease-in-out infinite 1.5s;
 }
 
 /* bubble_05 — 우하단 작은 점 */
 .story__bubble--05 {
-  width: 5.19vw;
-  bottom: 11.36vh;
-  right: 23.02vw;
+  width: min(5.56vw, 80px);
+  bottom: min(11.36vh, 100px);
+  right: min(23.02vw, 355px);
   transform-origin: center center;
   animation: bubbleTriangle05 6s ease-in-out infinite;
 }
