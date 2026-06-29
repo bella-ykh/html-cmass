@@ -435,7 +435,8 @@ main section {
 .data__card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
+  margin-bottom: 50px;
 }
 
 /* 카드 상단: 텍스트 + 표지 이미지 절대 배치 */
@@ -1204,6 +1205,9 @@ main section {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  max-width: 1440px;
+  margin: 0 auto;
+
 }
 
 /* 버블 공통 */
@@ -1219,8 +1223,8 @@ main section {
 /* bubble_06 — 메인 중앙 배경 블롭 (가장 크고 가장 뒤에 위치)
    left:50% + 애니메이션 내 translate(-50%)로 가로 중앙 고정 */
 .story__bubble--06 {
-  width: 1020px;
-  top: -20px;
+  width: 66.1vw;
+  top: -2.27vh;
   left: 50%;
   transform-origin: center center;
   animation: bubbleRotate06 4s ease-in-out infinite;
@@ -1228,43 +1232,43 @@ main section {
 
 /* bubble_03 — 하단 왼쪽 잎사귀 블롭, 06 위에 겹침 */
 .story__bubble--03 {
-  width: 503px;
-  bottom: -10px;
-  left: 155px;
+  width: 32.6vw;
+  bottom: -1.14vh;
+  left: 10.05vw;
   transform-origin: center center;
   animation: bubbleRotateScale03 5s ease-in-out infinite;
 }
 
 /* bubble_04 — 우측 블롭, 06 위에 겹침 */
 .story__bubble--04 {
-  width: 320px;
-  top: 142px;
-  right: 290px;
+  width: 20.7vw;
+  top: 16.14vh;
+  right: 18.8vw;
   transform-origin: center center;
   animation: bubbleRotateScale04 5s ease-in-out infinite;
 }
 
 /* bubble_01 — 상단 작은 원 */
 .story__bubble--01 {
-  width: 100px;
-  top: 141px;
-  left: 382px;
+  width: 6.48vw;
+  top: 16.02vh;
+  left: 24.77vw;
   animation: bubbleFloat_01 6s ease-in-out infinite;
 }
 
 /* bubble_02 — 상단 더 작은 원 (bubble_01 아래) */
 .story__bubble--02 {
-  width: 123px;
-  top: 95px;
-  left: 415px;
+  width: 7.97vw;
+  top: 10.8vh;
+  left: 26.91vw;
   animation: bubbleFloat_02 7s ease-in-out infinite 1.5s;
 }
 
 /* bubble_05 — 우하단 작은 점 */
 .story__bubble--05 {
-  width: 80px;
-  bottom: 100px;
-  right: 355px;
+  width: 5.19vw;
+  bottom: 11.36vh;
+  right: 23.02vw;
   transform-origin: center center;
   animation: bubbleTriangle05 6s ease-in-out infinite;
 }

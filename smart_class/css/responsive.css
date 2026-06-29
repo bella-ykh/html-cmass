@@ -67,7 +67,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 24px;
+    gap: 0;
     padding: 0 30px;
   }
 
@@ -87,14 +87,14 @@
   .hero__img {
     position: static;
     width: 100%;
-    margin-top: 14px; /* 배지 말풍선 꼬리(12px) + 여백 2px */
+    margin-top: 20px; /* 배지 말풍선 꼬리(12px) + 여백 2px */
   }
 
   /* 연동 아이콘: absolute → static, 세로 가운데 정렬 */
   .hero__connect {
     position: static;
     align-self: center;
-    width: 60px;
+    width: 130px;
     height: auto;
   }
 
@@ -103,6 +103,7 @@
     height: auto;
   }
 
+  .hero__img--book { max-width: 80%; }
 
   /* ── GNB ── */
 
@@ -136,6 +137,8 @@
     height: auto;
     aspect-ratio: 8 / 5;
   }
+
+  .data__card { margin-bottom: 30px;}
 
   /* 분류·도서명 위치: px → % (카드 크기 변화에 자동 대응)
      원본: left 20/400=5%, top 62/250=24.8%, width 210/400=52% */
@@ -189,12 +192,6 @@
   .story {
     padding: 160px 0;
   }
-  .story__bubble--06 { width: 674px; }
-  .story__bubble--03 { width: 332px; left: 100px; }
-  .story__bubble--04 { width: 211px; top: 94px; right: 190px; }
-  .story__bubble--01 { width: 66px;  top: 93px;  left: 252px; }
-  .story__bubble--02 { width: 81px;  top: 63px;  left: 274px; }
-  .story__bubble--05 { width: 53px;  bottom: 66px; right: 234px; }
 
 
   /* ── 선생님의 고민 ── */
@@ -328,7 +325,10 @@
 
 
   /* ── 도입 전후 비교 ── */
-
+  /* 전체 래퍼: feature__inner 안에 위치 */
+  .compare {
+    margin-top: 0;
+  }
   /* 섹션 제목 */
   .compare__title {
     font-size: 28px;
@@ -406,7 +406,7 @@
 
   /* 버튼 너비 축소 */
   .footer__btn {
-    width: 260px;
+    width: 300px;
   }
 
   /* 티칭샘 버튼 */
@@ -449,6 +449,7 @@
   /* inner 간격 축소 */
   .hero__inner {
     gap: 30px;
+    width: 100%;
   }
 
   /* 타이틀: 좌우 여백을 padding으로 처리 (max-width 제한 해제) */
@@ -457,6 +458,8 @@
     max-width: none;
     padding: 0 2%;
     gap: 15px;
+    top: unset;
+    left: unset;
   }
 
   .hero__logo { width: auto; height: 32px; }
@@ -587,28 +590,61 @@
 
   /* ── 이야기의 시작 ── */
   .story {
-    padding: 100px 0;
+    padding: 20vw 0;
   }
-  .story__bubble--06 { width: 510px; }
-  .story__bubble--03 { width: 252px; left: 60px; bottom: -6px; }
-  .story__bubble--04 { width: 160px; top: 71px; right: 145px; }
-  .story__bubble--01 { width: 50px;  top: 71px;  left: 191px; }
-  .story__bubble--02 { width: 62px;  top: 48px;  left: 208px; }
-  .story__bubble--05 { width: 40px;  bottom: 50px; right: 178px; }
 
+  /* 버블 — 모바일 재정의 */
+  .story__bubble--06 {
+    width: 190vw;
+    top: 17vw;
+    left: 50%;
+  }
+  .story__bubble--03 {
+    width: 70vw;
+    bottom: -3vw;
+    left: -5vw;
+  }
+  .story__bubble--04 {
+    width: 45vw;
+    top: 18vw;
+    right: 0vw;
+  }
+  .story__bubble--01 {
+    width: 14vw;
+    top: 18vw;
+    left: 10vw;
+  }
+  .story__bubble--02 {
+    width: 17vw;
+    top: 10vw;
+    left: 14vw;
+  }
+  .story__bubble--05 {
+    width: 10vw;
+    bottom: 15vw;
+    right: 20vw;
+  }
+
+  /* 텍스트 */
   .story__speech-bubble {
-    font-size: 18px;
-    height: 52px;
-    line-height: 52px;
-    padding: 0 24px;
+    font-size: 3.6vw;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 16px;
+    white-space: normal;
+    text-align: center;
   }
   .story__title {
-    font-size: 32px;
-    line-height: 48px;
+    font-size: 6.5vw;
+    line-height: 9vw;
   }
   .story__desc {
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 4vw;
+    line-height: 6vw;
+  }
+  .story__inner {
+    gap: 4vw;
+    padding: 0 4vw;
   }
 
 
@@ -761,7 +797,7 @@
 
   /* 카드 내부 패딩 축소 */
   .compare__card {
-    padding: 50px 20px 24px;
+    padding: 60px 20px 24px;
   }
 
   /* 라벨 pill */
@@ -890,14 +926,6 @@
     padding: 120px 0;
   }
 
-  /* 버블 크기 축소 (비율 유지) */
-  .story__bubble--06 { width: 420px; }
-  .story__bubble--03 { width: 280px; }
-  .story__bubble--04 { width: 240px; }
-  .story__bubble--01 { width: 76px; left: calc(50% - 220px); }
-  .story__bubble--02 { width: 52px; left: calc(50% - 270px); top: 110px; }
-  .story__bubble--05 { width: 40px; right: 60px; bottom: 70px; }
-
   .story__speech-bubble {
     font-size: 22px;
     height: 58px;
@@ -921,14 +949,6 @@
   .story {
     padding: 80px 20px;
   }
-
-  /* 버블 크기 축소 및 위치 재조정 */
-  .story__bubble--06 { width: 300px; }
-  .story__bubble--03 { width: 200px; bottom: -5px; left: -5px; }
-  .story__bubble--04 { width: 180px; top: 20px; right: 20px; }
-  .story__bubble--01 { width: 55px; left: calc(50% - 165px); top: 40px; }
-  .story__bubble--02 { width: 40px; left: calc(50% - 200px); top: 90px; }
-  .story__bubble--05 { width: 32px; right: 40px; bottom: 60px; }
 
   .story__inner {
     gap: 24px;
