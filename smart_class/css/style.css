@@ -517,7 +517,7 @@ main section {
   justify-content: center;
   height: 40px;
   font-family: 'Paperlogy', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 20px;
   text-decoration: none;
   border-radius: 8px;
@@ -1142,7 +1142,7 @@ main section {
   display: flex;
   align-items: center;
   gap: 20px;
-  width: 353px;
+  width: 380px;
   text-align: center;
   border-radius: 10px;
   font-family: 'Pretendard', sans-serif;
@@ -1414,4 +1414,17 @@ main section {
   line-height: 40px;
   color: #fff;
   margin: 0;
+}
+
+/* 자료보기 버튼 hover */
+.data__btn--book:hover {
+  background-color: #C333B4;
+  border-color: #C333B4;
+  color: #fff;
+}
+
+.data__btn--ppt:hover {
+  background-color: #160096;
+  border-color: #160096;
+  color: #fff;
 }
