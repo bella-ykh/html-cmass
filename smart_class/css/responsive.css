@@ -589,9 +589,6 @@
 
 
   /* ── 이야기의 시작 ── */
-  .story {
-    padding: 20vw 0;
-  }
 
   /* 버블 — 모바일 재정의 */
   .story__bubble--06 {
@@ -947,7 +944,7 @@
    ============================================= */
 @media (max-width: 768px) {
   .story {
-    padding: 80px 20px;
+    padding: 80px 20px 100px;
   }
 
   .story__inner {
