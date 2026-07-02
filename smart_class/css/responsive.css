@@ -183,14 +183,35 @@
   /* 하단 확장 문구 */
   .data__footer-sub,
   .data__footer-main {
-    font-size: 28px;
-    line-height: 1.6;
+    font-size: 36px;
+    line-height: 50px;
   }
 
 
   /* ── 이야기의 시작 ── */
   .story {
-    padding: 160px 0;
+    padding: 80px 20px 160px;
+  }
+
+  .story__inner {
+    gap: 24px;
+    padding-top: 75px;
+  }
+  .story__speech-bubble {
+    font-size: 20px;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 20px;
+    white-space: normal;
+    text-align: center;
+  }
+  .story__title {
+    font-size: 36px;
+    line-height: 42px;
+  }
+  .story__desc {
+    font-size: 20px;
+    line-height: 30px;
   }
 
 
@@ -203,7 +224,7 @@
 
   /* 내부 컨테이너 좌우 여백 추가 */
   .concern__inner {
-    padding: 0 40px;
+    padding: 0 20px;
   }
 
   /* 섹션 제목 */
@@ -256,8 +277,8 @@
 
   /* 인용문 */
   .concern__quote-text {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 36px;
+    line-height: 50px;
   }
 
 
@@ -270,13 +291,13 @@
 
   /* 내부 컨테이너 좌우 여백 추가 */
   .solution__inner {
-    padding: 0 40px;
+    padding: 0 20px;
   }
 
   /* 섹션 제목 */
   .solution__title {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 36px;
+    line-height: 50px;
   }
 
   /* 서브 설명 */
@@ -296,7 +317,7 @@
 
   /* 내부 패딩 축소 */
   .feature__inner {
-    padding: 0 2%;
+    padding: 0 20px;
   }
 
   /* 특장점 3개 간격 축소 */
@@ -313,26 +334,45 @@
 
   /* 설명 텍스트 */
   .feature__desc {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 30px;
   }
 
   /* 강조 제목 */
   .feature__title {
-    font-size: 26px;
-    line-height: 40px;
+    font-size: 28px;
+    line-height: 36px;
   }
+
+  /* 예시 */
+.feature__example {
+  gap: 4px;
+}
+.feature__example-badge {
+  font-size: 16px;
+}
+
+.feature__example-desc {
+  font-size: 18px;
+  line-height: 25px;
+}
 
 
   /* ── 도입 전후 비교 ── */
   /* 전체 래퍼: feature__inner 안에 위치 */
   .compare {
-    margin-top: 0;
+    margin-top: 50px;
   }
+
+  .compare__card {
+    padding: 50px 15px 24px;
+  }
+
   /* 섹션 제목 */
   .compare__title {
-    font-size: 28px;
-    margin-bottom: 40px;
+    font-size: 36px;
+    line-height: 50px;
+    margin-bottom: 50px;
   }
 
   /* 카드 간격 축소 */
@@ -396,7 +436,7 @@
 
   /* 내부 좌우 패딩 축소 */
   .footer__inner {
-    padding: 0 40px;
+    padding: 0 20px;
   }
 
   /* 문의 전화 폰트 축소 */
@@ -426,6 +466,7 @@
     height: 30px;
   }
 
+  .br_m { display: block; } 
 
 } /* @media (max-width: 1024px) end */
 
@@ -494,7 +535,7 @@
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    padding: 0 24px;
+    padding: 0 24px 15px;
   }
 
   /* 각 제품 컨테이너: 전체 너비로 확장 */
@@ -549,7 +590,7 @@
   .data__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    margin-bottom: 32px;
+    margin-bottom: 12px;
   }
 
   /* 분류·도서명 위치: 카드가 작아 top 위로 당겨 텍스트 공간 확보 */
@@ -562,10 +603,10 @@
 
   /* 도서명 */
   .data__title {
-    font-size: 13px;
+    font-size: 16px;
   }
 
-  .font_32 { font-size: 13px !important; }
+  .font_32 { font-size: 16px !important; }
 
   /* 버튼 영역: 가로 → 세로(column) 정렬 */
   .data__card-btns {
@@ -589,6 +630,22 @@
 
 
   /* ── 이야기의 시작 ── */
+  .story {
+    padding: 80px 20px;
+  }
+  /* Story section - mobile bubble: PC/태블릿용 버블 01~06 숨김, 모바일 전용 버블(--m) 표시 */
+  .story__bubble--01,
+  .story__bubble--02,
+  .story__bubble--03,
+  .story__bubble--04,
+  .story__bubble--05,
+  .story__bubble--06 {
+    display: none;
+  }
+
+  .story__bubble--m {
+    display: block;
+  }
 
   /* 버블 — 모바일 재정의 */
   .story__bubble--06 {
@@ -631,17 +688,22 @@
     white-space: normal;
     text-align: center;
   }
+  .story__speech-bubble::after {
+    bottom: -10px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+  }
   .story__title {
-    font-size: 6.5vw;
-    line-height: 9vw;
+    font-size: 22px;
+    line-height: 30px;
   }
   .story__desc {
     font-size: 4vw;
-    line-height: 6vw;
+    line-height: 5vw;
   }
   .story__inner {
-    gap: 4vw;
-    padding: 0 4vw;
+    gap: 2.5vw;
+    padding-top: 0;
   }
 
 
@@ -659,16 +721,16 @@
 
   /* 섹션 제목 */
   .concern__title {
-    font-size: 35px;
-    line-height: 50px;
+    font-size: 30px;
+    line-height: 40px;
     margin-bottom: 10px;
   }
 
   /* 서브 설명 */
   .concern__subtitle {
-    font-size: 20px;
-    line-height: 30px;
-    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 30px;
   }
 
   /* 카드 3개: 가로 → 세로 정렬 */
@@ -692,6 +754,10 @@
     line-height: 34px;
   }
 
+/* 따옴표 */
+  .concern__quote-mark {
+    font-size: 50px;
+  }
 
   /* 인용구 블록: 상단 여백 축소 */
   .concern__quote {
@@ -700,11 +766,16 @@
 
   /* 인용문 */
   .concern__quote-text {
-    font-size: 35px;
-    line-height: 45px;
+    font-size: 30px;
+    line-height: 40px;
     padding-bottom: 24px;
   }
 
+  /* 요약 설명 */
+  .concern__summary {
+    font-size: 18px;
+    line-height: 24px;
+  }
 
   /* ── 씨마스의 솔루션 ── */
 
@@ -726,8 +797,8 @@
 
   /* 서브 설명 */
   .solution__desc {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 24px;
     margin-bottom: 24px;
   }
 
@@ -746,14 +817,13 @@
   .feature__list {
     flex-direction: column;
     align-items: center;
-    gap: 32px;
-    margin-bottom: 40px;
+    gap: 70px;
+    margin-bottom: 70px;
   }
 
   /* 개별 아이템: 전체 너비 */
   .feature__item {
     width: 100%;
-    max-width: 320px;
   }
 
   /* 아이콘 크기 */
@@ -764,14 +834,27 @@
 
   /* 설명 텍스트 */
   .feature__desc {
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 30px;
+    line-height: 40px;
   }
 
   /* 강조 제목 */
   .feature__title {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 40px;
+    line-height: 60px;
+  }
+
+    /* 예시 */
+  .feature__example {
+    gap: 8px;
+  }
+  .feature__example-badge {
+    font-size: 22px;
+  }
+
+  .feature__example-desc {
+    font-size: 22px;
+    line-height: 30px;
   }
 
   /* ※ feature_img_01, feature_img_02는 <picture> 태그로 교체하여
@@ -794,7 +877,7 @@
 
   /* 카드 내부 패딩 축소 */
   .compare__card {
-    padding: 60px 20px 24px;
+    padding: 60px 13px 24px;
   }
 
   /* 라벨 pill */
@@ -806,8 +889,8 @@
 
   /* 카드 제목 */
   .compare__card-title {
-    font-size: 40px;
-    line-height: 55px;
+    font-size: 36px;
+    line-height: 50px;
     margin-bottom: 12px;
   }
 
@@ -821,7 +904,7 @@
 
   /* 리스트 박스 패딩 축소 */
   .compare__list {
-    padding: 16px 20px;
+    padding: 16px 10px;
     gap: 14px;
   }
 
@@ -832,14 +915,8 @@
 
   /* 아이템 텍스트 */
   .compare__item-text {
-    font-size: 26px;
+    font-size: 25px;
     line-height: 30px;
-  }
-
-  /* 아이콘 크기 */
-  .compare__icon {
-    width: 26px;
-    height: 26px;
   }
 
   /* X 아이콘 선 크기 조정 */
@@ -914,56 +991,3 @@
 
 } /* @media (max-width: 767px) end */
 
-
-/* =============================================
-   #story 반응형 — 태블릿 (1024px 이하)
-   ============================================= */
-@media (max-width: 1024px) {
-  .story {
-    padding: 120px 0;
-  }
-
-  .story__speech-bubble {
-    font-size: 22px;
-    height: 58px;
-    line-height: 58px;
-    padding: 0 28px;
-  }
-  .story__title {
-    font-size: 38px;
-    line-height: 56px;
-  }
-  .story__desc {
-    font-size: 22px;
-    line-height: 34px;
-  }
-}
-
-/* =============================================
-   #story 반응형 — 모바일 (768px 이하)
-   ============================================= */
-@media (max-width: 768px) {
-  .story {
-    padding: 80px 20px 100px;
-  }
-
-  .story__inner {
-    gap: 24px;
-  }
-  .story__speech-bubble {
-    font-size: 16px;
-    height: 48px;
-    line-height: 48px;
-    padding: 0 20px;
-    white-space: normal;
-    text-align: center;
-  }
-  .story__title {
-    font-size: 28px;
-    line-height: 42px;
-  }
-  .story__desc {
-    font-size: 16px;
-    line-height: 28px;
-  }
-}

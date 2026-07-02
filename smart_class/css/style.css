@@ -427,7 +427,7 @@ main section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 /* ── 카드 ── */
@@ -551,7 +551,7 @@ main section {
   font-family: 'Paperlogy', sans-serif;
   font-weight: 400;
   font-size: 48px;
-  line-height: 80px;
+  line-height: 70px;
   color: #000;
   margin-bottom: 0;
 }
@@ -684,7 +684,7 @@ main section {
   font-family: 'Pretendard', sans-serif;
   font-size: 28px;
   color: #000;
-  line-height: 38px;
+  line-height: 40px;
   margin-bottom: 50px;
 }
 
@@ -712,8 +712,8 @@ main section {
 .concern__quote-text {
   font-family: 'Paperlogy', sans-serif;
   font-weight: 600;
-  font-size: 40px;
-  line-height: 55px;
+  font-size: 48px;
+  line-height: 70px;
   color: #9747ff;
   text-align: center;
   padding-bottom: 50px;
@@ -739,8 +739,8 @@ main section {
 .solution__title {
   font-family: 'Paperlogy', sans-serif;
   font-weight: 600;
-  font-size: 40px;
-  line-height: 55px;
+  font-size: 48px;
+  line-height: 70px;
   color: #000;
   margin-bottom: 20px;
 }
@@ -749,7 +749,7 @@ main section {
 .solution__desc {
   font-family: 'Pretendard', sans-serif;
   font-size: 28px;
-  line-height: 38px;
+  line-height: 40px;
   color: #000;
   margin-bottom: 60px;
 }
@@ -792,7 +792,7 @@ main section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
   flex: 1;
 }
 
@@ -808,7 +808,7 @@ main section {
   font-family: 'Pretendard', sans-serif;
   font-size: 28px;
   color: #000;
-  line-height: 45px;
+  line-height: 40px;
   letter-spacing: -2%;
   font-weight: 500;
 }
@@ -818,8 +818,8 @@ main section {
   font-family: 'Paperlogy', sans-serif;
   font-weight: 600;
   font-size: 40px;
-  line-height: 60px;
-  letter-spacing: -2%;
+  line-height: 50px;
+  letter-spacing: -1px;
   color: #000;
 }
 
@@ -831,7 +831,34 @@ main section {
   margin: 0 auto;
 }
 
+/* 예시 */
+.feature__example {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'Pretendard', sans-serif;
+}
 
+.feature__example-badge {
+  flex-shrink: 0;
+  padding: 0 10px;
+  background-color: #aaa;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  border-radius: 10px;
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+
+.feature__example-desc {
+  font-size: 26px;
+  color: #555;
+  line-height: 35px;
+}
+
+.br_m { display: none; } /* 모바일에서만 줄바꿈 처리 */
 
 /* ========================================
    도입 전후 비교 영역 (feature 섹션 내부)
@@ -847,8 +874,8 @@ main section {
 .compare__title {
   font-family: 'Paperlogy', sans-serif;
   font-weight: 700;
-  font-size: 40px;
-  line-height: 1.4;
+  font-size: 48px;
+  line-height: 70px;
   margin-bottom: 60px;
 }
 
@@ -1224,8 +1251,8 @@ main section {
 /* bubble_06 — 메인 중앙 배경 블롭 (가장 크고 가장 뒤에 위치)
    left:50% + 애니메이션 내 translate(-50%)로 가로 중앙 고정 */
 .story__bubble--06 {
-  width: min(70.8vw, 1020px);
-  top: min(-2.27vh, -20px);
+  width: min(86vw, 1020px);
+  /* top: min(-2.27vh, -20px); */
   left: 50%;
   transform-origin: center center;
   animation: bubbleRotate06 4s ease-in-out infinite;
@@ -1235,7 +1262,7 @@ main section {
 .story__bubble--03 {
   width: min(34.9vw, 503px);
   bottom: min(-1.14vh, -10px);
-  left: min(10.76vw, 155px);
+  left: min(1.76vw, 155px);
   transform-origin: center center;
   animation: bubbleRotateScale03 5s ease-in-out infinite;
 }
@@ -1272,6 +1299,11 @@ main section {
   right: min(23.02vw, 355px);
   transform-origin: center center;
   animation: bubbleTriangle05 6s ease-in-out infinite;
+}
+
+/* Story section - mobile bubble (PC/태블릿에서는 숨김, 767px 이하에서만 표시) */
+.story__bubble--m {
+  display: none;
 }
 
 /* bubble_06 회전 애니메이션: 오른쪽 30도 → 왼쪽 30도 왕복
@@ -1344,6 +1376,7 @@ main section {
   flex-direction: column;
   align-items: center;
   gap: 32px;
+  padding-top: 25px;
 }
 
 /* 말풍선 */
