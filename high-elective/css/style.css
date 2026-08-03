@@ -617,7 +617,10 @@ body {
   /* 시안의 교과서 리스트가 2열에서 4열 정도로 넓어지기 좋은 구간입니다. */
 .site-header {
     padding: 50px 20px 100px;
+    background-repeat: repeat;
 }
+
+
   .site-main {
     background-size: auto;
 }
