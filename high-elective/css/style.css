@@ -312,7 +312,7 @@ body {
 
 /* ---------- CTA 버튼 ---------- */
 .header-cta {
-    margin-top: 48px;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -616,7 +616,7 @@ body {
   /* 일반적인 태블릿 세로, 패드 크기 */
   /* 시안의 교과서 리스트가 2열에서 4열 정도로 넓어지기 좋은 구간입니다. */
 .site-header {
-    padding: 50px 20px;
+    padding: 50px 20px 100px;
 }
   .site-main {
     background-size: auto;
@@ -624,6 +624,10 @@ body {
   .header-title {
       margin-bottom: 60px;
   }
+
+  .header-cta {
+    margin-top: 100px;
+}
 
   .main-title__heading {
       font-size: 45px;
