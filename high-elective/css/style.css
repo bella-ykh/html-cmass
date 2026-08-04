@@ -596,6 +596,17 @@ body {
     padding: 8px 60px;
 }
 
+.footer-links__btn--exhibition {
+    background-color: #ff3ab3;
+    color: #fff;
+    border: none;
+    padding: 8px 60px;
+}
+
+.footer-links__btn--mobile-only {
+    display: flex;
+}
+
 .footer-links__btn--kakao {
     background-color: #FEE500;
     color: #222;
@@ -698,6 +709,10 @@ body {
   .footer-links {
       width: auto;
       align-items: flex-end;
+  }
+
+  .footer-links__btn--mobile-only {
+      display: none;
   }
 
   .header-title__heading {
