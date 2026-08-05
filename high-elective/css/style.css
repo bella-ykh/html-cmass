@@ -312,13 +312,13 @@ body {
 
 /* ---------- CTA 버튼 ---------- */
 .header-cta {
-    margin-top: 50px;
+    margin-top: 30px;
     text-align: center;
 }
 
 .header-cta__btn {
     display: inline-block;
-    padding: 14px 32px;
+    padding: 8px 30px;
     background-color: #ff3ab3;
     color: #fff;
     font-size: 33px;
@@ -640,7 +640,7 @@ body {
   }
 
   .header-cta {
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
   .main-title__heading {
@@ -758,7 +758,7 @@ body {
       flex-direction: row;
       align-items: flex-start;
       gap: 50px;
-      padding: 0;
+      padding: 0 0 30px;
   }
 
   .rank-block--first,
