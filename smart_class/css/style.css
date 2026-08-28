@@ -506,6 +506,7 @@ main section {
 
 .data__card-btns {
   display: flex;
+  flex-wrap: wrap;
   width: 400px;
   gap: 20px;
 }
@@ -525,6 +526,9 @@ main section {
   transition: opacity 0.2s;
 }
 
+.data__btn .sample-txt
+{  font-weight: 400;
+}
 .data__btn:hover {
   opacity: 0.85;
   text-decoration: none;
@@ -540,6 +544,15 @@ main section {
 .data__btn--ppt {
   border: solid 1px #97B3EA;
   color: #160096;}
+
+/* 전 단원 보러 가기 버튼 */
+.data__btn--all {
+  flex: none;
+  width: 100%;
+  border: solid 1px #CCCCCC;
+  color: #333333;
+  background: #ffffff;
+}
 
 /* ── 하단 문구 ── */
 
@@ -1461,4 +1474,12 @@ main section {
   background-color: #160096;
   border-color: #160096;
   color: #fff;
+}
+
+/* 전 단원 보러 가기 버튼 호버 */
+.data__btn--all:hover {
+  opacity: 1;
+  background: #432B65;
+  border-color: #432B65;
+  color: #ffffff;
 }

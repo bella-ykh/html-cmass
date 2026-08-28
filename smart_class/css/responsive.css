@@ -616,7 +616,7 @@
 
   /* 버튼 글자 크기 · 높이 축소 */
   .data__btn {
-    font-size: 20px;
+    font-size: 18px;
     width: 85%;
     margin: 0 auto;
   }
