@@ -422,6 +422,22 @@ main section {
   margin: 0 auto;
 }
 
+/* 섹션 제목 */
+.data__h2 {
+  font-family: 'Paperlogy', sans-serif;
+  font-weight: 500;
+  font-size: 48px;
+  color: #000;
+  margin-bottom: 80px;
+  line-height: 70px;
+  text-align: center;
+}
+
+/* 강조 문구 */
+.data__h2-main {
+  color: #9747FF;
+}
+
 /* 3열 그리드 */
 .data__grid {
   display: grid;
