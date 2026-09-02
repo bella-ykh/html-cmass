@@ -779,7 +779,7 @@ h1 { width: 1107px; height: 264px; background: url('../img/h1.png') no-repeat ce
     position: fixed;
     top: auto;              /* 세로 중앙 고정 해제 */
     transform: none;        /* translateY(-50%) 해제 */
-    bottom: 0;
+    bottom: 5px;             /* 하단 고정 */
     left: 0;
     right: 0;
     width: 94%;

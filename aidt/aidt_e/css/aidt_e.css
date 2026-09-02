@@ -829,7 +829,7 @@ h2 { font-family: 'ONE Mobile Title'; font-size: 50px; font-weight: 400; line-he
     position: fixed;
     top: auto;              /* 세로 중앙 고정 해제 */
     transform: none;        /* translateY(-50%) 해제 */
-    bottom: 0;
+    bottom: 5px;
     left: 0;
     right: 0;
     width: 94%;
