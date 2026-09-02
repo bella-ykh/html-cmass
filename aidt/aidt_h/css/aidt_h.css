@@ -544,10 +544,10 @@ h1 { width: 1097px; height: 259px; background: url('../img/h1.png') no-repeat ce
   .box dd { font-size: 1.95vw; }
 
   /*************** footer ***************/
-  .wrap_foot { padding: 6vw 0 15vw; } 
+  .wrap_foot { padding: 6vw 0 17vw; } 
   .foot_align { width: 90%; margin: 0 auto;}
   .foot_logo { width: 17.19vw; height: 5.27vw; background-size: contain;}
-  .foot_info { font-size: 3.52vw; }
+  .foot_info { font-size: 3vw; }
   .foot_sns { gap: 10px; }
   .foot_sns li a { width: 29.30vw; height: 3.91vw; line-height: 3.91vw; font-size: 1.95vw; border-radius: 10px;}
   .cmass_ch img { width: 3.9vw; padding-right: 5px;}
@@ -649,8 +649,7 @@ h1 { width: 1097px; height: 259px; background: url('../img/h1.png') no-repeat ce
   .wrap_foot { padding: 8vw 0 28vw; } 
   .foot_align { width: 100%; flex-direction: column;align-items: center; justify-content: center; margin: 0 auto; text-align: center;}
   .foot_logo { width: 50vw; background-position: center; background-size: contain; margin: 0 auto; }
-  .foot_info { font-size: 5vw; }
-  .foot_mail { font-size: 5vw; }  
+  .foot_info { font-size: 4vw; }
   .foot_sns { gap: 10px; padding-top: 10px; }
   .foot_sns li a { width: 50vw; height: 7vw; font-size: 3.33vw; border-radius: 7px;}
   .cmass_ch img { width: 4.9vw; padding-right: 5px;}
