@@ -774,3 +774,112 @@ body, html {
     width: 10rem;
   }
 }/*# sourceMappingURL=intro.css.map */
+
+
+/* ── 풋터 ── */
+body, html {
+  overflow: hidden auto; /* 기존 hidden → 세로 스크롤 허용으로 변경 */
+}
+
+.cmass {
+  display: flex;
+  flex-direction: column;
+  height: 100%;        /* 기존 유지 */
+  min-height: 100dvh;  /* 모바일 주소창 대응 */
+}
+
+.intro {
+  flex: 1;             /* 남은 높이를 모두 차지 */
+  height: auto;        /* 기존 height:100% 덮어쓰기 */
+}
+
+.cmass-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 13rem;
+  background-color: #1a1a1a;
+  flex-shrink: 0;
+}
+
+.cmass-footer__logo {
+  display: block; 
+  width: 100px; 
+  height: 31px; 
+  background: url('../images/intro/logo_foot.png') no-repeat 0 0; 
+  background-size: contain;
+  text-indent: -9999px; 
+  font-size: 0;
+  margin-bottom: 7px;
+}
+
+.cmass-footer__info {
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.4;
+}
+
+.cmass-footer__info strong {
+  font-weight: 700;
+}
+
+.cmass-footer__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 9.4rem;
+  border-radius: 4rem;
+  background-color: #1a6cf7;
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* 태블릿 이하 */
+@media (max-width: 1365px) {
+  .cmass-footer {
+    padding: 1.4rem 2.4rem;
+  }
+  .cmass-footer__logo {
+    width: 80px;
+    height: 25px;
+  }
+  .cmass-footer__info {
+    font-size: 16px;
+  }
+  .cmass-footer__btn {
+    font-size: 22px;
+    padding: 1rem 1.8rem;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+  .cmass-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 2rem;
+  }
+  .cmass-footer__left {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .cmass-footer__logo {
+    width: 70px;
+    height: 21px;
+  }
+  .cmass-footer__info {
+    font-size: 15px;
+  }
+  .cmass-footer__btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 18px;
+    padding: 2px;
+  }
+}

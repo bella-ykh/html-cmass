@@ -2,34 +2,44 @@
 <html lang="ko">
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTTSLM3F');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/intro.css" />
-  <title>씨마스 AI 교육자료 정보</title>
+  <title>씨마스 AI 디지털 교육자료</title>
+
+  <!-- Fav Icon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cmass.kr/build/assets/favicon-32x32-743ca7c9.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cmass.kr/build/assets/apple-touch-icon-343d2858.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cmass.kr/build/assets/favicon-16x16-923e412f.png">
+  <link rel="manifest" href="https://cmass.kr/build/assets/site-6f0f2424.webmanifest">
+  <link rel="mask-icon" href="https://cmass.kr/build/assets/safari-pinned-tab-076af338.svg" color="#b4008d">
   
   <!--카카오톡 공유 썸네일-->
-  <meta name="title" content="씨마스 AI 교육자료 정보">
+  <meta name="title" content="씨마스 AI 디지털 교육자료">
   <meta name="description" content="AI가 지원하는 개인 맞춤형 교육자료"/>
-  <meta name="thumbnail" content="https://viewer.cmass.kr/html/aidt/intro/assets/images/intro/kakao_thumb.png?v=20250828"/>
+  <meta name="thumbnail" content="https://viewer.cmass.kr/html/aidt/intro/assets/images/intro/kakao_thumb.png?v=20250915"/>
 
   <meta property="og:url" content="https://viewer.cmass.kr/html/aidt/intro/intro.shtml">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="씨마스 AI 교육자료 정보">
+  <meta property="og:title" content="씨마스 AI 디지털 교육자료">
   <meta property="og:description" content="AI가 지원하는 개인 맞춤형 교육자료"/>
-  <meta property="og:image" content="https://viewer.cmass.kr/html/aidt/intro/assets/images/intro/kakao_thumb.png?v=20250828"/>
+  <meta property="og:image" content="https://viewer.cmass.kr/html/aidt/intro/assets/images/intro/kakao_thumb.png?v=20250915"/>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71SETRBQSV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-71SETRBQSV');
-  </script>
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTTSLM3F"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <div class="cmass">
     <div class="intro">
       <ul class="intro-card_list">
@@ -37,7 +47,7 @@
           <div class="intro-card intro-card01">
             <h2>
               <img class="text-card0101" src="./assets/images/intro/text-card0101.svg" alt="씨마스">
-              <img class="text-card0102" src="./assets/images/intro/text-card0102.png" alt="AI 교육자료">
+              <img class="text-card0102" src="./assets/images/intro/text-card0102.png" alt="AI 디지털 교육자료">
             </h2>
             <div class="intro-card01--bg"></div>
           </div>
@@ -93,6 +103,20 @@
         </li>
       </ul>
     </div>
+
+    <!-- 풋터 추가 -->
+    <footer class="cmass-footer">
+      <div class="cmass-footer__left">
+        <p class="cmass-footer__logo">씨마스</p>
+        <p class="cmass-footer__info">
+          문의 <strong>02 2274 1590 (내선 216)</strong><br>
+          전자우편 <strong>cmass@cmass21.co.kr</strong>
+        </p>
+      </div>
+      <a href="https://forms.gle/42BL9imMmU3X7YXC7" target="_blank" class="cmass-footer__btn">
+        AI 디지털 교육자료 고객센터
+      </a>
+    </footer>
   </div>
 
 
